@@ -1,44 +1,49 @@
+
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
+type IconProps = {
+  className?: string;
+};
+
 // Custom Icon Components
-const ChevronDown = ({ className }) => (
+const ChevronDown = ({ className }: IconProps) => (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
     </svg>
 );
 
-const Menu = ({ className }) => (
+const Menu = ({ className }: IconProps) => (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
     </svg>
 );
 
-const X = ({ className }) => (
+const X = ({ className }: IconProps) => (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
     </svg>
 );
 
-const Play = ({ className }) => (
+const Play = ({ className }: IconProps) => (
     <svg className={className} fill="currentColor" viewBox="0 0 24 24">
         <path d="M8 5v14l11-7z" />
     </svg>
 );
 
-const ArrowRight = ({ className }) => (
+const ArrowRight = ({ className }: IconProps) => (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
     </svg>
 );
 
-const Phone = ({ className }) => (
+const Phone = ({ className }: IconProps) => (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
     </svg>
 );
 
-const Mail = ({ className }) => (
+const Mail = ({ className }: IconProps) => (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
     </svg>
@@ -106,10 +111,25 @@ const Header = () => {
     );
 };
 
-// Hero Section Component
+// Cloudinary image URLs 
+const cloudinary = {
+  hero: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752675549/hero_sqtj19.jpg',
+  product: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752675549/homepageAbout_wezvdg.jpg',
+  certs: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752675550/ourcertifications_nw8aid.jpg',
+  about: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752676337/514315094_122186224832360700_1263205354293391856_n_qrnviz.jpg',
+};
+
+// Hero Section 
 const HeroSection = () => {
     return (
-        <section className="hero">
+        <section
+            className="hero"
+            style={{
+                backgroundImage: `url('${cloudinary.hero}')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+            }}
+        >
             <div className="hero-content">
                 <h1 className="hero-title">
                     Forging Strong<br />
@@ -134,21 +154,23 @@ const HeroSection = () => {
     );
 };
 
-// About Section Component
+// About Section 
 const AboutSection = () => {
     return (
         <section className="about">
             <div className="about-container">
                 <div className="about-grid">
                     {/* Image */}
-                    <div className="about-image">
-                        <div className="about-image-placeholder">
-                            <div>
-                                <div>🏭</div>
-                                <p>Steel Manufacturing Facility</p>
-                            </div>
-                        </div>
-                    </div>
+                    <div
+                        className="about-image"
+                        style={{
+                            backgroundImage: `url('${cloudinary.about}')`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            minHeight: '300px',
+                            borderRadius: '8px',
+                        }}
+                    ></div>
 
                     {/* Content */}
                     <div className="about-content">
@@ -249,21 +271,31 @@ const FeaturesSection = () => {
 
                     {/* Side Panels */}
                     <div className="features-sidebar">
-                        <div className="sidebar-card red">
-                            <h3>Our Products</h3>
-                            <p>Discover our comprehensive range of steel products and manufacturing solutions.</p>
-                            <button>
-                                <ArrowRight className="icon-sm" />
-                            </button>
+                      {/* Our Products */}
+                      <div
+                        className="sidebar-card"
+                        style={{
+                          backgroundImage: `url('${cloudinary.product}')`,
+                        }}
+                      >
+                        <div className="overlay">
+                          <span className="card-text">Our Products</span>
+                          <button className="arrow-btn">→</button>
                         </div>
+                      </div>
 
-                        <div className="sidebar-card dark">
-                            <h3>Our Certifications</h3>
-                            <p>Learn about our quality certifications and industry standards compliance.</p>
-                            <button>
-                                <ArrowRight className="icon-sm" />
-                            </button>
+                      {/* Our Certifications */}
+                      <div
+                        className="sidebar-card"
+                        style={{
+                          backgroundImage: `url('${cloudinary.certs}')`,
+                        }}
+                      >
+                        <div className="overlay">
+                          <span className="card-text">Our Certifications</span>
+                          <button className="arrow-btn">→</button>
                         </div>
+                      </div>
                     </div>
                 </div>
             </div>
@@ -347,16 +379,25 @@ const Footer = () => {
 const App = () => {
     return (
         <div className="app-container">
+            <TopBar /> 
             <Header />
             <main>
-                <HeroSection />
-                <AboutSection />
-                <VideoSection />
-                <FeaturesSection />
+                
+                  <HeroSection />
+                  <AboutSection />
+                  <VideoSection />
+                  <FeaturesSection />
+                
             </main>
             <Footer />
         </div>
     );
 };
 
+const TopBar = () => {
+    return (
+        <div className="topbar">
+        </div>
+    );
+};
 export default App;
