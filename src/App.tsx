@@ -1,9 +1,10 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 
 type IconProps = {
-  className?: string;
+    className?: string;
+    onclick?: () => void;
 };
 
 // Custom Icon Components
@@ -25,11 +26,11 @@ const X = ({ className }: IconProps) => (
     </svg>
 );
 
-const Play = ({ className }: IconProps) => (
-    <svg className={className} fill="currentColor" viewBox="0 0 24 24">
-        <path d="M8 5v14l11-7z" />
-    </svg>
-);
+// const Play = ({ className, onclick }: IconProps) => (
+//     <svg className={className} fill="currentColor" viewBox="0 0 24 24" onClick={onclick}>
+//         <path d="M8 5v14l11-7z" />
+//     </svg>
+// );
 
 const ArrowRight = ({ className }: IconProps) => (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -113,10 +114,10 @@ const Header = () => {
 
 // Cloudinary image URLs 
 const cloudinary = {
-  hero: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752675549/hero_sqtj19.jpg',
-  product: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752675549/homepageAbout_wezvdg.jpg',
-  certs: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752675550/ourcertifications_nw8aid.jpg',
-  about: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752676337/514315094_122186224832360700_1263205354293391856_n_qrnviz.jpg',
+    hero: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752675549/hero_sqtj19.jpg',
+    product: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752675549/homepageAbout_wezvdg.jpg',
+    certs: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752675550/ourcertifications_nw8aid.jpg',
+    about: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752676337/514315094_122186224832360700_1263205354293391856_n_qrnviz.jpg',
 };
 
 // Hero Section 
@@ -197,23 +198,49 @@ const AboutSection = () => {
 
 // Video Section Component
 const VideoSection = () => {
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const buttonRef = useRef<SVGSVGElement | null>(null);
+    const [isPlaying, setIsplaying] = useState(false);
+
     return (
         <section className="video-section">
             <div className="video-container">
-                <div className="video-wrapper">
+                <svg ref={buttonRef} className="icon-lg play-button" fill="currentColor" viewBox="0 0 24 24" onClick={() => {
+                    if (!isPlaying) {
+                        videoRef.current?.play();
+                        setIsplaying(true);
+                        buttonRef.current?.classList.toggle('hidden');
+                    } else {
+                        videoRef.current?.pause();
+                        setIsplaying(false);
+                        buttonRef.current?.classList.toggle('hidden');
+                    }
+                }}>
+                    <path d="M8 5v14l11-7z" />
+                </svg>
+                {/* <Play /> */}
+                <video ref={videoRef} className='video' onClick={() => {
+                    if (!isPlaying) {
+                        videoRef.current?.play();
+                        setIsplaying(true);
+                        buttonRef.current?.classList.add('hidden');
+                    } else {
+                        videoRef.current?.pause();
+                        setIsplaying(false);
+                        buttonRef.current?.classList.remove('hidden');
+                    }
+                }}>
+                    <source src="https://res.cloudinary.com/drrzinr9v/video/upload/v1752759885/homepageVid_a3fuh3.mov" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+                {/* <div className="video-wrapper">
                     <div className="video-background">
-                        <div>
-                            <div className="video-emoji">🎯</div>
-                            <h3>QUALITY CONTROL</h3>
-                            <p>Our commitment to excellence</p>
-                        </div>
                     </div>
                     <div className="video-overlay">
                         <button className="play-button" aria-label="Play video">
-                            <Play className="icon-lg" />
                         </button>
                     </div>
-                </div>
+                </div> */}
             </div>
         </section>
     );
@@ -271,31 +298,31 @@ const FeaturesSection = () => {
 
                     {/* Side Panels */}
                     <div className="features-sidebar">
-                      {/* Our Products */}
-                      <div
-                        className="sidebar-card"
-                        style={{
-                          backgroundImage: `url('${cloudinary.product}')`,
-                        }}
-                      >
-                        <div className="overlay">
-                          <span className="card-text">Our Products</span>
-                          <button className="arrow-btn">→</button>
+                        {/* Our Products */}
+                        <div
+                            className="sidebar-card"
+                            style={{
+                                backgroundImage: `url('${cloudinary.product}')`,
+                            }}
+                        >
+                            <div className="overlay">
+                                <span className="card-text">Our Products</span>
+                                <button className="arrow-btn">→</button>
+                            </div>
                         </div>
-                      </div>
 
-                      {/* Our Certifications */}
-                      <div
-                        className="sidebar-card"
-                        style={{
-                          backgroundImage: `url('${cloudinary.certs}')`,
-                        }}
-                      >
-                        <div className="overlay">
-                          <span className="card-text">Our Certifications</span>
-                          <button className="arrow-btn">→</button>
+                        {/* Our Certifications */}
+                        <div
+                            className="sidebar-card"
+                            style={{
+                                backgroundImage: `url('${cloudinary.certs}')`,
+                            }}
+                        >
+                            <div className="overlay">
+                                <span className="card-text">Our Certifications</span>
+                                <button className="arrow-btn">→</button>
+                            </div>
                         </div>
-                      </div>
                     </div>
                 </div>
             </div>
@@ -378,16 +405,16 @@ const Footer = () => {
 
 const App = () => {
     return (
-        <div className="app-container">
-            <TopBar /> 
+        <div className="app-container gradient-bg">
+            <TopBar />
             <Header />
             <main>
-                
-                  <HeroSection />
-                  <AboutSection />
-                  <VideoSection />
-                  <FeaturesSection />
-                
+
+                <HeroSection />
+                <AboutSection />
+                <VideoSection />
+                <FeaturesSection />
+
             </main>
             <Footer />
         </div>
