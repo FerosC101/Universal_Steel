@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './App2.css';
 
 type IconProps = {
@@ -187,22 +187,35 @@ const Footer = () => {
 };
 
 const TopBanner = () => {
-    const products = [
-        { id: 1, name: "Grade 40 Rebars", image: "https://www.navvis.com/hubfs/navvis-factory-tour-header.jpg" },
-        { id: 2, name: "Grade 60 Rebars", image: "https://www.navvis.com/hubfs/navvis-factory-tour-header.jpg" },
-        { id: 3, name: "Wire Rods", image: "https://www.navvis.com/hubfs/navvis-factory-tour-header.jpg" },
-        { id: 4, name: "Billets", image: "https://www.navvis.com/hubfs/navvis-factory-tour-header.jpg" },
-        { id: 5, name: "Billets", image: "https://www.navvis.com/hubfs/navvis-factory-tour-header.jpg" },
-        { id: 6, name: "Billets", image: "https://www.navvis.com/hubfs/navvis-factory-tour-header.jpg" }
+    const projects: ModalProps[] = [
+        {
+            id: 1,
+            name: "Grade 40 Rebars",
+            image: "https://www.navvis.com/hubfs/navvis-factory-tour-header.jpg",
+            price: "₱ 1,000.00",
+            variety: ["#FF5733", "#33FF57", "#3357FF"],
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididun"
+        },
+        {
+            id: 1,
+            name: "Grade 40 Rebars",
+            image: "https://www.navvis.com/hubfs/navvis-factory-tour-header.jpg",
+            price: "₱ 1,000.00",
+            variety: ["#FF5733", "#33FF57", "#3357FF"],
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur fuga magni excepturi corporis nihil eveniet, tenetur perspiciatis neque facere fugit distinctio est ipsum voluptas eum ullam delectus explicabo eos quo, ab exercitationem quis ratione. Ipsam voluptas, est quibusdam rerum voluptatibus eos tempore vel perferendis ea optio magni eveniet nulla explicabo obcaecati esse dolores laudantium culpa id ipsa sapiente ratione placeat. Eum repellendus vitae dolore repudiandae, dolores culpa recusandae minima quod illo. Error inventore facere quo a porro nulla ipsum nesciunt eos! Expedita ipsum porro vel, quod ad iste distinctio numquam optio, ipsam quo enim exercitationem nulla aut libero quidem minima ipsa asperiores ea dicta rem accusamus saepe! Tempore officiis neque vero maiores! Possimus fugit, unde quas, ullam provident voluptates ratione eligendi excepturi blanditiis labore nihil aspernatur iure inventore reprehenderit ad facere nam libero quae est quaerat, dolor illum veritatis optio! Vel perferendis obcaecati rerum laudantium ducimus, porro repudiandae dicta eveniet nemo beatae ut expedita repellat quam id cumque! Illum minus dignissimos soluta deserunt assumenda odit voluptas labore et suscipit vitae? Hic nemo eum delectus, excepturi nisi, temporibus accusamus illo modi fugit illum tempora laborum! Ex, praesentium. Reprehenderit ex quaerat quisquam pariatur excepturi, incidunt, omnis quibusdam nulla corporis dolor nihil cumque."
+        }
     ];
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedProduct, setSelectedProduct] = useState<ModalProps>(projects[0]);
+    const openModal = useCallback((details: ModalProps) => {
+        setSelectedProduct(details);
+        setIsOpen(true);
+    }, []);
     return (
         <div className="top-banner">
             <h1>Products</h1>
-            <div className="banner-card-cont">
-                {products.map(product => (
-                    <BannerCard key={product.id} name={product.name} image={product.image} />
-                ))}
-            </div>
+            <Modal product={selectedProduct} isOpen={isOpen} setIsOpen={setIsOpen}/>
+            <Carousel items={projects} openModal={openModal}/>
             <div className='full-width-flex'>
                 <button className='product-button'>VIEW FULL PRODUCT LIST <ArrowRight className='icon-sm' /></button>
             </div>
@@ -210,11 +223,16 @@ const TopBanner = () => {
     )
 }
 
-const BannerCard = ({ name, image }: { name: string, image: string }) => {
+const BannerCard = ({ details, dragged, click }: { details: ModalProps, dragged: boolean, click: (item: ModalProps) => void }) => {
+    const handleClick = () => {
+        if (!dragged) {
+            click(details);
+        }
+    }
     return (
-        <div className='banner-card'>
-            <img src={image} alt="" />
-            <h2>{name}</h2>
+        <div className='banner-card' onClick={handleClick}>
+            <img src={details.image} alt="" />
+            <h2>{details.name}</h2>
         </div>
     )
 }
@@ -258,29 +276,172 @@ const MainBody = () => {
         <div className="main-body">
             <div className="card-row">
                 <div className="card card-left">
-                    <p>lorem50Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi inventore voluptatibus modi totam deleniti reprehenderit eveniet exercitationem reiciendis repudiandae, voluptatem recusandae aliquam porro pariatur temporibus error illo quo ex veniam laborum magni. Reprehenderit, ducimus veniam! Maxime, repudiandae. Quia consectetur natus nisi odio perspiciatis. Fugit temporibus aliquam ipsum ab reprehenderit? Eos quo ipsum quia fuga? Laborum voluptatibus aspernatur fugit sequi voluptatem, amet voluptas ab illum dolor in officiis quae vero quam hic animi at aperiam ex, consectetur harum, provident et! Odio consequatur est, quidem sunt soluta dicta, eveniet rerum inventore obcaecati veniam facere perferendis illo. Maiores praesentium vero ut necessitatibus facere laboriosam, officia esse dicta excepturi doloremque quis nesciunt consequuntur exercitationem quam laudantium quos totam incidunt omnis voluptate iste molestias reiciendis! Quod nulla obcaecati, sit dolorum ex voluptates quidem doloremque? Debitis placeat atque sint quo, saepe ducimus veritatis facilis qui inventore reprehenderit voluptatibus dolor nesciunt tempora nihil odio autem libero? Est incidunt voluptatem earum facere sapiente, tempora odio possimus maiores soluta numquam vitae magni rerum velit non deleniti adipisci! Voluptates alias distinctio esse aperiam neque. Ipsum, iusto? Numquam ab laborum minus quidem repudiandae quam suscipit dolorum mollitia! Illo incidunt ipsa eius necessitatibus, sint laudantium impedit tenetur quasi praesentium placeat cupiditate exercitationem?</p>
+                    <div className="card-content">
+                        <h2>Optical Emiission Spectrometer</h2>
+                        <p>lorem50Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi inventore voluptatibus modi totam deleniti reprehenderit eveniet exercitationem reiciendis repudiandae, voluptatem recusandae aliquam porro pariatur temporibus error illo quo ex veniam laborum magni. Reprehenderit, ducimus veniam! Maxime, repudiandae. Quia consectetur natus nisi odio perspiciatis. Fugit temporibus aliquam ipsum ab reprehenderit? Eos quo ipsum quia fuga? Laborum voluptatibus aspernatur fugit sequi voluptatem, amet voluptas ab illum dolor in officiis quae vero quam hic animi at aperiam ex, consectetur harum, provident et! Odio consequatur est, quidem sunt soluta dicta, eveniet rerum inventore obcaecati veniam facere perferendis illo. Maiores praesentium vero ut necessitatibus facere laboriosam, officia esse dicta excepturi doloremque quis nesciunt consequuntur exercitationem quam laudantium quos totam incidunt omnis voluptate iste molestias reiciendis! Quod nulla obcaecati, sit dolorum ex voluptates quidem doloremque? Debitis placeat atque sint quo, saepe ducimus veritatis facilis qui inventore reprehenderit voluptatibus dolor nesciunt tempora nihil odio autem libero? Est incidunt voluptatem earum facere sapiente, tempora odio possimus maiores soluta numquam vitae magni rerum velit non deleniti adipisci! Voluptates alias distinctio esse aperiam neque. Ipsum, iusto? Numquam ab laborum minus quidem repudiandae quam suscipit dolorum mollitia! Illo incidunt ipsa eius necessitatibus, sint laudantium impedit tenetur quasi praesentium placeat cupiditate exercitationem?</p>
+                    </div>
                 </div>
-                <div className="card card-middle">Middle</div>
-                <div className="card card-right">Right</div>
+                <div className="card card-middle">
+                    <div className="card-content">
+                        Middle
+                    </div>
+                </div>
+                <div className="card card-right">
+                    <div className="">
+                        Right
+                    </div>
+                </div>
             </div>
         </div>
     )
 }
 
 const FinishedProjects = () => {
+    const projects: ModalProps[] = [
+        {
+            id: 1,
+            name: "Grade 40 Rebars",
+            image: "https://www.navvis.com/hubfs/navvis-factory-tour-header.jpg",
+            price: "₱ 1,000.00",
+            variety: ["#FF5733", "#33FF57", "#3357FF"],
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididun"
+        },
+        {
+            id: 1,
+            name: "Grade 40 Rebars",
+            image: "https://www.navvis.com/hubfs/navvis-factory-tour-header.jpg",
+            price: "₱ 1,000.00",
+            variety: ["#FF5733", "#33FF57", "#3357FF"],
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididun"
+        },
+        {
+            id: 1,
+            name: "Grade 40 Rebars",
+            image: "https://www.navvis.com/hubfs/navvis-factory-tour-header.jpg",
+            price: "₱ 1,000.00",
+            variety: ["#FF5733", "#33FF57", "#3357FF"],
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididun"
+        },
+        {
+            id: 1,
+            name: "Grade 40 Rebars",
+            image: "https://www.navvis.com/hubfs/navvis-factory-tour-header.jpg",
+            price: "₱ 1,000.00",
+            variety: ["#FF5733", "#33FF57", "#3357FF"],
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididun"
+        },
+        {
+            id: 1,
+            name: "Grade 40 Rebars",
+            image: "https://www.navvis.com/hubfs/navvis-factory-tour-header.jpg",
+            price: "₱ 1,000.00",
+            variety: ["#FF5733", "#33FF57", "#3357FF"],
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididun"
+        },
+    ];
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedProduct, setSelectedProduct] = useState<ModalProps>(projects[0]);
+    const openModal = useCallback((details: ModalProps) => {
+        setSelectedProduct(details);
+        setIsOpen(true);
+    }, []);
     return (
         <div className="finished-products">
+            <Modal product={selectedProduct} isOpen={isOpen} setIsOpen={setIsOpen}/>
             <h1>Finished Projects</h1>
+            <Carousel items={projects} openModal={openModal}/>
         </div>
     )
 }
+
+// interface CardProps { id: number, name: string, image: string }
+
+const Carousel = ({ items, openModal }: { items: ModalProps[], openModal: (details: ModalProps) => void }) => {
+    const carouselRef = useRef<HTMLDivElement>(null);
+    let dragged: boolean = false;
+    let dragging: boolean = false;
+    let mouseX: number = 0;
+    const mouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+        e.preventDefault();
+        // console.log("Mouse Down", e);
+        dragged = false;
+        dragging = true;
+        mouseX = e.pageX - - (carouselRef.current?.offsetLeft ?? 0); // Store the initial mouse position
+    }
+    const mouseUp = (e: React.MouseEvent<HTMLDivElement>) => {
+        e.preventDefault();
+        // console.log("Mouse Up", e);
+        dragging = false;
+    }
+    const bannerClick = (item: ModalProps) => {
+        if (!dragged) {
+            openModal(item)
+        }
+    }
+
+    const mouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        e.preventDefault();
+        if (dragging) {
+            const x = e.pageX - carouselRef.current!.offsetLeft;
+            const walk = (x - mouseX) * 1; // Calculate the distance moved
+            dragged = true;
+            carouselRef.current!.scrollLeft -= walk; // Scroll the carousel
+
+        }
+
+    }
+
+    return (
+        <div className='carousel' ref={carouselRef}
+            onMouseDown={mouseDown}
+            onMouseUp={mouseUp}
+            onMouseMove={mouseMove}
+
+        >
+            {items.map(project => (
+                <BannerCard details={project} dragged={dragged} click={bannerClick} />
+            ))}
+        </div>
+    )
+}
+
+interface ModalProps {
+    id: number;
+    price: string;
+    variety: string[];
+    name: string;
+    description: string;
+    image: string;
+}
+
+const Modal = ({ product, isOpen, setIsOpen }: { product: ModalProps, isOpen: boolean, setIsOpen:(o:boolean) => void }) => {
+    return (
+        <div className="modal-cont" style={{ display: isOpen ? 'block' : 'none' }}>
+            <div className='modal'>
+                <svg className='close-button' onClick={() => { setIsOpen(false) }} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="10" stroke="#1C274C" stroke-width="1.5"></circle> <path d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
+                {/* <img src=''  > */}
+                <img src={product.image} alt="" />
+                <p className='price'>{product.price}</p>
+                <p className='small-text'>Variety</p>
+                <div className='variety-cont'>
+                    {product.variety.map((variety, index) => (
+                        <div key={index} className='variety-item' style={{ backgroundColor: variety }} />
+                    ))}
+                </div>
+                <p className='product-name'>{product.name}</p>
+                <p className='small-text'>{product.description}</p>
+            </div>
+        </div>
+    )
+}
+
 
 const App = () => {
     return (
         <div className="app-container gradient-bg">
             <TopBar />
             <Header />
-            <main>
+            <main style={{ position: 'relative' }}>
                 <TopBanner />
                 <Partners />
                 <MainBody />
