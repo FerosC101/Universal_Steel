@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import './App2.css';
 
 type IconProps = {
@@ -78,7 +79,7 @@ const Header = () => {
 
                     {/* Desktop Navigation */}
                     <nav className="nav-desktop">
-                        <a href="#">Home</a>
+                        <Link to="/" className="nav-link">Home</Link>
                         <button>
                             About Us <ChevronDown className="icon-sm" />
                         </button>
@@ -100,7 +101,7 @@ const Header = () => {
                 {isMenuOpen && (
                     <div className="mobile-menu">
                         <div className="mobile-menu-content">
-                            <a href="#" onClick={closeMenu}>Home</a>
+                            <Link to="/" className="nav-link" onClick={closeMenu}>Home</Link>
                             <a href="#" onClick={closeMenu}>About Us</a>
                             <a href="#" onClick={closeMenu}>Products</a>
                             <a href="#" onClick={closeMenu}>Contact Us</a>
@@ -191,17 +192,19 @@ const TopBanner = () => {
         {
             id: 1,
             name: "Grade 40 Rebars",
-            image: "https://www.navvis.com/hubfs/navvis-factory-tour-header.jpg",
+            image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753189317/productpageRebars_qspo30.jpg",
             price: "₱ 1,000.00",
             variety: ["#FF5733", "#33FF57", "#3357FF"],
+            shortdescp: "",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididun"
         },
         {
             id: 1,
-            name: "Grade 40 Rebars",
-            image: "https://www.navvis.com/hubfs/navvis-factory-tour-header.jpg",
+            name: "Grade 60 Rebars",
+            image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753189317/productpageRebars_qspo30.jpg",
             price: "₱ 1,000.00",
             variety: ["#FF5733", "#33FF57", "#3357FF"],
+            shortdescp: "",
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur fuga magni excepturi corporis nihil eveniet, tenetur perspiciatis neque facere fugit distinctio est ipsum voluptas eum ullam delectus explicabo eos quo, ab exercitationem quis ratione. Ipsam voluptas, est quibusdam rerum voluptatibus eos tempore vel perferendis ea optio magni eveniet nulla explicabo obcaecati esse dolores laudantium culpa id ipsa sapiente ratione placeat. Eum repellendus vitae dolore repudiandae, dolores culpa recusandae minima quod illo. Error inventore facere quo a porro nulla ipsum nesciunt eos! Expedita ipsum porro vel, quod ad iste distinctio numquam optio, ipsam quo enim exercitationem nulla aut libero quidem minima ipsa asperiores ea dicta rem accusamus saepe! Tempore officiis neque vero maiores! Possimus fugit, unde quas, ullam provident voluptates ratione eligendi excepturi blanditiis labore nihil aspernatur iure inventore reprehenderit ad facere nam libero quae est quaerat, dolor illum veritatis optio! Vel perferendis obcaecati rerum laudantium ducimus, porro repudiandae dicta eveniet nemo beatae ut expedita repellat quam id cumque! Illum minus dignissimos soluta deserunt assumenda odit voluptas labore et suscipit vitae? Hic nemo eum delectus, excepturi nisi, temporibus accusamus illo modi fugit illum tempora laborum! Ex, praesentium. Reprehenderit ex quaerat quisquam pariatur excepturi, incidunt, omnis quibusdam nulla corporis dolor nihil cumque."
         }
     ];
@@ -233,6 +236,7 @@ const BannerCard = ({ details, dragged, click }: { details: ModalProps, dragged:
         <div className='banner-card' onClick={handleClick}>
             <img src={details.image} alt="" />
             <h2>{details.name}</h2>
+            <p>{details.shortdescp}</p>
         </div>
     )
 }
@@ -244,13 +248,22 @@ const Partners = () => {
             url: "https://img.favpng.com/9/18/23/grayscale-news-brand-service-png-favpng-DQqNdXrqAq2U3255MbfPRFZt1.jpg"
         },
         {
-            name: "Mini",
-            url: "https://png.pngtree.com/template/20201027/ourmid/pngtree-abstract-gray-logo-design-template-image_429149.jpg"
+            name: "Meta",
+            url: "https://img.favpng.com/9/18/23/grayscale-news-brand-service-png-favpng-DQqNdXrqAq2U3255MbfPRFZt1.jpg"
+        },
+        {
+            name: "Wikimedia",
+            url: "https://cdn.logojoy.com/wp-content/uploads/2018/08/23162119/wordpress-logo-1024x553.png"
+        },
+        {
+            name: "Wikimedia",
+            url: "https://cdn.logojoy.com/wp-content/uploads/2018/08/23162119/wordpress-logo-1024x553.png"
         },
         {
             name: "Wikimedia",
             url: "https://cdn.logojoy.com/wp-content/uploads/2018/08/23162119/wordpress-logo-1024x553.png"
         }
+        
     ];
 
     return (
@@ -283,12 +296,12 @@ const MainBody = () => {
                 </div>
                 <div className="card card-middle">
                     <div className="card-content">
-                        Middle
+                        
                     </div>
                 </div>
                 <div className="card card-right">
                     <div className="">
-                        Right
+                       
                     </div>
                 </div>
             </div>
@@ -300,40 +313,45 @@ const FinishedProjects = () => {
     const projects: ModalProps[] = [
         {
             id: 1,
-            name: "Grade 40 Rebars",
-            image: "https://www.navvis.com/hubfs/navvis-factory-tour-header.jpg",
+            name: "Project Name",
+            shortdescp: "Product Description",
+            image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753189317/productpageRebars_qspo30.jpg",
             price: "₱ 1,000.00",
             variety: ["#FF5733", "#33FF57", "#3357FF"],
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididun"
         },
         {
             id: 1,
-            name: "Grade 40 Rebars",
-            image: "https://www.navvis.com/hubfs/navvis-factory-tour-header.jpg",
+            name: "Project Name",
+            shortdescp: "Product Description",
+            image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753189317/productpageRebars_qspo30.jpg",
             price: "₱ 1,000.00",
             variety: ["#FF5733", "#33FF57", "#3357FF"],
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididun"
         },
         {
             id: 1,
-            name: "Grade 40 Rebars",
-            image: "https://www.navvis.com/hubfs/navvis-factory-tour-header.jpg",
+            name: "Project Name",
+            shortdescp: "Product Description",
+            image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753189317/productpageRebars_qspo30.jpg",
             price: "₱ 1,000.00",
             variety: ["#FF5733", "#33FF57", "#3357FF"],
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididun"
         },
         {
             id: 1,
-            name: "Grade 40 Rebars",
-            image: "https://www.navvis.com/hubfs/navvis-factory-tour-header.jpg",
+            name: "Project Name",
+            shortdescp: "Product Description",
+            image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753189317/productpageRebars_qspo30.jpg",
             price: "₱ 1,000.00",
             variety: ["#FF5733", "#33FF57", "#3357FF"],
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididun"
         },
         {
             id: 1,
-            name: "Grade 40 Rebars",
-            image: "https://www.navvis.com/hubfs/navvis-factory-tour-header.jpg",
+            name: "Project Name",
+            shortdescp: "Product Description",
+            image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753189317/productpageRebars_qspo30.jpg",
             price: "₱ 1,000.00",
             variety: ["#FF5733", "#33FF57", "#3357FF"],
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididun"
@@ -348,8 +366,8 @@ const FinishedProjects = () => {
     return (
         <div className="finished-products">
             <Modal product={selectedProduct} isOpen={isOpen} setIsOpen={setIsOpen}/>
-            <h1>Finished Projects</h1>
-            <Carousel items={projects} openModal={openModal}/>
+            <h1 style={{ marginBottom: '50px' }}>Finished Projects</h1>
+            <Carousel items={projects} openModal={openModal} />
         </div>
     )
 }
@@ -410,6 +428,7 @@ interface ModalProps {
     price: string;
     variety: string[];
     name: string;
+    shortdescp: string;
     description: string;
     image: string;
 }
