@@ -86,9 +86,9 @@ const Header = () => {
                         <Link to="/products" className="nav-link">
                             Products <ChevronDown className="icon-sm" />
                         </Link>
-                        <button>
+                        <Link to="/contact" className="nav-link">
                             Contact Us <ChevronDown className="icon-sm" />
-                        </button>
+                        </Link>
                     </nav>
 
                     {/* Mobile menu button */}
@@ -104,7 +104,7 @@ const Header = () => {
                             <a href="#" onClick={closeMenu}>Home</a>
                             <a href="#" onClick={closeMenu}>About Us</a>
                             <Link to="/products" onClick={closeMenu} className="nav-link">Products</Link>
-                            <a href="#" onClick={closeMenu}>Contact Us</a>
+                            <Link to="/contact" className="nav-link" onClick={closeMenu}>Contact Us</Link>
                         </div>
                     </div>
                 )}

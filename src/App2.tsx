@@ -86,9 +86,9 @@ const Header = () => {
                         <button>
                             Products <ChevronDown className="icon-sm" />
                         </button>
-                        <button>
+                        <Link to="/contact" className="nav-link">
                             Contact Us <ChevronDown className="icon-sm" />
-                        </button>
+                        </Link>
                     </nav>
 
                     {/* Mobile menu button */}
@@ -104,7 +104,8 @@ const Header = () => {
                             <Link to="/" className="nav-link" onClick={closeMenu}>Home</Link>
                             <a href="#" onClick={closeMenu}>About Us</a>
                             <a href="#" onClick={closeMenu}>Products</a>
-                            <a href="#" onClick={closeMenu}>Contact Us</a>
+                            <Link to="/contact" className="nav-link" onClick={closeMenu}>Contact Us</Link>
+                            
                         </div>
                     </div>
                 )}
@@ -192,7 +193,7 @@ const TopBanner = () => {
         {
             id: 1,
             name: "Grade 40 Rebars",
-            image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753189317/productpageRebars_qspo30.jpg",
+            image: "https://res.cloudinary.com/drrzinr9v/image/upload/productpageRebars_qspo30.jpg",
             price: "₱ 1,000.00",
             variety: ["#FF5733", "#33FF57", "#3357FF"],
             shortdescp: "",
@@ -201,7 +202,7 @@ const TopBanner = () => {
         {
             id: 1,
             name: "Grade 60 Rebars",
-            image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753189317/productpageRebars_qspo30.jpg",
+            image: "https://res.cloudinary.com/drrzinr9v/image/upload/productpageRebars_qspo30.jpg",
             price: "₱ 1,000.00",
             variety: ["#FF5733", "#33FF57", "#3357FF"],
             shortdescp: "",
