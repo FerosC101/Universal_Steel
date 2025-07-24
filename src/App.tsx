@@ -79,16 +79,10 @@ const Header = () => {
 
                     {/* Desktop Navigation */}
                     <nav className="nav-desktop">
-                        <a href="#">Home</a>
-                        <button>
-                            About Us <ChevronDown className="icon-sm" />
-                        </button>
-                        <Link to="/products" className="nav-link">
-                            Products <ChevronDown className="icon-sm" />
-                        </Link>
-                        <Link to="/contact" className="nav-link">
-                            Contact Us <ChevronDown className="icon-sm" />
-                        </Link>
+                        <Link to="/" className="nav-link">Home</Link>
+                        <Link to="/about" className="nav-link">About Us<ChevronDown className="icon-sm" /></Link>
+                        <Link to="/products" className="nav-link">Products<ChevronDown className="icon-sm" /></Link>
+                        <Link to="/contact" className="nav-link">Contact Us<ChevronDown className="icon-sm" /></Link>
                     </nav>
 
                     {/* Mobile menu button */}
@@ -101,9 +95,9 @@ const Header = () => {
                 {isMenuOpen && (
                     <div className="mobile-menu">
                         <div className="mobile-menu-content">
-                            <a href="#" onClick={closeMenu}>Home</a>
-                            <a href="#" onClick={closeMenu}>About Us</a>
-                            <Link to="/products" onClick={closeMenu} className="nav-link">Products</Link>
+                            <Link to="/" className="nav-link" onClick={closeMenu}>Home</Link>
+                            <Link to="/about" className="nav-link" onClick={closeMenu}>About Us</Link>
+                            <Link to="/products" className="nav-link" onClick={closeMenu}>Products</Link>
                             <Link to="/contact" className="nav-link" onClick={closeMenu}>Contact Us</Link>
                         </div>
                     </div>
