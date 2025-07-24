@@ -245,25 +245,22 @@ const BannerCard = ({ details, dragged, click }: { details: ModalProps, dragged:
 const Partners = () => {
     const logos = [
         {
-            name: "Meta",
-            url: "https://img.favpng.com/9/18/23/grayscale-news-brand-service-png-favpng-DQqNdXrqAq2U3255MbfPRFZt1.jpg"
+            name: "Partner1",
+            url: "https://res.cloudinary.com/drrzinr9v/image/upload/partner1_dita9v.png"
         },
         {
-            name: "Meta",
-            url: "https://img.favpng.com/9/18/23/grayscale-news-brand-service-png-favpng-DQqNdXrqAq2U3255MbfPRFZt1.jpg"
+            name: "Partner2",
+            url: "https://res.cloudinary.com/drrzinr9v/image/upload/partner2_qqt38f.png"
         },
         {
-            name: "Wikimedia",
-            url: "https://cdn.logojoy.com/wp-content/uploads/2018/08/23162119/wordpress-logo-1024x553.png"
+            name: "Partner3",
+            url: "https://res.cloudinary.com/drrzinr9v/image/upload/partner3_ygi4en.png"
         },
         {
-            name: "Wikimedia",
-            url: "https://cdn.logojoy.com/wp-content/uploads/2018/08/23162119/wordpress-logo-1024x553.png"
+            name: "Partner4",
+            url: "https://res.cloudinary.com/drrzinr9v/image/upload/partner4_qiimgs.png"
         },
-        {
-            name: "Wikimedia",
-            url: "https://cdn.logojoy.com/wp-content/uploads/2018/08/23162119/wordpress-logo-1024x553.png"
-        }
+        
         
     ];
 
