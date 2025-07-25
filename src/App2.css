@@ -74,7 +74,7 @@ html {
   overflow-x: hidden;
   width: 100vw;
   min-width: 100vw;
- 
+
 }
 
 
@@ -313,13 +313,29 @@ body {
 
 /* top banner */
 
+
 .top-banner {
-  background-image: url('https://i.pinimg.com/736x/0a/5a/51/0a5a51e1a400a195eade3154b31c3fdd.jpg');
+  position: relative;
+  background: linear-gradient(135deg, #dc2626, #991b1b);
   background-size: cover;
   background-position: center;
   height: 450px;
   width: 100%;
   margin-bottom: 200px;
+}
+
+.top-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 450' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-100,150 Q200,100 400,120 T800,140 Q1000,160 1300,120' fill='none' stroke='rgba(255,255,255,0.15)' stroke-width='2'/%3E%3Cpath d='M-150,250 Q150,200 350,220 T750,240 Q950,260 1350,200' fill='none' stroke='rgba(255,255,255,0.12)' stroke-width='1.5'/%3E%3Cpath d='M-200,350 Q100,300 300,320 T700,340 Q900,360 1400,280' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='1'/%3E%3Cpath d='M-50,450 Q250,400 450,420 T850,440 Q1050,460 1250,400' fill='none' stroke='rgba(255,255,255,0.15)' stroke-width='2'/%3E%3Cpath d='M-100,50 Q300,20 500,80 T900,100 Q1100,120 1300,60' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='3'/%3E%3Cpath d='M-250,500 Q50,450 250,470 T650,490 Q850,510 1450,450' fill='none' stroke='rgba(255,255,255,0.12)' stroke-width='1.5'/%3E%3Cpath d='M-300,180 Q0,120 200,160 Q400,200 600,150 Q800,100 1000,180 Q1200,260 1500,200' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='1'/%3E%3Cpath d='M-150,380 Q150,320 350,360 Q550,400 750,350 Q950,300 1150,380 Q1350,460 1550,400' fill='none' stroke='rgba(255,255,255,0.15)' stroke-width='2'/%3E%3Cpath d='M-400,80 Q-100,40 100,60 Q300,80 500,50 Q700,20 900,60 Q1100,100 1600,40' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='3'/%3E%3Cpath d='M-350,520 Q-50,480 150,500 Q350,520 550,490 Q750,460 950,500 Q1150,540 1650,480' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='1'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .top-banner>h1 {
@@ -341,6 +357,31 @@ body {
   transition: background-color 0.2s;
   font-size: 1rem;
 }
+
+.top-banner > h1 {
+  position: relative;
+  z-index: 10;
+  color: white;
+  text-align: center;
+  font-size: 2.5rem;
+  padding-top: 60px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.top-banner button {
+  position: relative;
+  z-index: 10;
+  background: linear-gradient(to right, #8b0000, #dc2626);
+  color: white;
+  padding: 12px 32px;
+  border-radius: 0px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 1rem;
+}
+
 
 .banner-card-cont {
   display: flex;
@@ -510,7 +551,7 @@ body {
   padding: 20px;
   width: 100%;
   justify-content: center;
-  
+
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE 10+ */
 }
@@ -530,7 +571,7 @@ body {
   background: rgba(0, 0, 0, 0.1);
   transform: translate(-50%, -50%);
   z-index: 1000;
-  backdrop-filter: blur(10px); 
+  backdrop-filter: blur(10px);
 }
 
 .hidden {
