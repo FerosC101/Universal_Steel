@@ -188,6 +188,21 @@ const Footer = () => {
     );
 };
 
+const logoUrl1 = `https://res.cloudinary.com/drrzinr9v/image/upload/building-two_yxzt3u.png?ts=${Date.now()}`;
+const logoUrl2 = `https://res.cloudinary.com/drrzinr9v/image/upload/setting-two_e2vfvt.png?ts=${Date.now()}`;
+const logoUrl3 = `https://res.cloudinary.com/drrzinr9v/image/upload/certificate_dpjy9c.png?ts=${Date.now()}`;
+const logoUrl4 = `https://res.cloudinary.com/drrzinr9v/image/upload/bridge-two_hvjarm.png?ts=${Date.now()}`;
+const logoUrl5 = `https://res.cloudinary.com/drrzinr9v/image/upload/ge-removebg-preview_ee8tvd.png?ts=${Date.now()}`;
+
+
+const logoUrl6 = `https://res.cloudinary.com/drrzinr9v/image/upload/exchange-two_w8z7jh.png?ts=${Date.now()}`;
+const logoUrl7 = `https://res.cloudinary.com/drrzinr9v/image/upload/target_hljvmw.png?ts=${Date.now()}`;
+const logoUrl8 = `https://res.cloudinary.com/drrzinr9v/image/upload/hold_woblca.png?ts=${Date.now()}`;
+const logoUrl9 = `https://res.cloudinary.com/drrzinr9v/image/upload/two-hands_v6resp.png?ts=${Date.now()}`;
+const logoUrl10 = `https://res.cloudinary.com/drrzinr9v/image/upload/user-business_lxwokn.png?ts=${Date.now()}`;
+const logoUrl11 = `https://res.cloudinary.com/drrzinr9v/image/upload/check-correct_lbqpjk.png?ts=${Date.now()}`;
+
+
 const Banner = () => {
     return (<div className='banner'>
         <div className='banner-image'>
@@ -201,28 +216,28 @@ const Banner = () => {
         <div className='icons-container'>
             <div className='item'>
                 <div className='logo-name'>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="" />
+                    <img src={logoUrl1} alt="Company Logo" className="logo" />
                     <p>USCI was established in 1966</p>
                 </div>
             </div>
             <ArrowRight />
             <div className='item'>
                 <div className='logo-name'>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="" />
+                    <img src={logoUrl2} alt="Company Logo" className="logo" />
                     <p>USCI was established in 1966 lor</p>
                 </div>
             </div>
             <ArrowRight />
             <div className='item'>
                 <div className='logo-name'>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="" />
+                    <img src={logoUrl3} alt="Company Logo" className="logo" />
                     <p>USCI was established in 1966</p>
                 </div>
             </div>
             <ArrowRight />
             <div className='item'>
                 <div className='logo-name'>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="" />
+                    <img src={logoUrl4} alt="Company Logo" className="logo" />
                     <p>USCI was established in 1966</p>
                 </div>
             </div>
@@ -235,7 +250,7 @@ const History = () => {
         <div className='history-image-container'>
             <h1>Comnpany History</h1>
             <h2><em>Our Legacy Since 1966</em></h2>
-            <img src="https://i.pinimg.com/736x/6f/f8/b2/6ff8b2b8939ce4526e81b71beaffee2a.jpg" alt="" />
+            <img src={logoUrl5} alt="Company Logo" className="logo" />
             <div className="round-image">
             </div>
         </div>
@@ -255,7 +270,7 @@ const Vision = () => {
         <h1>Vision, Mission, & Values</h1>
         <div className="vision-grid-cont">
             <div className='row item'>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="" />
+                <img src={logoUrl6} alt="Company Logo" className="logo" />
                 <div className='text'>
                     <h2>Vision</h2>
                     <p>To be a trusted leader in manufacturing high-quality reinforcing steel bars through continuous innovation and commitment to customer satisfaction.</p>
@@ -266,26 +281,26 @@ const Vision = () => {
                     <h2>Values</h2>
                     <div className='values-cont'>
                         <div className='value'>
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="" />
+                            <img src={logoUrl8} alt="Company Logo" className="logo" />
                             <p>Integrity</p>
                         </div>
                         <div className='value'>
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="" />
+                            <img src={logoUrl9} alt="Company Logo" className="logo" />
                             <p>Quality</p>
                         </div>
                         <div className='value'>
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="" />
+                            <img src={logoUrl10} alt="Company Logo" className="logo" />
                             <p>Professionalism</p>
                         </div>
                         <div className='value'>
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="" />
+                            <img src={logoUrl11} alt="Company Logo" className="logo" />
                             <p>Customer Commitment</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div className='row item'>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="" />
+                <img src={logoUrl7} alt="Company Logo" className="logo" />
                 <div className='text'>
                     <h2>Mission</h2>
                     <p>To deliver dependable and certified steel products using modern technology and uphold the highest manufacturing standards in the industry.</p>
@@ -295,44 +310,62 @@ const Vision = () => {
     </div>);
 }
 
+const pic1 = `https://res.cloudinary.com/drrzinr9v/image/upload/IMG_0634_ehtkiu.jpg?ts=${Date.now()}`;
+const pic2 = `https://res.cloudinary.com/drrzinr9v/image/upload/productpageSpectrometer_nkp7rb.jpg?ts=${Date.now()}`;
+const pic3 = `https://res.cloudinary.com/drrzinr9v/image/upload/16._Overview_of_Reheating_Furnace_ztoovl.jpg?ts=${Date.now()}`;
+
+
 const Modernization = () => {
     return (<div className='modernization'>
         <div className='text'>
             <h1>Factory Modernization</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere modi officia, molestias delectus officiis excepturi magni maiores molestiae! Totam eveniet nostrum necessitatibus repellat quia amet explicabo esse cupiditate vero, nulla fugit repudiandae aut pariatur exercitationem. Dolorem nobis ad, magni totam ratione quos animi omnis adipisci at neque, ex atque nostrum voluptate iusto eius incidunt sapiente cum illum error? At, eaque?</p>
+            <p>
+Our facility has evolved from a hand-fed mill to a fully modernized production plant. We operate a Full Tandem Mill from roughing to finishing passes and use a state-of-the-art continuous reheating furnace from FORNI INDUSTRIAL
+BENDOTTI - equipped with a high- pressure burner system and advanced PLC controls for consistent quality.</p>
         </div>
         <div className="image-cont">
-            <img src="https://i.pinimg.com/736x/6f/f8/b2/6ff8b2b8939ce4526e81b71beaffee2a.jpg" alt="" />
-            <img src="https://i.pinimg.com/736x/6f/f8/b2/6ff8b2b8939ce4526e81b71beaffee2a.jpg" alt="" />
-            <img src="https://i.pinimg.com/736x/6f/f8/b2/6ff8b2b8939ce4526e81b71beaffee2a.jpg" alt="" />
+            <img src={pic1} alt="" />
+            <img src={pic2} alt="" />
+            <img src={pic3} alt="" />
+            
         </div>
 
     </div>);
 }
+
+
+const pic4 = `https://res.cloudinary.com/drrzinr9v/image/upload/Screenshot_2025-06-16_235347-removebg-preview_sovmgu.png?ts=${Date.now()}`;
+const pic5 = `https://res.cloudinary.com/drrzinr9v/image/upload/Screenshot_2025-06-16_235339-removebg-preview_tbznum.png?ts=${Date.now()}`;
+const pic6 = `https://res.cloudinary.com/drrzinr9v/image/upload/Screenshot_2025-06-16_235402-removebg-preview_zmsls7.png?ts=${Date.now()}`;
 
 const Certifications = () => {
     return (<div className='certifications'>
         <h1>Certifications</h1>
         <div className="cards-cont">
             <div className="card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="" />
-                <p>Lorem ipsum dolor sit amet.</p>
+                <img src={pic4} alt="" />
+                <p>LISO 9001:2015 Certified</p>
+                <p>by TÜV Philippines</p>
             </div>
             <div className="card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="" />
-                <p>Lorem ipsum dolor sit amet.</p>
+                <img src={pic5} alt="" />
+                <p>BPS Certification Mark</p>
+                <p>Bureau of Product Standards</p>
             </div>
             <div className="card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="" />
-                <p>Lorem ipsum dolor sit amet.</p>
+                <img src={pic6} alt="" />
+                <p>DPWH-Accredited Testing Laboratory</p>
+                <p>by Bureau of Research and Standards (BRS)</p>
             </div>
         </div>
     </div>);
 }
 
+const pic7 = `https://res.cloudinary.com/drrzinr9v/image/upload/Group_lxnmwc.png?ts=${Date.now()}`;
+
 const ISORecertification = () => {
     return (<div className='iso-recertification'>
-        <img src="https://lkg.com.ph/img/lkg-logo.png" alt="" />
+        <img src={pic7} alt="" />
         <div className="text-cont">
             <div className="button">
                 <div className="arrow-cont">
@@ -351,12 +384,14 @@ const ISORecertification = () => {
     </div>);
 }
 
+const clientimg = `https://res.cloudinary.com/drrzinr9v/image/upload/Group_1000001822_lkp9t8.png?ts=${Date.now()}`;
+
 const MajorClients = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (<div className='clients'>
         <h1>Major Clients</h1>
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/008/367/703/small/3d-isometric-map-of-luzon-is-an-island-in-philippines-vector.jpg" alt="" />
+         <img src={clientimg} alt="Client Image" />
         <button onClick={() => setIsModalOpen(true)}>View Clients</button>
         {isModalOpen &&
             <>

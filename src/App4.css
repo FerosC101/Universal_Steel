@@ -162,7 +162,7 @@ body {
 }
 
 .banner .banner-image {
-  background-image: url('https://c8.alamy.com/comp/W0FECY/turning-equipment-old-machinery-factory-W0FECY.jpg');
+  background-image: url('https://res.cloudinary.com/drrzinr9v/image/upload/hero_sqtj19.jpg?ts=${Date.now()}');
   width: 100%;
   min-height: 700px;
   background-size: cover;
@@ -484,8 +484,26 @@ body {
   grid-template-columns: 1fr 6fr 1fr;
   align-items: center;
   padding: 40px;
-  background-color: #6d6a6a;
+   background: linear-gradient(
+    to right,
+    #5e5e5e 0%,
+    #a0a0a0 25%,
+    #d9d9d9 50%,
+    #a0a0a0 75%,
+    #5e5e5e 100%
+  );
+
+
+
   gap: 20px;
+}
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 
 .iso-recertification .arrow-cont {
