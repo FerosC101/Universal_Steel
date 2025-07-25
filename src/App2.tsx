@@ -216,7 +216,15 @@ const TopBanner = () => {
             <Modal product={selectedProduct} isOpen={isOpen} setIsOpen={setIsOpen}/>
             <Carousel items={projects} openModal={openModal}/>
             <div className='full-width-flex'>
-                <button className='product-button'>VIEW FULL PRODUCT LIST <ArrowRight className='icon-sm' /></button>
+                <a
+                href="https://res.cloudinary.com/drrzinr9v/image/upload/Standard_Price_List_page_mhmjf0.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                >
+                <button className="product-button">
+                    VIEW FULL PRODUCT LIST <ArrowRight className="icon-sm" />
+                </button>
+                </a>
             </div>
         </div>
     )

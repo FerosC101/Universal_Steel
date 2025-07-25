@@ -385,6 +385,73 @@ const ISORecertification = () => {
 }
 
 const clientimg = `https://res.cloudinary.com/drrzinr9v/image/upload/Group_1000001822_lkp9t8.png?ts=${Date.now()}`;
+const clients = [
+  "AYALA LAND, INC.",
+  "ANCHOR PROPERTIES",
+  "A.M. ORETA & COMPANY",
+  "AVIDA LAND CORPORATION",
+  "BUILDING BEAVER CORPORATION",
+  "CAVDEAL INTERNATIONAL",
+  "CHINA INTERNATIONAL WATER & ELECTRICAL CORPORATION",
+  "CHINA ROAD AND BRIDGE CORPORATION",
+  "CHINA GEO-ENGINEERING PHILS. CORPORATION",
+  "DAIICHI PROPERTIES",
+  "DATEM, INC.",
+  "DATALAND INC.",
+  "DDT KONSTRACT INC.",
+  "D.M. WENCESLAO & ASSOCIATES INC.",
+  "D.M. CONSUNJI INC.",
+  "E. I. CONSTRUCTION CO., INC.",
+  "EEI CORPORATION",
+  "EMPIRE EAST LAND HOLDINGS INC.",
+  "ETON PROPERTIES PHILS. INC.",
+  "FEDERAL LAND, INC.",
+  "F.F. CRUZ & COMPANY",
+  "FILINVEST ALABANG INC. / FILINVEST LAND INC.",
+  "FIRST BALFOUR – LEIGHTON JOINT VENTURE",
+  "GLOBAL ESTATE RESORT INC.",
+  "HANJIN HEAVY INDUSTRIES & CONST. CO. LTD.",
+  "HANWHA E & C CORPORATION",
+  "HILMARCS CONSTRUCTION CORPORATION",
+  "HUMANTECH KOREA PHILS. CORPORATION",
+  "IPM CONSTRUCTION",
+  "JQ INTERNATIONAL CONSTRUCTION, INC.",
+  "KAJIMA PHILS. INC.",
+  "LEY CONST. & DEV’T. CORP.",
+  "LEIGHTON CONTRACTORS",
+  "MAKATI DEVELOPMENT CORPORATION",
+  "MALLERS INVESTMENTS CORPORATION",
+  "MC CONNELL DOWELL PHILS., INC.",
+  "MEGAWIDE CONSTRUCTION CORPORATION",
+  "MEGAWORLD PROPERTIES & HOLDINGS INC.",
+  "MOLDEX REALTY INC.",
+  "MONOCRETE CONSTRUCTION PHILIPPINES INC.",
+  "MONOLITH CONSTRUCTION",
+  "NATIONAL IRRIGATION ADMINISTRATION",
+  "NEW CITY BUILDERS INC.",
+  "NEW GOLDEN CITY BUILDERS",
+  "NEW KANLAON CONSTRUCTION",
+  "NEW SAN JOSE BUILDERS",
+  "OBAYASHI CORPORATION – Subic Expressway",
+  "PANORAMA PROPERTY VENTURES",
+  "PENTA – SHIMIZU TOA JOINT VENTURE",
+  "PERSAN CONSTRUCTION INC.",
+  "ROBINSONS LAND CORPORATION",
+  "ROCKWELL LAND CORPORATION",
+  "SAN MIGUEL CORPORATION & SUBSIDIARIES",
+  "SHANG ROBINSONS PROPERTIES, INC.",
+  "STAGES DESIGN & CONSTRUCTION CORPORATION",
+  "SM DEVELOPMENT CORPORATION",
+  "SM PRIME HOLDINGS, INC.",
+  "SMCC PHILIPPINES, INC.",
+  "TAISEI - SHIMIZU JOINT VENTURE",
+  "TOWNSQUARE DEVELOPMENT INC.",
+  "VICENTE T. LAO CONSTRUCTION",
+  "V.B. COLUMNA CONSTRUCTION",
+  "WHITEPORT INC.",
+  "YOUNG BUILDERS CORPORATION"
+];
+
 
 const MajorClients = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -405,13 +472,12 @@ const MajorClients = () => {
                         <div className="outer-cont">
                             <div className="cont">
                                 <ol>
-                                    {[...Array(30)].map((_, index) => (
+                                    {clients.map((name, index) => (
                                         <li className="client" key={index}>
-                                            {/* <p>aaaaaaaaa</p> */}
-                                            pppp
+                                        {name}
                                         </li>
                                     ))}
-                                </ol>
+                                    </ol>
                             </div>
                         </div>
                     </div>
