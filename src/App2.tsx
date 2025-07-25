@@ -186,13 +186,16 @@ const Footer = () => {
         </footer>
     );
 };
+const productImage1 = `https://res.cloudinary.com/drrzinr9v/image/upload/productpageRebars_qspo30.jpg?ts=${Date.now()}`;
+const productImage2 = `https://res.cloudinary.com/drrzinr9v/image/upload/productpageRebars1_pvivue.jpg?ts=${Date.now()}`;
+
 
 const TopBanner = () => {
     const projects: ModalProps[] = [
         {
             id: 1,
             name: "Grade 40 Rebars",
-            image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753189317/productpageRebars_qspo30.jpg",
+            image: productImage1,
             price: "₱ 1,000.00",
             variety: ["#FF5733", "#33FF57", "#3357FF"],
             shortdescp: "",
@@ -201,7 +204,7 @@ const TopBanner = () => {
         {
             id: 1,
             name: "Grade 60 Rebars",
-            image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753189317/productpageRebars_qspo30.jpg",
+            image: productImage2,
             price: "₱ 1,000.00",
             variety: ["#FF5733", "#33FF57", "#3357FF"],
             shortdescp: "",
@@ -220,7 +223,15 @@ const TopBanner = () => {
             <Modal product={selectedProduct} isOpen={isOpen} setIsOpen={setIsOpen}/>
             <Carousel items={projects} openModal={openModal}/>
             <div className='full-width-flex'>
-                <button className='product-button'>VIEW FULL PRODUCT LIST <ArrowRight className='icon-sm' /></button>
+                <a
+                href="https://res.cloudinary.com/drrzinr9v/image/upload/Standard_Price_List_page_mhmjf0.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                >
+                <button className="product-button">
+                    VIEW FULL PRODUCT LIST <ArrowRight className="icon-sm" />
+                </button>
+                </a>
             </div>
         </div>
     )
