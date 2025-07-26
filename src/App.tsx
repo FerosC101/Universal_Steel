@@ -1,5 +1,6 @@
 
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import './App.css';
 
 type IconProps = {
@@ -82,9 +83,9 @@ const Header = () => {
                         <button>
                             About Us <ChevronDown className="icon-sm" />
                         </button>
-                        <button>
+                        <Link to="/products" className="nav-link">
                             Products <ChevronDown className="icon-sm" />
-                        </button>
+                        </Link>
                         <button>
                             Contact Us <ChevronDown className="icon-sm" />
                         </button>
@@ -102,7 +103,7 @@ const Header = () => {
                         <div className="mobile-menu-content">
                             <a href="#" onClick={closeMenu}>Home</a>
                             <a href="#" onClick={closeMenu}>About Us</a>
-                            <a href="#" onClick={closeMenu}>Products</a>
+                            <Link to="/products" onClick={closeMenu} className="nav-link">Products</Link>
                             <a href="#" onClick={closeMenu}>Contact Us</a>
                         </div>
                     </div>
