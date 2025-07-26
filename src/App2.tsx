@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import './App2.css';
@@ -27,15 +26,15 @@ const X = ({ className }: IconProps) => (
     </svg>
 );
 
-// const Play = ({ className, onclick }: IconProps) => (
-//     <svg className={className} fill="currentColor" viewBox="0 0 24 24" onClick={onclick}>
-//         <path d="M8 5v14l11-7z" />
-//     </svg>
-// );
-
 const ArrowRight = ({ className }: IconProps) => (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+    </svg>
+);
+
+const ArrowLeft = ({ className }: IconProps) => (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
     </svg>
 );
 
@@ -47,7 +46,7 @@ const Phone = ({ className }: IconProps) => (
 
 const Mail = ({ className }: IconProps) => (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 002 2v10a2 2 0 002 2z" />
     </svg>
 );
 
@@ -84,7 +83,7 @@ const Header = () => {
                             About Us <ChevronDown className="icon-sm" />
                         </button>
                         <button>
-                            Products <ChevronDown className="icon-sm" />
+                            Products <ChevronDown className="icon-sm active" />
                         </button>
                         <button>
                             Contact Us <ChevronDown className="icon-sm" />
@@ -103,7 +102,7 @@ const Header = () => {
                         <div className="mobile-menu-content">
                             <Link to="/" className="nav-link" onClick={closeMenu}>Home</Link>
                             <a href="#" onClick={closeMenu}>About Us</a>
-                            <a href="#" onClick={closeMenu}>Products</a>
+                            <Link to="/" className="nav-link active" onClick={closeMenu}>Products</Link>
                             <a href="#" onClick={closeMenu}>Contact Us</a>
                         </div>
                     </div>
@@ -112,7 +111,6 @@ const Header = () => {
         </header>
     );
 };
-
 
 const Footer = () => {
     return (
@@ -187,25 +185,146 @@ const Footer = () => {
     );
 };
 
+interface SizePrice {
+    size: string;
+    price: string;
+    weight: string;
+    lengths: {
+        '6.0M': string;
+        '7.5M': string;
+        '9.0M': string;
+        '10.5M': string;
+        '12.0M': string;
+    };
+}
+
+interface ModalProps {
+    id: number;
+    priceRange: string;
+    sizes: SizePrice[];
+    name: string;
+    shortdescp: string;
+    description: string;
+    image: string;
+}
+
 const TopBanner = () => {
     const projects: ModalProps[] = [
         {
             id: 1,
             name: "Grade 40 Rebars",
-            image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753189317/productpageRebars_qspo30.jpg",
-            price: "₱ 1,000.00",
-            variety: ["#FF5733", "#33FF57", "#3357FF"],
-            shortdescp: "",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididun"
+            image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753545927/Grade_40_1_epdri0.jpg",
+            priceRange: "₱21.80 - ₱22.00/KG",
+            sizes: [
+                {
+                    size: "10mm",
+                    price: "₱22.00",
+                    weight: "0.617",
+                    lengths: { '6.0M': '81.44', '7.5M': '101.81', '9.0M': '122.17', '10.5M': '142.53', '12.0M': '162.89' }
+                },
+                {
+                    size: "12mm",
+                    price: "₱22.00",
+                    weight: "0.888",
+                    lengths: { '6.0M': '117.22', '7.5M': '146.52', '9.0M': '175.82', '10.5M': '205.13', '12.0M': '234.43' }
+                },
+                {
+                    size: "16mm",
+                    price: "₱21.80",
+                    weight: "1.578",
+                    lengths: { '6.0M': '206.40', '7.5M': '258.00', '9.0M': '309.60', '10.5M': '361.20', '12.0M': '412.80' }
+                },
+                {
+                    size: "20mm",
+                    price: "₱21.80",
+                    weight: "2.466",
+                    lengths: { '6.0M': '322.55', '7.5M': '403.19', '9.0M': '483.83', '10.5M': '564.47', '12.0M': '645.11' }
+                },
+                {
+                    size: "25mm",
+                    price: "₱21.80",
+                    weight: "3.853",
+                    lengths: { '6.0M': '503.97', '7.5M': '629.97', '9.0M': '755.96', '10.5M': '881.95', '12.0M': '1007.94' }
+                },
+                {
+                    size: "28mm",
+                    price: "₱21.80",
+                    weight: "4.834",
+                    lengths: { '6.0M': '632.29', '7.5M': '790.36', '9.0M': '948.43', '10.5M': '1106.50', '12.0M': '1264.57' }
+                },
+                {
+                    size: "32mm",
+                    price: "₱22.00",
+                    weight: "6.313",
+                    lengths: { '6.0M': '833.32', '7.5M': '1041.65', '9.0M': '1249.97', '10.5M': '1458.30', '12.0M': '1666.63' }
+                },
+                {
+                    size: "36mm",
+                    price: "₱22.00",
+                    weight: "7.99",
+                    lengths: { '6.0M': '1054.68', '7.5M': '1318.35', '9.0M': '1582.02', '10.5M': '1845.69', '12.0M': '2109.36' }
+                }
+            ],
+            shortdescp: "High-quality Grade 40 reinforcing steel bars",
+            description: "Premium Grade 40 reinforcing steel bars manufactured to international standards. Perfect for residential and light commercial construction projects requiring reliable structural reinforcement."
         },
         {
-            id: 1,
+            id: 2,
             name: "Grade 60 Rebars",
             image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753189317/productpageRebars_qspo30.jpg",
-            price: "₱ 1,000.00",
-            variety: ["#FF5733", "#33FF57", "#3357FF"],
-            shortdescp: "",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur fuga magni excepturi corporis nihil eveniet, tenetur perspiciatis neque facere fugit distinctio est ipsum voluptas eum ullam delectus explicabo eos quo, ab exercitationem quis ratione. Ipsam voluptas, est quibusdam rerum voluptatibus eos tempore vel perferendis ea optio magni eveniet nulla explicabo obcaecati esse dolores laudantium culpa id ipsa sapiente ratione placeat. Eum repellendus vitae dolore repudiandae, dolores culpa recusandae minima quod illo. Error inventore facere quo a porro nulla ipsum nesciunt eos! Expedita ipsum porro vel, quod ad iste distinctio numquam optio, ipsam quo enim exercitationem nulla aut libero quidem minima ipsa asperiores ea dicta rem accusamus saepe! Tempore officiis neque vero maiores! Possimus fugit, unde quas, ullam provident voluptates ratione eligendi excepturi blanditiis labore nihil aspernatur iure inventore reprehenderit ad facere nam libero quae est quaerat, dolor illum veritatis optio! Vel perferendis obcaecati rerum laudantium ducimus, porro repudiandae dicta eveniet nemo beatae ut expedita repellat quam id cumque! Illum minus dignissimos soluta deserunt assumenda odit voluptas labore et suscipit vitae? Hic nemo eum delectus, excepturi nisi, temporibus accusamus illo modi fugit illum tempora laborum! Ex, praesentium. Reprehenderit ex quaerat quisquam pariatur excepturi, incidunt, omnis quibusdam nulla corporis dolor nihil cumque."
+            priceRange: "₱22.50 - ₱22.70/KG",
+            sizes: [
+                {
+                    size: "10mm",
+                    price: "₱22.70",
+                    weight: "0.617",
+                    lengths: { '6.0M': '84.04', '7.5M': '105.04', '9.0M': '126.05', '10.5M': '147.06', '12.0M': '168.07' }
+                },
+                {
+                    size: "12mm",
+                    price: "₱22.70",
+                    weight: "0.888",
+                    lengths: { '6.0M': '120.95', '7.5M': '151.18', '9.0M': '181.42', '10.5M': '211.65', '12.0M': '241.89' }
+                },
+                {
+                    size: "16mm",
+                    price: "₱22.50",
+                    weight: "1.578",
+                    lengths: { '6.0M': '213.03', '7.5M': '266.29', '9.0M': '319.55', '10.5M': '372.80', '12.0M': '426.06' }
+                },
+                {
+                    size: "20mm",
+                    price: "₱22.50",
+                    weight: "2.466",
+                    lengths: { '6.0M': '332.91', '7.5M': '416.14', '9.0M': '499.37', '10.5M': '582.59', '12.0M': '665.82' }
+                },
+                {
+                    size: "25mm",
+                    price: "₱22.50",
+                    weight: "3.853",
+                    lengths: { '6.0M': '520.16', '7.5M': '650.19', '9.0M': '780.23', '10.5M': '910.27', '12.0M': '1040.31' }
+                },
+                {
+                    size: "28mm",
+                    price: "₱22.50",
+                    weight: "4.834",
+                    lengths: { '6.0M': '652.59', '7.5M': '815.74', '9.0M': '978.89', '10.5M': '1142.03', '12.0M': '1305.18' }
+                },
+                {
+                    size: "32mm",
+                    price: "₱22.70",
+                    weight: "6.313",
+                    lengths: { '6.0M': '859.83', '7.5M': '1074.79', '9.0M': '1289.75', '10.5M': '1504.70', '12.0M': '1719.66' }
+                },
+                {
+                    size: "36mm",
+                    price: "₱22.70",
+                    weight: "7.99",
+                    lengths: { '6.0M': '1088.24', '7.5M': '1360.30', '9.0M': '1632.36', '10.5M': '1904.42', '12.0M': '2176.48' }
+                }
+            ],
+            shortdescp: "Superior Grade 60 reinforcing steel bars",
+            description: "High-strength Grade 60 reinforcing steel bars engineered for demanding construction applications. Ideal for commercial buildings, bridges, and heavy-duty infrastructure projects."
         }
     ];
     const [isOpen, setIsOpen] = useState(false);
@@ -217,12 +336,23 @@ const TopBanner = () => {
     return (
         <div className="top-banner">
             <h1>Products</h1>
-            <Modal product={selectedProduct} isOpen={isOpen} setIsOpen={setIsOpen}/>
-            <Carousel items={projects} openModal={openModal}/>
-            <div className='full-width-flex'>
-                <button className='product-button'>VIEW FULL PRODUCT LIST <ArrowRight className='icon-sm' /></button>
+            <Modal product={selectedProduct} isOpen={isOpen} setIsOpen={setIsOpen} />
+            <Carousel items={projects} openModal={openModal} />
+            <div className="full-width-flex">
+                <button
+                    className="product-button"
+                    onClick={() =>
+                        window.open(
+                            "https://drive.google.com/file/d/1KmRxQPS3W630KvdKM4bNdMeA4FNBqlFS/view?usp=drive_link",
+                            "_blank"
+                        )
+                    }
+                >
+                    VIEW FULL PRODUCT LIST <ArrowRight className="icon-sm" />
+                </button>
             </div>
         </div>
+
     )
 }
 
@@ -244,26 +374,22 @@ const BannerCard = ({ details, dragged, click }: { details: ModalProps, dragged:
 const Partners = () => {
     const logos = [
         {
-            name: "Meta",
-            url: "https://img.favpng.com/9/18/23/grayscale-news-brand-service-png-favpng-DQqNdXrqAq2U3255MbfPRFZt1.jpg"
+            name: "Bendotti",
+            url: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753362856/partner1_dita9v.png"
         },
         {
-            name: "Meta",
-            url: "https://img.favpng.com/9/18/23/grayscale-news-brand-service-png-favpng-DQqNdXrqAq2U3255MbfPRFZt1.jpg"
+            name: "CMC",
+            url: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753362870/partner2_qqt38f.png"
         },
         {
-            name: "Wikimedia",
-            url: "https://cdn.logojoy.com/wp-content/uploads/2018/08/23162119/wordpress-logo-1024x553.png"
+            name: "Steel Work",
+            url: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753362876/partner3_ygi4en.png"
         },
         {
-            name: "Wikimedia",
-            url: "https://cdn.logojoy.com/wp-content/uploads/2018/08/23162119/wordpress-logo-1024x553.png"
-        },
-        {
-            name: "Wikimedia",
-            url: "https://cdn.logojoy.com/wp-content/uploads/2018/08/23162119/wordpress-logo-1024x553.png"
+            name: "Atlas Steel",
+            url: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753362882/partner4_qiimgs.png"
         }
-        
+
     ];
 
     return (
@@ -298,12 +424,12 @@ const MainBody = () => {
                 </div>
                 <div className="card card-middle">
                     <div className="card-content">
-                        
+
                     </div>
                 </div>
                 <div className="card card-right">
                     <div className="">
-                       
+
                     </div>
                 </div>
             </div>
@@ -311,70 +437,252 @@ const MainBody = () => {
     )
 }
 
+// Updated interface for finished projects
+interface ProjectImage {
+    id: number;
+    name: string;
+    description: string;
+    image: string;
+}
+
+interface ProjectGroup {
+    id: number;
+    title: string;
+    description: string;
+    cardImage: string
+    images: ProjectImage[];
+}
+
 const FinishedProjects = () => {
-    const projects: ModalProps[] = [
+    const projectGroups: ProjectGroup[] = [
         {
             id: 1,
-            name: "Project Name",
-            shortdescp: "Product Description",
-            image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753189317/productpageRebars_qspo30.jpg",
-            price: "₱ 1,000.00",
-            variety: ["#FF5733", "#33FF57", "#3357FF"],
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididun"
+            title: "Past Developments",
+            description: "A comprehensive infrastructure development project showcasing our steel reinforcement solutions in major construction works. These projects demonstrate our commitment to quality and reliability in structural engineering.",
+            cardImage: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_Pics_for_website_2_crov5j.jpg",
+            images: [
+                {
+                    id: 1,
+                    name: "Project 1",
+                    description: "Description",
+                    image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_projects_for_website_2_hrfykz.jpg"
+                },
+                {
+                    id: 2,
+                    name: "Project 2",
+                    description: "Description",
+                    image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_7_tjttq6.jpg"
+                },
+                {
+                    id: 3,
+                    name: "Project 3",
+                    description: "Description",
+                    image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_1_wzrmyq.jpg"
+                }
+            ]
         },
         {
-            id: 1,
-            name: "Project Name",
-            shortdescp: "Product Description",
-            image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753189317/productpageRebars_qspo30.jpg",
-            price: "₱ 1,000.00",
-            variety: ["#FF5733", "#33FF57", "#3357FF"],
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididun"
+            id: 2,
+            title: "Present Developments",
+            description: "This project highlights our capability to supply high-quality materials for extensive construction projects.",
+            cardImage: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_Pics_for_website_1_yzhack.jpg",
+            images: [
+                {
+                    id: 4,
+                    name: "Foundation Work",
+                    description: "Deep foundation reinforcement with our Grade 60 rebars",
+                    image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_13_wrnwf1.jpg"
+                },
+                {
+                    id: 5,
+                    name: "Structural Framework",
+                    description: "Building framework construction using our steel products",
+                    image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_11_btaknk.jpg"
+                },
+                {
+                    id: 6,
+                    name: "Upper Level Construction",
+                    description: "Multi-story construction showcasing structural integrity",
+                    image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_10_gqdpk6.jpg"
+                }
+            ]
         },
         {
-            id: 1,
-            name: "Project Name",
-            shortdescp: "Product Description",
-            image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753189317/productpageRebars_qspo30.jpg",
-            price: "₱ 1,000.00",
-            variety: ["#FF5733", "#33FF57", "#3357FF"],
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididun"
-        },
-        {
-            id: 1,
-            name: "Project Name",
-            shortdescp: "Product Description",
-            image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753189317/productpageRebars_qspo30.jpg",
-            price: "₱ 1,000.00",
-            variety: ["#FF5733", "#33FF57", "#3357FF"],
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididun"
-        },
-        {
-            id: 1,
-            name: "Project Name",
-            shortdescp: "Product Description",
-            image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753189317/productpageRebars_qspo30.jpg",
-            price: "₱ 1,000.00",
-            variety: ["#FF5733", "#33FF57", "#3357FF"],
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididun"
-        },
+            id: 3,
+            title: "Future Developments",
+            description: "Multi-phase residential development project featuring our comprehensive steel reinforcement solutions. This showcases our ability to deliver consistent quality across large-scale construction projects.",
+            cardImage: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_Pics_for_website_3_haeba5.jpg",
+            images: [
+                {
+                    id: 7,
+                    name: "Site Preparation",
+                    description: "Initial site preparation and foundation work for the project",
+                    image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_8_pbadil.jpg"
+                },
+                {
+                    id: 8,
+                    name: "Building Framework",
+                    description: "Multi-story building framework construction",
+                    image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_5_jo4ul6.jpg"
+                },
+                {
+                    id: 9,
+                    name: "Completion Phase",
+                    description: "Final construction phase showing completed structures",
+                    image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_projects_for_website_3_hqua6e.jpg"
+                }
+            ]
+        }
     ];
+
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedProduct, setSelectedProduct] = useState<ModalProps>(projects[0]);
-    const openModal = useCallback((details: ModalProps) => {
-        setSelectedProduct(details);
+    const [selectedProject, setSelectedProject] = useState<ProjectGroup>(projectGroups[0]);
+
+    const openProjectModal = useCallback((project: ProjectGroup) => {
+        setSelectedProject(project);
         setIsOpen(true);
     }, []);
+
     return (
         <div className="finished-products">
-            <Modal product={selectedProduct} isOpen={isOpen} setIsOpen={setIsOpen}/>
-            <h1 style={{ marginBottom: '50px' }}>Finished Projects</h1>
-            <Carousel items={projects} openModal={openModal} />
+            <ProjectModal project={selectedProject} isOpen={isOpen} setIsOpen={setIsOpen} />
+            <h1 style={{ marginBottom: '50px'}}>Finished Projects</h1>
+            <ProjectCarousel projects={projectGroups} openModal={openProjectModal} />
         </div>
     )
 }
 
-// interface CardProps { id: number, name: string, image: string }
+const ProjectImageCard = ({ project, click }: { project: ProjectGroup, click: (project: ProjectGroup) => void }) => {
+    return (
+        <div className='banner-card' onClick={() => click(project)}>
+            <img src={project.cardImage} alt={project.title} />
+            <h2>{project.title}</h2>
+            <p>Click to view project details</p>
+        </div>
+    )
+}
+
+// Project carousel component - using original carousel class
+const ProjectCarousel = ({ projects, openModal }: { projects: ProjectGroup[], openModal: (project: ProjectGroup) => void }) => {
+    const carouselRef = useRef<HTMLDivElement>(null);
+    let dragged: boolean = false;
+    let dragging: boolean = false;
+    let mouseX: number = 0;
+
+    const mouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+        e.preventDefault();
+        dragged = false;
+        dragging = true;
+        mouseX = e.pageX - (carouselRef.current?.offsetLeft ?? 0);
+    }
+
+    const mouseUp = (e: React.MouseEvent<HTMLDivElement>) => {
+        e.preventDefault();
+        dragging = false;
+    }
+
+    const mouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        e.preventDefault();
+        if (dragging) {
+            const x = e.pageX - carouselRef.current!.offsetLeft;
+            const walk = (x - mouseX) * 1;
+            dragged = true;
+            carouselRef.current!.scrollLeft -= walk;
+        }
+    }
+
+    const projectClick = (project: ProjectGroup) => {
+        if (!dragged) {
+            openModal(project);
+        }
+    }
+
+    return (
+        <div className='carousel' ref={carouselRef}
+             onMouseDown={mouseDown}
+             onMouseUp={mouseUp}
+             onMouseMove={mouseMove}
+        >
+            {projects.map(project => (
+                <ProjectImageCard key={project.id} project={project} click={projectClick} />
+            ))}
+        </div>
+    )
+}
+
+// Project modal with image navigation
+const ProjectModal = ({ project, isOpen, setIsOpen }: { project: ProjectGroup, isOpen: boolean, setIsOpen: (o: boolean) => void }) => {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    const nextImage = () => {
+        setCurrentImageIndex((prev) =>
+            prev === project.images.length - 1 ? 0 : prev + 1
+        );
+    };
+
+    const prevImage = () => {
+        setCurrentImageIndex((prev) =>
+            prev === 0 ? project.images.length - 1 : prev - 1
+        );
+    };
+
+    const closeModal = () => {
+        setIsOpen(false);
+        setCurrentImageIndex(0);
+    };
+
+    if (!isOpen) return null;
+
+    return (
+        <div className="project-modal-cont">
+            <div className='project-modal'>
+                <svg className='close-button' onClick={closeModal} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <circle cx="12" cy="12" r="10" stroke="#1C274C" strokeWidth="1.5"></circle>
+                        <path d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5" stroke="#1C274C" strokeWidth="1.5" strokeLinecap="round"></path>
+                    </g>
+                </svg>
+
+                <div className='project-modal-header'>
+                    <h2 className='project-title'>{project.title}</h2>
+                    {/* Only show the main project description */}
+                    <p className='project-description'>{project.description}</p>
+                </div>
+
+                <div className='image-navigation-container'>
+                    <button className='nav-button prev-button' onClick={prevImage}>
+                        <ArrowLeft className='icon' />
+                    </button>
+
+                    <div className='image-container'>
+                        {/* Only show the image, no individual image name or description */}
+                        <img src={project.images[currentImageIndex].image} alt={project.images[currentImageIndex].name} />
+                    </div>
+
+                    <button className='nav-button next-button' onClick={nextImage}>
+                        <ArrowRight className='icon' />
+                    </button>
+                </div>
+
+                <div className='image-indicators'>
+                    {project.images.map((_, index) => (
+                        <div
+                            key={index}
+                            className={`indicator ${index === currentImageIndex ? 'active' : ''}`}
+                            onClick={() => setCurrentImageIndex(index)}
+                        />
+                    ))}
+                </div>
+
+                <div className='image-counter'>
+                    {currentImageIndex + 1} of {project.images.length}
+                </div>
+            </div>
+        </div>
+    )
+}
 
 const Carousel = ({ items, openModal }: { items: ModalProps[], openModal: (details: ModalProps) => void }) => {
     const carouselRef = useRef<HTMLDivElement>(null);
@@ -383,14 +691,12 @@ const Carousel = ({ items, openModal }: { items: ModalProps[], openModal: (detai
     let mouseX: number = 0;
     const mouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
         e.preventDefault();
-        // console.log("Mouse Down", e);
         dragged = false;
         dragging = true;
-        mouseX = e.pageX - - (carouselRef.current?.offsetLeft ?? 0); // Store the initial mouse position
+        mouseX = e.pageX - (carouselRef.current?.offsetLeft ?? 0);
     }
     const mouseUp = (e: React.MouseEvent<HTMLDivElement>) => {
         e.preventDefault();
-        // console.log("Mouse Up", e);
         dragging = false;
     }
     const bannerClick = (item: ModalProps) => {
@@ -403,59 +709,84 @@ const Carousel = ({ items, openModal }: { items: ModalProps[], openModal: (detai
         e.preventDefault();
         if (dragging) {
             const x = e.pageX - carouselRef.current!.offsetLeft;
-            const walk = (x - mouseX) * 1; // Calculate the distance moved
+            const walk = (x - mouseX) * 1;
             dragged = true;
-            carouselRef.current!.scrollLeft -= walk; // Scroll the carousel
-
+            carouselRef.current!.scrollLeft -= walk;
         }
-
     }
 
     return (
         <div className='carousel' ref={carouselRef}
-            onMouseDown={mouseDown}
-            onMouseUp={mouseUp}
-            onMouseMove={mouseMove}
-
+             onMouseDown={mouseDown}
+             onMouseUp={mouseUp}
+             onMouseMove={mouseMove}
         >
-            {items.map(project => (
-                <BannerCard details={project} dragged={dragged} click={bannerClick} />
+            {items.map((project, index) => (
+                <BannerCard key={index} details={project} dragged={dragged} click={bannerClick} />
             ))}
         </div>
     )
-}
-
-interface ModalProps {
-    id: number;
-    price: string;
-    variety: string[];
-    name: string;
-    shortdescp: string;
-    description: string;
-    image: string;
 }
 
 const Modal = ({ product, isOpen, setIsOpen }: { product: ModalProps, isOpen: boolean, setIsOpen:(o:boolean) => void }) => {
     return (
         <div className="modal-cont" style={{ display: isOpen ? 'block' : 'none' }}>
             <div className='modal'>
-                <svg className='close-button' onClick={() => { setIsOpen(false) }} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="10" stroke="#1C274C" stroke-width="1.5"></circle> <path d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
-                {/* <img src=''  > */}
-                <img src={product.image} alt="" />
-                <p className='price'>{product.price}</p>
-                <p className='small-text'>Variety</p>
-                <div className='variety-cont'>
-                    {product.variety.map((variety, index) => (
-                        <div key={index} className='variety-item' style={{ backgroundColor: variety }} />
-                    ))}
+                <svg className='close-button' onClick={() => { setIsOpen(false) }} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <circle cx="12" cy="12" r="10" stroke="#1C274C" strokeWidth="1.5"></circle>
+                        <path d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5" stroke="#1C274C" strokeWidth="1.5" strokeLinecap="round"></path>
+                    </g>
+                </svg>
+
+                <div className="modal-header">
+                    <img src={product.image} alt={product.name} />
+                    <div className="modal-title-section">
+                        <h2 className='product-name'>{product.name}</h2>
+                        <p className='price-range'>{product.priceRange}</p>
+                        <p className='product-description'>{product.description}</p>
+                    </div>
                 </div>
-                <p className='product-name'>{product.name}</p>
-                <p className='small-text'>{product.description}</p>
+
+                <div className="pricing-table-container">
+                    <h3>Pricing Information</h3>
+                    <div className="table-wrapper">
+                        <table className="pricing-table">
+                            <thead>
+                            <tr>
+                                <th>Size</th>
+                                <th>Price/KG</th>
+                                <th>Weight KG/M</th>
+                                <th>6.0M</th>
+                                <th>7.5M</th>
+                                <th>9.0M</th>
+                                <th>10.5M</th>
+                                <th>12.0M</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {product.sizes.map((size, index) => (
+                                <tr key={index}>
+                                    <td className="size-cell">{size.size}</td>
+                                    <td className="price-cell">{size.price}</td>
+                                    <td className="weight-cell">{size.weight}</td>
+                                    <td>{size.lengths['6.0M']}</td>
+                                    <td>{size.lengths['7.5M']}</td>
+                                    <td>{size.lengths['9.0M']}</td>
+                                    <td>{size.lengths['10.5M']}</td>
+                                    <td>{size.lengths['12.0M']}</td>
+                                </tr>
+                            ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     )
 }
-
 
 const App = () => {
     return (
@@ -479,4 +810,5 @@ const TopBar = () => {
         </div>
     );
 };
+
 export default App;
