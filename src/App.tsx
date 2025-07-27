@@ -47,19 +47,23 @@ const Mail = ({ className }: IconProps) => (
 
 const Header = ({ currentPage = "home" }: { currentPage?: string }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isMobile, setIsMobile] = useState(false);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-    // Check if screen is mobile size
+    // Check if screen is mobile size with immediate update
     useEffect(() => {
         const checkScreenSize = () => {
-            setIsMobile(window.innerWidth < 768);
+            const mobile = window.innerWidth < 768;
+            setIsMobile(mobile);
             // Force close menu if switching to desktop
-            if (window.innerWidth >= 768) {
+            if (!mobile) {
                 setIsMenuOpen(false);
             }
         };
 
+        // Set initial state
         checkScreenSize();
+
+        // Add resize listener
         window.addEventListener('resize', checkScreenSize);
         return () => window.removeEventListener('resize', checkScreenSize);
     }, []);
@@ -99,32 +103,6 @@ const Header = ({ currentPage = "home" }: { currentPage?: string }) => {
 
     return (
         <>
-            <style jsx>{`
-                /* Additional styles for proper z-index management */
-                .header {
-                    position: relative;
-                    z-index: 1000;
-                }
-                
-                .logo-container {
-                    z-index: 1002;
-                    position: relative;
-                }
-                
-                .menu-button {
-                    z-index: 1002 !important;
-                    position: relative;
-                }
-                
-                .mobile-menu-overlay {
-                    z-index: 998;
-                }
-                
-                .mobile-menu {
-                    z-index: 999;
-                }
-            `}</style>
-
             <header className="header">
                 <div className="header-container">
                     <div className="header-content">
@@ -150,25 +128,25 @@ const Header = ({ currentPage = "home" }: { currentPage?: string }) => {
                             </button>
                         </nav>
 
-                        {/* Mobile menu button - Only show on mobile */}
-                        {isMobile && (
-                            <button
-                                className="menu-button"
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    setIsMenuOpen(!isMenuOpen);
-                                }}
-                                aria-label="Menu"
-                                style={{ zIndex: 1002 }}
-                            >
-                                {isMenuOpen ? <X className="icon" /> : <Menu className="icon" />}
-                            </button>
-                        )}
+                        {/* Mobile menu button - Always render but conditionally style */}
+                        <button
+                            className="menu-button"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setIsMenuOpen(!isMenuOpen);
+                            }}
+                            aria-label="Menu"
+                            style={{
+                                display: isMobile ? 'flex' : 'none'
+                            }}
+                        >
+                            {isMenuOpen ? <X className="icon" /> : <Menu className="icon" />}
+                        </button>
                     </div>
                 </div>
             </header>
 
-            {/* Mobile Menu - Only render on mobile */}
+            {/* Mobile Menu - Only render when mobile */}
             {isMobile && (
                 <>
                     {/* Mobile Menu Overlay */}

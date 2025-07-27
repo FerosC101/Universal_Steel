@@ -50,65 +50,151 @@ const Mail = ({ className }: IconProps) => (
     </svg>
 );
 
-const Header = () => {
+const Header = ({ currentPage = "products" }: { currentPage?: string }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+    // Check if screen is mobile size with immediate update
+    useEffect(() => {
+        const checkScreenSize = () => {
+            const mobile = window.innerWidth < 768;
+            setIsMobile(mobile);
+            // Force close menu if switching to desktop
+            if (!mobile) {
+                setIsMenuOpen(false);
+            }
+        };
+
+        // Set initial state
+        checkScreenSize();
+
+        // Add resize listener
+        window.addEventListener('resize', checkScreenSize);
+        return () => window.removeEventListener('resize', checkScreenSize);
+    }, []);
 
     const closeMenu = () => setIsMenuOpen(false);
 
+    // Close menu when clicking outside
     useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth >= 768) {
+        const handleClickOutside = (event: MouseEvent) => {
+            const target = event.target as Element;
+            if (isMenuOpen && !target.closest('.header') && !target.closest('.mobile-menu')) {
                 closeMenu();
             }
         };
 
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
+        if (isMenuOpen && isMobile) {
+            document.addEventListener('click', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, [isMenuOpen, isMobile]);
+
+    // Prevent body scroll when menu is open
+    useEffect(() => {
+        if (isMenuOpen && isMobile) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isMenuOpen, isMobile]);
 
     return (
-        <header className="header">
-            <div className="header-container">
-                <div className="header-content">
-                    {/* Logo */}
-                    <div className="logo-container">
-                        <div className="logo-icon">U</div>
-                        <span className="logo-text">UNIVERSAL STEEL SMELTING CO INC</span>
+        <>
+            <header className="header">
+                <div className="header-container">
+                    <div className="header-content">
+                        {/* Logo */}
+                        <div className="logo-container">
+                            <div className="logo-icon">U</div>
+                            <span className="logo-text">UNIVERSAL STEEL SMELTING CO INC</span>
+                        </div>
+
+                        {/* Desktop Navigation */}
+                        <nav className="nav-desktop">
+                            <Link to="/" className={currentPage === "home" ? "active" : ""}>
+                                Home
+                            </Link>
+                            <button>
+                                About Us <ChevronDown className="icon-sm" />
+                            </button>
+                            <button className={currentPage === "products" ? "active" : ""}>
+                                Products <ChevronDown className="icon-sm" />
+                            </button>
+                            <button>
+                                Contact Us <ChevronDown className="icon-sm" />
+                            </button>
+                        </nav>
+
+                        {/* Mobile menu button - Always render but conditionally style */}
+                        <button
+                            className="menu-button"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setIsMenuOpen(!isMenuOpen);
+                            }}
+                            aria-label="Menu"
+                            style={{
+                                display: isMobile ? 'flex' : 'none'
+                            }}
+                        >
+                            {isMenuOpen ? <X className="icon" /> : <Menu className="icon" />}
+                        </button>
                     </div>
-
-                    {/* Desktop Navigation */}
-                    <nav className="nav-desktop">
-                        <Link to="/" className="nav-link">Home</Link>
-                        <button>
-                            About Us <ChevronDown className="icon-sm" />
-                        </button>
-                        <button>
-                            Products <ChevronDown className="icon-sm active" />
-                        </button>
-                        <button>
-                            Contact Us <ChevronDown className="icon-sm" />
-                        </button>
-                    </nav>
-
-                    {/* Mobile menu button */}
-                    <button className="menu-button" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Menu">
-                        {isMenuOpen ? <X className="icon" /> : <Menu className="icon" />}
-                    </button>
                 </div>
+            </header>
 
-                {/* Mobile Navigation */}
-                {isMenuOpen && (
-                    <div className="mobile-menu">
+            {/* Mobile Menu - Only render when mobile */}
+            {isMobile && (
+                <>
+                    {/* Mobile Menu Overlay */}
+                    <div
+                        className={`mobile-menu-overlay ${isMenuOpen ? 'active' : ''}`}
+                        onClick={closeMenu}
+                    />
+
+                    {/* Mobile Navigation */}
+                    <div className={`mobile-menu ${isMenuOpen ? 'active' : ''}`}>
+                        <div className="mobile-menu-header">
+                            <span style={{ fontSize: '1.1rem', fontWeight: '600', color: '#dc2626' }}>
+                                Navigation
+                            </span>
+                            <button className="mobile-menu-close" onClick={closeMenu}>
+                                <X className="icon" />
+                            </button>
+                        </div>
                         <div className="mobile-menu-content">
-                            <Link to="/" className="nav-link" onClick={closeMenu}>Home</Link>
-                            <a href="#" onClick={closeMenu}>About Us</a>
-                            <Link to="/" className="nav-link active" onClick={closeMenu}>Products</Link>
-                            <a href="#" onClick={closeMenu}>Contact Us</a>
+                            <Link
+                                to="/"
+                                onClick={closeMenu}
+                                className={currentPage === "home" ? "active" : ""}
+                            >
+                                Home
+                            </Link>
+                            <button onClick={closeMenu}>
+                                About Us <ChevronDown className="icon-sm" />
+                            </button>
+                            <button
+                                onClick={closeMenu}
+                                className={currentPage === "products" ? "active" : ""}
+                            >
+                                Products <ChevronDown className="icon-sm" />
+                            </button>
+                            <button onClick={closeMenu}>
+                                Contact Us <ChevronDown className="icon-sm" />
+                            </button>
                         </div>
                     </div>
-                )}
-            </div>
-        </header>
+                </>
+            )}
+        </>
     );
 };
 
