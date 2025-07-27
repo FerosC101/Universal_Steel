@@ -48,7 +48,7 @@ body {
   z-index: 900; /* Lower than header */
 }
 
-/* HEADER STYLES - FIXED Z-INDEX */
+/* HEADER STYLES - FIXED LAYOUT */
 .header {
   background: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -75,7 +75,7 @@ body {
 .logo-container {
   display: flex;
   align-items: center;
-  max-width: 70%;
+  flex: 1;
   z-index: 1001;
   position: relative;
 }
@@ -105,14 +105,14 @@ body {
   text-overflow: ellipsis;
 }
 
-/* Mobile Menu Button - FIXED VISIBILITY AND Z-INDEX */
+/* Mobile Menu Button - COMPLETELY HIDDEN ON DESKTOP */
 .menu-button {
-  display: flex !important; /* Force display on mobile */
+  display: flex;
   background: none;
   border: none;
   cursor: pointer;
   padding: 8px;
-  z-index: 1003 !important; /* Higher than everything */
+  z-index: 1003;
   position: relative;
   align-items: center;
   justify-content: center;
@@ -125,10 +125,22 @@ body {
   color: #dc2626;
 }
 
-/* Desktop Navigation - Hidden on mobile by default */
+/* Force hide burger menu on desktop screens */
+@media (min-width: 768px) {
+  .menu-button {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+  }
+}
+
+/* Desktop Navigation - PROPERLY POSITIONED */
 .nav-desktop {
-  display: none;
+  display: none; /* Hidden on mobile by default */
   gap: 24px;
+  margin-left: auto; /* Push to the right */
 }
 
 .nav-desktop a,
@@ -158,7 +170,7 @@ body {
   font-weight: 600;
 }
 
-/* Mobile Menu Overlay - FIXED Z-INDEX */
+/* Mobile Menu Overlay */
 .mobile-menu-overlay {
   position: fixed;
   top: 0;
@@ -166,7 +178,7 @@ body {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 1001; /* Above header but below menu */
+  z-index: 1001;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
@@ -177,7 +189,7 @@ body {
   visibility: visible;
 }
 
-/* Mobile Menu - FIXED Z-INDEX AND POSITIONING */
+/* Mobile Menu */
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -185,7 +197,7 @@ body {
   width: 280px;
   height: 100vh;
   background: white;
-  z-index: 1002; /* Above overlay */
+  z-index: 1002;
   padding: 0;
   transform: translateX(100%);
   transition: transform 0.3s ease;
@@ -841,19 +853,29 @@ body {
     font-size: 18px;
   }
 
-  /* Show desktop navigation on larger screens */
+  /* Show desktop navigation and completely hide mobile elements */
   .nav-desktop {
-    display: flex;
+    display: flex !important;
   }
 
-  /* Hide mobile menu elements completely on desktop */
+  /* Force hide ALL mobile menu elements on desktop */
   .menu-button {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+    pointer-events: none !important;
   }
 
   .mobile-menu,
   .mobile-menu-overlay {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+    pointer-events: none !important;
   }
 
   .hero {

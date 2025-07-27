@@ -120,9 +120,13 @@ const Header = ({ currentPage = "home" }: { currentPage?: string }) => {
                             <button>
                                 About Us <ChevronDown className="icon-sm" />
                             </button>
-                            <button>
+                            <Link
+                                to="/products"
+                                onClick={closeMenu}
+                                className={currentPage === "products" ? "active" : ""}
+                            >
                                 Products <ChevronDown className="icon-sm" />
-                            </button>
+                            </Link>
                             <button>
                                 Contact Us <ChevronDown className="icon-sm" />
                             </button>
