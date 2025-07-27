@@ -27,12 +27,6 @@ const X = ({ className }: IconProps) => (
     </svg>
 );
 
-// const Play = ({ className, onclick }: IconProps) => (
-//     <svg className={className} fill="currentColor" viewBox="0 0 24 24" onClick={onclick}>
-//         <path d="M8 5v14l11-7z" />
-//     </svg>
-// );
-
 const ArrowRight = ({ className }: IconProps) => (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -51,69 +45,178 @@ const Mail = ({ className }: IconProps) => (
     </svg>
 );
 
-const Header = () => {
+const Header = ({ currentPage = "home" }: { currentPage?: string }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    // Check if screen is mobile size
+    useEffect(() => {
+        const checkScreenSize = () => {
+            setIsMobile(window.innerWidth < 768);
+            // Force close menu if switching to desktop
+            if (window.innerWidth >= 768) {
+                setIsMenuOpen(false);
+            }
+        };
+
+        checkScreenSize();
+        window.addEventListener('resize', checkScreenSize);
+        return () => window.removeEventListener('resize', checkScreenSize);
+    }, []);
 
     const closeMenu = () => setIsMenuOpen(false);
 
+    // Close menu when clicking outside
     useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth >= 768) {
+        const handleClickOutside = (event: MouseEvent) => {
+            const target = event.target as Element;
+            if (isMenuOpen && !target.closest('.header') && !target.closest('.mobile-menu')) {
                 closeMenu();
             }
         };
 
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
+        if (isMenuOpen && isMobile) {
+            document.addEventListener('click', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, [isMenuOpen, isMobile]);
+
+    // Prevent body scroll when menu is open
+    useEffect(() => {
+        if (isMenuOpen && isMobile) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isMenuOpen, isMobile]);
 
     return (
-        <header className="header">
-            <div className="header-container">
-                <div className="header-content">
-                    {/* Logo */}
-                    <div className="logo-container">
-                        <div className="logo-icon">U</div>
-                        <span className="logo-text">UNIVERSAL STEEL SMELTING CO INC</span>
+        <>
+            <style jsx>{`
+                /* Additional styles for proper z-index management */
+                .header {
+                    position: relative;
+                    z-index: 1000;
+                }
+                
+                .logo-container {
+                    z-index: 1002;
+                    position: relative;
+                }
+                
+                .menu-button {
+                    z-index: 1002 !important;
+                    position: relative;
+                }
+                
+                .mobile-menu-overlay {
+                    z-index: 998;
+                }
+                
+                .mobile-menu {
+                    z-index: 999;
+                }
+            `}</style>
+
+            <header className="header">
+                <div className="header-container">
+                    <div className="header-content">
+                        {/* Logo */}
+                        <div className="logo-container">
+                            <div className="logo-icon">U</div>
+                            <span className="logo-text">UNIVERSAL STEEL SMELTING CO INC</span>
+                        </div>
+
+                        {/* Desktop Navigation */}
+                        <nav className="nav-desktop">
+                            <a href="#" className={currentPage === "home" ? "active" : ""}>
+                                Home
+                            </a>
+                            <button>
+                                About Us <ChevronDown className="icon-sm" />
+                            </button>
+                            <button>
+                                Products <ChevronDown className="icon-sm" />
+                            </button>
+                            <button>
+                                Contact Us <ChevronDown className="icon-sm" />
+                            </button>
+                        </nav>
+
+                        {/* Mobile menu button - Only show on mobile */}
+                        {isMobile && (
+                            <button
+                                className="menu-button"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setIsMenuOpen(!isMenuOpen);
+                                }}
+                                aria-label="Menu"
+                                style={{ zIndex: 1002 }}
+                            >
+                                {isMenuOpen ? <X className="icon" /> : <Menu className="icon" />}
+                            </button>
+                        )}
                     </div>
-
-                    {/* Desktop Navigation */}
-                    <nav className="nav-desktop">
-                        <a href="#">Home</a>
-                        <button>
-                            About Us <ChevronDown className="icon-sm" />
-                        </button>
-                        <Link to="/products" className="nav-link">
-                            Products <ChevronDown className="icon-sm" />
-                        </Link>
-                        <button>
-                            Contact Us <ChevronDown className="icon-sm" />
-                        </button>
-                    </nav>
-
-                    {/* Mobile menu button */}
-                    <button className="menu-button" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Menu">
-                        {isMenuOpen ? <X className="icon" /> : <Menu className="icon" />}
-                    </button>
                 </div>
+            </header>
 
-                {/* Mobile Navigation */}
-                {isMenuOpen && (
-                    <div className="mobile-menu">
+            {/* Mobile Menu - Only render on mobile */}
+            {isMobile && (
+                <>
+                    {/* Mobile Menu Overlay */}
+                    <div
+                        className={`mobile-menu-overlay ${isMenuOpen ? 'active' : ''}`}
+                        onClick={closeMenu}
+                    />
+
+                    {/* Mobile Navigation */}
+                    <div className={`mobile-menu ${isMenuOpen ? 'active' : ''}`}>
+                        <div className="mobile-menu-header">
+                            <span style={{ fontSize: '1.1rem', fontWeight: '600', color: '#dc2626' }}>
+                                Navigation
+                            </span>
+                            <button className="mobile-menu-close" onClick={closeMenu}>
+                                <X className="icon" />
+                            </button>
+                        </div>
                         <div className="mobile-menu-content">
-                            <a href="#" onClick={closeMenu}>Home</a>
-                            <a href="#" onClick={closeMenu}>About Us</a>
-                            <Link to="/products" onClick={closeMenu} className="nav-link">Products</Link>
-                            <a href="#" onClick={closeMenu}>Contact Us</a>
+                            <a
+                                href="#"
+                                onClick={closeMenu}
+                                className={currentPage === "home" ? "active" : ""}
+                            >
+                                Home
+                            </a>
+                            <button onClick={closeMenu}>
+                                About Us <ChevronDown className="icon-sm" />
+                            </button>
+                            <Link
+                                to="/products"
+                                onClick={closeMenu}
+                                className={currentPage === "products" ? "active" : ""}
+                            >
+                                Products <ChevronDown className="icon-sm" />
+                            </Link>
+                            <button onClick={closeMenu}>
+                                Contact Us <ChevronDown className="icon-sm" />
+                            </button>
                         </div>
                     </div>
-                )}
-            </div>
-        </header>
+                </>
+            )}
+        </>
     );
 };
 
-// Cloudinary image URLs 
+// Cloudinary image URLs
 const cloudinary = {
     hero: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752675549/hero_sqtj19.jpg',
     product: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752675549/homepageAbout_wezvdg.jpg',
@@ -121,7 +224,7 @@ const cloudinary = {
     about: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752676337/514315094_122186224832360700_1263205354293391856_n_qrnviz.jpg',
 };
 
-// Hero Section 
+// Hero Section
 const HeroSection = () => {
     return (
         <section
@@ -156,7 +259,7 @@ const HeroSection = () => {
     );
 };
 
-// About Section 
+// About Section
 const AboutSection = () => {
     return (
         <section className="about">
@@ -200,48 +303,43 @@ const AboutSection = () => {
 // Video Section Component
 const VideoSection = () => {
     const videoRef = useRef<HTMLVideoElement>(null);
-    const buttonRef = useRef<SVGSVGElement | null>(null);
-    const [isPlaying, setIsplaying] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    const toggleVideo = () => {
+        if (videoRef.current) {
+            if (isPlaying) {
+                videoRef.current.pause();
+                setIsPlaying(false);
+            } else {
+                videoRef.current.play();
+                setIsPlaying(true);
+            }
+        }
+    };
 
     return (
         <section className="video-section">
             <div className="video-container">
-                <svg ref={buttonRef} className="icon-lg play-button" fill="currentColor" viewBox="0 0 24 24" onClick={() => {
-                    if (!isPlaying) {
-                        videoRef.current?.play();
-                        setIsplaying(true);
-                        buttonRef.current?.classList.toggle('hidden');
-                    } else {
-                        videoRef.current?.pause();
-                        setIsplaying(false);
-                        buttonRef.current?.classList.toggle('hidden');
-                    }
-                }}>
-                    <path d="M8 5v14l11-7z" />
-                </svg>
-                {/* <Play /> */}
-                <video ref={videoRef} className='video' onClick={() => {
-                    if (!isPlaying) {
-                        videoRef.current?.play();
-                        setIsplaying(true);
-                        buttonRef.current?.classList.add('hidden');
-                    } else {
-                        videoRef.current?.pause();
-                        setIsplaying(false);
-                        buttonRef.current?.classList.remove('hidden');
-                    }
-                }}>
+                {!isPlaying && (
+                    <svg
+                        className="icon-lg play-button"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        onClick={toggleVideo}
+                        style={{ cursor: 'pointer' }}
+                    >
+                        <path d="M8 5v14l11-7z" />
+                    </svg>
+                )}
+                <video
+                    ref={videoRef}
+                    className='video'
+                    onClick={toggleVideo}
+                    onEnded={() => setIsPlaying(false)}
+                >
                     <source src="https://res.cloudinary.com/drrzinr9v/video/upload/v1752759885/homepageVid_a3fuh3.mov" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
-                {/* <div className="video-wrapper">
-                    <div className="video-background">
-                    </div>
-                    <div className="video-overlay">
-                        <button className="play-button" aria-label="Play video">
-                        </button>
-                    </div>
-                </div> */}
             </div>
         </section>
     );
@@ -404,28 +502,27 @@ const Footer = () => {
     );
 };
 
-const App = () => {
-    return (
-        <div className="app-container gradient-bg">
-            <TopBar />
-            <Header />
-            <main>
-
-                <HeroSection />
-                <AboutSection />
-                <VideoSection />
-                <FeaturesSection />
-
-            </main>
-            <Footer />
-        </div>
-    );
-};
-
 const TopBar = () => {
     return (
         <div className="topbar">
         </div>
     );
 };
+
+const App = () => {
+    return (
+        <div className="app-container gradient-bg">
+            <TopBar />
+            <Header />
+            <main>
+                <HeroSection />
+                <AboutSection />
+                <VideoSection />
+                <FeaturesSection />
+            </main>
+            <Footer />
+        </div>
+    );
+};
+
 export default App;
