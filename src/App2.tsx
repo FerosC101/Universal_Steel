@@ -209,7 +209,7 @@ const Footer = () => {
                             <div className="logo-icon">U</div>
                             <span className="logo-text">UNIVERSAL STEEL SMELTING CO INC</span>
                         </div>
-                        <p className="footer-address">26 Quirino Highway Balon Bato, Quezon City</p>
+                        <p className="footer-address">26 Quirino Highway Balon Bato 1, Quezon City</p>
                         <div className="social-links">
                             <a href="#" className="social-link facebook">f</a>
                             <a href="#" className="social-link linkedin">in</a>
@@ -357,7 +357,7 @@ const TopBanner = () => {
         {
             id: 2,
             name: "Grade 60 Rebars",
-            image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753189317/productpageRebars_qspo30.jpg",
+            image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753799328/Grade_60_7_l46gsy.jpg",
             priceRange: "₱22.50 - ₱22.70/KG",
             sizes: [
                 {
@@ -632,7 +632,7 @@ const FinishedProjects = () => {
     return (
         <div className="finished-products">
             <ProjectModal project={selectedProject} isOpen={isOpen} setIsOpen={setIsOpen} />
-            <h1 style={{ marginBottom: '50px'}}>Finished Projects</h1>
+            <h1 style={{ marginBottom: '50px'}}>Projects</h1>
             <ProjectCarousel projects={projectGroups} openModal={openProjectModal} />
         </div>
     )
@@ -643,7 +643,6 @@ const ProjectImageCard = ({ project, click }: { project: ProjectGroup, click: (p
         <div className='banner-card' onClick={() => click(project)}>
             <img src={project.cardImage} alt={project.title} />
             <h2>{project.title}</h2>
-            <p>Click to view project details</p>
         </div>
     )
 }

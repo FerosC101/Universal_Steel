@@ -422,7 +422,7 @@ const Footer = () => {
                             <div className="logo-icon">U</div>
                             <span className="logo-text">UNIVERSAL STEEL SMELTING CO INC</span>
                         </div>
-                        <p className="footer-address">26 Quirino Highway Balon Bato, Quezon City</p>
+                        <p className="footer-address">26 Quirino Highway Balon Bato 1, Quezon City</p>
                         <div className="social-links">
                             <a href="#" className="social-link facebook">f</a>
                             <a href="#" className="social-link linkedin">in</a>
