@@ -465,7 +465,7 @@ body {
 .certifications .card  img {
   width: 100%;
 }
-
+/*
 .iso-recertification {
   position: relative;
   display: grid;
@@ -539,6 +539,192 @@ body {
   right: 20px;
   transform: translateX(-50%);
   transform: translateY(-50%);
+}*/
+.iso-recertification {
+  position: relative;
+  margin: 60px 0;
+  overflow: hidden;
+  min-height: 650px; /* Keep the improved height */
+  width: 100%;
+}
+
+.iso-recertification h2 {
+  font-size: 3.5rem;
+  color: black;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.iso-recertification .text-cont {
+  position: absolute; /* Make the grey box absolutely positioned */
+  top: 0;
+  bottom: 0; /* Stretch vertically */
+  padding: 40px;
+  background: linear-gradient(to right, #5e5e5e 0%, #a0a0a0 25%, #d9d9d9 50%, #a0a0a0 75%, #5e5e5e 100%);
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.6s ease-in-out;
+  /* Default position for ISO slide (image on right) */
+  left: 0;
+  width: calc(100% - 20px - 125px); /* Reverted: Full width minus image offset (20px) and half image width (125px) */
+  animation: slideTextIn 0.6s ease-in-out; /* Apply slide animation */
+  z-index: 1; /* Set z-index for the grey box */
+}
+
+.iso-recertification .text-cont.reverse-layout {
+  /* Position for BPS slide (image on left) */
+  left: auto; /* Reset left */
+  right: 0;
+  width: calc(100% - 20px - 125px); /* Reverted: Same width */
+  animation: slideTextInReverse 0.6s ease-in-out; /* Apply reverse slide animation */
+}
+
+.iso-recertification .arrow-cont {
+  border: #8b0000 2px solid;
+  display: flex;
+  aspect-ratio: 1 / 1;
+  width: 50px;
+  transition: all 0.3s ease;
+  justify-content: center;
+  align-items: center;
+}
+
+.iso-recertification .arrow-cont:hover {
+  background-color: rgba(139, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+.iso-recertification .button {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.iso-recertification .text-cont svg {
+  width: 30px;
+  height: 30px;
+  stroke: #8b0000;
+  transition: transform 0.3s ease;
+}
+
+.iso-recertification .text-cont svg.rotate-arrow {
+  transform: rotate(180deg);
+}
+
+.iso-recertification .certification-image {
+  position: absolute;
+  width: 250px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.6s ease-in-out;
+  z-index: 2; /* Set a higher z-index for the logo */
+}
+
+/* For ISO slide (image on right) */
+.iso-recertification .certification-image:not(.left-image) {
+  right: 20px;
+  animation: imageSlideIn 0.6s ease-in-out;
+}
+
+/* For BPS slide (image on left) */
+.iso-recertification .certification-image.left-image {
+  left: 20px;
+  animation: imageSlideInLeft 0.6s ease-in-out;
+}
+
+.iso-recertification .text p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Animations for the text-cont sliding */
+@keyframes slideTextInReverse {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideTextIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Keyframe animations for images (already present, just ensuring they are here) */
+@keyframes imageSlideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+@keyframes imageSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .iso-recertification {
+    margin: 30px 0;
+    min-height: auto; /* Allow height to adjust */
+  }
+
+  .iso-recertification .text-cont {
+    position: relative; /* Revert to relative for mobile */
+    width: 100%; /* Full width */
+    left: auto;
+    right: auto;
+    padding: 20px;
+    text-align: center;
+    grid-template-columns: 1fr; /* Stack arrows and text */
+    z-index: auto; /* Reset z-index for mobile */
+  }
+
+  .iso-recertification .certification-image {
+    position: relative; /* Revert to relative for mobile */
+    width: 150px;
+    margin: 20px auto;
+    display: block;
+    top: auto;
+    left: auto;
+    right: auto;
+    transform: none;
+    z-index: auto; /* Reset z-index for mobile */
+  }
+
+  .iso-recertification h2 {
+    font-size: 2.5rem;
+  }
 }
 
 .clients {

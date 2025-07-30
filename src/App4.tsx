@@ -361,28 +361,109 @@ const Certifications = () => {
     </div>);
 }
 
-const pic7 = `https://res.cloudinary.com/drrzinr9v/image/upload/Group_lxnmwc.png?ts=${Date.now()}`;
+
+
 
 const ISORecertification = () => {
-    return (<div className='iso-recertification'>
-        <img src={pic7} alt="" />
-        <div className="text-cont">
-            <div className="button">
-                <div className="arrow-cont">
-                    <ArrowRight />
-                </div>
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  const certifications = [
+    {
+      id: "iso",
+      title: "ISO Recertification",
+      image: "https://res.cloudinary.com/drrzinr9v/image/upload/Group_lxnmwc.png",
+      content: [
+        "Universal Steel Smelting Co, Inc is proud to announce the re-certification of our Quality Management System under ISO 9001:2008 Standards. Our facility was audited in March 2010 by TUV Testing Services , Inc.",
+        "Universal Steel Smelting Co, Inc has acquired ISO 9001:2008 recertification after passing an assessment by TUV Testing Services, Inc. last year. With the previous acquisition of the same certification by the Confirmation of ISO 9001 re-certification by a reputable third-party certification body through regular independent assessment and audit of the system. This is particularly of primordial importance in any manufacturing company facility like us. Our re-certification demonstrates our firm commitment to the quality of reinforcing bars. Universal Steel Smelting Co, Inc.'s announcement clearly demonstrates our commitment to the highest standards and quality,",
+        "Our ISO certification assures our customers that they can expect consistent, superior quality products and continued pursuit of excellence. This coming 2016, Universal Steel Smelting Co, Inc. is celebrating 50 years of partnership with our clientele. Customers can contact us for a copy of our new certificate!",
+      ],
+      imagePosition: "right",
+    },
+    {
+      id: "bps",
+      title: "BPS Certification",
+      image: "https://res.cloudinary.com/drrzinr9v/image/upload/Group_lxnmwc.png", // Placeholder for BPS logo
+      content: [
+        "Universal Steel Smelting Co, Inc is proud to announce the re-certification of our Quality Management System under ISO 9001:2008 Standards. Our facility was audited in March 2010 by TUV Testing Services , Inc.",
+        "Universal Steel Smelting Co, Inc has acquired ISO 9001:2008 recertification after passing an assessment by TUV Testing Services, Inc. last year. With the previous acquisition of the same certification by the Confirmation of ISO 9001 re-certification by a reputable third-party certification body through regular independent assessment and audit of the system. This is particularly of primordial importance in any manufacturing company facility like us. Our re-certification demonstrates our firm commitment to the quality of reinforcing bars. Universal Steel Smelting Co, Inc.'s announcement clearly demonstrates our commitment to the highest standards and quality,",
+        "Our ISO certification assures our customers that they can expect consistent, superior quality products and continued pursuit of excellence. This coming 2016, Universal Steel Smelting Co, Inc. is celebrating 50 years of partnership with our clientele. Customers can contact us for a copy of our new certificate!",
+      ],
+      imagePosition: "left",
+    },
+  ]
+
+  const handleSlideChange = () => {
+    setCurrentSlide((prev) => (prev + 1) % certifications.length)
+  }
+
+  const handleSlidePrevious = () => {
+    setCurrentSlide((prev) => (prev - 1 + certifications.length) % certifications.length)
+  }
+
+  const current = certifications[currentSlide]
+
+  return (
+    <div className="iso-recertification">
+      {/* Image for current slide (when on right) */}
+      {current.imagePosition === "right" && (
+        <img src={current.image || "/placeholder.svg"} alt={current.title} className="certification-image" />
+      )}
+
+      {/* Text content (grey box) */}
+      <div className={`text-cont ${current.imagePosition === "left" ? "reverse-layout" : ""}`} key={current.id}>
+        <div className="button">
+          {current.imagePosition === "right" && (
+            <div className="arrow-cont" onClick={handleSlidePrevious}>
+              <ArrowRight className="rotate-arrow" />
             </div>
-            <div className="text">
-                <h2>ISO Recertification</h2>
-                <p>Universal Steel Smelting Co, Inc is proud to announce the re-certification of our Quality Management System under ISO 9001:2008 Standards. Our facility was audited in March 2010 by TUV Testing Services , Inc.</p>
-                <p>Universal Steel Smelting Co, Inc has acquired ISO 9001:2008 recertification after passing an assessment by TUV Testing Services, Inc. last year. With the previous acquisition of the same certification by the Confirmation of ISO 9001 re-certification by a reputable third-party certification body through regular independent assessment and audit of the system. This is particularly of primordial importance in any manufacturing company facility like us. Our re-certification demonstrates our firm commitment to the quality of reinforcing bars. Universal Steel Smelting Co, Inc.'s announcement clearly demonstrates our commitment to the highest standards and quality,"</p>
-                <p>Our ISO certification assures our customers that they can expect consistent, superior quality products and continued pursuit of excellence. This coming 2016, Universal Steel Smelting Co, Inc. is celebrating 50 years of partnership with our clientele. Customers can contact us for a copy of our new certificate!</p>
-            </div>
-            <div></div>
+          )}
         </div>
-        <div></div>
-    </div>);
+        <div className="text">
+          <h2>{current.title}</h2>
+          {current.content.map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
+        </div>
+        <div className="button">
+          {current.imagePosition === "left" && (
+            <div className="arrow-cont" onClick={handleSlideChange}>
+              <ArrowRight />
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Image for current slide (when on left) */}
+      {current.imagePosition === "left" && (
+        <img src={current.image || "/placeholder.svg"} alt={current.title} className="certification-image left-image" />
+      )}
+    </div>
+  )
 }
+
+
+//const pic7 = `https://res.cloudinary.com/drrzinr9v/image/upload/Group_lxnmwc.png?ts=${Date.now()}`;
+
+//const ISORecertification = () => {
+ //   return (<div className='iso-recertification'>
+//        <img src={pic7} alt="" />
+ //       <div className="text-cont">
+ //           <div className="button">
+ //               <div className="arrow-cont">
+ //                   <ArrowRight />
+ //               </div>
+ //           </div>
+ //           <div className="text">
+ //               <h2>ISO Recertification</h2>
+ //               <p>Universal Steel Smelting Co, Inc is proud to announce the re-certification of our Quality Management System under ISO 9001:2008 Standards. Our facility was audited in March 2010 by TUV Testing Services , Inc.</p>
+ //               <p>Universal Steel Smelting Co, Inc has acquired ISO 9001:2008 recertification after passing an assessment by TUV Testing Services, Inc. last year. With the previous acquisition of the same certification by the Confirmation of ISO 9001 re-certification by a reputable third-party certification body through regular independent assessment and audit of the system. This is particularly of primordial importance in any manufacturing company facility like us. Our re-certification demonstrates our firm commitment to the quality of reinforcing bars. Universal Steel Smelting Co, Inc.'s announcement clearly demonstrates our commitment to the highest standards and quality,"</p>
+ //               <p>Our ISO certification assures our customers that they can expect consistent, superior quality products and continued pursuit of excellence. This coming 2016, Universal Steel Smelting Co, Inc. is celebrating 50 years of partnership with our clientele. Customers can contact us for a copy of our new certificate!</p>
+ //           </div>
+ //           <div></div>
+//        </div>
+ //       <div></div>
+ //   </div>);
+//}
 
 const clientimg = `https://res.cloudinary.com/drrzinr9v/image/upload/Group_1000001822_lkp9t8.png?ts=${Date.now()}`;
 const clients = [
