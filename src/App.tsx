@@ -1,5 +1,5 @@
 
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './App.css';
 
@@ -49,44 +49,33 @@ const Header = ({ currentPage = "home" }: { currentPage?: string }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-    // Check if screen is mobile size with immediate update
+    // Check if screen is mobile size
     useEffect(() => {
         const checkScreenSize = () => {
             const mobile = window.innerWidth < 768;
             setIsMobile(mobile);
             // Force close menu if switching to desktop
-            if (!mobile) {
+            if (!mobile && isMenuOpen) {
                 setIsMenuOpen(false);
             }
         };
 
-        // Set initial state
         checkScreenSize();
-
-        // Add resize listener
         window.addEventListener('resize', checkScreenSize);
         return () => window.removeEventListener('resize', checkScreenSize);
-    }, []);
+    }, [isMenuOpen]);
 
     const closeMenu = () => setIsMenuOpen(false);
+    const toggleMenu = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        setIsMenuOpen(prev => !prev);
+    };
 
-    // Close menu when clicking outside
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            const target = event.target as Element;
-            if (isMenuOpen && !target.closest('.header') && !target.closest('.mobile-menu')) {
-                closeMenu();
-            }
-        };
-
-        if (isMenuOpen && isMobile) {
-            document.addEventListener('click', handleClickOutside);
-        }
-
-        return () => {
-            document.removeEventListener('click', handleClickOutside);
-        };
-    }, [isMenuOpen, isMobile]);
+    // Close menu when clicking overlay
+    const handleOverlayClick = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        closeMenu();
+    };
 
     // Prevent body scroll when menu is open
     useEffect(() => {
@@ -100,6 +89,23 @@ const Header = ({ currentPage = "home" }: { currentPage?: string }) => {
             document.body.style.overflow = 'unset';
         };
     }, [isMenuOpen, isMobile]);
+
+    // Close menu on escape key
+    useEffect(() => {
+        const handleEscape = (e: KeyboardEvent) => {
+            if (e.key === 'Escape' && isMenuOpen) {
+                closeMenu();
+            }
+        };
+
+        if (isMenuOpen) {
+            document.addEventListener('keydown', handleEscape);
+        }
+
+        return () => {
+            document.removeEventListener('keydown', handleEscape);
+        };
+    }, [isMenuOpen]);
 
     return (
         <>
@@ -117,35 +123,37 @@ const Header = ({ currentPage = "home" }: { currentPage?: string }) => {
                             <a href="#" className={currentPage === "home" ? "active" : ""}>
                                 Home
                             </a>
-                            <button>
+                            <Link
+                                to="/about"
+                                className={currentPage === "about" ? "active" : ""}
+                            >
                                 About Us <ChevronDown className="icon-sm" />
-                            </button>
+                            </Link>
                             <Link
                                 to="/products"
-                                onClick={closeMenu}
                                 className={currentPage === "products" ? "active" : ""}
                             >
                                 Products <ChevronDown className="icon-sm" />
                             </Link>
-                            <button>
+                            <Link
+                                to="/contact"
+                                className={currentPage === "contact" ? "active" : ""}
+                            >
                                 Contact Us <ChevronDown className="icon-sm" />
-                            </button>
+                            </Link>
                         </nav>
 
-                        {/* Mobile menu button - Always render but conditionally style */}
-                        <button
-                            className="menu-button"
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                setIsMenuOpen(!isMenuOpen);
-                            }}
-                            aria-label="Menu"
-                            style={{
-                                display: isMobile ? 'flex' : 'none'
-                            }}
-                        >
-                            {isMenuOpen ? <X className="icon" /> : <Menu className="icon" />}
-                        </button>
+                        {/* Mobile menu button - Only show on mobile */}
+                        {isMobile && (
+                            <button
+                                className="menu-button"
+                                onClick={toggleMenu}
+                                aria-label="Toggle menu"
+                                aria-expanded={isMenuOpen}
+                            >
+                                {isMenuOpen ? <X className="icon" /> : <Menu className="icon" />}
+                            </button>
+                        )}
                     </div>
                 </div>
             </header>
@@ -156,16 +164,25 @@ const Header = ({ currentPage = "home" }: { currentPage?: string }) => {
                     {/* Mobile Menu Overlay */}
                     <div
                         className={`mobile-menu-overlay ${isMenuOpen ? 'active' : ''}`}
-                        onClick={closeMenu}
+                        onClick={handleOverlayClick}
+                        aria-hidden="true"
                     />
 
                     {/* Mobile Navigation */}
-                    <div className={`mobile-menu ${isMenuOpen ? 'active' : ''}`}>
+                    <nav
+                        className={`mobile-menu ${isMenuOpen ? 'active' : ''}`}
+                        role="navigation"
+                        aria-label="Mobile navigation"
+                    >
                         <div className="mobile-menu-header">
                             <span style={{ fontSize: '1.1rem', fontWeight: '600', color: '#dc2626' }}>
                                 Navigation
                             </span>
-                            <button className="mobile-menu-close" onClick={closeMenu}>
+                            <button
+                                className="mobile-menu-close"
+                                onClick={closeMenu}
+                                aria-label="Close menu"
+                            >
                                 <X className="icon" />
                             </button>
                         </div>
@@ -177,21 +194,32 @@ const Header = ({ currentPage = "home" }: { currentPage?: string }) => {
                             >
                                 Home
                             </a>
-                            <button onClick={closeMenu}>
-                                About Us <ChevronDown className="icon-sm" />
-                            </button>
+                            <Link
+                                to="/about"
+                                onClick={closeMenu}
+                                className={currentPage === "about" ? "active" : ""}
+                            >
+                                About Us
+                                <ChevronDown className="icon-sm" />
+                            </Link>
                             <Link
                                 to="/products"
                                 onClick={closeMenu}
                                 className={currentPage === "products" ? "active" : ""}
                             >
-                                Products <ChevronDown className="icon-sm" />
+                                Products
+                                <ChevronDown className="icon-sm" />
                             </Link>
-                            <button onClick={closeMenu}>
-                                Contact Us <ChevronDown className="icon-sm" />
-                            </button>
+                            <Link
+                                to="/contact"
+                                onClick={closeMenu}
+                                className={currentPage === "contact" ? "active" : ""}
+                            >
+                                Contact Us
+                                <ChevronDown className="icon-sm" />
+                            </Link>
                         </div>
-                    </div>
+                    </nav>
                 </>
             )}
         </>
@@ -422,7 +450,8 @@ const Footer = () => {
                             <div className="logo-icon">U</div>
                             <span className="logo-text">UNIVERSAL STEEL SMELTING CO INC</span>
                         </div>
-                        <p className="footer-address">26 Quirino Highway Balon Bato 1, Quezon City</p>
+                        <p className="footer-address">28 Quirino Highway, Balon Bato 1,
+                            Quezon City, 1106, Philippines</p>
                         <div className="social-links">
                             <a href="#" className="social-link facebook">f</a>
                             <a href="#" className="social-link linkedin">in</a>
@@ -458,7 +487,7 @@ const Footer = () => {
                         <div>
                             <div className="contact-item">
                                 <Phone className="icon-sm" />
-                                <span>(02) 8363-2051</span>
+                                <span>(02) 8363-2651</span>
                             </div>
                             <div className="contact-item">
                                 <Phone className="icon-sm" />

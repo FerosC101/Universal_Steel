@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './App4.css';
 
@@ -28,17 +27,13 @@ const X = ({ className }: IconProps) => (
     </svg>
 );
 
-// const Play = ({ className, onclick }: IconProps) => (
-//     <svg className={className} fill="currentColor" viewBox="0 0 24 24" onClick={onclick}>
-//         <path d="M8 5v14l11-7z" />
-//     </svg>
-// );
-
 const ArrowRight = ({ className }: IconProps) => (
     <svg className={className} fill="none" stroke="white" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M17 8l4 4m0 0l-4 4m4-4H3" />
     </svg>
 );
+
+
 
 const Phone = ({ className }: IconProps) => (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -54,53 +49,114 @@ const Mail = ({ className }: IconProps) => (
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+    useEffect(() => {
+        const checkScreenSize = () => {
+            const mobile = window.innerWidth < 768;
+            setIsMobile(mobile);
+            if (!mobile) {
+                setIsMenuOpen(false);
+            }
+        };
+
+        checkScreenSize();
+        window.addEventListener('resize', checkScreenSize);
+        return () => window.removeEventListener('resize', checkScreenSize);
+    }, []);
 
     const closeMenu = () => setIsMenuOpen(false);
 
     useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth >= 768) {
+        const handleClickOutside = (event: MouseEvent) => {
+            const target = event.target as Element;
+            if (isMenuOpen && !target.closest('.header') && !target.closest('.mobile-menu')) {
                 closeMenu();
             }
         };
 
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
+        if (isMenuOpen && isMobile) {
+            document.addEventListener('click', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, [isMenuOpen, isMobile]);
+
+    useEffect(() => {
+        if (isMenuOpen && isMobile) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isMenuOpen, isMobile]);
 
     return (
-        <header className="header">
-            <div className="header-container">
-                <div className="header-content">
-                    {/* Logo */}
-                    <div className="logo-container">
-                        <div className="logo-icon">U</div>
-                        <span className="logo-text">UNIVERSAL STEEL SMELTING CO INC</span>
+        <>
+            <header className="header">
+                <div className="header-container">
+                    <div className="header-content">
+                        {/* Logo */}
+                        <div className="logo-container">
+                            <div className="logo-icon">
+                                <img src="https://res.cloudinary.com/drrzinr9v/image/upload/v1754201352/USSCI_logo_19x17inch-removebg-preview_idrn0g.png" alt="USSCI Logo" />
+                            </div>
+                            <span className="logo-text">UNIVERSAL STEEL SMELTING CO INC</span>
+                        </div>
+
+                        {/* Desktop Navigation */}
+                        <nav className="nav-desktop">
+                            <Link to="/" className="nav-link">Home</Link>
+                            <Link to="/about" className="nav-link">
+                                About Us <ChevronDown className="icon-sm" />
+                            </Link>
+                            <Link to="/products" className="nav-link">
+                                Products <ChevronDown className="icon-sm" />
+                            </Link>
+                            <Link to="/contact" className="nav-link">
+                                Contact Us <ChevronDown className="icon-sm" />
+                            </Link>
+                        </nav>
+
+                        {/* Mobile menu button */}
+                        <button
+                            className="menu-button"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setIsMenuOpen(!isMenuOpen);
+                            }}
+                            aria-label="Menu"
+                            style={{ display: isMobile ? 'flex' : 'none' }}
+                        >
+                            {isMenuOpen ? <X className="icon" /> : <Menu className="icon" />}
+                        </button>
                     </div>
-
-                    {/* Desktop Navigation */}
-                    <nav className="nav-desktop">
-                        <Link to="/" className="nav-link">Home</Link>
-                        <Link to="/about" className="nav-link">
-                            About Us <ChevronDown className="icon-sm" />
-                        </Link>
-                        <Link to="/products" className="nav-link">
-                            Products <ChevronDown className="icon-sm" />
-                        </Link>
-                        <Link to="/contact" className="nav-link">
-                            Contact Us <ChevronDown className="icon-sm" />
-                        </Link>
-                    </nav>
-
-                    {/* Mobile menu button */}
-                    <button className="menu-button" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Menu">
-                        {isMenuOpen ? <X className="icon" /> : <Menu className="icon" />}
-                    </button>
                 </div>
+            </header>
 
-                {/* Mobile Navigation */}
-                {isMenuOpen && (
-                    <div className="mobile-menu">
+            {/* Mobile Menu Overlay */}
+            {isMobile && (
+                <>
+                    <div
+                        className={`mobile-menu-overlay ${isMenuOpen ? 'active' : ''}`}
+                        onClick={closeMenu}
+                    />
+
+                    {/* Mobile Navigation */}
+                    <div className={`mobile-menu ${isMenuOpen ? 'active' : ''}`}>
+                        <div className="mobile-menu-header">
+                            <span style={{ fontSize: '1.1rem', fontWeight: '600', color: '#dc2626' }}>
+                                Navigation
+                            </span>
+                            <button className="mobile-menu-close" onClick={closeMenu}>
+                                <X className="icon" />
+                            </button>
+                        </div>
                         <div className="mobile-menu-content">
                             <Link to="/" onClick={closeMenu} className="nav-link">Home</Link>
                             <Link to="/about" onClick={closeMenu} className="nav-link">About Us</Link>
@@ -108,9 +164,9 @@ const Header = () => {
                             <Link to="/contact" onClick={closeMenu} className="nav-link">Contact Us</Link>
                         </div>
                     </div>
-                )}
-            </div>
-        </header>
+                </>
+            )}
+        </>
     );
 };
 
@@ -123,7 +179,9 @@ const Footer = () => {
                     {/* Company Info */}
                     <div>
                         <div className="footer-company">
-                            <div className="logo-icon">U</div>
+                            <div className="logo-icon">
+                                <img src="https://res.cloudinary.com/drrzinr9v/image/upload/v1754201352/USSCI_logo_19x17inch-removebg-preview_idrn0g.png" alt="USSCI Logo" />
+                            </div>
                             <span className="logo-text">UNIVERSAL STEEL SMELTING CO INC</span>
                         </div>
                         <p className="footer-address">26 Quirino Highway Balon Bato, Quezon City</p>
@@ -224,21 +282,21 @@ const Banner = () => {
             <div className='item'>
                 <div className='logo-name'>
                     <img src={logoUrl2} alt="Company Logo" className="logo" />
-                    <p>USCI was established in 1966 lor</p>
+                    <p>Continuous modernization of production lines</p>
                 </div>
             </div>
             <ArrowRight />
             <div className='item'>
                 <div className='logo-name'>
                     <img src={logoUrl3} alt="Company Logo" className="logo" />
-                    <p>USCI was established in 1966</p>
+                    <p>Achieved BPS and ISO certifications</p>
                 </div>
             </div>
             <ArrowRight />
             <div className='item'>
                 <div className='logo-name'>
                     <img src={logoUrl4} alt="Company Logo" className="logo" />
-                    <p>USCI was established in 1966</p>
+                    <p>Accredited testing laboratory for government projects</p>
                 </div>
             </div>
         </div>
@@ -259,7 +317,7 @@ const History = () => {
                 Universal Steel Smelting Co., Inc. (USSCI) was founded on January 27, 1966, with the goal of producing high-quality reinforcing steel bars for the Philippine construction industry.
             </p>
             <p>
-                Based in Balon Bato, Quezon City, USSCI is part of the LKG Group of Companies and backed by strategic alliances with leading financial institutions in the country.
+                Based in Balon Bato 1, Quezon City, USSCI is part of the LKG Group of Companies and backed by strategic alliances with leading financial institutions in the country.
             </p>
         </div>
     </div>);
@@ -314,24 +372,53 @@ const pic1 = `https://res.cloudinary.com/drrzinr9v/image/upload/IMG_0634_ehtkiu.
 const pic2 = `https://res.cloudinary.com/drrzinr9v/image/upload/productpageSpectrometer_nkp7rb.jpg?ts=${Date.now()}`;
 const pic3 = `https://res.cloudinary.com/drrzinr9v/image/upload/16._Overview_of_Reheating_Furnace_ztoovl.jpg?ts=${Date.now()}`;
 
-
 const Modernization = () => {
-    return (<div className='modernization'>
-        <div className='text'>
-            <h1>Factory Modernization</h1>
-            <p>
-Our facility has evolved from a hand-fed mill to a fully modernized production plant. We operate a Full Tandem Mill from roughing to finishing passes and use a state-of-the-art continuous reheating furnace from FORNI INDUSTRIAL
-BENDOTTI - equipped with a high- pressure burner system and advanced PLC controls for consistent quality.</p>
-        </div>
-        <div className="image-cont">
-            <img src={pic1} alt="" />
-            <img src={pic2} alt="" />
-            <img src={pic3} alt="" />
-            
-        </div>
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const images = [pic1, pic2, pic3];
 
-    </div>);
-}
+    const nextSlide = () => {
+        setCurrentSlide((prev) => (prev + 1) % images.length);
+    };
+    const goToSlide = (index: number) => {
+        setCurrentSlide(index);
+    };
+
+    // Auto-advance carousel
+    useEffect(() => {
+        const interval = setInterval(nextSlide, 5000);
+        return () => clearInterval(interval);
+    }, []);
+
+    return (
+        <div className='modernization'>
+            <div className='text'>
+                <h1>Factory Modernization</h1>
+                <p>
+                    Our facility has evolved from a hand-fed mill to a fully modernized production plant. We operate a Full Tandem Mill from roughing to finishing passes and use a state-of-the-art continuous reheating furnace from FORNI INDUSTRIAL BENDOTTI - equipped with a high- pressure burner system and advanced PLC controls for consistent quality.
+                </p>
+            </div>
+            <div className="image-cont">
+                <div className="carousel-container" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+                    {images.map((image, index) => (
+                        <div key={index} className="carousel-slide">
+                            <img src={image} alt={`Factory image ${index + 1}`} />
+                        </div>
+                    ))}
+                </div>
+
+                <div className="carousel-indicators">
+                    {images.map((_, index) => (
+                        <button
+                            key={index}
+                            className={`carousel-indicator ${currentSlide === index ? 'active' : ''}`}
+                            onClick={() => goToSlide(index)}
+                        />
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+};
 
 
 const pic4 = `https://res.cloudinary.com/drrzinr9v/image/upload/Screenshot_2025-06-16_235347-removebg-preview_sovmgu.png?ts=${Date.now()}`;
@@ -386,70 +473,70 @@ const ISORecertification = () => {
 
 const clientimg = `https://res.cloudinary.com/drrzinr9v/image/upload/Group_1000001822_lkp9t8.png?ts=${Date.now()}`;
 const clients = [
-  "AYALA LAND, INC.",
-  "ANCHOR PROPERTIES",
-  "A.M. ORETA & COMPANY",
-  "AVIDA LAND CORPORATION",
-  "BUILDING BEAVER CORPORATION",
-  "CAVDEAL INTERNATIONAL",
-  "CHINA INTERNATIONAL WATER & ELECTRICAL CORPORATION",
-  "CHINA ROAD AND BRIDGE CORPORATION",
-  "CHINA GEO-ENGINEERING PHILS. CORPORATION",
-  "DAIICHI PROPERTIES",
-  "DATEM, INC.",
-  "DATALAND INC.",
-  "DDT KONSTRACT INC.",
-  "D.M. WENCESLAO & ASSOCIATES INC.",
-  "D.M. CONSUNJI INC.",
-  "E. I. CONSTRUCTION CO., INC.",
-  "EEI CORPORATION",
-  "EMPIRE EAST LAND HOLDINGS INC.",
-  "ETON PROPERTIES PHILS. INC.",
-  "FEDERAL LAND, INC.",
-  "F.F. CRUZ & COMPANY",
-  "FILINVEST ALABANG INC. / FILINVEST LAND INC.",
-  "FIRST BALFOUR – LEIGHTON JOINT VENTURE",
-  "GLOBAL ESTATE RESORT INC.",
-  "HANJIN HEAVY INDUSTRIES & CONST. CO. LTD.",
-  "HANWHA E & C CORPORATION",
-  "HILMARCS CONSTRUCTION CORPORATION",
-  "HUMANTECH KOREA PHILS. CORPORATION",
-  "IPM CONSTRUCTION",
-  "JQ INTERNATIONAL CONSTRUCTION, INC.",
-  "KAJIMA PHILS. INC.",
-  "LEY CONST. & DEV’T. CORP.",
-  "LEIGHTON CONTRACTORS",
-  "MAKATI DEVELOPMENT CORPORATION",
-  "MALLERS INVESTMENTS CORPORATION",
-  "MC CONNELL DOWELL PHILS., INC.",
-  "MEGAWIDE CONSTRUCTION CORPORATION",
-  "MEGAWORLD PROPERTIES & HOLDINGS INC.",
-  "MOLDEX REALTY INC.",
-  "MONOCRETE CONSTRUCTION PHILIPPINES INC.",
-  "MONOLITH CONSTRUCTION",
-  "NATIONAL IRRIGATION ADMINISTRATION",
-  "NEW CITY BUILDERS INC.",
-  "NEW GOLDEN CITY BUILDERS",
-  "NEW KANLAON CONSTRUCTION",
-  "NEW SAN JOSE BUILDERS",
-  "OBAYASHI CORPORATION – Subic Expressway",
-  "PANORAMA PROPERTY VENTURES",
-  "PENTA – SHIMIZU TOA JOINT VENTURE",
-  "PERSAN CONSTRUCTION INC.",
-  "ROBINSONS LAND CORPORATION",
-  "ROCKWELL LAND CORPORATION",
-  "SAN MIGUEL CORPORATION & SUBSIDIARIES",
-  "SHANG ROBINSONS PROPERTIES, INC.",
-  "STAGES DESIGN & CONSTRUCTION CORPORATION",
-  "SM DEVELOPMENT CORPORATION",
-  "SM PRIME HOLDINGS, INC.",
-  "SMCC PHILIPPINES, INC.",
-  "TAISEI - SHIMIZU JOINT VENTURE",
-  "TOWNSQUARE DEVELOPMENT INC.",
-  "VICENTE T. LAO CONSTRUCTION",
-  "V.B. COLUMNA CONSTRUCTION",
-  "WHITEPORT INC.",
-  "YOUNG BUILDERS CORPORATION"
+    "AYALA LAND, INC.",
+    "ANCHOR PROPERTIES",
+    "A.M. ORETA & COMPANY",
+    "AVIDA LAND CORPORATION",
+    "BUILDING BEAVER CORPORATION",
+    "CAVDEAL INTERNATIONAL",
+    "CHINA INTERNATIONAL WATER & ELECTRICAL CORPORATION",
+    "CHINA ROAD AND BRIDGE CORPORATION",
+    "CHINA GEO-ENGINEERING PHILS. CORPORATION",
+    "DAIICHI PROPERTIES",
+    "DATEM, INC.",
+    "DATALAND INC.",
+    "DDT KONSTRACT INC.",
+    "D.M. WENCESLAO & ASSOCIATES INC.",
+    "D.M. CONSUNJI INC.",
+    "E. I. CONSTRUCTION CO., INC.",
+    "EEI CORPORATION",
+    "EMPIRE EAST LAND HOLDINGS INC.",
+    "ETON PROPERTIES PHILS. INC.",
+    "FEDERAL LAND, INC.",
+    "F.F. CRUZ & COMPANY",
+    "FILINVEST ALABANG INC. / FILINVEST LAND INC.",
+    "FIRST BALFOUR – LEIGHTON JOINT VENTURE",
+    "GLOBAL ESTATE RESORT INC.",
+    "HANJIN HEAVY INDUSTRIES & CONST. CO. LTD.",
+    "HANWHA E & C CORPORATION",
+    "HILMARCS CONSTRUCTION CORPORATION",
+    "HUMANTECH KOREA PHILS. CORPORATION",
+    "IPM CONSTRUCTION",
+    "JQ INTERNATIONAL CONSTRUCTION, INC.",
+    "KAJIMA PHILS. INC.",
+    "LEY CONST. & DEV'T. CORP.",
+    "LEIGHTON CONTRACTORS",
+    "MAKATI DEVELOPMENT CORPORATION",
+    "MALLERS INVESTMENTS CORPORATION",
+    "MC CONNELL DOWELL PHILS., INC.",
+    "MEGAWIDE CONSTRUCTION CORPORATION",
+    "MEGAWORLD PROPERTIES & HOLDINGS INC.",
+    "MOLDEX REALTY INC.",
+    "MONOCRETE CONSTRUCTION PHILIPPINES INC.",
+    "MONOLITH CONSTRUCTION",
+    "NATIONAL IRRIGATION ADMINISTRATION",
+    "NEW CITY BUILDERS INC.",
+    "NEW GOLDEN CITY BUILDERS",
+    "NEW KANLAON CONSTRUCTION",
+    "NEW SAN JOSE BUILDERS",
+    "OBAYASHI CORPORATION – Subic Expressway",
+    "PANORAMA PROPERTY VENTURES",
+    "PENTA – SHIMIZU TOA JOINT VENTURE",
+    "PERSAN CONSTRUCTION INC.",
+    "ROBINSONS LAND CORPORATION",
+    "ROCKWELL LAND CORPORATION",
+    "SAN MIGUEL CORPORATION & SUBSIDIARIES",
+    "SHANG ROBINSONS PROPERTIES, INC.",
+    "STAGES DESIGN & CONSTRUCTION CORPORATION",
+    "SM DEVELOPMENT CORPORATION",
+    "SM PRIME HOLDINGS, INC.",
+    "SMCC PHILIPPINES, INC.",
+    "TAISEI - SHIMIZU JOINT VENTURE",
+    "TOWNSQUARE DEVELOPMENT INC.",
+    "VICENTE T. LAO CONSTRUCTION",
+    "V.B. COLUMNA CONSTRUCTION",
+    "WHITEPORT INC.",
+    "YOUNG BUILDERS CORPORATION"
 ];
 
 
@@ -458,7 +545,7 @@ const MajorClients = () => {
 
     return (<div className='clients'>
         <h1>Major Clients</h1>
-         <img src={clientimg} alt="Client Image" />
+        <img src={clientimg} alt="Client Image" />
         <button onClick={() => setIsModalOpen(true)}>View Clients</button>
         {isModalOpen &&
             <>
@@ -474,10 +561,10 @@ const MajorClients = () => {
                                 <ol>
                                     {clients.map((name, index) => (
                                         <li className="client" key={index}>
-                                        {name}
+                                            {name}
                                         </li>
                                     ))}
-                                    </ol>
+                                </ol>
                             </div>
                         </div>
                     </div>
