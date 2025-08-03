@@ -94,19 +94,27 @@ body {
 }
 
 .logo-icon {
-  background: #dc2626;
+  background: transparent;
   color: white;
-  padding: 8px;
+  padding: 4px;
   border-radius: 6px;
   margin-right: 12px;
-  width: 40px;
-  height: 40px;
+  width: 60px;  /* Increased from 40px */
+  height: 60px; /* Increased from 40px */
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
   font-size: 18px;
   flex-shrink: 0;
+  overflow: hidden;
+}
+
+.logo-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures the image scales properly */
+  background: transparent;
 }
 
 .logo-text {
@@ -885,17 +893,25 @@ ol li {
 
 .footer-company .logo-icon {
   color: white;
-  padding: 8px;
+  padding: 4px;
   border-radius: 6px;
   margin-right: 12px;
-  width: 32px;
-  height: 32px;
+  width: 48px;  /* Increased from 32px */
+  height: 48px; /* Increased from 32px */
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
   font-size: 16px;
-  background: #dc2626;
+  background: transparent;
+  overflow: hidden;
+}
+
+.footer-company .logo-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: transparent;
 }
 
 .footer-company .logo-text {
@@ -996,6 +1012,16 @@ ol li {
     font-size: 18px;
   }
 
+  .logo-icon {
+    width: 65px;
+    height: 65px;
+  }
+
+  .footer-company .logo-icon {
+    width: 50px;
+    height: 50px;
+  }
+
   /* Show desktop navigation and completely hide mobile elements */
   .nav-desktop {
     display: flex !important;
@@ -1050,6 +1076,16 @@ ol li {
   .center-div {
     padding: 0 40px;
   }
+
+  .logo-icon {
+    width: 70px;  /* Even larger on desktop */
+    height: 70px;
+  }
+
+  .footer-company .logo-icon {
+    width: 52px;
+    height: 52px;
+  }
 }
 
 /* Mobile First Responsive Design */
@@ -1060,6 +1096,20 @@ ol li {
 
   .logo-text {
     font-size: 12px;
+  }
+
+  .logo-icon {
+    width: 45px;  /* Smaller on mobile */
+    height: 45px;
+    padding: 3px;
+    background: transparent;
+  }
+
+  .footer-company .logo-icon {
+    width: 36px;
+    height: 36px;
+    padding: 3px;
+    background: transparent;
   }
 
   .center-div {
@@ -1330,6 +1380,16 @@ ol li {
   .center-div {
     width: 95%;
     padding: 0 20px;
+  }
+
+  .logo-icon {
+    width: 55px;
+    height: 55px;
+  }
+
+  .footer-company .logo-icon {
+    width: 44px;
+    height: 44px;
   }
 
   .banner h1 {

@@ -184,7 +184,7 @@ const Footer = () => {
                             </div>
                             <span className="logo-text">UNIVERSAL STEEL SMELTING CO INC</span>
                         </div>
-                        <p className="footer-address">26 Quirino Highway Balon Bato, Quezon City</p>
+                        <p className="footer-address">28 Quirino Highway, Balon Bato 1, Quezon City, 1106, Philippines</p>
                         <div className="social-links">
                             <a href="#" className="social-link facebook">f</a>
                             <a href="#" className="social-link linkedin">in</a>
@@ -220,7 +220,7 @@ const Footer = () => {
                         <div>
                             <div className="contact-item">
                                 <Phone className="icon-sm" />
-                                <span>(02) 8363-2051</span>
+                                <span>(02) 8363-2651</span>
                             </div>
                             <div className="contact-item">
                                 <Phone className="icon-sm" />

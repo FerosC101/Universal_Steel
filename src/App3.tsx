@@ -101,7 +101,9 @@ const Header = ({ currentPage = "contact" }: { currentPage?: string }) => {
                     <div className="header-content">
                         {/* Logo */}
                         <div className="logo-container">
-                            <div className="logo-icon">U</div>
+                            <div className="logo-icon">
+                                <img src="https://res.cloudinary.com/drrzinr9v/image/upload/v1754201352/USSCI_logo_19x17inch-removebg-preview_idrn0g.png" alt="USSCI Logo" />
+                            </div>
                             <span className="logo-text">UNIVERSAL STEEL SMELTING CO INC</span>
                         </div>
 
@@ -203,7 +205,9 @@ const Footer = () => {
                     {/* Company Info */}
                     <div>
                         <div className="footer-company">
-                            <div className="logo-icon">U</div>
+                            <div className="logo-icon">
+                                <img src="https://res.cloudinary.com/drrzinr9v/image/upload/v1754201352/USSCI_logo_19x17inch-removebg-preview_idrn0g.png" alt="USSCI Logo" />
+                            </div>
                             <span className="logo-text">UNIVERSAL STEEL SMELTING CO INC</span>
                         </div>
                         <p className="footer-address">28 Quirino Highway, Balon Bato 1,

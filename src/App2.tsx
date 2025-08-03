@@ -113,7 +113,9 @@ const Header = ({ currentPage = "products" }: { currentPage?: string }) => {
                     <div className="header-content">
                         {/* Logo */}
                         <div className="logo-container">
-                            <div className="logo-icon">U</div>
+                            <div className="logo-icon">
+                                <img src="https://res.cloudinary.com/drrzinr9v/image/upload/v1754201352/USSCI_logo_19x17inch-removebg-preview_idrn0g.png" alt="USSCI Logo" />
+                            </div>
                             <span className="logo-text">UNIVERSAL STEEL SMELTING CO INC</span>
                         </div>
 
@@ -215,11 +217,12 @@ const Footer = () => {
                     {/* Company Info */}
                     <div>
                         <div className="footer-company">
-                            <div className="logo-icon">U</div>
+                            <div className="logo-icon">
+                                <img src="https://res.cloudinary.com/drrzinr9v/image/upload/v1754201352/USSCI_logo_19x17inch-removebg-preview_idrn0g.png" alt="USSCI Logo" />
+                            </div>
                             <span className="logo-text">UNIVERSAL STEEL SMELTING CO INC</span>
                         </div>
-                        <p className="footer-address">28 Quirino Highway, Balon Bato 1,
-                            Quezon City, 1106, Philippines</p>
+                        <p className="footer-address">28 Quirino Highway, Balon Bato 1, Quezon City, 1106, Philippines</p>
                         <div className="social-links">
                             <a href="#" className="social-link facebook">f</a>
                             <a href="#" className="social-link linkedin">in</a>
@@ -231,10 +234,10 @@ const Footer = () => {
                     <div className="footer-section">
                         <h3>ABOUT</h3>
                         <ul>
-                            <li><Link to="/about">Company History</Link></li>
-                            <li><Link to="/about">Vision, Mission, & Values</Link></li>
-                            <li><Link to="/about">Factory Modernization</Link></li>
-                            <li><Link to="/about">Certifications</Link></li>
+                            <li><a href="#">Company History</a></li>
+                            <li><a href="#">Vision, Mission, & Values</a></li>
+                            <li><a href="#">Factory Modernization</a></li>
+                            <li><a href="#">Certifications</a></li>
                         </ul>
                     </div>
 
@@ -242,10 +245,10 @@ const Footer = () => {
                     <div className="footer-section">
                         <h3>PRODUCTS</h3>
                         <ul>
-                            <li><Link to="/products">Process</Link></li>
-                            <li><Link to="/products">Quality Assurance</Link></li>
-                            <li><Link to="/products">Partners</Link></li>
-                            <li><Link to="/products">Accreditation</Link></li>
+                            <li><a href="#">Process</a></li>
+                            <li><a href="#">Quality Assurance</a></li>
+                            <li><a href="#">Partners</a></li>
+                            <li><a href="#">Accreditation</a></li>
                         </ul>
                     </div>
 
