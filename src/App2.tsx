@@ -113,7 +113,9 @@ const Header = ({ currentPage = "products" }: { currentPage?: string }) => {
                     <div className="header-content">
                         {/* Logo */}
                         <div className="logo-container">
-                            <div className="logo-icon">U</div>
+                            <div className="logo-icon">
+                                <img src="https://res.cloudinary.com/drrzinr9v/image/upload/v1754201352/USSCI_logo_19x17inch-removebg-preview_idrn0g.png" alt="USSCI Logo" />
+                            </div>
                             <span className="logo-text">UNIVERSAL STEEL SMELTING CO INC</span>
                         </div>
 
@@ -122,15 +124,15 @@ const Header = ({ currentPage = "products" }: { currentPage?: string }) => {
                             <Link to="/" className={currentPage === "home" ? "active" : ""}>
                                 Home
                             </Link>
-                            <button>
+                            <Link to="/about" className={currentPage === "about" ? "active" : ""}>
                                 About Us <ChevronDown className="icon-sm" />
-                            </button>
-                            <button className={currentPage === "products" ? "active" : ""}>
+                            </Link>
+                            <Link to="/products" className={currentPage === "products" ? "active" : ""}>
                                 Products <ChevronDown className="icon-sm" />
-                            </button>
-                            <button>
+                            </Link>
+                            <Link to="/contact" className={currentPage === "contact" ? "active" : ""}>
                                 Contact Us <ChevronDown className="icon-sm" />
-                            </button>
+                            </Link>
                         </nav>
 
                         {/* Mobile menu button - Always render but conditionally style */}
@@ -178,18 +180,27 @@ const Header = ({ currentPage = "products" }: { currentPage?: string }) => {
                             >
                                 Home
                             </Link>
-                            <button onClick={closeMenu}>
+                            <Link
+                                to="/about"
+                                onClick={closeMenu}
+                                className={currentPage === "about" ? "active" : ""}
+                            >
                                 About Us <ChevronDown className="icon-sm" />
-                            </button>
-                            <button
+                            </Link>
+                            <Link
+                                to="/products"
                                 onClick={closeMenu}
                                 className={currentPage === "products" ? "active" : ""}
                             >
                                 Products <ChevronDown className="icon-sm" />
-                            </button>
-                            <button onClick={closeMenu}>
+                            </Link>
+                            <Link
+                                to="/contact"
+                                onClick={closeMenu}
+                                className={currentPage === "contact" ? "active" : ""}
+                            >
                                 Contact Us <ChevronDown className="icon-sm" />
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </>
@@ -206,10 +217,12 @@ const Footer = () => {
                     {/* Company Info */}
                     <div>
                         <div className="footer-company">
-                            <div className="logo-icon">U</div>
+                            <div className="logo-icon">
+                                <img src="https://res.cloudinary.com/drrzinr9v/image/upload/v1754201352/USSCI_logo_19x17inch-removebg-preview_idrn0g.png" alt="USSCI Logo" />
+                            </div>
                             <span className="logo-text">UNIVERSAL STEEL SMELTING CO INC</span>
                         </div>
-                        <p className="footer-address">26 Quirino Highway Balon Bato, Quezon City</p>
+                        <p className="footer-address">28 Quirino Highway, Balon Bato 1, Quezon City, 1106, Philippines</p>
                         <div className="social-links">
                             <a href="#" className="social-link facebook">f</a>
                             <a href="#" className="social-link linkedin">in</a>
@@ -245,7 +258,7 @@ const Footer = () => {
                         <div>
                             <div className="contact-item">
                                 <Phone className="icon-sm" />
-                                <span>(02) 8363-2051</span>
+                                <span>(02) 8363-2651</span>
                             </div>
                             <div className="contact-item">
                                 <Phone className="icon-sm" />
@@ -357,7 +370,7 @@ const TopBanner = () => {
         {
             id: 2,
             name: "Grade 60 Rebars",
-            image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753189317/productpageRebars_qspo30.jpg",
+            image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753799328/Grade_60_7_l46gsy.jpg",
             priceRange: "₱22.50 - ₱22.70/KG",
             sizes: [
                 {
@@ -632,7 +645,7 @@ const FinishedProjects = () => {
     return (
         <div className="finished-products">
             <ProjectModal project={selectedProject} isOpen={isOpen} setIsOpen={setIsOpen} />
-            <h1 style={{ marginBottom: '50px'}}>Finished Projects</h1>
+            <h1 style={{ marginBottom: '50px'}}>Projects</h1>
             <ProjectCarousel projects={projectGroups} openModal={openProjectModal} />
         </div>
     )
@@ -643,7 +656,6 @@ const ProjectImageCard = ({ project, click }: { project: ProjectGroup, click: (p
         <div className='banner-card' onClick={() => click(project)}>
             <img src={project.cardImage} alt={project.title} />
             <h2>{project.title}</h2>
-            <p>Click to view project details</p>
         </div>
     )
 }

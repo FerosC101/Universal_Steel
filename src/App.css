@@ -48,7 +48,7 @@ body {
   z-index: 900; /* Lower than header */
 }
 
-/* HEADER STYLES - FIXED Z-INDEX */
+/* HEADER STYLES - FIXED LAYOUT */
 .header {
   background: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -75,25 +75,33 @@ body {
 .logo-container {
   display: flex;
   align-items: center;
-  max-width: 70%;
+  flex: 1;
   z-index: 1001;
   position: relative;
 }
 
 .logo-icon {
-  background: #dc2626;
+  background: transparent;
   color: white;
-  padding: 8px;
+  padding: 4px;
   border-radius: 6px;
   margin-right: 12px;
-  width: 40px;
-  height: 40px;
+  width: 60px;  /* Increased from 40px */
+  height: 60px; /* Increased from 40px */
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
   font-size: 18px;
   flex-shrink: 0;
+  overflow: hidden;
+}
+
+.logo-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures the image scales properly */
+  background: transparent;
 }
 
 .logo-text {
@@ -105,14 +113,14 @@ body {
   text-overflow: ellipsis;
 }
 
-/* Mobile Menu Button - FIXED VISIBILITY AND Z-INDEX */
+/* Mobile Menu Button - COMPLETELY HIDDEN ON DESKTOP */
 .menu-button {
-  display: flex !important; /* Force display on mobile */
+  display: flex;
   background: none;
   border: none;
   cursor: pointer;
   padding: 8px;
-  z-index: 1003 !important; /* Higher than everything */
+  z-index: 1003;
   position: relative;
   align-items: center;
   justify-content: center;
@@ -125,10 +133,22 @@ body {
   color: #dc2626;
 }
 
-/* Desktop Navigation - Hidden on mobile by default */
+/* Force hide burger menu on desktop screens */
+@media (min-width: 768px) {
+  .menu-button {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+  }
+}
+
+/* Desktop Navigation - PROPERLY POSITIONED */
 .nav-desktop {
-  display: none;
+  display: none; /* Hidden on mobile by default */
   gap: 24px;
+  margin-left: auto; /* Push to the right */
 }
 
 .nav-desktop a,
@@ -158,7 +178,7 @@ body {
   font-weight: 600;
 }
 
-/* Mobile Menu Overlay - FIXED Z-INDEX */
+/* Mobile Menu Overlay */
 .mobile-menu-overlay {
   position: fixed;
   top: 0;
@@ -166,7 +186,7 @@ body {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 1001; /* Above header but below menu */
+  z-index: 1001;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
@@ -177,7 +197,7 @@ body {
   visibility: visible;
 }
 
-/* Mobile Menu - FIXED Z-INDEX AND POSITIONING */
+/* Mobile Menu */
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -185,7 +205,7 @@ body {
   width: 280px;
   height: 100vh;
   background: white;
-  z-index: 1002; /* Above overlay */
+  z-index: 1002;
   padding: 0;
   transform: translateX(100%);
   transition: transform 0.3s ease;
@@ -678,18 +698,26 @@ body {
 }
 
 .footer-company .logo-icon {
-  background: #dc2626;
   color: white;
-  padding: 8px;
+  padding: 4px;
   border-radius: 6px;
   margin-right: 12px;
-  width: 32px;
-  height: 32px;
+  width: 48px;  /* Increased from 32px */
+  height: 48px; /* Increased from 32px */
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
   font-size: 16px;
+  background: transparent;
+  overflow: hidden;
+}
+
+.footer-company .logo-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: transparent;
 }
 
 .footer-company .logo-text {
@@ -841,19 +869,39 @@ body {
     font-size: 18px;
   }
 
-  /* Show desktop navigation on larger screens */
-  .nav-desktop {
-    display: flex;
+  .logo-icon {
+    width: 65px;
+    height: 65px;
   }
 
-  /* Hide mobile menu elements completely on desktop */
+  .footer-company .logo-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* Show desktop navigation and completely hide mobile elements */
+  .nav-desktop {
+    display: flex !important;
+  }
+
+  /* Force hide ALL mobile menu elements on desktop */
   .menu-button {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+    pointer-events: none !important;
   }
 
   .mobile-menu,
   .mobile-menu-overlay {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+    pointer-events: none !important;
   }
 
   .hero {
@@ -912,5 +960,40 @@ body {
 
   .footer-grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .logo-icon {
+    width: 70px;  /* Even larger on desktop */
+    height: 70px;
+  }
+
+  .footer-company .logo-icon {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+/* Mobile First Responsive Design */
+@media (max-width: 767px) {
+  .header-container {
+    padding: 0 15px;
+  }
+
+  .logo-text {
+    font-size: 12px;
+  }
+
+  .logo-icon {
+    width: 45px;  /* Smaller on mobile */
+    height: 45px;
+    padding: 3px;
+    background: transparent;
+  }
+
+  .footer-company .logo-icon {
+    width: 36px;
+    height: 36px;
+    padding: 3px;
+    background: transparent;
   }
 }
