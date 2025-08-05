@@ -261,7 +261,7 @@ const HeroSection = () => {
 
             {/* Side panel */}
             <div className="hero-sidebar">
-                <h3>Building a Legacy of Strength</h3>
+                <h3>We reach our 60-year milestone in the industry next year!</h3>
                 <p>Watch how LKG has grown from post-war resilience to multi-industry leadership.</p>
                 <button>
                     <ArrowRight className="icon-sm" />
