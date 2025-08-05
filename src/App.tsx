@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './App.css';
@@ -256,16 +255,18 @@ const HeroSection = () => {
                     Backed by decades of innovation and resilience, the LKG Group continues to shape industries—
                     from construction to education—building a legacy of strength and progress across the Philippines.
                 </p>
-                <button className="hero-button">LEARN MORE</button>
+                <Link to="/about" className="hero-button">LEARN MORE</Link>
             </div>
 
             {/* Side panel */}
             <div className="hero-sidebar">
                 <h3>We reach our 60-year milestone in the industry next year!</h3>
                 <p>Watch how LKG has grown from post-war resilience to multi-industry leadership.</p>
-                <button>
-                    <ArrowRight className="icon-sm" />
-                </button>
+                <Link to="/about">
+                    <button>
+                        <ArrowRight className="icon-sm" />
+                    </button>
+                </Link>
             </div>
         </section>
     );
@@ -304,7 +305,7 @@ const AboutSection = () => {
                             diversified investments in terms of annual gross revenues, the group's combined
                             performance ranks among the country's top 500 corporations.
                         </p>
-                        <button className="about-button">READ MORE ABOUT US →</button>
+                        <Link to="/about" className="about-button">READ MORE ABOUT US →</Link>
                     </div>
                 </div>
             </div>
@@ -410,30 +411,34 @@ const FeaturesSection = () => {
                     {/* Side Panels */}
                     <div className="features-sidebar">
                         {/* Our Products */}
-                        <div
-                            className="sidebar-card"
-                            style={{
-                                backgroundImage: `url('${cloudinary.product}')`,
-                            }}
-                        >
-                            <div className="overlay">
-                                <span className="card-text">Our Products</span>
-                                <button className="arrow-btn">→</button>
+                        <Link to="/products">
+                            <div
+                                className="sidebar-card"
+                                style={{
+                                    backgroundImage: `url('${cloudinary.product}')`,
+                                }}
+                            >
+                                <div className="overlay">
+                                    <span className="card-text">Our Products</span>
+                                    <button className="arrow-btn">→</button>
+                                </div>
                             </div>
-                        </div>
+                        </Link>
 
                         {/* Our Certifications */}
-                        <div
-                            className="sidebar-card"
-                            style={{
-                                backgroundImage: `url('${cloudinary.certs}')`,
-                            }}
-                        >
-                            <div className="overlay">
-                                <span className="card-text">Our Certifications</span>
-                                <button className="arrow-btn">→</button>
+                        <Link to="/about">
+                            <div
+                                className="sidebar-card"
+                                style={{
+                                    backgroundImage: `url('${cloudinary.certs}')`,
+                                }}
+                            >
+                                <div className="overlay">
+                                    <span className="card-text">Our Certifications</span>
+                                    <button className="arrow-btn">→</button>
+                                </div>
                             </div>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -468,10 +473,10 @@ const Footer = () => {
                     <div className="footer-section">
                         <h3>ABOUT</h3>
                         <ul>
-                            <li><a href="#">Company History</a></li>
-                            <li><a href="#">Vision, Mission, & Values</a></li>
-                            <li><a href="#">Factory Modernization</a></li>
-                            <li><a href="#">Certifications</a></li>
+                            <li><Link to="/about">Company History</Link></li>
+                            <li><Link to="/about">Vision, Mission, & Values</Link></li>
+                            <li><Link to="/about">Factory Modernization</Link></li>
+                            <li><Link to="/about">Certifications</Link></li>
                         </ul>
                     </div>
 
@@ -479,10 +484,10 @@ const Footer = () => {
                     <div className="footer-section">
                         <h3>PRODUCTS</h3>
                         <ul>
-                            <li><a href="#">Process</a></li>
-                            <li><a href="#">Quality Assurance</a></li>
-                            <li><a href="#">Partners</a></li>
-                            <li><a href="#">Accreditation</a></li>
+                            <li><Link to="/products">Process</Link></li>
+                            <li><Link to="/products">Quality Assurance</Link></li>
+                            <li><Link to="/products">Partners</Link></li>
+                            <li><Link to="/products">Accreditation</Link></li>
                         </ul>
                     </div>
 
@@ -502,10 +507,10 @@ const Footer = () => {
                                 <Phone className="icon-sm" />
                                 <span>(02) 8361-1247</span>
                             </div>
-                            <div className="contact-item">
+                            <Link to="/contact" className="contact-item">
                                 <Mail className="icon-sm" />
                                 <span>office@universalsteelph.com</span>
-                            </div>
+                            </Link>
                         </div>
                     </div>
                 </div>
