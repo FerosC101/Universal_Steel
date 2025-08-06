@@ -306,7 +306,7 @@ const Banner = () => {
 const History = () => {
     return (<div className='history'>
         <div className='history-image-container'>
-            <h1>Comnpany History</h1>
+            <h1>Company History</h1>
             <h2><em>Our Legacy Since 1966</em></h2>
             <img src={logoUrl5} alt="Company Logo" className="logo" />
             <div className="round-image">
