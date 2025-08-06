@@ -929,10 +929,66 @@ body {
   }
 }
 
-@media (min-width: 1024px) {
+/* NEW: Medium desktop breakpoint to handle smaller desktop screens */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .hero-content {
+    max-width: calc(100% - 320px); /* Leave space for sidebar */
+    margin-right: 340px; /* Space for sidebar + margin */
+    text-align: center;
+  }
+
   .hero-sidebar {
     position: absolute;
-    right: 0;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(to right, #8b0000, #dc2626);
+    color: white;
+    padding: 20px;
+    width: 280px; /* Smaller width for medium screens */
+    display: block;
+  }
+
+  .hero-sidebar h3 {
+    font-size: 1.25rem; /* Slightly smaller font */
+  }
+
+  .hero-title {
+    font-size: 3.2rem; /* Slightly smaller to fit better */
+  }
+
+  .video {
+    width: 50%;
+  }
+
+  .about-image-placeholder {
+    height: 400px;
+  }
+
+  .video-background {
+    height: 400px;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .logo-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .footer-company .logo-icon {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+/* UPDATED: Large desktop breakpoint for wider screens */
+@media (min-width: 1280px) {
+  .hero-sidebar {
+    position: absolute;
+    right: 40px; /* More margin from edge */
     top: 50%;
     transform: translateY(-50%);
     background: linear-gradient(to right, #8b0000, #dc2626);
@@ -940,6 +996,12 @@ body {
     padding: 24px;
     width: 320px;
     display: block;
+  }
+
+  .hero-content {
+    max-width: calc(100% - 380px); /* Leave space for sidebar */
+    margin-right: 400px; /* Space for sidebar + margin */
+    text-align: center;
   }
 
   .video {
@@ -963,7 +1025,7 @@ body {
   }
 
   .logo-icon {
-    width: 70px;  /* Even larger on desktop */
+    width: 70px;
     height: 70px;
   }
 
