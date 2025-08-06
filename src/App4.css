@@ -717,6 +717,21 @@ body {
   padding: 20px;
 }
 
+.clients .clients-list-cont .cont ol {
+  padding-left: 30px; /* Increase left padding to make room for 2-digit numbers */
+  list-style-type: decimal;
+  list-style-position: outside;
+}
+
+.clients .clients-list-cont .cont ol li {
+  font-size: 1rem;
+  color: #333;
+  margin: 8px 0;
+  line-height: 1.4;
+  padding-left: 8px; /* Add some padding between the number and text */
+  position: relative;
+}
+
 .clients .clients-list-cont .outer-cont {
   border: #818181 1px solid;
   border-radius: 20px;
@@ -1361,6 +1376,15 @@ ol li {
   .clients .clients-list-cont {
     width: 95%;
     max-height: 70vh;
+  }
+
+  .clients .clients-list-cont .cont ol {
+    padding-left: 25px;
+  }
+
+  .clients .clients-list-cont .cont ol li {
+    font-size: 0.9rem;
+    padding-left: 5px;
   }
 
   .clients .clients-list-cont h2 {
