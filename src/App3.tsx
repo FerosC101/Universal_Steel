@@ -287,20 +287,19 @@ const HeroSection = () => {
                 backgroundPosition: 'center',
             }}
         >
-            <div className="hero-content" style={{ textAlign: 'left' }}>
-                <h1 className="hero-title">
-                    Contact Us
-                </h1>
-                <h3 style={{ color: '#e5e7eb' }}>
-                    Universal Steel Smelting Co.Inc.
+            <div className="hero-content">
+                <h1 className="hero-title">Contact Us</h1>
+                <h3 className="hero-subtitle">
+                    Universal Steel Smelting Co. Inc.
                 </h3>
-                <p className="text-wtext-left" style={{ color: '#e5e7eb'}}>
+                <p className="hero-description">
                     A leading steel smelting company providing high-quality, reliable steel solutions for construction and manufacturing industries.
                 </p>
             </div>
         </section>
     );
 };
+
 
 const Contact = () => {
     // Form state
@@ -386,7 +385,7 @@ This email was sent from the Universal Steel Smelting Co. Inc. contact form.
                 <div className="contact-info">
                     <div className="contact-item">
                         <div className="contact-icon">📍</div>
-                        <div>
+                        <div className="contact-item-content">
                             <h3 className="contact-label">Address</h3>
                             <p>28 Quirino Highway, Balon Bato 1,<br />Quezon City, 1106, Philippines</p>
                         </div>
@@ -394,17 +393,21 @@ This email was sent from the Universal Steel Smelting Co. Inc. contact form.
 
                     <div className="contact-item">
                         <div className="contact-icon">📞</div>
-                        <div>
+                        <div className="contact-item-content">
                             <h3 className="contact-label">Tel:</h3>
-                            <p>(02) 8363-2651<br />(02) 8363-7081 to 82<br />(02) 8361-1247</p>
-                            <h3 className="contact-label">Fax:</h3>
+                            <div className="phone-numbers">
+                                <p>(02) 8363-2651</p>
+                                <p>(02) 8363-7081 to 82</p>
+                                <p>(02) 8361-1247</p>
+                            </div>
+                            <h3 className="contact-label" style={{ marginTop: '1rem' }}>Fax:</h3>
                             <p>(02) 8362-4575</p>
                         </div>
                     </div>
 
                     <div className="contact-item">
                         <div className="contact-icon">✉️</div>
-                        <div>
+                        <div className="contact-item-content">
                             <h3 className="contact-label">Email</h3>
                             <p>criscac@universalsteelph.com</p>
                         </div>

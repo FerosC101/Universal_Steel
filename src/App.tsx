@@ -235,17 +235,132 @@ const cloudinary = {
     about: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752676337/514315094_122186224832360700_1263205354293391856_n_qrnviz.jpg',
 };
 
-// Hero Section
-const HeroSection = () => {
+// Certifications Modal Component
+const CertificationsModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
+    const certifications = [
+        {
+            image: `https://res.cloudinary.com/drrzinr9v/image/upload/Screenshot_2025-06-16_235347-removebg-preview_sovmgu.png?ts=${Date.now()}`,
+            title: "ISO 9001:2015 Certified",
+            subtitle: "by TÜV Philippines"
+        },
+        {
+            image: `https://res.cloudinary.com/drrzinr9v/image/upload/Screenshot_2025-06-16_235339-removebg-preview_tbznum.png?ts=${Date.now()}`,
+            title: "BPS Certification Mark",
+            subtitle: "Bureau of Product Standards"
+        },
+        {
+            image: `https://res.cloudinary.com/drrzinr9v/image/upload/Screenshot_2025-06-16_235402-removebg-preview_zmsls7.png?ts=${Date.now()}`,
+            title: "DPWH-Accredited Testing Laboratory",
+            subtitle: "by Bureau of Research and Standards (BRS)"
+        }
+    ];
+
+    useEffect(() => {
+        const handleEscape = (e: KeyboardEvent) => {
+            if (e.key === 'Escape' && isOpen) {
+                onClose();
+            }
+        };
+
+        if (isOpen) {
+            document.addEventListener('keydown', handleEscape);
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+
+        return () => {
+            document.removeEventListener('keydown', handleEscape);
+            document.body.style.overflow = 'unset';
+        };
+    }, [isOpen, onClose]);
+
+    if (!isOpen) return null;
+
     return (
-        <section
-            className="hero"
-            style={{
-                backgroundImage: `url('${cloudinary.hero}')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-            }}
-        >
+        <div className="certifications-modal" onClick={onClose}>
+            <div className="certifications-modal-content" onClick={(e) => e.stopPropagation()}>
+                <button className="certifications-modal-close" onClick={onClose}>
+                    <X />
+                </button>
+                <h2>Our Certifications</h2>
+                <div className="certifications-grid">
+                    {certifications.map((cert, index) => (
+                        <div key={index} className="certification-card">
+                            <img src={cert.image} alt={cert.title} />
+                            <h3>{cert.title}</h3>
+                            <p>{cert.subtitle}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+// Hero Section
+// Hero Section with Slideshow
+const HeroSection = () => {
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    const slides = [
+        cloudinary.hero,
+        cloudinary.hero,
+        cloudinary.hero,
+        cloudinary.hero,
+        cloudinary.hero,
+    ];
+
+    const nextSlide = () => {
+        setCurrentSlide((prev) => (prev + 1) % slides.length);
+    };
+
+    const prevSlide = () => {
+        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    };
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            nextSlide();
+        }, 5000); // Auto-advance every 5 seconds
+
+        return () => clearInterval(timer);
+    }, []);
+
+    return (
+        <section className="hero">
+            {/* Slideshow Background */}
+            <div className="hero-slideshow">
+                {slides.map((slide, index) => (
+                    <div
+                        key={index}
+                        className={`hero-slide ${index === currentSlide ? 'active' : ''}`}
+                        style={{
+                            backgroundImage: `url('${slide}')`,
+                        }}
+                    />
+                ))}
+            </div>
+
+            {/* Slideshow Controls */}
+            <button className="hero-nav hero-nav-prev" onClick={prevSlide}>
+                &#8249;
+            </button>
+            <button className="hero-nav hero-nav-next" onClick={nextSlide}>
+                &#8250;
+            </button>
+
+            {/* Slideshow Dots */}
+            <div className="hero-dots">
+                {slides.map((_, index) => (
+                    <button
+                        key={index}
+                        className={`hero-dot ${index === currentSlide ? 'active' : ''}`}
+                        onClick={() => setCurrentSlide(index)}
+                    />
+                ))}
+            </div>
+
             <div className="hero-content">
                 <h1 className="hero-title">
                     Forging Strong<br />
@@ -279,16 +394,16 @@ const AboutSection = () => {
             <div className="about-container">
                 <div className="about-grid">
                     {/* Image */}
-                    <div
-                        className="about-image"
-                        style={{
-                            backgroundImage: `url('${cloudinary.about}')`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                            minHeight: '300px',
-                            borderRadius: '8px',
-                        }}
-                    ></div>
+                    <div className="about-image">
+                        <div
+                            className="about-image-placeholder"
+                            style={{
+                                backgroundImage: `url('${cloudinary.about}')`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                            }}
+                        ></div>
+                    </div>
 
                     {/* Content */}
                     <div className="about-content">
@@ -360,6 +475,8 @@ const VideoSection = () => {
 
 // Features Section Component
 const FeaturesSection = () => {
+    const [isCertModalOpen, setIsCertModalOpen] = useState(false);
+
     const features = [
         {
             number: "01",
@@ -389,63 +506,70 @@ const FeaturesSection = () => {
     ];
 
     return (
-        <section className="features">
-            <div className="features-container">
-                <div className="features-grid">
-                    {/* Features List */}
-                    <div className="features-content">
-                        <h2>Why should you choose Universal Steel Smelting Co Inc?</h2>
-                        <div className="features-list">
-                            {features.map((feature, index) => (
-                                <div key={index} className="feature-item">
-                                    <div className="feature-number">{feature.number}</div>
-                                    <div className="feature-content">
-                                        <h3>{feature.title}</h3>
-                                        <p>{feature.description}</p>
+        <>
+            <section className="features">
+                <div className="features-container">
+                    <div className="features-grid">
+                        {/* Features List */}
+                        <div className="features-content">
+                            <h2>Why should you choose Universal Steel Smelting Co Inc?</h2>
+                            <div className="features-list">
+                                {features.map((feature, index) => (
+                                    <div key={index} className="feature-item">
+                                        <div className="feature-number">{feature.number}</div>
+                                        <div className="feature-content">
+                                            <h3>{feature.title}</h3>
+                                            <p>{feature.description}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Side Panels */}
+                        <div className="features-sidebar">
+                            {/* Our Products */}
+                            <Link to="/products">
+                                <div
+                                    className="sidebar-card"
+                                    style={{
+                                        backgroundImage: `url('${cloudinary.product}')`,
+                                    }}
+                                >
+                                    <div className="overlay">
+                                        <span className="card-text">Our Products</span>
+                                        <button className="arrow-btn">→</button>
                                     </div>
                                 </div>
-                            ))}
-                        </div>
-                    </div>
+                            </Link>
 
-                    {/* Side Panels */}
-                    <div className="features-sidebar">
-                        {/* Our Products */}
-                        <Link to="/products">
-                            <div
-                                className="sidebar-card"
-                                style={{
-                                    backgroundImage: `url('${cloudinary.product}')`,
-                                }}
-                            >
-                                <div className="overlay">
-                                    <span className="card-text">Our Products</span>
-                                    <button className="arrow-btn">→</button>
-                                </div>
-                            </div>
-                        </Link>
-
-                        {/* Our Certifications */}
-                        <Link to="/about">
+                            {/* Our Certifications */}
                             <div
                                 className="sidebar-card"
                                 style={{
                                     backgroundImage: `url('${cloudinary.certs}')`,
+                                    cursor: 'pointer'
                                 }}
+                                onClick={() => setIsCertModalOpen(true)}
                             >
                                 <div className="overlay">
                                     <span className="card-text">Our Certifications</span>
                                     <button className="arrow-btn">→</button>
                                 </div>
                             </div>
-                        </Link>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+            {/* Certifications Modal */}
+            <CertificationsModal
+                isOpen={isCertModalOpen}
+                onClose={() => setIsCertModalOpen(false)}
+            />
+        </>
     );
 };
-
 
 const Footer = () => {
     return (
