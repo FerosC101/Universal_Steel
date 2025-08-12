@@ -791,7 +791,7 @@ const FinishedProjects = () => {
                 {
                     id: 1,
                     name: "Project 1",
-                    description: "Description",
+                    description: "Magallanes Interchange",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_projects_for_website_2_hrfykz.jpg"
                 },
                 {
