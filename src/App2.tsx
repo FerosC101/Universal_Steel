@@ -38,6 +38,18 @@ const ArrowLeft = ({ className }: IconProps) => (
     </svg>
 );
 
+const ChevronLeft = ({ className }: IconProps) => (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+    </svg>
+);
+
+const ChevronRightIcon = ({ className }: IconProps) => (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+    </svg>
+);
+
 const Phone = ({ className }: IconProps) => (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -552,6 +564,222 @@ interface ProjectGroup {
     images: ProjectImage[];
 }
 
+// Enhanced Project Card Component
+const ProjectCard = ({ project, onClick }: { project: ProjectGroup, onClick: (project: ProjectGroup) => void }) => {
+    return (
+        <div className="project-card" onClick={() => onClick(project)}>
+            <div className="project-card-image-container">
+                <img src={project.cardImage} alt={project.title} className="project-card-image" />
+                <div className="project-card-overlay">
+                    <div className="project-card-overlay-content">
+                        <h3 className="project-card-title">{project.title}</h3>
+                        <p className="project-card-description">{project.description}</p>
+                        <div className="project-card-cta">
+                            <span>View Gallery</span>
+                            <ArrowRight className="project-card-arrow" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+// Enhanced Scrollable Carousel Component
+const ScrollableProjectCarousel = ({ projects, openModal }: { projects: ProjectGroup[], openModal: (project: ProjectGroup) => void }) => {
+    const carouselRef = useRef<HTMLDivElement>(null);
+    const [canScrollLeft, setCanScrollLeft] = useState(false);
+    const [canScrollRight, setCanScrollRight] = useState(true);
+    const [isDragging, setIsDragging] = useState(false);
+    const [startX, setStartX] = useState(0);
+    const [scrollLeft, setScrollLeft] = useState(0);
+
+    // Check scroll position
+    const checkScrollPosition = () => {
+        if (carouselRef.current) {
+            const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
+            setCanScrollLeft(scrollLeft > 0);
+            setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
+        }
+    };
+
+    // Scroll functions
+    const scrollToLeft = () => {
+        if (carouselRef.current) {
+            carouselRef.current.scrollBy({ left: -350, behavior: 'smooth' });
+        }
+    };
+
+    const scrollToRight = () => {
+        if (carouselRef.current) {
+            carouselRef.current.scrollBy({ left: 350, behavior: 'smooth' });
+        }
+    };
+
+    // Auto-scroll functionality
+    useEffect(() => {
+        const carousel = carouselRef.current;
+        if (!carousel) return;
+
+        let autoScrollInterval: NodeJS.Timeout;
+
+        const startAutoScroll = () => {
+            autoScrollInterval = setInterval(() => {
+                if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth) {
+                    // If at the end, scroll back to beginning
+                    carousel.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    // Otherwise scroll right
+                    carousel.scrollBy({ left: 350, behavior: 'smooth' });
+                }
+            }, 4000); // Auto-scroll every 4 seconds
+        };
+
+        const stopAutoScroll = () => {
+            if (autoScrollInterval) {
+                clearInterval(autoScrollInterval);
+            }
+        };
+
+        // Start auto-scroll
+        startAutoScroll();
+
+        // Stop auto-scroll on hover or interaction
+        carousel.addEventListener('mouseenter', stopAutoScroll);
+        carousel.addEventListener('mouseleave', startAutoScroll);
+        carousel.addEventListener('touchstart', stopAutoScroll);
+
+        return () => {
+            stopAutoScroll();
+            if (carousel) {
+                carousel.removeEventListener('mouseenter', stopAutoScroll);
+                carousel.removeEventListener('mouseleave', startAutoScroll);
+                carousel.removeEventListener('touchstart', stopAutoScroll);
+            }
+        };
+    }, []);
+
+    // Mouse drag functionality
+    const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+        setIsDragging(true);
+        setStartX(e.pageX - (carouselRef.current?.offsetLeft ?? 0));
+        setScrollLeft(carouselRef.current?.scrollLeft ?? 0);
+        e.preventDefault();
+    };
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - (carouselRef.current?.offsetLeft ?? 0);
+        const walk = (x - startX) * 2;
+        if (carouselRef.current) {
+            carouselRef.current.scrollLeft = scrollLeft - walk;
+        }
+    };
+
+    const handleMouseUp = () => {
+        setIsDragging(false);
+    };
+
+    const handleMouseLeave = () => {
+        setIsDragging(false);
+    };
+
+    // Touch events for mobile
+    const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+        setStartX(e.touches[0].clientX);
+        setScrollLeft(carouselRef.current?.scrollLeft ?? 0);
+    };
+
+    const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+        const x = e.touches[0].clientX;
+        const walk = (startX - x) * 2;
+        if (carouselRef.current) {
+            carouselRef.current.scrollLeft = scrollLeft + walk;
+        }
+    };
+
+    useEffect(() => {
+        const carousel = carouselRef.current;
+        if (carousel) {
+            carousel.addEventListener('scroll', checkScrollPosition);
+            checkScrollPosition();
+            return () => carousel.removeEventListener('scroll', checkScrollPosition);
+        }
+    }, []);
+
+    return (
+        <div className="scrollable-carousel-container">
+            {/* Navigation Arrows */}
+            <button
+                className={`carousel-nav-btn carousel-nav-left ${!canScrollLeft ? 'disabled' : ''}`}
+                onClick={scrollToLeft}
+                disabled={!canScrollLeft}
+                aria-label="Scroll left"
+            >
+                <ChevronLeft className="carousel-nav-icon" />
+            </button>
+
+            <button
+                className={`carousel-nav-btn carousel-nav-right ${!canScrollRight ? 'disabled' : ''}`}
+                onClick={scrollToRight}
+                disabled={!canScrollRight}
+                aria-label="Scroll right"
+            >
+                <ChevronRightIcon className="carousel-nav-icon" />
+            </button>
+
+            {/* Carousel Container */}
+            <div
+                ref={carouselRef}
+                className="scrollable-carousel"
+                onMouseDown={handleMouseDown}
+                onMouseMove={handleMouseMove}
+                onMouseUp={handleMouseUp}
+                onMouseLeave={handleMouseLeave}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+            >
+                {projects.map((project) => (
+                    <ProjectCard
+                        key={project.id}
+                        project={project}
+                        onClick={openModal}
+                    />
+                ))}
+                {/* Duplicate cards for infinite scroll effect */}
+                {projects.map((project) => (
+                    <ProjectCard
+                        key={`duplicate-${project.id}`}
+                        project={project}
+                        onClick={openModal}
+                    />
+                ))}
+            </div>
+
+            {/* Scroll Indicators */}
+            <div className="carousel-indicators">
+                {projects.map((_, index) => (
+                    <div
+                        key={index}
+                        className="carousel-indicator"
+                        onClick={() => {
+                            if (carouselRef.current) {
+                                carouselRef.current.scrollTo({
+                                    left: index * 350,
+                                    behavior: 'smooth'
+                                });
+                            }
+                        }}
+                    />
+                ))}
+            </div>
+
+
+        </div>
+    );
+};
+
 const FinishedProjects = () => {
     const projectGroups: ProjectGroup[] = [
         {
@@ -644,71 +872,19 @@ const FinishedProjects = () => {
 
     return (
         <div className="finished-products">
+            <div className="projects-header">
+                <h1>Our Projects</h1>
+                <p className="projects-subtitle">
+                    Explore our comprehensive portfolio of construction projects showcasing our quality steel reinforcement solutions
+                </p>
+            </div>
+            <ScrollableProjectCarousel projects={projectGroups} openModal={openProjectModal} />
             <ProjectModal project={selectedProject} isOpen={isOpen} setIsOpen={setIsOpen} />
-            <h1 style={{ marginBottom: '50px'}}>Projects</h1>
-            <ProjectCarousel projects={projectGroups} openModal={openProjectModal} />
         </div>
-    )
-}
+    );
+};
 
-const ProjectImageCard = ({ project, click }: { project: ProjectGroup, click: (project: ProjectGroup) => void }) => {
-    return (
-        <div className='banner-card' onClick={() => click(project)}>
-            <img src={project.cardImage} alt={project.title} />
-            <h2>{project.title}</h2>
-        </div>
-    )
-}
-
-// Project carousel component - using original carousel class
-const ProjectCarousel = ({ projects, openModal }: { projects: ProjectGroup[], openModal: (project: ProjectGroup) => void }) => {
-    const carouselRef = useRef<HTMLDivElement>(null);
-    let dragged: boolean = false;
-    let dragging: boolean = false;
-    let mouseX: number = 0;
-
-    const mouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
-        e.preventDefault();
-        dragged = false;
-        dragging = true;
-        mouseX = e.pageX - (carouselRef.current?.offsetLeft ?? 0);
-    }
-
-    const mouseUp = (e: React.MouseEvent<HTMLDivElement>) => {
-        e.preventDefault();
-        dragging = false;
-    }
-
-    const mouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-        e.preventDefault();
-        if (dragging) {
-            const x = e.pageX - carouselRef.current!.offsetLeft;
-            const walk = (x - mouseX) * 1;
-            dragged = true;
-            carouselRef.current!.scrollLeft -= walk;
-        }
-    }
-
-    const projectClick = (project: ProjectGroup) => {
-        if (!dragged) {
-            openModal(project);
-        }
-    }
-
-    return (
-        <div className='carousel' ref={carouselRef}
-             onMouseDown={mouseDown}
-             onMouseUp={mouseUp}
-             onMouseMove={mouseMove}
-        >
-            {projects.map(project => (
-                <ProjectImageCard key={project.id} project={project} click={projectClick} />
-            ))}
-        </div>
-    )
-}
-
-// Project modal with image navigation
+// Project modal component
 const ProjectModal = ({ project, isOpen, setIsOpen }: { project: ProjectGroup, isOpen: boolean, setIsOpen: (o: boolean) => void }) => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -732,55 +908,52 @@ const ProjectModal = ({ project, isOpen, setIsOpen }: { project: ProjectGroup, i
     if (!isOpen) return null;
 
     return (
-        <div className="project-modal-cont">
-            <div className='project-modal'>
-                <svg className='close-button' onClick={closeModal} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-                    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
-                    <g id="SVGRepo_iconCarrier">
-                        <circle cx="12" cy="12" r="10" stroke="#1C274C" strokeWidth="1.5"></circle>
-                        <path d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5" stroke="#1C274C" strokeWidth="1.5" strokeLinecap="round"></path>
-                    </g>
-                </svg>
+        <div className="project-modal-overlay" onClick={closeModal}>
+            <div className="project-modal" onClick={(e) => e.stopPropagation()}>
+                <button className="modal-close-btn" onClick={closeModal}>
+                    ×
+                </button>
 
-                <div className='project-modal-header'>
-                    <h2 className='project-title'>{project.title}</h2>
-                    {/* Only show the main project description */}
-                    <p className='project-description'>{project.description}</p>
+                <div className="project-modal-header">
+                    <h2 className="project-modal-title">{project.title}</h2>
+                    <p className="project-modal-description">{project.description}</p>
                 </div>
 
-                <div className='image-navigation-container'>
-                    <button className='nav-button prev-button' onClick={prevImage}>
-                        <ArrowLeft className='icon' />
+                <div className="project-modal-content">
+                    <button className="modal-nav-btn modal-nav-left" onClick={prevImage}>
+                        <ArrowLeft className="modal-nav-icon" />
                     </button>
 
-                    <div className='image-container'>
-                        {/* Only show the image, no individual image name or description */}
-                        <img src={project.images[currentImageIndex].image} alt={project.images[currentImageIndex].name} />
+                    <div className="project-modal-image-container">
+                        <img
+                            src={project.images[currentImageIndex].image}
+                            alt={project.images[currentImageIndex].name}
+                            className="project-modal-image"
+                        />
                     </div>
 
-                    <button className='nav-button next-button' onClick={nextImage}>
-                        <ArrowRight className='icon' />
+                    <button className="modal-nav-btn modal-nav-right" onClick={nextImage}>
+                        <ArrowRight className="modal-nav-icon" />
                     </button>
                 </div>
 
-                <div className='image-indicators'>
+                <div className="project-modal-indicators">
                     {project.images.map((_, index) => (
-                        <div
+                        <button
                             key={index}
-                            className={`indicator ${index === currentImageIndex ? 'active' : ''}`}
+                            className={`modal-indicator ${index === currentImageIndex ? 'active' : ''}`}
                             onClick={() => setCurrentImageIndex(index)}
                         />
                     ))}
                 </div>
 
-                <div className='image-counter'>
+                <div className="project-modal-counter">
                     {currentImageIndex + 1} of {project.images.length}
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 const Carousel = ({ items, openModal }: { items: ModalProps[], openModal: (details: ModalProps) => void }) => {
     const carouselRef = useRef<HTMLDivElement>(null);
