@@ -545,191 +545,69 @@ const PartnersCard = ({ name, url }: { name: string, url: string }) => {
     )
 }
 
-// Redesigned Optical Emission Spectrometer Section
-// Updated Optical Emission Spectrometer Component
 const OpticalEmissionSpectrometer = () => {
     return (
-        <div style={{
-            background: '#ffffff',
-            padding: '60px 20px',
-            color: '#1f2937',
-            position: 'relative'
-        }}>
-            <div style={{
-                maxWidth: '1200px',
-                margin: '0 auto',
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                gap: '40px',
-                alignItems: 'center'
-            }}>
+        <div className="spectrometer-section">
+            <div className="spectrometer-container">
                 {/* Left Side - Image */}
-                <div style={{
-                    position: 'relative',
-                    order: '1'
-                }}>
+                <div className="spectrometer-image-container">
                     <img
                         src="https://res.cloudinary.com/drrzinr9v/image/upload/v1753189483/productpageSpectrometer_nkp7rb.jpg"
                         alt="Optical Emission Spectrometer"
-                        style={{
-                            width: '100%',
-                            height: '400px',
-                            objectFit: 'cover',
-                            borderRadius: '8px',
-                            boxShadow: '0 20px 40px rgba(220, 38, 38, 0.1)'
-                        }}
+                        className="spectrometer-image"
                     />
-                    <div style={{
-                        position: 'absolute',
-                        top: '20px',
-                        left: '20px',
-                        width: '70px',
-                        height: '70px',
-                        backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                        borderRadius: '50%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        boxShadow: '0 8px 20px rgba(220, 38, 38, 0.3)',
-                        padding: '8px'
-                    }}>
+                    <div className="spectrometer-logo-badge">
                         <img
                             src="https://res.cloudinary.com/drrzinr9v/image/upload/v1754201352/USSCI_logo_19x17inch-removebg-preview_idrn0g.png"
                             alt="USSCI Logo"
-                            style={{
-                                width: '100%',
-                                height: '100%',
-                                objectFit: 'contain'
-                            }}
                         />
                     </div>
                 </div>
 
                 {/* Right Side - Content */}
-                <div style={{
-                    order: '2'
-                }}>
-                    <h2 style={{
-                        fontSize: 'clamp(2rem, 5vw, 3rem)',
-                        fontWeight: '700',
-                        marginBottom: '20px',
-                        color: '#1f2937',
-                        lineHeight: '1.1'
-                    }}>
+                <div className="spectrometer-content">
+                    <h2 className="spectrometer-title">
                         Optical Emission
-                        <span style={{ color: '#dc2626' }}> Spectrometer</span>
+                        <span className="spectrometer-title-highlight"> Spectrometer</span>
                     </h2>
 
-                    <p style={{
-                        fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
-                        color: '#6b7280',
-                        marginBottom: '40px',
-                        lineHeight: '1.6'
-                    }}>
+                    <p className="spectrometer-subtitle">
                         Advanced technology for uncompromised material analysis and quality assurance
                     </p>
 
                     {/* Features List */}
-                    <div style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: '25px',
-                        marginBottom: '30px'
-                    }}>
-                        <div style={{
-                            display: 'flex',
-                            alignItems: 'flex-start',
-                            gap: '15px'
-                        }}>
-                            <div style={{
-                                width: '8px',
-                                height: '8px',
-                                backgroundColor: '#dc2626',
-                                borderRadius: '50%',
-                                marginTop: '8px',
-                                flexShrink: 0
-                            }} />
+                    <div className="spectrometer-features">
+                        <div className="spectrometer-feature">
+                            <div className="spectrometer-feature-dot" />
                             <div>
-                                <h4 style={{
-                                    fontSize: 'clamp(1.1rem, 2.5vw, 1.3rem)',
-                                    fontWeight: '600',
-                                    marginBottom: '6px',
-                                    color: '#1f2937'
-                                }}>
+                                <h4 className="spectrometer-feature-title">
                                     Spark Excitation Analysis
                                 </h4>
-                                <p style={{
-                                    color: '#6b7280',
-                                    margin: '0',
-                                    lineHeight: '1.6',
-                                    fontSize: 'clamp(0.9rem, 2vw, 1rem)'
-                                }}>
+                                <p className="spectrometer-feature-description">
                                     Energy from electrode sparks excites specimen atoms, producing precise electromagnetic spectral patterns
                                 </p>
                             </div>
                         </div>
 
-                        <div style={{
-                            display: 'flex',
-                            alignItems: 'flex-start',
-                            gap: '15px'
-                        }}>
-                            <div style={{
-                                width: '8px',
-                                height: '8px',
-                                backgroundColor: '#dc2626',
-                                borderRadius: '50%',
-                                marginTop: '8px',
-                                flexShrink: 0
-                            }} />
+                        <div className="spectrometer-feature">
+                            <div className="spectrometer-feature-dot" />
                             <div>
-                                <h4 style={{
-                                    fontSize: 'clamp(1.1rem, 2.5vw, 1.3rem)',
-                                    fontWeight: '600',
-                                    marginBottom: '6px',
-                                    color: '#1f2937'
-                                }}>
+                                <h4 className="spectrometer-feature-title">
                                     Quantitative Analysis
                                 </h4>
-                                <p style={{
-                                    color: '#6b7280',
-                                    margin: '0',
-                                    lineHeight: '1.6',
-                                    fontSize: 'clamp(0.9rem, 2vw, 1rem)'
-                                }}>
+                                <p className="spectrometer-feature-description">
                                     Measures spectral peak intensity for accurate qualitative and quantitative metal composition analysis
                                 </p>
                             </div>
                         </div>
 
-                        <div style={{
-                            display: 'flex',
-                            alignItems: 'flex-start',
-                            gap: '15px'
-                        }}>
-                            <div style={{
-                                width: '8px',
-                                height: '8px',
-                                backgroundColor: '#dc2626',
-                                borderRadius: '50%',
-                                marginTop: '8px',
-                                flexShrink: 0
-                            }} />
+                        <div className="spectrometer-feature">
+                            <div className="spectrometer-feature-dot" />
                             <div>
-                                <h4 style={{
-                                    fontSize: 'clamp(1.1rem, 2.5vw, 1.3rem)',
-                                    fontWeight: '600',
-                                    marginBottom: '6px',
-                                    color: '#1f2937'
-                                }}>
+                                <h4 className="spectrometer-feature-title">
                                     Quality Enhancement
                                 </h4>
-                                <p style={{
-                                    color: '#6b7280',
-                                    margin: '0',
-                                    lineHeight: '1.6',
-                                    fontSize: 'clamp(0.9rem, 2vw, 1rem)'
-                                }}>
+                                <p className="spectrometer-feature-description">
                                     Enables effective raw material management and production efficiency optimization
                                 </p>
                             </div>
@@ -737,87 +615,18 @@ const OpticalEmissionSpectrometer = () => {
                     </div>
 
                     {/* Bottom Description */}
-                    <div style={{
-                        borderLeft: '4px solid #dc2626',
-                        paddingLeft: '15px',
-                        backgroundColor: '#f9fafb',
-                        padding: '20px',
-                        borderRadius: '0 8px 8px 0',
-                        marginTop: '20px'
-                    }}>
-                        <p style={{
-                            color: '#4b5563',
-                            lineHeight: '1.7',
-                            margin: '0',
-                            fontSize: 'clamp(0.9rem, 2vw, 1rem)',
-                            fontStyle: 'italic'
-                        }}>
+                    <div className="spectrometer-quote">
+                        <p>
                             In line with our commitment to development and continued pursuit of excellence, our Optical Emission Spectrometer
                             represents another step towards furthering our dedication to quality improvement and production efficiency.
                         </p>
                     </div>
                 </div>
             </div>
-
-            {/* Mobile-specific adjustments */}
-            <style jsx>{`
-                @media (max-width: 767px) {
-                    div[style*="gridTemplateColumns"] {
-                        grid-template-columns: 1fr !important;
-                        gap: 30px !important;
-                    }
-                    
-                    div[style*="order: 1"] {
-                        order: 1 !important;
-                    }
-                    
-                    div[style*="order: 2"] {
-                        order: 2 !important;
-                    }
-                    
-                    img[alt="Optical Emission Spectrometer"] {
-                        height: 300px !important;
-                    }
-                    
-                    div[style*="top: 20px"] {
-                        width: 60px !important;
-                        height: 60px !important;
-                        top: 15px !important;
-                        left: 15px !important;
-                        padding: 6px !important;
-                    }
-                }
-                
-                @media (max-width: 480px) {
-                    img[alt="Optical Emission Spectrometer"] {
-                        height: 250px !important;
-                    }
-                    
-                    div[style*="top: 20px"] {
-                        width: 50px !important;
-                        height: 50px !important;
-                        top: 10px !important;
-                        left: 10px !important;
-                        padding: 5px !important;
-                    }
-                    
-                    div[style*="gap: 25px"] {
-                        gap: 20px !important;
-                    }
-                    
-                    div[style*="gap: 15px"] {
-                        gap: 12px !important;
-                    }
-                    
-                    div[style*="paddingLeft: 15px"] {
-                        padding: 15px !important;
-                        border-radius: 0 6px 6px 0 !important;
-                    }
-                }
-            `}</style>
         </div>
     );
 };
+
 
 const MainBody = () => {
     return (
