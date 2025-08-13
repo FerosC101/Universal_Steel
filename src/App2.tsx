@@ -62,6 +62,30 @@ const Mail = ({ className }: IconProps) => (
     </svg>
 );
 
+const Microscope = ({ className }: IconProps) => (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.254 48.254 0 0112 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.062 12.5c.218 1.32-.343 2.63-1.414 3.53A3.73 3.73 0 0119.5 21.5H4.5a3.73 3.73 0 01-2.648-1.146c-1.071-.9-1.632-2.21-1.414-3.53L2.5 4.97" />
+    </svg>
+);
+
+const Zap = ({ className }: IconProps) => (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+    </svg>
+);
+
+const BarChart = ({ className }: IconProps) => (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+    </svg>
+);
+
+const Award = ({ className }: IconProps) => (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+    </svg>
+);
+
 const Header = ({ currentPage = "products" }: { currentPage?: string }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -521,29 +545,284 @@ const PartnersCard = ({ name, url }: { name: string, url: string }) => {
     )
 }
 
-const MainBody = () => {
+// Redesigned Optical Emission Spectrometer Section
+// Updated Optical Emission Spectrometer Component
+const OpticalEmissionSpectrometer = () => {
     return (
-        <div className="main-body">
-            <div className="card-row">
-                <div className="card card-left">
-                    <div className="card-content">
-                        <h2>Optical Emiission Spectrometer</h2>
-                        <p>
-                            In line with our commitment to development and continued pursuit of excellence, the acquisition of an Optical Emission Spectrometer was another step towards furthering our dedication to improve on our quality and develop efficiency in our production for the benefit of both the company and the end users. In the Optical Emission Spectroscopy, atoms in specimen materials are excited by energy that comes from a spark formed between specimen and electrode. The energy of the spark causes the electrons in the specimen to emit light which is converted into electromagnetic spectral pattern. By measuring the intensity of the peaks in the said spectrum, the analyser can produce qualitative and quantitative metal analysis of material composition with uncompromised accuracy. It is through this analysis that we determine the integrity of the raw materials for use in our production. This allows us to define the most effective way to use the raw materials, through effective segregation and management of raw materials allocation. With an effective system of raw materials management, it enhances production efficiency and further improves on the quality of reinforcing bars for public use.
+        <div style={{
+            background: '#ffffff',
+            padding: '60px 20px',
+            color: '#1f2937',
+            position: 'relative'
+        }}>
+            <div style={{
+                maxWidth: '1200px',
+                margin: '0 auto',
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gap: '40px',
+                alignItems: 'center'
+            }}>
+                {/* Left Side - Image */}
+                <div style={{
+                    position: 'relative',
+                    order: '1'
+                }}>
+                    <img
+                        src="https://res.cloudinary.com/drrzinr9v/image/upload/v1753189483/productpageSpectrometer_nkp7rb.jpg"
+                        alt="Optical Emission Spectrometer"
+                        style={{
+                            width: '100%',
+                            height: '400px',
+                            objectFit: 'cover',
+                            borderRadius: '8px',
+                            boxShadow: '0 20px 40px rgba(220, 38, 38, 0.1)'
+                        }}
+                    />
+                    <div style={{
+                        position: 'absolute',
+                        top: '20px',
+                        left: '20px',
+                        width: '70px',
+                        height: '70px',
+                        backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                        borderRadius: '50%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        boxShadow: '0 8px 20px rgba(220, 38, 38, 0.3)',
+                        padding: '8px'
+                    }}>
+                        <img
+                            src="https://res.cloudinary.com/drrzinr9v/image/upload/v1754201352/USSCI_logo_19x17inch-removebg-preview_idrn0g.png"
+                            alt="USSCI Logo"
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'contain'
+                            }}
+                        />
+                    </div>
+                </div>
+
+                {/* Right Side - Content */}
+                <div style={{
+                    order: '2'
+                }}>
+                    <h2 style={{
+                        fontSize: 'clamp(2rem, 5vw, 3rem)',
+                        fontWeight: '700',
+                        marginBottom: '20px',
+                        color: '#1f2937',
+                        lineHeight: '1.1'
+                    }}>
+                        Optical Emission
+                        <span style={{ color: '#dc2626' }}> Spectrometer</span>
+                    </h2>
+
+                    <p style={{
+                        fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
+                        color: '#6b7280',
+                        marginBottom: '40px',
+                        lineHeight: '1.6'
+                    }}>
+                        Advanced technology for uncompromised material analysis and quality assurance
+                    </p>
+
+                    {/* Features List */}
+                    <div style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '25px',
+                        marginBottom: '30px'
+                    }}>
+                        <div style={{
+                            display: 'flex',
+                            alignItems: 'flex-start',
+                            gap: '15px'
+                        }}>
+                            <div style={{
+                                width: '8px',
+                                height: '8px',
+                                backgroundColor: '#dc2626',
+                                borderRadius: '50%',
+                                marginTop: '8px',
+                                flexShrink: 0
+                            }} />
+                            <div>
+                                <h4 style={{
+                                    fontSize: 'clamp(1.1rem, 2.5vw, 1.3rem)',
+                                    fontWeight: '600',
+                                    marginBottom: '6px',
+                                    color: '#1f2937'
+                                }}>
+                                    Spark Excitation Analysis
+                                </h4>
+                                <p style={{
+                                    color: '#6b7280',
+                                    margin: '0',
+                                    lineHeight: '1.6',
+                                    fontSize: 'clamp(0.9rem, 2vw, 1rem)'
+                                }}>
+                                    Energy from electrode sparks excites specimen atoms, producing precise electromagnetic spectral patterns
+                                </p>
+                            </div>
+                        </div>
+
+                        <div style={{
+                            display: 'flex',
+                            alignItems: 'flex-start',
+                            gap: '15px'
+                        }}>
+                            <div style={{
+                                width: '8px',
+                                height: '8px',
+                                backgroundColor: '#dc2626',
+                                borderRadius: '50%',
+                                marginTop: '8px',
+                                flexShrink: 0
+                            }} />
+                            <div>
+                                <h4 style={{
+                                    fontSize: 'clamp(1.1rem, 2.5vw, 1.3rem)',
+                                    fontWeight: '600',
+                                    marginBottom: '6px',
+                                    color: '#1f2937'
+                                }}>
+                                    Quantitative Analysis
+                                </h4>
+                                <p style={{
+                                    color: '#6b7280',
+                                    margin: '0',
+                                    lineHeight: '1.6',
+                                    fontSize: 'clamp(0.9rem, 2vw, 1rem)'
+                                }}>
+                                    Measures spectral peak intensity for accurate qualitative and quantitative metal composition analysis
+                                </p>
+                            </div>
+                        </div>
+
+                        <div style={{
+                            display: 'flex',
+                            alignItems: 'flex-start',
+                            gap: '15px'
+                        }}>
+                            <div style={{
+                                width: '8px',
+                                height: '8px',
+                                backgroundColor: '#dc2626',
+                                borderRadius: '50%',
+                                marginTop: '8px',
+                                flexShrink: 0
+                            }} />
+                            <div>
+                                <h4 style={{
+                                    fontSize: 'clamp(1.1rem, 2.5vw, 1.3rem)',
+                                    fontWeight: '600',
+                                    marginBottom: '6px',
+                                    color: '#1f2937'
+                                }}>
+                                    Quality Enhancement
+                                </h4>
+                                <p style={{
+                                    color: '#6b7280',
+                                    margin: '0',
+                                    lineHeight: '1.6',
+                                    fontSize: 'clamp(0.9rem, 2vw, 1rem)'
+                                }}>
+                                    Enables effective raw material management and production efficiency optimization
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Bottom Description */}
+                    <div style={{
+                        borderLeft: '4px solid #dc2626',
+                        paddingLeft: '15px',
+                        backgroundColor: '#f9fafb',
+                        padding: '20px',
+                        borderRadius: '0 8px 8px 0',
+                        marginTop: '20px'
+                    }}>
+                        <p style={{
+                            color: '#4b5563',
+                            lineHeight: '1.7',
+                            margin: '0',
+                            fontSize: 'clamp(0.9rem, 2vw, 1rem)',
+                            fontStyle: 'italic'
+                        }}>
+                            In line with our commitment to development and continued pursuit of excellence, our Optical Emission Spectrometer
+                            represents another step towards furthering our dedication to quality improvement and production efficiency.
                         </p>
                     </div>
                 </div>
-                <div className="card card-middle">
-                    <div className="card-content">
-
-                    </div>
-                </div>
-                <div className="card card-right">
-                    <div className="">
-
-                    </div>
-                </div>
             </div>
+
+            {/* Mobile-specific adjustments */}
+            <style jsx>{`
+                @media (max-width: 767px) {
+                    div[style*="gridTemplateColumns"] {
+                        grid-template-columns: 1fr !important;
+                        gap: 30px !important;
+                    }
+                    
+                    div[style*="order: 1"] {
+                        order: 1 !important;
+                    }
+                    
+                    div[style*="order: 2"] {
+                        order: 2 !important;
+                    }
+                    
+                    img[alt="Optical Emission Spectrometer"] {
+                        height: 300px !important;
+                    }
+                    
+                    div[style*="top: 20px"] {
+                        width: 60px !important;
+                        height: 60px !important;
+                        top: 15px !important;
+                        left: 15px !important;
+                        padding: 6px !important;
+                    }
+                }
+                
+                @media (max-width: 480px) {
+                    img[alt="Optical Emission Spectrometer"] {
+                        height: 250px !important;
+                    }
+                    
+                    div[style*="top: 20px"] {
+                        width: 50px !important;
+                        height: 50px !important;
+                        top: 10px !important;
+                        left: 10px !important;
+                        padding: 5px !important;
+                    }
+                    
+                    div[style*="gap: 25px"] {
+                        gap: 20px !important;
+                    }
+                    
+                    div[style*="gap: 15px"] {
+                        gap: 12px !important;
+                    }
+                    
+                    div[style*="paddingLeft: 15px"] {
+                        padding: 15px !important;
+                        border-radius: 0 6px 6px 0 !important;
+                    }
+                }
+            `}</style>
+        </div>
+    );
+};
+
+const MainBody = () => {
+    return (
+        <div className="main-body">
+            <OpticalEmissionSpectrometer />
         </div>
     )
 }
@@ -790,20 +1069,20 @@ const FinishedProjects = () => {
             images: [
                 {
                     id: 1,
-                    name: "Project 1",
-                    description: "Magallanes Interchange",
+                    name: "Magallanes Interchange Project",
+                    description: "Major infrastructure development featuring our premium Grade 60 rebars for enhanced structural integrity and durability in high-traffic interchange construction.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_projects_for_website_2_hrfykz.jpg"
                 },
                 {
                     id: 2,
-                    name: "Project 2",
-                    description: "Description",
+                    name: "Bridge Infrastructure Development",
+                    description: "Critical bridge construction project utilizing our high-strength reinforcement solutions to ensure long-lasting structural performance and safety standards.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_7_tjttq6.jpg"
                 },
                 {
                     id: 3,
-                    name: "Project 3",
-                    description: "Description",
+                    name: "Highway Construction Project",
+                    description: "Extensive highway development showcasing our comprehensive steel reinforcement capabilities for large-scale transportation infrastructure projects.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_1_wzrmyq.jpg"
                 }
             ]
@@ -811,25 +1090,25 @@ const FinishedProjects = () => {
         {
             id: 2,
             title: "Present Developments",
-            description: "This project highlights our capability to supply high-quality materials for extensive construction projects.",
+            description: "Current ongoing projects highlighting our capability to supply high-quality materials for extensive construction developments across various sectors.",
             cardImage: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_Pics_for_website_1_yzhack.jpg",
             images: [
                 {
                     id: 4,
-                    name: "Foundation Work",
-                    description: "Deep foundation reinforcement with our Grade 60 rebars",
+                    name: "Commercial Complex Foundation",
+                    description: "Advanced foundation work for major commercial development utilizing our precision-manufactured rebars for optimal structural support and longevity.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_13_wrnwf1.jpg"
                 },
                 {
                     id: 5,
-                    name: "Structural Framework",
-                    description: "Building framework construction using our steel products",
+                    name: "High-Rise Structural Framework",
+                    description: "Multi-story building construction featuring our Grade 40 and Grade 60 reinforcement solutions for superior structural framework and seismic resistance.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_11_btaknk.jpg"
                 },
                 {
                     id: 6,
-                    name: "Upper Level Construction",
-                    description: "Multi-story construction showcasing structural integrity",
+                    name: "Upper Level Construction Phase",
+                    description: "Progressive building construction demonstrating our consistent quality delivery across multiple construction phases and complex architectural requirements.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_10_gqdpk6.jpg"
                 }
             ]
@@ -837,25 +1116,25 @@ const FinishedProjects = () => {
         {
             id: 3,
             title: "Future Developments",
-            description: "Multi-phase residential development project featuring our comprehensive steel reinforcement solutions. This showcases our ability to deliver consistent quality across large-scale construction projects.",
+            description: "Upcoming multi-phase residential development project featuring our comprehensive steel reinforcement solutions, showcasing our ability to deliver consistent quality across large-scale construction projects.",
             cardImage: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_Pics_for_website_3_haeba5.jpg",
             images: [
                 {
                     id: 7,
-                    name: "Site Preparation",
-                    description: "Initial site preparation and foundation work for the project",
+                    name: "Residential Site Preparation",
+                    description: "Comprehensive site preparation and initial foundation work for large-scale residential development, featuring systematic reinforcement planning and installation.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_8_pbadil.jpg"
                 },
                 {
                     id: 8,
-                    name: "Building Framework",
-                    description: "Multi-story building framework construction",
+                    name: "Residential Building Framework",
+                    description: "Multi-unit residential construction showcasing our versatile rebar solutions designed for modern housing developments with emphasis on safety and durability.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_5_jo4ul6.jpg"
                 },
                 {
                     id: 9,
-                    name: "Completion Phase",
-                    description: "Final construction phase showing completed structures",
+                    name: "Project Completion Phase",
+                    description: "Final construction phases demonstrating successful integration of our reinforcement materials in creating safe, durable residential structures for community development.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_projects_for_website_3_hqua6e.jpg"
                 }
             ]
@@ -884,7 +1163,6 @@ const FinishedProjects = () => {
     );
 };
 
-// Project modal component
 const ProjectModal = ({ project, isOpen, setIsOpen }: { project: ProjectGroup, isOpen: boolean, setIsOpen: (o: boolean) => void }) => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -907,48 +1185,78 @@ const ProjectModal = ({ project, isOpen, setIsOpen }: { project: ProjectGroup, i
 
     if (!isOpen) return null;
 
+    const currentImage = project.images[currentImageIndex];
+
     return (
         <div className="project-modal-overlay" onClick={closeModal}>
             <div className="project-modal" onClick={(e) => e.stopPropagation()}>
-                <button className="modal-close-btn" onClick={closeModal}>
+                {/* Close Button */}
+                <button onClick={closeModal} className="modal-close-btn">
                     ×
                 </button>
 
+                {/* Header */}
                 <div className="project-modal-header">
                     <h2 className="project-modal-title">{project.title}</h2>
                     <p className="project-modal-description">{project.description}</p>
                 </div>
 
+                {/* Main Content */}
                 <div className="project-modal-content">
-                    <button className="modal-nav-btn modal-nav-left" onClick={prevImage}>
+                    <button onClick={prevImage} className="modal-nav-btn">
                         <ArrowLeft className="modal-nav-icon" />
                     </button>
 
                     <div className="project-modal-image-container">
                         <img
-                            src={project.images[currentImageIndex].image}
-                            alt={project.images[currentImageIndex].name}
+                            src={currentImage.image}
+                            alt={currentImage.name}
                             className="project-modal-image"
                         />
+                        <div className="project-image-title-overlay">
+                            <h3 className="project-image-title">{currentImage.name}</h3>
+                        </div>
                     </div>
 
-                    <button className="modal-nav-btn modal-nav-right" onClick={nextImage}>
+                    <button onClick={nextImage} className="modal-nav-btn">
                         <ArrowRight className="modal-nav-icon" />
                     </button>
                 </div>
 
+                {/* Indicators */}
                 <div className="project-modal-indicators">
                     {project.images.map((_, index) => (
                         <button
                             key={index}
-                            className={`modal-indicator ${index === currentImageIndex ? 'active' : ''}`}
                             onClick={() => setCurrentImageIndex(index)}
+                            className={`modal-indicator ${index === currentImageIndex ? 'active' : ''}`}
                         />
                     ))}
                 </div>
 
+                {/* Counter */}
                 <div className="project-modal-counter">
                     {currentImageIndex + 1} of {project.images.length}
+                </div>
+
+                {/* Footer */}
+                <div className="project-modal-footer">
+                    <h4>Project Gallery</h4>
+                    <div className="project-thumbnails">
+                        {project.images.map((image, index) => (
+                            <div
+                                key={image.id}
+                                onClick={() => setCurrentImageIndex(index)}
+                                className={`project-thumbnail ${index === currentImageIndex ? 'active' : ''}`}
+                            >
+                                <img src={image.image} alt={image.name} />
+                            </div>
+                        ))}
+                    </div>
+                    <div className="current-image-details">
+                        <h4>{currentImage.name}</h4>
+                        <p>{currentImage.description}</p>
+                    </div>
                 </div>
             </div>
         </div>

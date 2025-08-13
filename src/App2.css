@@ -130,8 +130,8 @@ body {
   padding: 4px;
   border-radius: 6px;
   margin-right: 12px;
-  width: 60px;  /* Increased from 40px */
-  height: 60px; /* Increased from 40px */
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -143,7 +143,7 @@ body {
 .logo-icon img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Ensures the image scales properly */
+  object-fit: contain;
   background: transparent;
 }
 
@@ -218,8 +218,8 @@ body {
   padding: 4px;
   border-radius: 6px;
   margin-right: 12px;
-  width: 48px;  /* Increased from 32px */
-  height: 48px; /* Increased from 32px */
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -533,6 +533,127 @@ body {
   color: white;
 }
 
+/* Optical Emission Spectrometer Styles */
+.spectrometer-section {
+  background: #ffffff;
+  padding: 100px 20px;
+  color: #1f2937;
+  position: relative;
+}
+
+.spectrometer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.spectrometer-image-container {
+  position: relative;
+}
+
+.spectrometer-image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 20px 40px rgba(220, 38, 38, 0.1);
+}
+
+.spectrometer-logo-badge {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 70px;
+  height: 70px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+  padding: 8px;
+}
+
+.spectrometer-logo-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.spectrometer-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #1f2937;
+  line-height: 1.1;
+}
+
+.spectrometer-title-highlight {
+  color: #dc2626;
+}
+
+.spectrometer-subtitle {
+  font-size: 1.2rem;
+  color: #6b7280;
+  margin-bottom: 50px;
+  line-height: 1.6;
+}
+
+.spectrometer-features {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.spectrometer-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.spectrometer-feature-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #dc2626;
+  border-radius: 50%;
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+.spectrometer-feature-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1f2937;
+}
+
+.spectrometer-feature-description {
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.spectrometer-quote {
+  border-left: 4px solid #dc2626;
+  padding-left: 20px;
+  background-color: #f9fafb;
+  padding: 25px;
+  border-radius: 0 8px 8px 0;
+}
+
+.spectrometer-quote p {
+  color: #4b5563;
+  line-height: 1.7;
+  margin: 0;
+  font-size: 1rem;
+  font-style: italic;
+}
+
 /* REDESIGNED PROJECTS SECTION */
 .finished-products {
   padding: 60px 20px;
@@ -629,7 +750,6 @@ body {
   height: 24px;
 }
 
-/* Project Card Styles */
 /* Project Card Styles */
 .project-card {
   flex: 0 0 750px;
@@ -763,40 +883,44 @@ body {
   font-style: italic;
 }
 
-/* Project Modal Styles */
+/* Project Modal Styles - FIXED FOR MOBILE */
 .project-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
-  padding: 20px;
+  z-index: 2000;
+  padding: 15px;
+  overflow-y: auto;
 }
 
 .project-modal {
   background: white;
-  border-radius: 15px;
-  padding: 40px;
-  max-width: 900px;
+  border-radius: 20px;
+  padding: 0;
+  max-width: 1100px;
   width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
+  max-height: 95vh;
+  overflow: hidden;
   position: relative;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-close-btn {
   position: absolute;
   top: 15px;
   right: 20px;
-  background: none;
+  background: rgba(0, 0, 0, 0.7);
   border: none;
-  font-size: 2rem;
-  color: #999;
+  font-size: 24px;
+  color: white;
   cursor: pointer;
   width: 40px;
   height: 40px;
@@ -805,16 +929,19 @@ body {
   justify-content: center;
   border-radius: 50%;
   transition: all 0.2s ease;
+  z-index: 10;
+  backdrop-filter: blur(10px);
 }
 
 .modal-close-btn:hover {
-  background: #f5f5f5;
-  color: #dc2626;
+  background: rgba(220, 38, 38, 0.8);
+  transform: scale(1.1);
 }
 
 .project-modal-header {
   text-align: center;
-  margin-bottom: 30px;
+  padding: 40px 30px 20px;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .project-modal-title {
@@ -828,13 +955,16 @@ body {
   font-size: 1.1rem;
   color: #666;
   line-height: 1.6;
+  margin: 0;
 }
 
 .project-modal-content {
   display: flex;
   align-items: center;
   gap: 20px;
-  margin-bottom: 30px;
+  padding: 20px 30px;
+  flex: 1;
+  min-height: 0;
 }
 
 .modal-nav-btn {
@@ -865,6 +995,8 @@ body {
 .project-modal-image-container {
   flex: 1;
   text-align: center;
+  position: relative;
+  min-height: 0;
 }
 
 .project-modal-image {
@@ -875,11 +1007,29 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
+.project-image-title-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: 20px;
+  border-radius: 0 0 10px 10px;
+}
+
+.project-image-title {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
 .project-modal-indicators {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-bottom: 20px;
+  padding: 20px;
 }
 
 .modal-indicator {
@@ -905,6 +1055,92 @@ body {
   text-align: center;
   color: #666;
   font-weight: 500;
+  padding: 10px;
+}
+
+.project-modal-footer {
+  padding: 30px;
+  border-top: 1px solid #e5e7eb;
+  background: #f8f9fa;
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+.project-modal-footer h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.project-thumbnails {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.project-thumbnails::-webkit-scrollbar {
+  height: 6px;
+}
+
+.project-thumbnails::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.project-thumbnails::-webkit-scrollbar-thumb {
+  background: #dc2626;
+  border-radius: 3px;
+}
+
+.project-thumbnail {
+  flex: 0 0 auto;
+  width: 100px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.project-thumbnail.active {
+  border-color: #dc2626;
+  transform: scale(1.05);
+}
+
+.project-thumbnail:hover {
+  border-color: #999;
+  transform: scale(1.02);
+}
+
+.project-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.current-image-details {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  margin-top: 15px;
+}
+
+.current-image-details h4 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.current-image-details p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
 }
 
 .carousel {
@@ -1151,7 +1387,7 @@ body {
   }
 
   .logo-icon {
-    width: 45px;  /* Smaller on mobile */
+    width: 45px;
     height: 45px;
     padding: 3px;
     font-size: 16px;
@@ -1293,6 +1529,64 @@ body {
     line-height: 1.4;
   }
 
+  /* Spectrometer mobile responsiveness */
+  .spectrometer-section {
+    padding: 60px 15px;
+  }
+
+  .spectrometer-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .spectrometer-image {
+    height: 300px;
+  }
+
+  .spectrometer-logo-badge {
+    width: 60px;
+    height: 60px;
+    top: 20px;
+    left: 20px;
+    padding: 6px;
+  }
+
+  .spectrometer-title {
+    font-size: 2.2rem;
+  }
+
+  .spectrometer-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 35px;
+  }
+
+  .spectrometer-features {
+    gap: 25px;
+    margin-bottom: 30px;
+  }
+
+  .spectrometer-feature {
+    gap: 15px;
+  }
+
+  .spectrometer-feature-title {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+  }
+
+  .spectrometer-feature-description {
+    font-size: 0.95rem;
+  }
+
+  .spectrometer-quote {
+    padding: 20px;
+    padding-left: 15px;
+  }
+
+  .spectrometer-quote p {
+    font-size: 0.95rem;
+  }
+
   /* Finished products mobile */
   .finished-products {
     padding: 40px 10px;
@@ -1336,6 +1630,135 @@ body {
 
   .project-card-description {
     font-size: 0.8rem;
+  }
+
+  /* MOBILE PROJECT MODAL FIXES */
+  .project-modal-overlay {
+    padding: 10px;
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+
+  .project-modal {
+    width: 100%;
+    max-width: 100vw;
+    max-height: 95vh;
+    margin: 0;
+    border-radius: 15px;
+  }
+
+  .project-modal-header {
+    padding: 30px 20px 15px;
+  }
+
+  .project-modal-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+
+  .project-modal-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .project-modal-content {
+    flex-direction: column;
+    padding: 15px 20px;
+    gap: 15px;
+  }
+
+  .modal-nav-btn {
+    width: 45px;
+    height: 45px;
+    order: 2;
+  }
+
+  .project-modal-image-container {
+    order: 1;
+    width: 100%;
+  }
+
+  .project-modal-image {
+    height: 250px;
+  }
+
+  .project-image-title {
+    font-size: 1.1rem;
+  }
+
+  .project-image-title-overlay {
+    padding: 15px;
+  }
+
+  .project-modal-indicators {
+    padding: 15px;
+  }
+
+  .project-modal-counter {
+    padding: 5px;
+    font-size: 0.9rem;
+  }
+
+  .project-modal-footer {
+    padding: 20px;
+    max-height: 150px;
+  }
+
+  .project-modal-footer h4 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+
+  .project-thumbnails {
+    gap: 10px;
+  }
+
+  .project-thumbnail {
+    width: 80px;
+    height: 60px;
+  }
+
+  .current-image-details {
+    padding: 15px;
+    margin-top: 10px;
+  }
+
+  .current-image-details h4 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .current-image-details p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .modal-close-btn {
+    top: 10px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+  }
+
+  /* Navigation buttons mobile positioning */
+  .project-modal-content {
+    position: relative;
+  }
+
+  .modal-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+  }
+
+  .modal-nav-btn:first-child {
+    left: 10px;
+  }
+
+  .modal-nav-btn:last-child {
+    right: 10px;
   }
 
   /* Product button mobile */
@@ -1403,31 +1826,6 @@ body {
 
   .pricing-table th {
     font-size: 0.8rem;
-  }
-
-  /* Project modal mobile */
-  .project-modal {
-    width: 95%;
-    padding: 20px;
-    margin: 10px;
-  }
-
-  .project-modal-title {
-    font-size: 1.8rem;
-  }
-
-  .project-modal-content {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .project-modal-image {
-    height: 250px;
-  }
-
-  .modal-nav-btn {
-    width: 40px;
-    height: 40px;
   }
 
   /* Footer mobile */
@@ -1520,7 +1918,7 @@ body {
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 1000; /* Higher than header */
+    z-index: 1000;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -1542,7 +1940,7 @@ body {
     max-width: 85vw;
     height: 100vh;
     background: white;
-    z-index: 1001; /* Higher than overlay */
+    z-index: 1001;
     padding: 0;
     transition: right 0.3s ease-in-out;
     overflow-y: auto;
@@ -1679,6 +2077,63 @@ body {
     font-size: 0.8rem;
   }
 
+  /* Spectrometer small mobile */
+  .spectrometer-section {
+    padding: 50px 10px;
+  }
+
+  .spectrometer-container {
+    gap: 30px;
+  }
+
+  .spectrometer-image {
+    height: 250px;
+  }
+
+  .spectrometer-logo-badge {
+    width: 50px;
+    height: 50px;
+    top: 15px;
+    left: 15px;
+    padding: 5px;
+  }
+
+  .spectrometer-title {
+    font-size: 1.8rem;
+  }
+
+  .spectrometer-subtitle {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .spectrometer-features {
+    gap: 20px;
+    margin-bottom: 25px;
+  }
+
+  .spectrometer-feature {
+    gap: 12px;
+  }
+
+  .spectrometer-feature-title {
+    font-size: 1.1rem;
+  }
+
+  .spectrometer-feature-description {
+    font-size: 0.9rem;
+  }
+
+  .spectrometer-quote {
+    padding: 15px;
+    border-radius: 0 6px 6px 0;
+  }
+
+  .spectrometer-quote p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
   .finished-products {
     padding: 30px 5px;
   }
@@ -1704,6 +2159,87 @@ body {
     font-size: 0.8rem;
   }
 
+  /* SMALL MOBILE PROJECT MODAL */
+  .project-modal {
+    border-radius: 10px;
+  }
+
+  .project-modal-header {
+    padding: 25px 15px 10px;
+  }
+
+  .project-modal-title {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+
+  .project-modal-description {
+    font-size: 0.9rem;
+  }
+
+  .project-modal-content {
+    padding: 10px 15px;
+  }
+
+  .project-modal-image {
+    height: 200px;
+  }
+
+  .project-image-title {
+    font-size: 1rem;
+  }
+
+  .project-image-title-overlay {
+    padding: 10px;
+  }
+
+  .modal-nav-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .modal-nav-btn:first-child {
+    left: 5px;
+  }
+
+  .modal-nav-btn:last-child {
+    right: 5px;
+  }
+
+  .project-modal-footer {
+    padding: 15px;
+    max-height: 120px;
+  }
+
+  .project-thumbnails {
+    gap: 8px;
+  }
+
+  .project-thumbnail {
+    width: 70px;
+    height: 50px;
+  }
+
+  .current-image-details {
+    padding: 12px;
+  }
+
+  .current-image-details h4 {
+    font-size: 1rem;
+  }
+
+  .current-image-details p {
+    font-size: 0.85rem;
+  }
+
+  .modal-close-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+    top: 8px;
+    right: 12px;
+  }
+
   .modal {
     padding: 15px;
     width: 98%;
@@ -1726,24 +2262,6 @@ body {
     padding: 6px 3px;
   }
 
-  .project-modal {
-    padding: 15px;
-    width: 98%;
-  }
-
-  .project-modal-title {
-    font-size: 1.4rem;
-  }
-
-  .project-modal-description {
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-
-  .project-modal-image {
-    height: 180px;
-  }
-
   .footer-container {
     padding: 0 10px;
   }
@@ -1755,6 +2273,76 @@ body {
   .footer-company .logo-icon {
     width: 32px;
     height: 32px;
+  }
+}
+
+/* Very small mobile */
+@media (max-width: 360px) {
+  .spectrometer-title {
+    font-size: 1.6rem;
+  }
+
+  .spectrometer-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .spectrometer-feature-title {
+    font-size: 1rem;
+  }
+
+  .spectrometer-feature-description {
+    font-size: 0.85rem;
+  }
+
+  .spectrometer-quote p {
+    font-size: 0.85rem;
+  }
+
+  /* VERY SMALL MOBILE PROJECT MODAL */
+  .project-modal-overlay {
+    padding: 5px;
+  }
+
+  .project-modal-title {
+    font-size: 1.3rem;
+  }
+
+  .project-modal-description {
+    font-size: 0.85rem;
+  }
+
+  .project-modal-image {
+    height: 180px;
+  }
+
+  .project-image-title {
+    font-size: 0.9rem;
+  }
+
+  .modal-nav-btn {
+    width: 35px;
+    height: 35px;
+  }
+
+  .project-thumbnails {
+    gap: 5px;
+  }
+
+  .project-thumbnail {
+    width: 60px;
+    height: 45px;
+  }
+
+  .current-image-details {
+    padding: 10px;
+  }
+
+  .current-image-details h4 {
+    font-size: 0.95rem;
+  }
+
+  .current-image-details p {
+    font-size: 0.8rem;
   }
 }
 
@@ -1785,6 +2373,31 @@ body {
     min-height: 400px;
   }
 
+  /* Spectrometer tablet */
+  .spectrometer-section {
+    padding: 70px 15px;
+  }
+
+  .spectrometer-image {
+    height: 350px;
+  }
+
+  .spectrometer-logo-badge {
+    width: 65px;
+    height: 65px;
+    top: 25px;
+    left: 25px;
+    padding: 7px;
+  }
+
+  .spectrometer-title {
+    font-size: 2.5rem;
+  }
+
+  .spectrometer-subtitle {
+    font-size: 1.15rem;
+  }
+
   .finished-products {
     padding: 50px 15px;
   }
@@ -1796,6 +2409,37 @@ body {
   .project-card {
     flex: 0 0 320px;
     height: 380px;
+  }
+
+  /* TABLET PROJECT MODAL */
+  .project-modal {
+    max-width: 90vw;
+  }
+
+  .project-modal-title {
+    font-size: 2.2rem;
+  }
+
+  .project-modal-content {
+    padding: 20px 25px;
+  }
+
+  .project-modal-image {
+    height: 300px;
+  }
+
+  .modal-nav-btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .project-modal-footer {
+    padding: 25px;
+  }
+
+  .project-thumbnail {
+    width: 90px;
+    height: 70px;
   }
 }
 
@@ -1839,29 +2483,154 @@ body {
     margin-bottom: 0;
   }
 
+  /* DESKTOP PROJECT MODAL */
   .project-modal {
-    width: 80%;
-    max-width: 1000px;
+    width: 90%;
+    max-width: 1100px;
+  }
+
+  .project-modal-overlay {
+    padding: 20px;
+    align-items: center;
+  }
+
+  .project-modal-header {
+    padding: 40px 30px 20px;
+  }
+
+  .project-modal-title {
+    font-size: 2.5rem;
+  }
+
+  .project-modal-description {
+    font-size: 1.1rem;
   }
 
   .project-modal-content {
-    gap: 30px;
+    flex-direction: row;
+    padding: 20px 30px;
+    gap: 20px;
   }
 
   .modal-nav-btn {
     width: 60px;
     height: 60px;
+    position: static;
+    order: initial;
+  }
+
+  .project-modal-image-container {
+    order: initial;
+  }
+
+  .project-modal-image {
+    height: 400px;
+  }
+
+  .project-image-title {
+    font-size: 1.3rem;
+  }
+
+  .project-image-title-overlay {
+    padding: 20px;
+  }
+
+  .project-modal-footer {
+    padding: 30px;
+    max-height: 200px;
+  }
+
+  .project-thumbnails {
+    gap: 15px;
+  }
+
+  .project-thumbnail {
+    width: 100px;
+    height: 80px;
+  }
+
+  .current-image-details {
+    padding: 20px;
+    margin-top: 15px;
+  }
+
+  .current-image-details h4 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  .current-image-details p {
+    font-size: 1rem;
   }
 
   .finished-products {
     margin-top: 200px;
     margin-bottom: 100px;
   }
+
+  /* Spectrometer desktop */
+  .spectrometer-section {
+    padding: 100px 20px;
+  }
+
+  .spectrometer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+
+  .spectrometer-image {
+    height: 500px;
+  }
+
+  .spectrometer-logo-badge {
+    width: 70px;
+    height: 70px;
+    top: 30px;
+    left: 30px;
+    padding: 8px;
+  }
+
+  .spectrometer-title {
+    font-size: 3rem;
+  }
+
+  .spectrometer-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+  }
+
+  .spectrometer-features {
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+
+  .spectrometer-feature {
+    gap: 20px;
+  }
+
+  .spectrometer-feature-title {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+  }
+
+  .spectrometer-feature-description {
+    font-size: 1rem;
+  }
+
+  .spectrometer-quote {
+    padding: 25px;
+    padding-left: 20px;
+  }
+
+  .spectrometer-quote p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
 }
 
 @media (min-width: 1024px) {
   .logo-icon {
-    width: 70px;  /* Even larger on desktop */
+    width: 70px;
     height: 70px;
   }
 
@@ -1884,6 +2653,19 @@ body {
 
   .scrollable-carousel-container {
     max-width: 1600px;
+  }
+
+  /* LARGE DESKTOP PROJECT MODAL */
+  .project-modal {
+    max-width: 1200px;
+  }
+
+  .project-modal-image {
+    height: 450px;
+  }
+
+  .project-modal-footer {
+    max-height: 250px;
   }
 }
 

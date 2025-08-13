@@ -303,30 +303,8 @@ const CertificationsModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: ()
     );
 };
 
-const cloudinaryImages = [
-    cloudinary.hero1,
-    cloudinary.hero2,
-    cloudinary.hero3,
-    cloudinary.hero4,
-    cloudinary.hero5,
-    cloudinary.hero6
-];
-
-// Hero Section
-// Hero Section with Slideshow
+// Hero Section - Slideshow with proper image changing
 const HeroSection = () => {
-        const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentImageIndex((prevIndex) =>
-                (prevIndex + 1) % cloudinaryImages.length
-            );
-        }, 3000); // change every 4 seconds
-
-        return () => clearInterval(interval);
-    }, []);;
-
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const slides = [
@@ -335,6 +313,7 @@ const HeroSection = () => {
         cloudinary.hero3,
         cloudinary.hero4,
         cloudinary.hero5,
+        cloudinary.hero6
     ];
 
     const nextSlide = () => {
@@ -347,58 +326,131 @@ const HeroSection = () => {
 
     useEffect(() => {
         const timer = setInterval(() => {
-            nextSlide();
-        }, 5000); // Auto-advance every 5 seconds
+            setCurrentSlide((prev) => (prev + 1) % slides.length);
+        }, 4000); // Auto-advance every 4 seconds
 
         return () => clearInterval(timer);
-    }, []);
+    }, [slides.length]);
 
     return (
-        <section
-            className="hero"
-            style={{
-                backgroundImage: `url('${cloudinaryImages[currentImageIndex]}')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                transition: 'background-image 1s ease-in-out',
-                height: '100vh', // adjust as needed
-                width: '100%'
-            }}
-        >
-        <section className="hero">
+        <section className="hero" style={{
+            position: 'relative',
+            height: '100vh',
+            overflow: 'hidden'
+        }}>
             {/* Slideshow Background */}
-            <div className="hero-slideshow">
+            <div className="hero-slideshow" style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                zIndex: 1
+            }}>
                 {slides.map((slide, index) => (
                     <div
                         key={index}
                         className={`hero-slide ${index === currentSlide ? 'active' : ''}`}
                         style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
                             backgroundImage: `url('${slide}')`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            backgroundRepeat: 'no-repeat',
+                            opacity: index === currentSlide ? 1 : 0,
+                            transition: 'opacity 1s ease-in-out',
+                            zIndex: index === currentSlide ? 2 : 1
                         }}
                     />
                 ))}
             </div>
 
             {/* Slideshow Controls */}
-            <button className="hero-nav hero-nav-prev" onClick={prevSlide}>
+            <button
+                className="hero-nav hero-nav-prev"
+                onClick={prevSlide}
+                style={{
+                    position: 'absolute',
+                    left: '20px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    zIndex: 10,
+                    background: 'rgba(0,0,0,0.5)',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '50%',
+                    width: '50px',
+                    height: '50px',
+                    fontSize: '24px',
+                    cursor: 'pointer'
+                }}
+            >
                 &#8249;
             </button>
-            <button className="hero-nav hero-nav-next" onClick={nextSlide}>
+            <button
+                className="hero-nav hero-nav-next"
+                onClick={nextSlide}
+                style={{
+                    position: 'absolute',
+                    right: '20px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    zIndex: 10,
+                    background: 'rgba(0,0,0,0.5)',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '50%',
+                    width: '50px',
+                    height: '50px',
+                    fontSize: '24px',
+                    cursor: 'pointer'
+                }}
+            >
                 &#8250;
             </button>
 
             {/* Slideshow Dots */}
-            <div className="hero-dots">
+            <div className="hero-dots" style={{
+                position: 'absolute',
+                bottom: '20px',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                zIndex: 10,
+                display: 'flex',
+                gap: '10px'
+            }}>
                 {slides.map((_, index) => (
                     <button
                         key={index}
                         className={`hero-dot ${index === currentSlide ? 'active' : ''}`}
                         onClick={() => setCurrentSlide(index)}
+                        style={{
+                            width: '12px',
+                            height: '12px',
+                            borderRadius: '50%',
+                            border: 'none',
+                            background: index === currentSlide ? 'white' : 'rgba(255,255,255,0.5)',
+                            cursor: 'pointer',
+                            transition: 'background 0.3s ease'
+                        }}
                     />
                 ))}
             </div>
 
-            <div className="hero-content">
+            <div className="hero-content" style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                zIndex: 5,
+                color: 'white',
+                maxWidth: '800px',
+                textAlign: 'center'
+            }}>
                 <h1 className="hero-title">
                     Forging Strong<br />
                     <span className="hero-title-accent">Alliances for the Future!</span>
@@ -411,11 +463,29 @@ const HeroSection = () => {
             </div>
 
             {/* Side panel */}
-            <div className="hero-sidebar">
+            <div className="hero-sidebar" style={{
+                position: 'absolute',
+                right: '50px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                zIndex: 5,
+                background: '#dc2626', /* Solid red background */
+                padding: '30px',
+                borderRadius: '10px',
+                color: 'white',
+                maxWidth: '300px'
+            }}>
                 <h3>We reach our 60-year milestone in the industry next year!</h3>
                 <p>Watch how LKG has grown from post-war resilience to multi-industry leadership.</p>
                 <Link to="/about">
-                    <button>
+                    <button style={{
+                        background: 'transparent',
+                        border: '2px solid white',
+                        color: 'white',
+                        padding: '10px',
+                        borderRadius: '5px',
+                        cursor: 'pointer'
+                    }}>
                         <ArrowRight className="icon-sm" />
                     </button>
                 </Link>
@@ -607,7 +677,6 @@ const FeaturesSection = () => {
         </>
     );
 };
-
 
 const Footer = () => {
     return (
