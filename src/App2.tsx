@@ -62,29 +62,6 @@ const Mail = ({ className }: IconProps) => (
     </svg>
 );
 
-const Microscope = ({ className }: IconProps) => (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.254 48.254 0 0112 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.062 12.5c.218 1.32-.343 2.63-1.414 3.53A3.73 3.73 0 0119.5 21.5H4.5a3.73 3.73 0 01-2.648-1.146c-1.071-.9-1.632-2.21-1.414-3.53L2.5 4.97" />
-    </svg>
-);
-
-const Zap = ({ className }: IconProps) => (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-    </svg>
-);
-
-const BarChart = ({ className }: IconProps) => (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-    </svg>
-);
-
-const Award = ({ className }: IconProps) => (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-    </svg>
-);
 
 const Header = ({ currentPage = "products" }: { currentPage?: string }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -548,85 +525,76 @@ const PartnersCard = ({ name, url }: { name: string, url: string }) => {
 const OpticalEmissionSpectrometer = () => {
     return (
         <div className="spectrometer-section">
-            <div className="spectrometer-container">
-                {/* Left Side - Image */}
-                <div className="spectrometer-image-container">
+            <h2 className="spectrometer-title">
+                Optical Emission
+                <span className="spectrometer-title-highlight"> Spectrometer</span>
+            </h2>
+
+            <p className="spectrometer-subtitle">
+                Advanced technology for uncompromised material analysis and quality assurance
+            </p>
+
+            <div className="spectrometer-image-container">
+                <img
+                    src="https://res.cloudinary.com/drrzinr9v/image/upload/v1753189483/productpageSpectrometer_nkp7rb.jpg"
+                    alt="Optical Emission Spectrometer"
+                    className="spectrometer-image"
+                />
+                <div className="spectrometer-logo-badge">
                     <img
-                        src="https://res.cloudinary.com/drrzinr9v/image/upload/v1753189483/productpageSpectrometer_nkp7rb.jpg"
-                        alt="Optical Emission Spectrometer"
-                        className="spectrometer-image"
+                        src="https://res.cloudinary.com/drrzinr9v/image/upload/v1754201352/USSCI_logo_19x17inch-removebg-preview_idrn0g.png"
+                        alt="USSCI Logo"
                     />
-                    <div className="spectrometer-logo-badge">
-                        <img
-                            src="https://res.cloudinary.com/drrzinr9v/image/upload/v1754201352/USSCI_logo_19x17inch-removebg-preview_idrn0g.png"
-                            alt="USSCI Logo"
-                        />
+                </div>
+            </div>
+
+            <div className="spectrometer-features">
+                <div className="spectrometer-feature">
+                    <div className="spectrometer-feature-dot" />
+                    <div>
+                        <h4 className="spectrometer-feature-title">
+                            Spark Excitation Analysis
+                        </h4>
+                        <p className="spectrometer-feature-description">
+                            Energy from electrode sparks excites specimen atoms, producing precise electromagnetic spectral patterns
+                        </p>
                     </div>
                 </div>
 
-                {/* Right Side - Content */}
-                <div className="spectrometer-content">
-                    <h2 className="spectrometer-title">
-                        Optical Emission
-                        <span className="spectrometer-title-highlight"> Spectrometer</span>
-                    </h2>
-
-                    <p className="spectrometer-subtitle">
-                        Advanced technology for uncompromised material analysis and quality assurance
-                    </p>
-
-                    {/* Features List */}
-                    <div className="spectrometer-features">
-                        <div className="spectrometer-feature">
-                            <div className="spectrometer-feature-dot" />
-                            <div>
-                                <h4 className="spectrometer-feature-title">
-                                    Spark Excitation Analysis
-                                </h4>
-                                <p className="spectrometer-feature-description">
-                                    Energy from electrode sparks excites specimen atoms, producing precise electromagnetic spectral patterns
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="spectrometer-feature">
-                            <div className="spectrometer-feature-dot" />
-                            <div>
-                                <h4 className="spectrometer-feature-title">
-                                    Quantitative Analysis
-                                </h4>
-                                <p className="spectrometer-feature-description">
-                                    Measures spectral peak intensity for accurate qualitative and quantitative metal composition analysis
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="spectrometer-feature">
-                            <div className="spectrometer-feature-dot" />
-                            <div>
-                                <h4 className="spectrometer-feature-title">
-                                    Quality Enhancement
-                                </h4>
-                                <p className="spectrometer-feature-description">
-                                    Enables effective raw material management and production efficiency optimization
-                                </p>
-                            </div>
-                        </div>
+                <div className="spectrometer-feature">
+                    <div className="spectrometer-feature-dot" />
+                    <div>
+                        <h4 className="spectrometer-feature-title">
+                            Quantitative Analysis
+                        </h4>
+                        <p className="spectrometer-feature-description">
+                            Measures spectral peak intensity for accurate qualitative and quantitative metal composition analysis
+                        </p>
                     </div>
+                </div>
 
-                    {/* Bottom Description */}
-                    <div className="spectrometer-quote">
-                        <p>
-                            In line with our commitment to development and continued pursuit of excellence, our Optical Emission Spectrometer
-                            represents another step towards furthering our dedication to quality improvement and production efficiency.
+                <div className="spectrometer-feature">
+                    <div className="spectrometer-feature-dot" />
+                    <div>
+                        <h4 className="spectrometer-feature-title">
+                            Quality Enhancement
+                        </h4>
+                        <p className="spectrometer-feature-description">
+                            Enables effective raw material management and production efficiency optimization
                         </p>
                     </div>
                 </div>
             </div>
+
+            <div className="spectrometer-quote">
+                <p>
+                    In line with our commitment to development and continued pursuit of excellence, our Optical Emission Spectrometer
+                    represents another step towards furthering our dedication to quality improvement and production efficiency.
+                </p>
+            </div>
         </div>
     );
 };
-
 
 const MainBody = () => {
     return (

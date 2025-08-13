@@ -2181,64 +2181,23 @@ body {
   padding: 0 20px;
 }
 
-.spectrometer-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-
-.spectrometer-image-container {
-  position: relative;
-  overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-}
-
-.spectrometer-image {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.spectrometer-image:hover {
-  transform: scale(1.05);
-}
-
-.spectrometer-logo-badge {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
-}
-
-.spectrometer-logo-badge img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-}
-
-.spectrometer-content {
-  padding: 20px 0;
+.spectrometer-header {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .spectrometer-title {
-  font-size: 3rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  margin-bottom: 20px;
   color: #1f2937;
-  line-height: 1.1;
+  line-height: 1.2;
+  margin-bottom: 15px;
 }
+
+.spectrometer-title-highlight {
+  color: #dc2626;
+}
+
 
 .spectrometer-title-highlight {
   color: #dc2626;
@@ -2248,29 +2207,94 @@ body {
   background-clip: text;
 }
 
-.spectrometer-subtitle {
-  font-size: 1.2rem;
-  color: #6b7280;
-  margin-bottom: 50px;
-  line-height: 1.6;
+.spectrometer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
-.spectrometer-features {
+.spectrometer-image-container {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.spectrometer-image {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+}
+
+.spectrometer-image:hover {
+  transform: scale(1.02);
+}
+
+.spectrometer-logo-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.spectrometer-logo-badge img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.spectrometer-main-content {
   display: flex;
   flex-direction: column;
   gap: 30px;
   margin-bottom: 40px;
 }
 
+.spectrometer-content {
+  padding: 20px 0;
+  text-align: left;
+}
+
+.spectrometer-subtitle {
+  font-size: 1.1rem;
+  color: #6b7280;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.spectrometer-features {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 35px;
+}
+
+.spectrometer-features-container {
+  width: 100%;
+}
+
+.spectrometer-features {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .spectrometer-feature {
   display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  padding: 20px;
+  gap: 15px;
+  padding: 18px;
   background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
   border-radius: 12px;
   border: 1px solid #e9ecef;
-  transition: all 0.3s ease;
 }
 
 .spectrometer-feature:hover {
@@ -2290,7 +2314,7 @@ body {
 }
 
 .spectrometer-feature-title {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 8px;
   color: #1f2937;
@@ -2300,13 +2324,13 @@ body {
   color: #6b7280;
   margin: 0;
   line-height: 1.6;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 .spectrometer-quote {
   border-left: 4px solid #dc2626;
   background: linear-gradient(135deg, #fef2f2 0%, #ffffff 100%);
-  padding: 25px;
+  padding: 20px;
   border-radius: 0 12px 12px 0;
   position: relative;
   overflow: hidden;
@@ -2327,76 +2351,62 @@ body {
   color: #4b5563;
   line-height: 1.7;
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-style: italic;
   position: relative;
   z-index: 1;
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .spectrometer-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    text-align: center;
-  }
-
-  .spectrometer-image {
-    height: 350px;
-  }
-
-  .spectrometer-logo-badge {
-    width: 50px;
-    height: 50px;
-    top: 15px;
-    right: 15px;
-  }
-
-  .spectrometer-logo-badge img {
-    width: 30px;
-    height: 30px;
-  }
-
-  .spectrometer-content {
-    text-align: left;
+/* Desktop Styles */
+@media (min-width: 768px) {
+  .spectrometer-section {
+    max-width: 1400px;
+    padding: 0 40px;
   }
 
   .spectrometer-title {
-    font-size: 2.2rem;
+    font-size: 3rem;
+    margin-bottom: 25px;
+  }
+
+  .spectrometer-container {
+    flex-direction: row;
+    gap: 60px;
+    align-items: flex-start;
+  }
+
+  .spectrometer-image-container {
+    flex: 1;
+    max-width: 50%;
+  }
+
+  .spectrometer-image {
+    height: 450px;
+  }
+
+  .spectrometer-content {
+    flex: 1;
+    max-width: 50%;
+    padding-top: 0;
   }
 
   .spectrometer-subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 35px;
+    text-align: left;
+    font-size: 1.25rem;
+    margin-bottom: 30px;
   }
 
   .spectrometer-features {
-    gap: 25px;
-    margin-bottom: 35px;
-  }
-
-  .spectrometer-feature {
-    text-align: left;
-    gap: 15px;
-    padding: 18px;
-  }
-
-  .spectrometer-feature-title {
-    font-size: 1.2rem;
-  }
-
-  .spectrometer-feature-description {
-    font-size: 0.95rem;
+    margin-bottom: 30px;
   }
 
   .spectrometer-quote {
-    padding: 20px;
-  }
-
-  .spectrometer-quote p {
-    font-size: 0.95rem;
+    margin-top: -20px; /* Align with the bottom of the image */
+    width: calc(100% + 60px); /* Span full width including image */
+    margin-left: -60px; /* Align with image left edge */
   }
 }
+
 
 /* Small Mobile */
 @media (max-width: 480px) {
@@ -2559,22 +2569,17 @@ body {
 
 /* Large Desktop */
 @media (min-width: 1024px) {
-  .main-body {
-    padding: 140px 60px;
-    margin-bottom: 100px;
-  }
-
   .spectrometer-section {
     max-width: 1600px;
     padding: 0 60px;
   }
 
   .spectrometer-container {
-    gap: 120px;
+    gap: 80px;
   }
 
   .spectrometer-image {
-    height: 500px;
+    height: 1000px;
   }
 
   .spectrometer-logo-badge {
@@ -2596,17 +2601,17 @@ body {
 
   .spectrometer-subtitle {
     font-size: 1.4rem;
-    margin-bottom: 70px;
-  }
-
-  .spectrometer-features {
-    gap: 40px;
     margin-bottom: 60px;
   }
 
+  .spectrometer-features {
+    gap: 35px;
+    margin-bottom: 50px;
+  }
+
   .spectrometer-feature {
-    gap: 30px;
-    padding: 30px;
+    gap: 25px;
+    padding: 28px;
     border-radius: 18px;
   }
 
@@ -2617,39 +2622,35 @@ body {
   }
 
   .spectrometer-feature-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin-bottom: 12px;
   }
 
   .spectrometer-feature-description {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     line-height: 1.7;
   }
 
   .spectrometer-quote {
-    padding: 35px;
+    padding: 30px;
     border-radius: 0 18px 18px 0;
   }
 
   .spectrometer-quote p {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     line-height: 1.8;
   }
 }
 
 /* Extra Large Desktop */
 @media (min-width: 1440px) {
-  .main-body {
-    padding: 160px 80px;
-  }
-
   .spectrometer-section {
     max-width: 1800px;
     padding: 0 80px;
   }
 
   .spectrometer-container {
-    gap: 140px;
+    gap: 100px;
   }
 
   .spectrometer-image {
@@ -2662,33 +2663,33 @@ body {
 
   .spectrometer-subtitle {
     font-size: 1.5rem;
-    margin-bottom: 80px;
-  }
-
-  .spectrometer-features {
-    gap: 45px;
     margin-bottom: 70px;
   }
 
+  .spectrometer-features {
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+
   .spectrometer-feature {
-    padding: 35px;
+    padding: 32px;
     border-radius: 20px;
   }
 
   .spectrometer-feature-title {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .spectrometer-feature-description {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
   }
 
   .spectrometer-quote {
-    padding: 40px;
+    padding: 35px;
     border-radius: 0 20px 20px 0;
   }
 
   .spectrometer-quote p {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
   }
 }
