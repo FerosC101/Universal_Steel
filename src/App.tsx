@@ -602,8 +602,7 @@ const HeroSection = () => {
                     <span className="hero-title-accent">Alliances for the Future!</span>
                 </h1>
                 <p className="hero-description">
-                    Backed by decades of innovation and resilience, the LKG Group continues to shape industriesâ€"
-                    from construction to educationâ€"building a legacy of strength and progress across the Philippines.
+                    Backed by decades of innovation and resilience, UNIVERSAL STEEL SMELTING CO INC continues to shape the construction industry, building a legacy of strength and progress across the Philippines.
                 </p>
                 <Link to="/about" className="hero-button">LEARN MORE</Link>
             </div>
@@ -622,7 +621,7 @@ const HeroSection = () => {
                 maxWidth: '300px'
             }}>
                 <h3>We reach our 60-year milestone in the industry next year!</h3>
-                <p>Watch how LKG has grown from post-war resilience to multi-industry leadership.</p>
+                <p>Watch how UNIVERSAL STEEL SMELTING CO INC has grown from post-war resilience to multi-industry leadership.</p>
                 <Link to="/about">
                     <button style={{
                         background: 'transparent',
@@ -662,16 +661,19 @@ const AboutSection = () => {
                     <div className="about-content">
                         <h2>UNIVERSAL STEEL SMELTING CO INC</h2>
                         <p>
-                            The LKG Group of Companies maintains extensive holdings in the areas of construction,
-                            manufacturing, real estate, wholesale, trading, general merchandising, social services
-                            and education. It began trading before World War II with its Chairman and Partners,
-                            Lim K.G. at the helm.
+                            Founded with a vision to fuel industrial growth through innovation and strength, Universal Steel Smelting Company Incorporated is a trusted leader in steel manufacturing and smelting solutions.
+                            For over 60 years, we have specialized in the production of high-grade deformed bars that power the construction and infrastructure sectors.
                         </p>
                         <p>
-                            Starting with diversified investments in both the manufacturing and trading sectors,
-                            and string of factories and land assets. Since then, LKG has grown to cover more
-                            diversified investments in terms of annual gross revenues, the group's combined
-                            performance ranks among the country's top 500 corporations.
+
+                            Headquartered in Quezon City, our advanced smelting and manufacturing facilities are equipped with cutting-edge technology and operated by a skilled workforce committed to quality, safety, and sustainability.
+                            We produce a wide range of deformed bar products tailored to meet the demanding standards of global markets.
+                        </p>
+                        <p>
+                            At Universal Steel Smelting, we prioritize innovation, environmental responsibility, and long-term client relationships. Our operations are TUV and BPS certified and DPWH-Accredited Testing Laboratory by the Bureau of Research and Standards (BRS).
+                        </p>
+                        <p>
+                            Driven by integrity, engineered for durability — Universal Steel Smelting Company Inc. is forging strong alliances for the future.
                         </p>
                         <Link to="/about" className="about-button">READ MORE ABOUT US →</Link>
                     </div>
