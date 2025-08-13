@@ -524,7 +524,7 @@ body {
   transform: scale(1.2);
 }
 
-/* Project Modal Styles */
+/* FIXED PROJECT MODAL STYLES */
 .project-modal-overlay {
   position: fixed;
   top: 0;
@@ -536,27 +536,27 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 2000;
-  padding: 15px;
+  padding: 20px;
   overflow-y: auto;
 }
 
 .project-modal {
   background: white;
   border-radius: 20px;
-  padding: 0;
-  max-width: 1100px;
+  max-width: 1200px;
   width: 100%;
-  max-height: 95vh;
+  max-height: 90vh;
   overflow: hidden;
   position: relative;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
+  margin: auto;
 }
 
 .modal-close-btn {
   position: absolute;
-  top: 15px;
+  top: 20px;
   right: 20px;
   background: rgba(0, 0, 0, 0.7);
   border: none;
@@ -581,8 +581,9 @@ body {
 
 .project-modal-header {
   text-align: center;
-  padding: 40px 30px 20px;
+  padding: 40px 30px 30px;
   border-bottom: 1px solid #e5e7eb;
+  background: #f8f9fa;
 }
 
 .project-modal-title {
@@ -597,15 +598,19 @@ body {
   color: #666;
   line-height: 1.6;
   margin: 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .project-modal-content {
   display: flex;
   align-items: center;
   gap: 20px;
-  padding: 20px 30px;
+  padding: 30px;
   flex: 1;
-  min-height: 0;
+  min-height: 400px;
+  background: white;
 }
 
 .modal-nav-btn {
@@ -671,6 +676,7 @@ body {
   justify-content: center;
   gap: 10px;
   padding: 20px;
+  background: white;
 }
 
 .modal-indicator {
@@ -696,7 +702,9 @@ body {
   text-align: center;
   color: #666;
   font-weight: 500;
-  padding: 10px;
+  padding: 10px 20px;
+  background: white;
+  border-top: 1px solid #e5e7eb;
 }
 
 .project-modal-footer {
@@ -704,21 +712,24 @@ body {
   border-top: 1px solid #e5e7eb;
   background: #f8f9fa;
   overflow-y: auto;
-  max-height: 200px;
+  max-height: 300px;
 }
 
 .project-modal-footer h4 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: #333;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .project-thumbnails {
   display: flex;
   gap: 15px;
   overflow-x: auto;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .project-thumbnails::-webkit-scrollbar {
@@ -767,7 +778,8 @@ body {
   padding: 20px;
   border-radius: 12px;
   border: 1px solid #e9ecef;
-  margin-top: 15px;
+  margin-top: 20px;
+  text-align: center;
 }
 
 .current-image-details h4 {
@@ -1313,11 +1325,11 @@ body {
     font-size: 0.8rem;
   }
 
-  /* Mobile Project Modal */
+  /* MOBILE PROJECT MODAL FIXES */
   .project-modal-overlay {
     padding: 10px;
     align-items: flex-start;
-    padding-top: 20px;
+    padding-top: 10px;
   }
 
   .project-modal {
@@ -1329,12 +1341,12 @@ body {
   }
 
   .project-modal-header {
-    padding: 30px 20px 15px;
+    padding: 25px 20px 20px;
   }
 
   .project-modal-title {
     font-size: 1.8rem;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
   .project-modal-description {
@@ -1344,9 +1356,10 @@ body {
 
   .project-modal-content {
     flex-direction: column;
-    padding: 15px 20px;
+    padding: 20px 15px;
     gap: 15px;
     position: relative;
+    min-height: 300px;
   }
 
   .modal-nav-btn {
@@ -1368,10 +1381,12 @@ body {
 
   .project-modal-image-container {
     width: 100%;
+    order: 2;
   }
 
   .project-modal-image {
     height: 250px;
+    width: 100%;
   }
 
   .project-image-title {
@@ -1384,35 +1399,42 @@ body {
 
   .project-modal-indicators {
     padding: 15px;
+    order: 3;
   }
 
   .project-modal-counter {
-    padding: 5px;
+    padding: 8px 15px;
     font-size: 0.9rem;
+    order: 4;
   }
 
   .project-modal-footer {
-    padding: 20px;
-    max-height: 150px;
+    padding: 20px 15px;
+    max-height: 250px;
+    order: 5;
   }
 
   .project-modal-footer h4 {
     font-size: 1.1rem;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
 
   .project-thumbnails {
     gap: 10px;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
   }
 
   .project-thumbnail {
     width: 80px;
     height: 60px;
+    flex-shrink: 0;
   }
 
   .current-image-details {
     padding: 15px;
-    margin-top: 10px;
+    margin-top: 15px;
   }
 
   .current-image-details h4 {
@@ -1426,7 +1448,7 @@ body {
   }
 
   .modal-close-btn {
-    top: 10px;
+    top: 15px;
     right: 15px;
     width: 35px;
     height: 35px;
@@ -1760,10 +1782,11 @@ body {
 
   .project-modal {
     border-radius: 10px;
+    margin: 5px;
   }
 
   .project-modal-header {
-    padding: 25px 15px 10px;
+    padding: 20px 15px 15px;
   }
 
   .project-modal-title {
@@ -1776,7 +1799,8 @@ body {
   }
 
   .project-modal-content {
-    padding: 10px 15px;
+    padding: 15px 10px;
+    min-height: 250px;
   }
 
   .project-modal-image {
@@ -1805,8 +1829,8 @@ body {
   }
 
   .project-modal-footer {
-    padding: 15px;
-    max-height: 120px;
+    padding: 15px 10px;
+    max-height: 200px;
   }
 
   .project-thumbnails {
@@ -1834,7 +1858,7 @@ body {
     width: 32px;
     height: 32px;
     font-size: 18px;
-    top: 8px;
+    top: 10px;
     right: 12px;
   }
 
@@ -1878,6 +1902,10 @@ body {
 @media (max-width: 360px) {
   .project-modal-overlay {
     padding: 5px;
+  }
+
+  .project-modal {
+    margin: 2px;
   }
 
   .project-modal-title {
@@ -1965,6 +1993,7 @@ body {
 
   .project-modal {
     max-width: 90vw;
+    margin: 10px;
   }
 
   .project-modal-title {
@@ -1972,20 +2001,21 @@ body {
   }
 
   .project-modal-content {
-    padding: 20px 25px;
+    padding: 20px 15px;
+    min-height: 320px;
   }
 
   .project-modal-image {
-    height: 300px;
+    height: 280px;
   }
 
   .modal-nav-btn {
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
   }
 
   .project-modal-footer {
-    padding: 25px;
+    padding: 25px 15px;
   }
 
   .project-thumbnail {
@@ -2046,7 +2076,7 @@ body {
 
   .project-modal {
     width: 90%;
-    max-width: 1100px;
+    max-width: 1200px;
   }
 
   .project-modal-overlay {
@@ -2055,7 +2085,7 @@ body {
   }
 
   .project-modal-header {
-    padding: 40px 30px 20px;
+    padding: 40px 30px 30px;
   }
 
   .project-modal-title {
@@ -2068,13 +2098,14 @@ body {
 
   .project-modal-content {
     flex-direction: row;
-    padding: 20px 30px;
+    padding: 30px;
     gap: 20px;
+    min-height: 400px;
   }
 
   .modal-nav-btn {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     position: static;
   }
 
@@ -2096,11 +2127,13 @@ body {
 
   .project-modal-footer {
     padding: 30px;
-    max-height: 200px;
+    max-height: 300px;
   }
 
   .project-thumbnails {
     gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .project-thumbnail {
@@ -2110,7 +2143,7 @@ body {
 
   .current-image-details {
     padding: 20px;
-    margin-top: 15px;
+    margin-top: 20px;
   }
 
   .current-image-details h4 {
@@ -2159,19 +2192,8 @@ body {
   }
 
   .project-modal-footer {
-    max-height: 250px;
+    max-height: 300px;
   }
-}
-
-
-/* Main body - Optical Emission Spectrometer */
-.main-body {
-  background: #ffffff;
-  padding: 80px 20px;
-  color: #1f2937;
-  position: relative;
-  width: 100%;
-  margin-bottom: 60px;
 }
 
 /* Spectrometer Section Styles */
@@ -2193,11 +2215,6 @@ body {
   line-height: 1.2;
   margin-bottom: 15px;
 }
-
-.spectrometer-title-highlight {
-  color: #dc2626;
-}
-
 
 .spectrometer-title-highlight {
   color: #dc2626;
@@ -2225,6 +2242,7 @@ body {
   height: 350px;
   object-fit: cover;
   display: block;
+  transition: transform 0.3s ease;
 }
 
 .spectrometer-image:hover {
@@ -2282,12 +2300,6 @@ body {
   width: 100%;
 }
 
-.spectrometer-features {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
 .spectrometer-feature {
   display: flex;
   gap: 15px;
@@ -2295,6 +2307,7 @@ body {
   background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
   border-radius: 12px;
   border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
 }
 
 .spectrometer-feature:hover {
@@ -2357,58 +2370,7 @@ body {
   z-index: 1;
 }
 
-/* Desktop Styles */
-@media (min-width: 768px) {
-  .spectrometer-section {
-    max-width: 1400px;
-    padding: 0 40px;
-  }
-
-  .spectrometer-title {
-    font-size: 3rem;
-    margin-bottom: 25px;
-  }
-
-  .spectrometer-container {
-    flex-direction: row;
-    gap: 60px;
-    align-items: flex-start;
-  }
-
-  .spectrometer-image-container {
-    flex: 1;
-    max-width: 50%;
-  }
-
-  .spectrometer-image {
-    height: 450px;
-  }
-
-  .spectrometer-content {
-    flex: 1;
-    max-width: 50%;
-    padding-top: 0;
-  }
-
-  .spectrometer-subtitle {
-    text-align: left;
-    font-size: 1.25rem;
-    margin-bottom: 30px;
-  }
-
-  .spectrometer-features {
-    margin-bottom: 30px;
-  }
-
-  .spectrometer-quote {
-    margin-top: -20px; /* Align with the bottom of the image */
-    width: calc(100% + 60px); /* Span full width including image */
-    margin-left: -60px; /* Align with image left edge */
-  }
-}
-
-
-/* Small Mobile */
+/* Mobile Spectrometer Styles */
 @media (max-width: 480px) {
   .spectrometer-image {
     height: 280px;
@@ -2461,7 +2423,7 @@ body {
   }
 }
 
-/* Very Small Mobile */
+/* Very Small Mobile Spectrometer */
 @media (max-width: 360px) {
   .spectrometer-image {
     height: 250px;
@@ -2488,7 +2450,7 @@ body {
   }
 }
 
-/* Desktop Styles */
+/* Desktop Spectrometer Styles */
 @media (min-width: 768px) {
   .main-body {
     padding: 120px 40px;
@@ -2501,12 +2463,24 @@ body {
   }
 
   .spectrometer-container {
-    gap: 100px;
+    flex-direction: row;
+    gap: 80px;
     align-items: center;
+  }
+
+  .spectrometer-image-container {
+    flex: 1;
+    max-width: 50%;
   }
 
   .spectrometer-image {
     height: 450px;
+  }
+
+  .spectrometer-content {
+    flex: 1;
+    max-width: 50%;
+    padding-top: 0;
   }
 
   .spectrometer-logo-badge {
@@ -2527,17 +2501,18 @@ body {
   }
 
   .spectrometer-subtitle {
+    text-align: left;
     font-size: 1.3rem;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
   }
 
   .spectrometer-features {
-    gap: 35px;
-    margin-bottom: 50px;
+    gap: 30px;
+    margin-bottom: 40px;
   }
 
   .spectrometer-feature {
-    gap: 25px;
+    gap: 20px;
     padding: 25px;
     border-radius: 15px;
   }
@@ -2560,14 +2535,16 @@ body {
   .spectrometer-quote {
     padding: 30px;
     border-radius: 0 15px 15px 0;
+    margin-top: 20px;
   }
 
   .spectrometer-quote p {
     font-size: 1.1rem;
+    line-height: 1.8;
   }
 }
 
-/* Large Desktop */
+/* Large Desktop Spectrometer */
 @media (min-width: 1024px) {
   .spectrometer-section {
     max-width: 1600px;
@@ -2575,11 +2552,11 @@ body {
   }
 
   .spectrometer-container {
-    gap: 80px;
+    gap: 100px;
   }
 
   .spectrometer-image {
-    height: 1000px;
+    height: 500px;
   }
 
   .spectrometer-logo-badge {
@@ -2601,7 +2578,7 @@ body {
 
   .spectrometer-subtitle {
     font-size: 1.4rem;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
   }
 
   .spectrometer-features {
@@ -2622,27 +2599,27 @@ body {
   }
 
   .spectrometer-feature-title {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     margin-bottom: 12px;
   }
 
   .spectrometer-feature-description {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     line-height: 1.7;
   }
 
   .spectrometer-quote {
-    padding: 30px;
-    border-radius: 0 18px 18px 0;
+    padding: 35px;
+    border-radius: 0 20px 20px 0;
   }
 
   .spectrometer-quote p {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     line-height: 1.8;
   }
 }
 
-/* Extra Large Desktop */
+/* Extra Large Desktop Spectrometer */
 @media (min-width: 1440px) {
   .spectrometer-section {
     max-width: 1800px;
@@ -2650,7 +2627,7 @@ body {
   }
 
   .spectrometer-container {
-    gap: 100px;
+    gap: 120px;
   }
 
   .spectrometer-image {
@@ -2663,7 +2640,7 @@ body {
 
   .spectrometer-subtitle {
     font-size: 1.5rem;
-    margin-bottom: 70px;
+    margin-bottom: 60px;
   }
 
   .spectrometer-features {
@@ -2677,19 +2654,19 @@ body {
   }
 
   .spectrometer-feature-title {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 
   .spectrometer-feature-description {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
   }
 
   .spectrometer-quote {
-    padding: 35px;
-    border-radius: 0 20px 20px 0;
+    padding: 40px;
+    border-radius: 0 24px 24px 0;
   }
 
   .spectrometer-quote p {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
   }
 }
