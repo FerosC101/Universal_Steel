@@ -229,9 +229,14 @@ const Header = ({ currentPage = "home" }: { currentPage?: string }) => {
 
 // Cloudinary image URLs
 const cloudinary = {
-    hero: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752675549/hero_sqtj19.jpg',
+    hero1: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752675549/hero_sqtj19.jpg',
+    hero2: 'https://res.cloudinary.com/drrzinr9v/image/upload/hero2_omdk5s.jpg',
+    hero3: 'https://res.cloudinary.com/drrzinr9v/image/upload/hero3_exwvmu.jpg',
+    hero4: 'https://res.cloudinary.com/drrzinr9v/image/upload/hero4_c9ylu9.jpg',
+    hero5: 'https://res.cloudinary.com/drrzinr9v/image/upload/hero5_ydk14p.jpg',
+    hero6: 'https://res.cloudinary.com/drrzinr9v/image/upload/hero6_e7u9ss.jpg',
     product: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752675549/homepageAbout_wezvdg.jpg',
-    certs: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752675550/ourcertifications_nw8aid.jpg',
+    certs: 'https://res.cloudinary.com/drrzinr9v/image/upload/ourcertifications_nw8aid.jpg',
     about: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752676337/514315094_122186224832360700_1263205354293391856_n_qrnviz.jpg',
 };
 
@@ -298,17 +303,38 @@ const CertificationsModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: ()
     );
 };
 
+const cloudinaryImages = [
+    cloudinary.hero1,
+    cloudinary.hero2,
+    cloudinary.hero3,
+    cloudinary.hero4,
+    cloudinary.hero5,
+    cloudinary.hero6
+];
+
 // Hero Section
 // Hero Section with Slideshow
 const HeroSection = () => {
+        const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prevIndex) =>
+                (prevIndex + 1) % cloudinaryImages.length
+            );
+        }, 3000); // change every 4 seconds
+
+        return () => clearInterval(interval);
+    }, []);;
+
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const slides = [
-        cloudinary.hero,
-        cloudinary.hero,
-        cloudinary.hero,
-        cloudinary.hero,
-        cloudinary.hero,
+        cloudinary.hero1,
+        cloudinary.hero2,
+        cloudinary.hero3,
+        cloudinary.hero4,
+        cloudinary.hero5,
     ];
 
     const nextSlide = () => {
@@ -328,6 +354,17 @@ const HeroSection = () => {
     }, []);
 
     return (
+        <section
+            className="hero"
+            style={{
+                backgroundImage: `url('${cloudinaryImages[currentImageIndex]}')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                transition: 'background-image 1s ease-in-out',
+                height: '100vh', // adjust as needed
+                width: '100%'
+            }}
+        >
         <section className="hero">
             {/* Slideshow Background */}
             <div className="hero-slideshow">
@@ -570,6 +607,7 @@ const FeaturesSection = () => {
         </>
     );
 };
+
 
 const Footer = () => {
     return (

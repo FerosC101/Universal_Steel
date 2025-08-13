@@ -274,7 +274,7 @@ const Footer = () => {
 };
 
 const cloudinary = {
-    hero: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752675549/hero_sqtj19.jpg',
+    hero: 'https://res.cloudinary.com/drrzinr9v/image/upload/contactus_n1cpjh.jpg',
 };
 
 const HeroSection = () => {

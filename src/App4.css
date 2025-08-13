@@ -197,7 +197,7 @@ body {
 }
 
 .banner .banner-image {
-  background-image: url('https://res.cloudinary.com/drrzinr9v/image/upload/hero_sqtj19.jpg?ts=${Date.now()}');
+  background-image: url('https://res.cloudinary.com/drrzinr9v/image/upload/aboutus_skw4v5.jpg?ts=${Date.now()}');
   width: 100%;
   min-height: 500px;
   background-size: cover;
