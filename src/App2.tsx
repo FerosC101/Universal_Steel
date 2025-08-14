@@ -38,6 +38,18 @@ const ArrowLeft = ({ className }: IconProps) => (
     </svg>
 );
 
+const ChevronLeft = ({ className }: IconProps) => (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+    </svg>
+);
+
+const ChevronRightIcon = ({ className }: IconProps) => (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+    </svg>
+);
+
 const Phone = ({ className }: IconProps) => (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -49,6 +61,7 @@ const Mail = ({ className }: IconProps) => (
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 002 2v10a2 2 0 002 2z" />
     </svg>
 );
+
 
 const Header = ({ currentPage = "products" }: { currentPage?: string }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -307,6 +320,12 @@ interface ModalProps {
     image: string;
 }
 
+// Projects List Modal Interface
+interface ProjectsListModalProps {
+    isOpen: boolean;
+    setIsOpen: (open: boolean) => void;
+}
+
 const TopBanner = () => {
     const projects: ModalProps[] = [
         {
@@ -509,29 +528,95 @@ const PartnersCard = ({ name, url }: { name: string, url: string }) => {
     )
 }
 
-const MainBody = () => {
+const OpticalEmissionSpectrometer = () => {
     return (
-        <div className="main-body">
-            <div className="card-row">
-                <div className="card card-left">
-                    <div className="card-content">
-                        <h2>Optical Emiission Spectrometer</h2>
-                        <p>
-                            In line with our commitment to development and continued pursuit of excellence, the acquisition of an Optical Emission Spectrometer was another step towards furthering our dedication to improve on our quality and develop efficiency in our production for the benefit of both the company and the end users. In the Optical Emission Spectroscopy, atoms in specimen materials are excited by energy that comes from a spark formed between specimen and electrode. The energy of the spark causes the electrons in the specimen to emit light which is converted into electromagnetic spectral pattern. By measuring the intensity of the peaks in the said spectrum, the analyser can produce qualitative and quantitative metal analysis of material composition with uncompromised accuracy. It is through this analysis that we determine the integrity of the raw materials for use in our production. This allows us to define the most effective way to use the raw materials, through effective segregation and management of raw materials allocation. With an effective system of raw materials management, it enhances production efficiency and further improves on the quality of reinforcing bars for public use.
-                        </p>
+        <div className="spectrometer-section">
+            {/* Header */}
+            <div className="spectrometer-header">
+                <h2 className="spectrometer-title">
+                    Optical Emission
+                    <span className="spectrometer-title-highlight"> Spectrometer</span>
+                </h2>
+                <p className="spectrometer-subtitle">
+                    Advanced technology for uncompromised material analysis and quality assurance
+                </p>
+            </div>
+
+            {/* Image + Features grid */}
+            <div className="spectrometer-container">
+                {/* Left: Image */}
+                <div className="spectrometer-image-container">
+                    <img
+                        src="https://res.cloudinary.com/drrzinr9v/image/upload/v1753189483/productpageSpectrometer_nkp7rb.jpg"
+                        alt="Optical Emission Spectrometer"
+                        className="spectrometer-image"
+                    />
+                    <div className="spectrometer-logo-badge">
+                        <img
+                            src="https://res.cloudinary.com/drrzinr9v/image/upload/v1754201352/USSCI_logo_19x17inch-removebg-preview_idrn0g.png"
+                            alt="USSCI Logo"
+                        />
                     </div>
                 </div>
-                <div className="card card-middle">
-                    <div className="card-content">
 
-                    </div>
-                </div>
-                <div className="card card-right">
-                    <div className="">
+                {/* Right: Features */}
+                <div className="spectrometer-content">
+                    <div className="spectrometer-features">
+                        <div className="spectrometer-feature">
+                            <div className="spectrometer-feature-dot" />
+                            <div>
+                                <h4 className="spectrometer-feature-title">
+                                    Spark Excitation Analysis
+                                </h4>
+                                <p className="spectrometer-feature-description">
+                                    Energy from electrode sparks excites specimen atoms, producing precise electromagnetic spectral patterns
+                                </p>
+                            </div>
+                        </div>
 
+                        <div className="spectrometer-feature">
+                            <div className="spectrometer-feature-dot" />
+                            <div>
+                                <h4 className="spectrometer-feature-title">
+                                    Quantitative Analysis
+                                </h4>
+                                <p className="spectrometer-feature-description">
+                                    Measures spectral peak intensity for accurate qualitative and quantitative metal composition analysis
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="spectrometer-feature">
+                            <div className="spectrometer-feature-dot" />
+                            <div>
+                                <h4 className="spectrometer-feature-title">
+                                    Quality Enhancement
+                                </h4>
+                                <p className="spectrometer-feature-description">
+                                    Enables effective raw material management and production efficiency optimization
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            {/* Full width quote BELOW grid */}
+            <div className="spectrometer-quote">
+                <p>
+                    In line with our commitment to development and continued pursuit of excellence, our Optical Emission Spectrometer
+                    represents another step towards furthering our dedication to quality improvement and production efficiency.
+                </p>
+            </div>
+        </div>
+    );
+};
+
+
+const MainBody = () => {
+    return (
+        <div className="main-body">
+            <OpticalEmissionSpectrometer />
         </div>
     )
 }
@@ -552,6 +637,298 @@ interface ProjectGroup {
     images: ProjectImage[];
 }
 
+// Enhanced Project Card Component
+const ProjectCard = ({ project, onClick }: { project: ProjectGroup, onClick: (project: ProjectGroup) => void }) => {
+    return (
+        <div className="project-card" onClick={() => onClick(project)}>
+            <div className="project-card-image-container">
+                <img src={project.cardImage} alt={project.title} className="project-card-image" />
+                <div className="project-card-overlay">
+                    <div className="project-card-overlay-content">
+                        <h3 className="project-card-title">{project.title}</h3>
+                        <p className="project-card-description">{project.description}</p>
+                        <div className="project-card-cta">
+                            <span>View Gallery</span>
+                            <ArrowRight className="project-card-arrow" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+// Enhanced Scrollable Carousel Component
+const ScrollableProjectCarousel = ({ projects, openModal }: { projects: ProjectGroup[], openModal: (project: ProjectGroup) => void }) => {
+    const carouselRef = useRef<HTMLDivElement>(null);
+    const [canScrollLeft, setCanScrollLeft] = useState(false);
+    const [canScrollRight, setCanScrollRight] = useState(true);
+    const [isDragging, setIsDragging] = useState(false);
+    const [startX, setStartX] = useState(0);
+    const [scrollLeft, setScrollLeft] = useState(0);
+
+    // Check scroll position
+    const checkScrollPosition = () => {
+        if (carouselRef.current) {
+            const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
+            setCanScrollLeft(scrollLeft > 0);
+            setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
+        }
+    };
+
+    // Scroll functions
+    const scrollToLeft = () => {
+        if (carouselRef.current) {
+            carouselRef.current.scrollBy({ left: -350, behavior: 'smooth' });
+        }
+    };
+
+    const scrollToRight = () => {
+        if (carouselRef.current) {
+            carouselRef.current.scrollBy({ left: 350, behavior: 'smooth' });
+        }
+    };
+
+    // Auto-scroll functionality
+    useEffect(() => {
+        const carousel = carouselRef.current;
+        if (!carousel) return;
+
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        let autoScrollInterval: NodeJS.Timeout;
+
+        const startAutoScroll = () => {
+            autoScrollInterval = setInterval(() => {
+                if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth) {
+                    // If at the end, scroll back to beginning
+                    carousel.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    // Otherwise scroll right
+                    carousel.scrollBy({ left: 350, behavior: 'smooth' });
+                }
+            }, 4000); // Auto-scroll every 4 seconds
+        };
+
+        const stopAutoScroll = () => {
+            if (autoScrollInterval) {
+                clearInterval(autoScrollInterval);
+            }
+        };
+
+        // Start auto-scroll
+        startAutoScroll();
+
+        // Stop auto-scroll on hover or interaction
+        carousel.addEventListener('mouseenter', stopAutoScroll);
+        carousel.addEventListener('mouseleave', startAutoScroll);
+        carousel.addEventListener('touchstart', stopAutoScroll);
+
+        return () => {
+            stopAutoScroll();
+            if (carousel) {
+                carousel.removeEventListener('mouseenter', stopAutoScroll);
+                carousel.removeEventListener('mouseleave', startAutoScroll);
+                carousel.removeEventListener('touchstart', stopAutoScroll);
+            }
+        };
+    }, []);
+
+    // Mouse drag functionality
+    const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+        setIsDragging(true);
+        setStartX(e.pageX - (carouselRef.current?.offsetLeft ?? 0));
+        setScrollLeft(carouselRef.current?.scrollLeft ?? 0);
+        e.preventDefault();
+    };
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - (carouselRef.current?.offsetLeft ?? 0);
+        const walk = (x - startX) * 2;
+        if (carouselRef.current) {
+            carouselRef.current.scrollLeft = scrollLeft - walk;
+        }
+    };
+
+    const handleMouseUp = () => {
+        setIsDragging(false);
+    };
+
+    const handleMouseLeave = () => {
+        setIsDragging(false);
+    };
+
+    // Touch events for mobile
+    const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+        setStartX(e.touches[0].clientX);
+        setScrollLeft(carouselRef.current?.scrollLeft ?? 0);
+    };
+
+    const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+        const x = e.touches[0].clientX;
+        const walk = (startX - x) * 2;
+        if (carouselRef.current) {
+            carouselRef.current.scrollLeft = scrollLeft + walk;
+        }
+    };
+
+    useEffect(() => {
+        const carousel = carouselRef.current;
+        if (carousel) {
+            carousel.addEventListener('scroll', checkScrollPosition);
+            checkScrollPosition();
+            return () => carousel.removeEventListener('scroll', checkScrollPosition);
+        }
+    }, []);
+
+    return (
+        <div className="scrollable-carousel-container">
+            {/* Navigation Arrows */}
+            <button
+                className={`carousel-nav-btn carousel-nav-left ${!canScrollLeft ? 'disabled' : ''}`}
+                onClick={scrollToLeft}
+                disabled={!canScrollLeft}
+                aria-label="Scroll left"
+            >
+                <ChevronLeft className="carousel-nav-icon" />
+            </button>
+
+            <button
+                className={`carousel-nav-btn carousel-nav-right ${!canScrollRight ? 'disabled' : ''}`}
+                onClick={scrollToRight}
+                disabled={!canScrollRight}
+                aria-label="Scroll right"
+            >
+                <ChevronRightIcon className="carousel-nav-icon" />
+            </button>
+
+            {/* Carousel Container */}
+            <div
+                ref={carouselRef}
+                className="scrollable-carousel"
+                onMouseDown={handleMouseDown}
+                onMouseMove={handleMouseMove}
+                onMouseUp={handleMouseUp}
+                onMouseLeave={handleMouseLeave}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+            >
+                {projects.map((project) => (
+                    <ProjectCard
+                        key={project.id}
+                        project={project}
+                        onClick={openModal}
+                    />
+                ))}
+                {/* Duplicate cards for infinite scroll effect */}
+                {projects.map((project) => (
+                    <ProjectCard
+                        key={`duplicate-${project.id}`}
+                        project={project}
+                        onClick={openModal}
+                    />
+                ))}
+            </div>
+
+            {/* Scroll Indicators */}
+            <div className="carousel-indicators">
+                {projects.map((_, index) => (
+                    <div
+                        key={index}
+                        className="carousel-indicator"
+                        onClick={() => {
+                            if (carouselRef.current) {
+                                carouselRef.current.scrollTo({
+                                    left: index * 350,
+                                    behavior: 'smooth'
+                                });
+                            }
+                        }}
+                    />
+                ))}
+            </div>
+
+
+        </div>
+    );
+};
+
+// Projects List Modal Component
+const ProjectsListModal = ({ isOpen, setIsOpen }: ProjectsListModalProps) => {
+    const infrastructureProjects = [
+        "Batangas Flyover",
+        "C-5 Flyover",
+        "Cavitex Airport",
+        "Cavitex C-5 Link Expressway",
+        "Kalayaan Bridge",
+        "La Mesa Dam",
+        "LRT – Sumitomo Project",
+        "Nagtahan Bridge",
+        "NAIA Skyway",
+        "NAIA Terminal 2",
+        "New Bacolod Silay Airport",
+        "NLEX Interchange",
+        "NLEX Toll Plaza",
+        "Skyway Stage 3",
+        "SLEX Rehabilitation",
+        "Startoll Bridge",
+        "Subic Bay Port Development Project",
+        "Subic Clark Pampanga Expressway"
+    ];
+
+    const currentProjects = [
+        "MRT 7",
+        "SLEX Widening"
+    ];
+
+    const closeModal = () => {
+        setIsOpen(false);
+    };
+
+    if (!isOpen) return null;
+
+    return (
+        <div className="projects-list-modal-overlay" onClick={closeModal}>
+            <div className="projects-list-modal" onClick={(e) => e.stopPropagation()}>
+                <div className="projects-list-modal-header">
+                    <h2 className="projects-list-modal-title">Complete Projects List</h2>
+                    <button onClick={closeModal} className="projects-list-modal-close">
+                        <X className="icon" />
+                    </button>
+                </div>
+
+                <div className="projects-list-modal-content">
+                    <div className="projects-list-section">
+                        <h3 className="projects-list-section-title">Infrastructure Projects</h3>
+                        <div className="projects-list-grid">
+                            {infrastructureProjects.map((project, index) => (
+                                <div key={index} className="projects-list-item">
+                                    <div className="projects-list-number">{index + 1}</div>
+                                    <span className="projects-list-name">{project}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="projects-list-section">
+                        <h3 className="projects-list-section-title">Current Projects</h3>
+                        <div className="projects-list-grid">
+                            {currentProjects.map((project, index) => (
+                                <div key={index} className="projects-list-item">
+                                    <div className="projects-list-number">{index + 1}</div>
+                                    <span className="projects-list-name">{project}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 const FinishedProjects = () => {
     const projectGroups: ProjectGroup[] = [
         {
@@ -562,20 +939,20 @@ const FinishedProjects = () => {
             images: [
                 {
                     id: 1,
-                    name: "Project 1",
-                    description: "Description",
+                    name: "Magallanes Interchange Project",
+                    description: "Major infrastructure development featuring our premium Grade 60 rebars for enhanced structural integrity and durability in high-traffic interchange construction.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_projects_for_website_2_hrfykz.jpg"
                 },
                 {
                     id: 2,
-                    name: "Project 2",
-                    description: "Description",
+                    name: "San Juanico Bridge",
+                    description: "Critical bridge construction project utilizing our high-strength reinforcement solutions to ensure long-lasting structural performance and safety standards.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_7_tjttq6.jpg"
                 },
                 {
                     id: 3,
-                    name: "Project 3",
-                    description: "Description",
+                    name: "EDSA Shrine",
+                    description: "Extensive highway development showcasing our comprehensive steel reinforcement capabilities for large-scale transportation infrastructure projects.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_1_wzrmyq.jpg"
                 }
             ]
@@ -583,25 +960,25 @@ const FinishedProjects = () => {
         {
             id: 2,
             title: "Present Developments",
-            description: "This project highlights our capability to supply high-quality materials for extensive construction projects.",
+            description: "Current ongoing projects highlighting our capability to supply high-quality materials for extensive construction developments across various sectors.",
             cardImage: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_Pics_for_website_1_yzhack.jpg",
             images: [
                 {
                     id: 4,
-                    name: "Foundation Work",
-                    description: "Deep foundation reinforcement with our Grade 60 rebars",
+                    name: "Metro Manila Skyway",
+                    description: "Advanced foundation work for major commercial development utilizing our precision-manufactured rebars for optimal structural support and longevity.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_13_wrnwf1.jpg"
                 },
                 {
                     id: 5,
-                    name: "Structural Framework",
-                    description: "Building framework construction using our steel products",
+                    name: "Metro Manila Skyway",
+                    description: "Multi-story building construction featuring our Grade 40 and Grade 60 reinforcement solutions for superior structural framework and seismic resistance.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_11_btaknk.jpg"
                 },
                 {
                     id: 6,
-                    name: "Upper Level Construction",
-                    description: "Multi-story construction showcasing structural integrity",
+                    name: "Metro Manila Skyway",
+                    description: "Progressive building construction demonstrating our consistent quality delivery across multiple construction phases and complex architectural requirements.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_10_gqdpk6.jpg"
                 }
             ]
@@ -609,25 +986,25 @@ const FinishedProjects = () => {
         {
             id: 3,
             title: "Future Developments",
-            description: "Multi-phase residential development project featuring our comprehensive steel reinforcement solutions. This showcases our ability to deliver consistent quality across large-scale construction projects.",
+            description: "Upcoming multi-phase development project featuring our comprehensive steel reinforcement solutions, showcasing our ability to deliver consistent quality across large-scale construction projects.",
             cardImage: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_Pics_for_website_3_haeba5.jpg",
             images: [
                 {
                     id: 7,
-                    name: "Site Preparation",
-                    description: "Initial site preparation and foundation work for the project",
+                    name: "MRT-7",
+                    description: "Comprehensive site preparation and initial foundation work for large-scale residential development, featuring systematic reinforcement planning and installation.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_8_pbadil.jpg"
                 },
                 {
                     id: 8,
-                    name: "Building Framework",
-                    description: "Multi-story building framework construction",
+                    name: "MRT Extension",
+                    description: "Multi-unit residential construction showcasing our versatile rebar solutions designed for modern housing developments with emphasis on safety and durability.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_5_jo4ul6.jpg"
                 },
                 {
                     id: 9,
-                    name: "Completion Phase",
-                    description: "Final construction phase showing completed structures",
+                    name: "MRT Extension",
+                    description: "Final construction phases demonstrating successful integration of our reinforcement materials in creating safe, durable residential structures for community development.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_projects_for_website_3_hqua6e.jpg"
                 }
             ]
@@ -636,6 +1013,7 @@ const FinishedProjects = () => {
 
     const [isOpen, setIsOpen] = useState(false);
     const [selectedProject, setSelectedProject] = useState<ProjectGroup>(projectGroups[0]);
+    const [isProjectsListOpen, setIsProjectsListOpen] = useState(false);
 
     const openProjectModal = useCallback((project: ProjectGroup) => {
         setSelectedProject(project);
@@ -644,71 +1022,30 @@ const FinishedProjects = () => {
 
     return (
         <div className="finished-products">
+            <div className="projects-header">
+                <h1>Our Projects</h1>
+                <p className="projects-subtitle">
+                    Explore our comprehensive portfolio of construction projects showcasing our quality steel reinforcement solutions
+                </p>
+            </div>
+            <ScrollableProjectCarousel projects={projectGroups} openModal={openProjectModal} />
+
+            {/* View Other Projects Button */}
+            <div className="view-other-projects-container">
+                <button
+                    className="view-other-projects-button"
+                    onClick={() => setIsProjectsListOpen(true)}
+                >
+                    VIEW OTHER PROJECTS <ArrowRight className="icon-sm" />
+                </button>
+            </div>
+
             <ProjectModal project={selectedProject} isOpen={isOpen} setIsOpen={setIsOpen} />
-            <h1 style={{ marginBottom: '50px'}}>Projects</h1>
-            <ProjectCarousel projects={projectGroups} openModal={openProjectModal} />
+            <ProjectsListModal isOpen={isProjectsListOpen} setIsOpen={setIsProjectsListOpen} />
         </div>
-    )
-}
+    );
+};
 
-const ProjectImageCard = ({ project, click }: { project: ProjectGroup, click: (project: ProjectGroup) => void }) => {
-    return (
-        <div className='banner-card' onClick={() => click(project)}>
-            <img src={project.cardImage} alt={project.title} />
-            <h2>{project.title}</h2>
-        </div>
-    )
-}
-
-// Project carousel component - using original carousel class
-const ProjectCarousel = ({ projects, openModal }: { projects: ProjectGroup[], openModal: (project: ProjectGroup) => void }) => {
-    const carouselRef = useRef<HTMLDivElement>(null);
-    let dragged: boolean = false;
-    let dragging: boolean = false;
-    let mouseX: number = 0;
-
-    const mouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
-        e.preventDefault();
-        dragged = false;
-        dragging = true;
-        mouseX = e.pageX - (carouselRef.current?.offsetLeft ?? 0);
-    }
-
-    const mouseUp = (e: React.MouseEvent<HTMLDivElement>) => {
-        e.preventDefault();
-        dragging = false;
-    }
-
-    const mouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-        e.preventDefault();
-        if (dragging) {
-            const x = e.pageX - carouselRef.current!.offsetLeft;
-            const walk = (x - mouseX) * 1;
-            dragged = true;
-            carouselRef.current!.scrollLeft -= walk;
-        }
-    }
-
-    const projectClick = (project: ProjectGroup) => {
-        if (!dragged) {
-            openModal(project);
-        }
-    }
-
-    return (
-        <div className='carousel' ref={carouselRef}
-             onMouseDown={mouseDown}
-             onMouseUp={mouseUp}
-             onMouseMove={mouseMove}
-        >
-            {projects.map(project => (
-                <ProjectImageCard key={project.id} project={project} click={projectClick} />
-            ))}
-        </div>
-    )
-}
-
-// Project modal with image navigation
 const ProjectModal = ({ project, isOpen, setIsOpen }: { project: ProjectGroup, isOpen: boolean, setIsOpen: (o: boolean) => void }) => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -731,56 +1068,63 @@ const ProjectModal = ({ project, isOpen, setIsOpen }: { project: ProjectGroup, i
 
     if (!isOpen) return null;
 
-    return (
-        <div className="project-modal-cont">
-            <div className='project-modal'>
-                <svg className='close-button' onClick={closeModal} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-                    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
-                    <g id="SVGRepo_iconCarrier">
-                        <circle cx="12" cy="12" r="10" stroke="#1C274C" strokeWidth="1.5"></circle>
-                        <path d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5" stroke="#1C274C" strokeWidth="1.5" strokeLinecap="round"></path>
-                    </g>
-                </svg>
+    const currentImage = project.images[currentImageIndex];
 
-                <div className='project-modal-header'>
-                    <h2 className='project-title'>{project.title}</h2>
-                    {/* Only show the main project description */}
-                    <p className='project-description'>{project.description}</p>
+    return (
+        <div className="project-modal-overlay" onClick={closeModal}>
+            <div className="project-modal" onClick={(e) => e.stopPropagation()}>
+                {/* Close Button */}
+                <button onClick={closeModal} className="modal-close-btn">
+                    ×
+                </button>
+
+                {/* Header */}
+                <div className="project-modal-header">
+                    <h2 className="project-modal-title">{project.title}</h2>
+                    <p className="project-modal-description">{project.description}</p>
                 </div>
 
-                <div className='image-navigation-container'>
-                    <button className='nav-button prev-button' onClick={prevImage}>
-                        <ArrowLeft className='icon' />
+                {/* Main Content */}
+                <div className="project-modal-content">
+                    <button onClick={prevImage} className="modal-nav-btn">
+                        <ArrowLeft className="modal-nav-icon" />
                     </button>
 
-                    <div className='image-container'>
-                        {/* Only show the image, no individual image name or description */}
-                        <img src={project.images[currentImageIndex].image} alt={project.images[currentImageIndex].name} />
+                    <div className="project-modal-image-container">
+                        <img
+                            src={currentImage.image}
+                            alt={currentImage.name}
+                            className="project-modal-image"
+                        />
+                        <div className="project-image-title-overlay">
+                            <h3 className="project-image-title">{currentImage.name}</h3>
+                        </div>
                     </div>
 
-                    <button className='nav-button next-button' onClick={nextImage}>
-                        <ArrowRight className='icon' />
+                    <button onClick={nextImage} className="modal-nav-btn">
+                        <ArrowRight className="modal-nav-icon" />
                     </button>
                 </div>
 
-                <div className='image-indicators'>
+                {/* Indicators */}
+                <div className="project-modal-indicators">
                     {project.images.map((_, index) => (
-                        <div
+                        <button
                             key={index}
-                            className={`indicator ${index === currentImageIndex ? 'active' : ''}`}
                             onClick={() => setCurrentImageIndex(index)}
+                            className={`modal-indicator ${index === currentImageIndex ? 'active' : ''}`}
                         />
                     ))}
                 </div>
 
-                <div className='image-counter'>
+                {/* Counter */}
+                <div className="project-modal-counter">
                     {currentImageIndex + 1} of {project.images.length}
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 const Carousel = ({ items, openModal }: { items: ModalProps[], openModal: (details: ModalProps) => void }) => {
     const carouselRef = useRef<HTMLDivElement>(null);

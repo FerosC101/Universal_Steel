@@ -86,8 +86,8 @@ body {
   padding: 4px;
   border-radius: 6px;
   margin-right: 12px;
-  width: 60px;  /* Increased from 40px */
-  height: 60px; /* Increased from 40px */
+  width: 50px;  /* Reduced from 60px */
+  height: 50px; /* Reduced from 60px */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -100,20 +100,20 @@ body {
 .logo-icon img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Ensures the image scales properly */
+  object-fit: contain;
   background: transparent;
 }
 
 .logo-text {
   color: #dc2626;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* Mobile Menu Button - COMPLETELY HIDDEN ON DESKTOP */
+/* Mobile Menu Button */
 .menu-button {
   display: flex;
   background: none;
@@ -144,11 +144,11 @@ body {
   }
 }
 
-/* Desktop Navigation - PROPERLY POSITIONED */
+/* Desktop Navigation */
 .nav-desktop {
-  display: none; /* Hidden on mobile by default */
-  gap: 24px;
-  margin-left: auto; /* Push to the right */
+  display: none;
+  gap: 20px;
+  margin-left: auto;
 }
 
 .nav-desktop a,
@@ -158,7 +158,7 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 15px;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -284,14 +284,135 @@ body {
 /* Hero Section */
 .hero {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 800px; /* Limit maximum height */
+  min-height: 600px; /* Ensure minimum height */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 80px 20px;
   width: 100%;
-  overflow: hidden;
+}
+
+.hero-slideshow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+.hero-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Navigation Arrows */
+.hero-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  font-size: 2rem;
+  padding: 15px 20px;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.3s ease;
+  user-select: none;
+  backdrop-filter: blur(5px);
+}
+
+.hero-nav:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.hero-nav-prev {
+  left: 20px;
+}
+
+.hero-nav-next {
+  right: 20px;
+}
+
+/* Slideshow Dots */
+.hero-dot {
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+}
+
+.hero-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero-dot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.hero-dot.active,
+.hero-dot:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: white;
+  transform: scale(1.1);
+}
+.hero-dot.active img,
+.hero-dot:hover img {
+  opacity: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
 }
 
 .hero::before {
@@ -304,15 +425,6 @@ body {
   background: rgba(0, 0, 0, 0.5);
 }
 
-.hero-content {
-  position: relative;
-  z-index: 10;
-  width: 100vw;
-  max-width: 100vw;
-  margin: 0 auto;
-  padding: 0 20px;
-  text-align: center;
-}
 
 .hero-title {
   font-size: 2.5rem;
@@ -354,11 +466,17 @@ body {
 }
 
 .hero-sidebar {
-  margin: 30px 0;
+  display: none; /* Hidden by default on mobile */
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
   background: linear-gradient(to right, #8b0000, #dc2626);
   color: white;
   padding: 24px;
-  width: 80%;
+  width: 280px;
+  z-index: 15;
+  border-radius: 10px;
 }
 
 .hero-sidebar h3 {
@@ -669,6 +787,118 @@ body {
   border-radius: 4px;
 }
 
+/* Products & Certifications Modal */
+.certifications-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.certifications-modal-content {
+  background: white;
+  border-radius: 8px;
+  padding: 40px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.certifications-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  color: #6b7280;
+  font-size: 24px;
+}
+
+.certifications-modal-close:hover {
+  color: #dc2626;
+}
+
+.certifications-modal h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.certification-card {
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.certification-card:hover {
+  border-color: #dc2626;
+  transform: translateY(-5px);
+}
+
+.certification-card img {
+  width: 100%;
+  height: auto;
+  max-height: 150px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border-radius: 6px;
+}
+
+.certification-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.certification-card p {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+/* Product-specific styles for modal cards */
+.product-subtitle {
+  font-weight: 500;
+  color: #dc2626;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.product-description {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.product-sizes {
+  font-size: 0.8rem;
+  color: #4b5563;
+  margin-bottom: 0;
+}
+
 /* Footer */
 .footer {
   color: black;
@@ -702,8 +932,8 @@ body {
   padding: 4px;
   border-radius: 6px;
   margin-right: 12px;
-  width: 48px;  /* Increased from 32px */
-  height: 48px; /* Increased from 32px */
+  width: 42px;  /* Reduced from 48px */
+  height: 42px; /* Reduced from 48px */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -723,7 +953,7 @@ body {
 .footer-company .logo-text {
   color: #ef4444;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .footer-address {
@@ -831,6 +1061,55 @@ body {
 }
 
 /* Responsive breakpoints */
+@media (max-width: 767px) {
+  .header-container {
+    padding: 0 15px;
+  }
+
+  .logo-text {
+    font-size: 12px;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    padding: 3px;
+  }
+
+  .footer-company .logo-icon {
+    width: 36px;
+    height: 36px;
+    padding: 3px;
+  }
+
+  .certifications-modal-content {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .certifications-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Mobile hero adjustments */
+  .hero {
+    min-height: 500px;
+    padding: 60px 15px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-description {
+    font-size: 0.9rem;
+  }
+
+  .hero-sidebar {
+    display: none !important; /* Force hide on mobile */
+  }
+}
+
 @media (min-width: 480px) {
   .hero-title {
     font-size: 3rem;
@@ -854,7 +1133,7 @@ body {
 
 @media (min-width: 768px) {
   .header-content {
-    height: 80px;
+    height: 70px;
   }
 
   .video {
@@ -866,42 +1145,22 @@ body {
   }
 
   .logo-text {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .logo-icon {
-    width: 65px;
-    height: 65px;
+    width: 55px;  /* Balanced size for desktop */
+    height: 55px;
   }
 
   .footer-company .logo-icon {
-    width: 50px;
-    height: 50px;
+    width: 45px;  /* Balanced footer size */
+    height: 45px;
   }
 
-  /* Show desktop navigation and completely hide mobile elements */
+  /* Show desktop navigation */
   .nav-desktop {
     display: flex !important;
-  }
-
-  /* Force hide ALL mobile menu elements on desktop */
-  .menu-button {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    position: absolute !important;
-    left: -9999px !important;
-    pointer-events: none !important;
-  }
-
-  .mobile-menu,
-  .mobile-menu-overlay {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    position: absolute !important;
-    left: -9999px !important;
-    pointer-events: none !important;
   }
 
   .hero {
@@ -927,14 +1186,21 @@ body {
   .footer-section {
     margin-bottom: 0;
   }
+
+  .certifications-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-/* NEW: Medium desktop breakpoint to handle smaller desktop screens */
 @media (min-width: 1024px) and (max-width: 1279px) {
   .hero-content {
-    max-width: calc(100% - 320px); /* Leave space for sidebar */
-    margin-right: 340px; /* Space for sidebar + margin */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 800px;
     text-align: center;
+    z-index: 10;
   }
 
   .hero-sidebar {
@@ -942,19 +1208,20 @@ body {
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
-    background: linear-gradient(to right, #8b0000, #dc2626);
+    background: #dc2626; /* Solid red background */
     color: white;
     padding: 20px;
-    width: 280px; /* Smaller width for medium screens */
+    width: 280px;
     display: block;
+    border-radius: 10px;
   }
 
   .hero-sidebar h3 {
-    font-size: 1.25rem; /* Slightly smaller font */
+    font-size: 1.25rem;
   }
 
   .hero-title {
-    font-size: 3.2rem; /* Slightly smaller to fit better */
+    font-size: 3.2rem;
   }
 
   .video {
@@ -974,34 +1241,42 @@ body {
   }
 
   .logo-icon {
-    width: 70px;
-    height: 70px;
+    width: 58px;  /* Slightly larger for medium screens */
+    height: 58px;
   }
 
   .footer-company .logo-icon {
-    width: 52px;
-    height: 52px;
+    width: 47px;
+    height: 47px;
+  }
+
+  .certifications-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* UPDATED: Large desktop breakpoint for wider screens */
 @media (min-width: 1280px) {
   .hero-sidebar {
     position: absolute;
-    right: 40px; /* More margin from edge */
+    right: 40px;
     top: 50%;
     transform: translateY(-50%);
-    background: linear-gradient(to right, #8b0000, #dc2626);
+    background: #dc2626; /* Solid red background */
     color: white;
     padding: 24px;
     width: 320px;
     display: block;
+    border-radius: 10px;
   }
 
   .hero-content {
-    max-width: calc(100% - 380px); /* Leave space for sidebar */
-    margin-right: 400px; /* Space for sidebar + margin */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 900px;
     text-align: center;
+    z-index: 10;
   }
 
   .video {
@@ -1025,37 +1300,345 @@ body {
   }
 
   .logo-icon {
-    width: 70px;
-    height: 70px;
+    width: 60px;  /* Maximum size for large screens */
+    height: 60px;
   }
 
   .footer-company .logo-icon {
-    width: 52px;
-    height: 52px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .certifications-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* Mobile First Responsive Design */
-@media (max-width: 767px) {
+/* Spectrometer Section Styles */
+.spectrometer-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.spectrometer-image-container {
+  position: relative;
+}
+
+.spectrometer-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #1f2937;
+  line-height: 1.1;
+}
+
+.spectrometer-subtitle {
+  font-size: 1.2rem;
+  color: #6b7280;
+  margin-bottom: 50px;
+  line-height: 1.6;
+}
+
+.spectrometer-features {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.spectrometer-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.spectrometer-bullet {
+  width: 8px;
+  height: 8px;
+  background-color: #dc2626;
+  border-radius: 50%;
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+.spectrometer-feature-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1f2937;
+}
+
+.spectrometer-feature-desc {
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.spectrometer-description {
+  border-left: 4px solid #dc2626;
+  padding-left: 20px;
+  background-color: #f9fafb;
+  padding: 25px;
+  border-radius: 0 8px 8px 0;
+}
+
+.spectrometer-description p {
+  color: #4b5563;
+  line-height: 1.7;
+  margin: 0;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+/* Mobile Responsive for Spectrometer */
+@media (max-width: 768px) {
+  .spectrometer-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .spectrometer-image-container img {
+    height: 350px !important;
+  }
+
+  .spectrometer-title {
+    font-size: 2.2rem;
+  }
+
+  .spectrometer-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 35px;
+  }
+
+  .spectrometer-features {
+    gap: 25px;
+    margin-bottom: 35px;
+  }
+
+  .spectrometer-feature {
+    text-align: left;
+    gap: 15px;
+  }
+
+  .spectrometer-feature-title {
+    font-size: 1.2rem;
+  }
+
+  .spectrometer-feature-desc {
+    font-size: 0.95rem;
+  }
+
+  .spectrometer-description {
+    padding: 20px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .spectrometer-image-container img {
+    height: 280px !important;
+  }
+
+  .spectrometer-title {
+    font-size: 1.8rem;
+  }
+
+  .spectrometer-subtitle {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .spectrometer-features {
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  .spectrometer-feature-title {
+    font-size: 1.1rem;
+  }
+
+  .spectrometer-feature-desc {
+    font-size: 0.9rem;
+  }
+
+  .spectrometer-description {
+    padding: 18px;
+  }
+
+  .spectrometer-description p {
+    font-size: 0.9rem;
+  }
+
+  .spectrometer-image-container img {
+    height: 250px !important;
+  }
+
   .header-container {
-    padding: 0 15px;
+    padding: 0 10px;
   }
 
   .logo-text {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .logo-icon {
-    width: 45px;  /* Smaller on mobile */
-    height: 45px;
-    padding: 3px;
-    background: transparent;
+    width: 35px;
+    height: 35px;
+  }
+
+  .top-banner {
+    height: 250px;
+    margin-bottom: 100px;
+  }
+
+  .top-banner > h1 {
+    font-size: 1.5rem;
+    padding-top: 30px;
+  }
+
+  .banner-card {
+    width: 260px;
+    min-width: 260px;
+    padding: 0.8rem;
+  }
+
+  .banner-card img {
+    height: 160px;
+  }
+
+  .banner-card h2 {
+    font-size: 1.1rem;
+  }
+
+  .partners-card {
+    height: 100px;
+    width: 140px;
+  }
+
+  .partners-card img {
+    max-height: 60px;
+  }
+
+  .main-body .card {
+    max-width: 300px;
+    min-height: 300px;
+  }
+
+  .main-body h2 {
+    font-size: 1.1rem;
+  }
+
+  .main-body p {
+    font-size: 0.8rem;
+  }
+
+  .finished-products {
+    padding: 30px 5px;
+  }
+
+  .projects-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .projects-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .project-card {
+    flex: 0 0 250px;
+    height: 300px;
+  }
+
+  .project-card-overlay-content {
+    padding: 15px;
+  }
+
+  .carousel-help-text p {
+    font-size: 0.8rem;
+  }
+
+  .modal {
+    padding: 15px;
+    width: 98%;
+  }
+
+  .modal .product-name {
+    font-size: 1.2rem;
+  }
+
+  .modal .price-range {
+    font-size: 1rem;
+  }
+
+  .pricing-table {
+    font-size: 0.7rem;
+  }
+
+  .pricing-table th,
+  .pricing-table td {
+    padding: 6px 3px;
+  }
+
+  .project-modal {
+    padding: 15px;
+    width: 98%;
+  }
+
+  .project-modal-title {
+    font-size: 1.4rem;
+  }
+
+  .project-modal-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .project-modal-image {
+    height: 180px;
+  }
+
+  .project-image-title {
+    font-size: 1rem;
+  }
+
+  .project-image-title-overlay {
+    padding: 10px;
+  }
+
+  .footer-container {
+    padding: 0 10px;
+  }
+
+  .footer-company .logo-text {
+    font-size: 12px;
   }
 
   .footer-company .logo-icon {
-    width: 36px;
-    height: 36px;
-    padding: 3px;
-    background: transparent;
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Hero section small mobile */
+  .hero {
+    min-height: 450px;
+    padding: 40px 10px;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-description {
+    font-size: 0.85rem;
+  }
+
+  .hero-button {
+    padding: 10px 20px;
+    font-size: 0.85rem;
   }
 }

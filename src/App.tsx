@@ -229,41 +229,408 @@ const Header = ({ currentPage = "home" }: { currentPage?: string }) => {
 
 // Cloudinary image URLs
 const cloudinary = {
-    hero: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752675549/hero_sqtj19.jpg',
+    hero1: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752675549/hero_sqtj19.jpg',
+    hero2: 'https://res.cloudinary.com/drrzinr9v/image/upload/hero2_omdk5s.jpg',
+    hero3: 'https://res.cloudinary.com/drrzinr9v/image/upload/hero3_exwvmu.jpg',
+    hero4: 'https://res.cloudinary.com/drrzinr9v/image/upload/hero4_c9ylu9.jpg',
+    hero5: 'https://res.cloudinary.com/drrzinr9v/image/upload/hero5_ydk14p.jpg',
+    hero6: 'https://res.cloudinary.com/drrzinr9v/image/upload/hero6_e7u9ss.jpg',
     product: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752675549/homepageAbout_wezvdg.jpg',
-    certs: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752675550/ourcertifications_nw8aid.jpg',
+    certs: 'https://res.cloudinary.com/drrzinr9v/image/upload/ourcertifications_nw8aid.jpg',
     about: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752676337/514315094_122186224832360700_1263205354293391856_n_qrnviz.jpg',
 };
 
-// Hero Section
-const HeroSection = () => {
+// Products Modal Component with Pricing Table
+const ProductsModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
+    const grade40Data = [
+        { size: '10mm', price: 22.00, weight: 0.617, '6.0M': 81.44, '7.5M': 101.81, '9.0M': 122.17, '10.5M': 142.53, '12.0M': 162.89 },
+        { size: '12mm', price: 22.00, weight: 0.888, '6.0M': 117.22, '7.5M': 146.52, '9.0M': 175.82, '10.5M': 205.13, '12.0M': 234.43 },
+        { size: '16mm', price: 21.80, weight: 1.578, '6.0M': 206.40, '7.5M': 258.00, '9.0M': 309.60, '10.5M': 361.20, '12.0M': 412.80 },
+        { size: '20mm', price: 21.80, weight: 2.466, '6.0M': 322.55, '7.5M': 403.19, '9.0M': 483.83, '10.5M': 564.47, '12.0M': 645.11 },
+        { size: '25mm', price: 21.80, weight: 3.853, '6.0M': 503.97, '7.5M': 629.97, '9.0M': 755.96, '10.5M': 881.95, '12.0M': 1007.94 },
+        { size: '28mm', price: 21.80, weight: 4.834, '6.0M': 632.29, '7.5M': 790.36, '9.0M': 948.43, '10.5M': 1106.50, '12.0M': 1264.57 },
+        { size: '32mm', price: 22.00, weight: 6.313, '6.0M': 833.32, '7.5M': 1041.65, '9.0M': 1249.97, '10.5M': 1458.30, '12.0M': 1666.63 },
+        { size: '36mm', price: 22.00, weight: 7.99, '6.0M': 1054.68, '7.5M': 1318.35, '9.0M': 1582.02, '10.5M': 1845.69, '12.0M': 2109.36 },
+    ];
+
+    const grade60Data = [
+        { size: '10mm', price: 22.70, weight: 0.617, '6.0M': 84.04, '7.5M': 105.04, '9.0M': 126.05, '10.5M': 147.06, '12.0M': 168.07 },
+        { size: '12mm', price: 22.70, weight: 0.888, '6.0M': 120.95, '7.5M': 151.18, '9.0M': 181.42, '10.5M': 211.65, '12.0M': 241.89 },
+        { size: '16mm', price: 22.50, weight: 1.578, '6.0M': 213.03, '7.5M': 266.29, '9.0M': 319.55, '10.5M': 372.80, '12.0M': 426.06 },
+        { size: '20mm', price: 22.50, weight: 2.466, '6.0M': 332.91, '7.5M': 416.14, '9.0M': 499.37, '10.5M': 582.59, '12.0M': 665.82 },
+        { size: '25mm', price: 22.50, weight: 3.853, '6.0M': 520.16, '7.5M': 650.19, '9.0M': 780.23, '10.5M': 910.27, '12.0M': 1040.31 },
+        { size: '28mm', price: 22.50, weight: 4.834, '6.0M': 652.59, '7.5M': 815.74, '9.0M': 978.89, '10.5M': 1142.03, '12.0M': 1305.18 },
+        { size: '32mm', price: 22.70, weight: 6.313, '6.0M': 859.83, '7.5M': 1074.79, '9.0M': 1289.75, '10.5M': 1504.70, '12.0M': 1719.66 },
+        { size: '36mm', price: 22.70, weight: 7.99, '6.0M': 1088.24, '7.5M': 1360.30, '9.0M': 1632.36, '10.5M': 1904.42, '12.0M': 2176.48 },
+    ];
+
+    useEffect(() => {
+        const handleEscape = (e: KeyboardEvent) => {
+            if (e.key === 'Escape' && isOpen) {
+                onClose();
+            }
+        };
+
+        if (isOpen) {
+            document.addEventListener('keydown', handleEscape);
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+
+        return () => {
+            document.removeEventListener('keydown', handleEscape);
+            document.body.style.overflow = 'unset';
+        };
+    }, [isOpen, onClose]);
+
+    if (!isOpen) return null;
+
     return (
-        <section
-            className="hero"
-            style={{
-                backgroundImage: `url('${cloudinary.hero}')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-            }}
-        >
-            <div className="hero-content">
+        <div className="certifications-modal" onClick={onClose}>
+            <div className="certifications-modal-content products-modal-content" onClick={(e) => e.stopPropagation()}>
+                <button className="certifications-modal-close" onClick={onClose}>
+                    <X />
+                </button>
+                <h2>Rebar Products & Pricing</h2>
+
+                <div className="pricing-tables-container">
+                    {/* Grade 40 Rebars Table */}
+                    <div className="pricing-table-section">
+                        <h3>GRADE 40 Rebars</h3>
+                        <div className="table-responsive">
+                            <table className="pricing-table">
+                                <thead>
+                                <tr>
+                                    <th>SIZE</th>
+                                    <th>PRICE/KILO</th>
+                                    <th>WEIGHT KG/M</th>
+                                    <th colSpan={5}>LENGTH</th>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th>6.0M</th>
+                                    <th>7.5M</th>
+                                    <th>9.0M</th>
+                                    <th>10.5M</th>
+                                    <th>12.0M</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {grade40Data.map((row, index) => (
+                                    <tr key={index}>
+                                        <td className="size-cell">{row.size}</td>
+                                        <td className="price-cell">{row.price.toFixed(2)}</td>
+                                        <td className="weight-cell">{row.weight}</td>
+                                        <td className="length-cell">{row['6.0M']}</td>
+                                        <td className="length-cell">{row['7.5M']}</td>
+                                        <td className="length-cell">{row['9.0M']}</td>
+                                        <td className="length-cell">{row['10.5M']}</td>
+                                        <td className="length-cell">{row['12.0M']}</td>
+                                    </tr>
+                                ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    {/* Grade 60 Rebars Table */}
+                    <div className="pricing-table-section">
+                        <h3>GRADE 60 Rebars</h3>
+                        <div className="table-responsive">
+                            <table className="pricing-table">
+                                <thead>
+                                <tr>
+                                    <th>SIZE</th>
+                                    <th>PRICE/KILO</th>
+                                    <th>WEIGHT KG/M</th>
+                                    <th colSpan={5}>LENGTH</th>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th>6.0M</th>
+                                    <th>7.5M</th>
+                                    <th>9.0M</th>
+                                    <th>10.5M</th>
+                                    <th>12.0M</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {grade60Data.map((row, index) => (
+                                    <tr key={index}>
+                                        <td className="size-cell">{row.size}</td>
+                                        <td className="price-cell">{row.price.toFixed(2)}</td>
+                                        <td className="weight-cell">{row.weight}</td>
+                                        <td className="length-cell">{row['6.0M']}</td>
+                                        <td className="length-cell">{row['7.5M']}</td>
+                                        <td className="length-cell">{row['9.0M']}</td>
+                                        <td className="length-cell">{row['10.5M']}</td>
+                                        <td className="length-cell">{row['12.0M']}</td>
+                                    </tr>
+                                ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="pricing-note">
+                    <p><strong>Note:</strong> All prices are subject to change without prior notice. Contact us for the most current pricing and availability.</p>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+// Certifications Modal Component
+const CertificationsModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
+    const certifications = [
+        {
+            image: `https://res.cloudinary.com/drrzinr9v/image/upload/Screenshot_2025-06-16_235347-removebg-preview_sovmgu.png?ts=${Date.now()}`,
+            title: "ISO 9001:2015 Certified",
+            subtitle: "by TÃœV Philippines"
+        },
+        {
+            image: `https://res.cloudinary.com/drrzinr9v/image/upload/Screenshot_2025-06-16_235339-removebg-preview_tbznum.png?ts=${Date.now()}`,
+            title: "BPS Certification Mark",
+            subtitle: "Bureau of Product Standards"
+        },
+        {
+            image: `https://res.cloudinary.com/drrzinr9v/image/upload/Screenshot_2025-06-16_235402-removebg-preview_zmsls7.png?ts=${Date.now()}`,
+            title: "DPWH-Accredited Testing Laboratory",
+            subtitle: "by Bureau of Research and Standards (BRS)"
+        }
+    ];
+
+    useEffect(() => {
+        const handleEscape = (e: KeyboardEvent) => {
+            if (e.key === 'Escape' && isOpen) {
+                onClose();
+            }
+        };
+
+        if (isOpen) {
+            document.addEventListener('keydown', handleEscape);
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+
+        return () => {
+            document.removeEventListener('keydown', handleEscape);
+            document.body.style.overflow = 'unset';
+        };
+    }, [isOpen, onClose]);
+
+    if (!isOpen) return null;
+
+    return (
+        <div className="certifications-modal" onClick={onClose}>
+            <div className="certifications-modal-content" onClick={(e) => e.stopPropagation()}>
+                <button className="certifications-modal-close" onClick={onClose}>
+                    <X />
+                </button>
+                <h2>Our Certifications</h2>
+                <div className="certifications-grid">
+                    {certifications.map((cert, index) => (
+                        <div key={index} className="certification-card">
+                            <img src={cert.image} alt={cert.title} />
+                            <h3>{cert.title}</h3>
+                            <p>{cert.subtitle}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+// Hero Section - Slideshow with proper image changing
+const HeroSection = () => {
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    const slides = [
+        cloudinary.hero1,
+        cloudinary.hero2,
+        cloudinary.hero3,
+        cloudinary.hero4,
+        cloudinary.hero5,
+        cloudinary.hero6
+    ];
+
+    const nextSlide = () => {
+        setCurrentSlide((prev) => (prev + 1) % slides.length);
+    };
+
+    const prevSlide = () => {
+        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    };
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % slides.length);
+        }, 4000); // Auto-advance every 4 seconds
+
+        return () => clearInterval(timer);
+    }, [slides.length]);
+
+    return (
+        <section className="hero" style={{
+            position: 'relative',
+            height: '100vh',
+            overflow: 'hidden'
+        }}>
+            {/* Slideshow Background */}
+            <div className="hero-slideshow" style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                zIndex: 1
+            }}>
+                {slides.map((slide, index) => (
+                    <div
+                        key={index}
+                        className={`hero-slide ${index === currentSlide ? 'active' : ''}`}
+                        style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            backgroundImage: `url('${slide}')`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            backgroundRepeat: 'no-repeat',
+                            opacity: index === currentSlide ? 1 : 0,
+                            transition: 'opacity 1s ease-in-out',
+                            zIndex: index === currentSlide ? 2 : 1
+                        }}
+                    />
+                ))}
+            </div>
+
+            {/* Slideshow Controls */}
+            <button
+                className="hero-nav hero-nav-prev"
+                onClick={prevSlide}
+                style={{
+                    position: 'absolute',
+                    left: '20px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    zIndex: 10,
+                    background: 'rgba(0,0,0,0.5)',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '50%',
+                    width: '50px',
+                    height: '50px',
+                    fontSize: '24px',
+                    cursor: 'pointer'
+                }}
+            >
+                &#8249;
+            </button>
+            <button
+                className="hero-nav hero-nav-next"
+                onClick={nextSlide}
+                style={{
+                    position: 'absolute',
+                    right: '20px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    zIndex: 10,
+                    background: 'rgba(0,0,0,0.5)',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '50%',
+                    width: '50px',
+                    height: '50px',
+                    fontSize: '24px',
+                    cursor: 'pointer'
+                }}
+            >
+                &#8250;
+            </button>
+
+            {/* Slideshow Dots */}
+            <div className="hero-dots" style={{
+                position: 'absolute',
+                bottom: '20px',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                zIndex: 10,
+                display: 'flex',
+                gap: '10px'
+            }}>
+                {slides.map((_, index) => (
+                    <button
+                        key={index}
+                        className={`hero-dot ${index === currentSlide ? 'active' : ''}`}
+                        onClick={() => setCurrentSlide(index)}
+                        style={{
+                            width: '12px',
+                            height: '12px',
+                            borderRadius: '50%',
+                            border: 'none',
+                            background: index === currentSlide ? 'white' : 'rgba(255,255,255,0.5)',
+                            cursor: 'pointer',
+                            transition: 'background 0.3s ease'
+                        }}
+                    />
+                ))}
+            </div>
+
+            <div className="hero-content" style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                zIndex: 5,
+                color: 'white',
+                maxWidth: '800px',
+                textAlign: 'center'
+            }}>
                 <h1 className="hero-title">
                     Forging Strong<br />
                     <span className="hero-title-accent">Alliances for the Future!</span>
                 </h1>
                 <p className="hero-description">
-                    Backed by decades of innovation and resilience, the LKG Group continues to shape industries—
-                    from construction to education—building a legacy of strength and progress across the Philippines.
+                    Backed by decades of innovation and resilience, UNIVERSAL STEEL SMELTING CO INC continues to shape the construction industry, building a legacy of strength and progress across the Philippines.
                 </p>
                 <Link to="/about" className="hero-button">LEARN MORE</Link>
             </div>
 
             {/* Side panel */}
-            <div className="hero-sidebar">
+            <div className="hero-sidebar" style={{
+                position: 'absolute',
+                right: '50px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                zIndex: 5,
+                background: '#dc2626', /* Solid red background */
+                padding: '30px',
+                borderRadius: '10px',
+                color: 'white',
+                maxWidth: '300px'
+            }}>
                 <h3>We reach our 60-year milestone in the industry next year!</h3>
-                <p>Watch how LKG has grown from post-war resilience to multi-industry leadership.</p>
+                <p>Watch how UNIVERSAL STEEL SMELTING CO INC has grown from post-war resilience to multi-industry leadership.</p>
                 <Link to="/about">
-                    <button>
+                    <button style={{
+                        background: 'transparent',
+                        border: '2px solid white',
+                        color: 'white',
+                        padding: '10px',
+                        borderRadius: '5px',
+                        cursor: 'pointer'
+                    }}>
                         <ArrowRight className="icon-sm" />
                     </button>
                 </Link>
@@ -279,31 +646,34 @@ const AboutSection = () => {
             <div className="about-container">
                 <div className="about-grid">
                     {/* Image */}
-                    <div
-                        className="about-image"
-                        style={{
-                            backgroundImage: `url('${cloudinary.about}')`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                            minHeight: '300px',
-                            borderRadius: '8px',
-                        }}
-                    ></div>
+                    <div className="about-image">
+                        <div
+                            className="about-image-placeholder"
+                            style={{
+                                backgroundImage: `url('${cloudinary.about}')`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                            }}
+                        ></div>
+                    </div>
 
                     {/* Content */}
                     <div className="about-content">
                         <h2>UNIVERSAL STEEL SMELTING CO INC</h2>
                         <p>
-                            The LKG Group of Companies maintains extensive holdings in the areas of construction,
-                            manufacturing, real estate, wholesale, trading, general merchandising, social services
-                            and education. It began trading before World War II with its Chairman and Partners,
-                            Lim K.G. at the helm.
+                            Founded with a vision to fuel industrial growth through innovation and strength, Universal Steel Smelting Company Incorporated is a trusted leader in steel manufacturing and smelting solutions.
+                            For over 60 years, we have specialized in the production of high-grade deformed bars that power the construction and infrastructure sectors.
                         </p>
                         <p>
-                            Starting with diversified investments in both the manufacturing and trading sectors,
-                            and string of factories and land assets. Since then, LKG has grown to cover more
-                            diversified investments in terms of annual gross revenues, the group's combined
-                            performance ranks among the country's top 500 corporations.
+
+                            Headquartered in Quezon City, our advanced smelting and manufacturing facilities are equipped with cutting-edge technology and operated by a skilled workforce committed to quality, safety, and sustainability.
+                            We produce a wide range of deformed bar products tailored to meet the demanding standards of global markets.
+                        </p>
+                        <p>
+                            At Universal Steel Smelting, we prioritize innovation, environmental responsibility, and long-term client relationships. Our operations are TUV and BPS certified and DPWH-Accredited Testing Laboratory by the Bureau of Research and Standards (BRS).
+                        </p>
+                        <p>
+                            Driven by integrity, engineered for durability — Universal Steel Smelting Company Inc. is forging strong alliances for the future.
                         </p>
                         <Link to="/about" className="about-button">READ MORE ABOUT US →</Link>
                     </div>
@@ -360,6 +730,9 @@ const VideoSection = () => {
 
 // Features Section Component
 const FeaturesSection = () => {
+    const [isCertModalOpen, setIsCertModalOpen] = useState(false);
+    const [isProductsModalOpen, setIsProductsModalOpen] = useState(false);
+
     const features = [
         {
             number: "01",
@@ -389,63 +762,76 @@ const FeaturesSection = () => {
     ];
 
     return (
-        <section className="features">
-            <div className="features-container">
-                <div className="features-grid">
-                    {/* Features List */}
-                    <div className="features-content">
-                        <h2>Why should you choose Universal Steel Smelting Co Inc?</h2>
-                        <div className="features-list">
-                            {features.map((feature, index) => (
-                                <div key={index} className="feature-item">
-                                    <div className="feature-number">{feature.number}</div>
-                                    <div className="feature-content">
-                                        <h3>{feature.title}</h3>
-                                        <p>{feature.description}</p>
+        <>
+            <section className="features">
+                <div className="features-container">
+                    <div className="features-grid">
+                        {/* Features List */}
+                        <div className="features-content">
+                            <h2>Why should you choose Universal Steel Smelting Co Inc?</h2>
+                            <div className="features-list">
+                                {features.map((feature, index) => (
+                                    <div key={index} className="feature-item">
+                                        <div className="feature-number">{feature.number}</div>
+                                        <div className="feature-content">
+                                            <h3>{feature.title}</h3>
+                                            <p>{feature.description}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
-                    </div>
 
-                    {/* Side Panels */}
-                    <div className="features-sidebar">
-                        {/* Our Products */}
-                        <Link to="/products">
+                        {/* Side Panels */}
+                        <div className="features-sidebar">
+                            {/* Our Products */}
                             <div
                                 className="sidebar-card"
                                 style={{
                                     backgroundImage: `url('${cloudinary.product}')`,
+                                    cursor: 'pointer'
                                 }}
+                                onClick={() => setIsProductsModalOpen(true)}
                             >
                                 <div className="overlay">
                                     <span className="card-text">Our Products</span>
                                     <button className="arrow-btn">→</button>
                                 </div>
                             </div>
-                        </Link>
 
-                        {/* Our Certifications */}
-                        <Link to="/about">
+                            {/* Our Certifications */}
                             <div
                                 className="sidebar-card"
                                 style={{
                                     backgroundImage: `url('${cloudinary.certs}')`,
+                                    cursor: 'pointer'
                                 }}
+                                onClick={() => setIsCertModalOpen(true)}
                             >
                                 <div className="overlay">
                                     <span className="card-text">Our Certifications</span>
                                     <button className="arrow-btn">→</button>
                                 </div>
                             </div>
-                        </Link>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+            {/* Products Modal */}
+            <ProductsModal
+                isOpen={isProductsModalOpen}
+                onClose={() => setIsProductsModalOpen(false)}
+            />
+
+            {/* Certifications Modal */}
+            <CertificationsModal
+                isOpen={isCertModalOpen}
+                onClose={() => setIsCertModalOpen(false)}
+            />
+        </>
     );
 };
-
 
 const Footer = () => {
     return (
