@@ -524,47 +524,235 @@ body {
   transform: scale(1.2);
 }
 
-/* FIXED PROJECT MODAL STYLES */
+/* View Other Projects Button */
+.view-other-projects-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  padding: 20px;
+}
+
+.view-other-projects-button {
+  background: linear-gradient(to right, #dc2626, #991b1b);
+  color: white;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+}
+
+.view-other-projects-button:hover {
+  background: linear-gradient(to right, #991b1b, #7f1d1d);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+}
+
+/* Projects List Modal */
+.projects-list-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+  backdrop-filter: blur(5px);
+}
+
+.projects-list-modal {
+  background: white;
+  border-radius: 16px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 85vh;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.projects-list-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 30px;
+  border-bottom: 2px solid #e5e7eb;
+  background: linear-gradient(135deg, #dc2626, #991b1b);
+  color: white;
+}
+
+.projects-list-modal-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.projects-list-modal-close {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.projects-list-modal-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.projects-list-modal-content {
+  padding: 30px;
+  overflow-y: auto;
+  max-height: calc(85vh - 100px);
+}
+
+.projects-list-section {
+  margin-bottom: 40px;
+}
+
+.projects-list-section:last-child {
+  margin-bottom: 0;
+}
+
+.projects-list-section-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #dc2626;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #fee2e2;
+  position: relative;
+}
+
+.projects-list-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: #dc2626;
+}
+
+.projects-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
+}
+
+.projects-list-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.projects-list-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.1);
+  border-color: rgba(220, 38, 38, 0.3);
+  background: linear-gradient(135deg, #fef2f2 0%, #ffffff 100%);
+}
+
+.projects-list-number {
+  background: linear-gradient(135deg, #dc2626, #991b1b);
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.projects-list-name {
+  font-size: 0.95rem;
+  color: #374151;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* REDESIGNED PROJECT MODAL STYLES */
 .project-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2000;
   padding: 20px;
   overflow-y: auto;
+  backdrop-filter: blur(5px);
 }
 
 .project-modal {
   background: white;
-  border-radius: 20px;
-  max-width: 1200px;
+  border-radius: 16px;
+  max-width: 900px;
   width: 100%;
-  max-height: 90vh;
+  max-height: 80vh;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   margin: auto;
+  animation: modalSlideIn 0.3s ease-out;
 }
 
 .modal-close-btn {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  background: rgba(0, 0, 0, 0.7);
+  top: 16px;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.6);
   border: none;
-  font-size: 24px;
+  font-size: 20px;
   color: white;
   cursor: pointer;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -576,29 +764,30 @@ body {
 
 .modal-close-btn:hover {
   background: rgba(220, 38, 38, 0.8);
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .project-modal-header {
   text-align: center;
-  padding: 40px 30px 30px;
+  padding: 24px 24px 20px;
   border-bottom: 1px solid #e5e7eb;
   background: #f8f9fa;
+  flex-shrink: 0;
 }
 
 .project-modal-title {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   color: #dc2626;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
   font-weight: bold;
 }
 
 .project-modal-description {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   color: #666;
-  line-height: 1.6;
+  line-height: 1.5;
   margin: 0;
-  max-width: 800px;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -606,19 +795,20 @@ body {
 .project-modal-content {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 30px;
+  gap: 16px;
+  padding: 24px;
   flex: 1;
-  min-height: 400px;
+  min-height: 300px;
   background: white;
+  overflow: hidden;
 }
 
 .modal-nav-btn {
   background: #dc2626;
   color: white;
   border: none;
-  width: 50px;
-  height: 50px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -634,8 +824,8 @@ body {
 }
 
 .modal-nav-icon {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
 
 .project-modal-image-container {
@@ -647,10 +837,10 @@ body {
 
 .project-modal-image {
   width: 100%;
-  height: 400px;
+  height: 300px;
   object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .project-image-title-overlay {
@@ -659,13 +849,13 @@ body {
   left: 0;
   right: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-  padding: 20px;
-  border-radius: 0 0 10px 10px;
+  padding: 16px;
+  border-radius: 0 0 12px 12px;
 }
 
 .project-image-title {
   color: white;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: bold;
   margin: 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
@@ -674,14 +864,16 @@ body {
 .project-modal-indicators {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  padding: 20px;
+  gap: 8px;
+  padding: 16px 24px;
   background: white;
+  border-top: 1px solid #e5e7eb;
+  flex-shrink: 0;
 }
 
 .modal-indicator {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: #ccc;
   border: none;
@@ -691,7 +883,7 @@ body {
 
 .modal-indicator.active {
   background: #dc2626;
-  transform: scale(1.3);
+  transform: scale(1.2);
 }
 
 .modal-indicator:hover {
@@ -702,55 +894,57 @@ body {
   text-align: center;
   color: #666;
   font-weight: 500;
-  padding: 10px 20px;
+  padding: 8px 24px;
   background: white;
-  border-top: 1px solid #e5e7eb;
+  font-size: 0.9rem;
+  flex-shrink: 0;
 }
 
 .project-modal-footer {
-  padding: 30px;
+  padding: 20px 24px;
   border-top: 1px solid #e5e7eb;
   background: #f8f9fa;
   overflow-y: auto;
-  max-height: 300px;
+  max-height: 200px;
+  flex-shrink: 0;
 }
 
 .project-modal-footer h4 {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   text-align: center;
 }
 
 .project-thumbnails {
   display: flex;
-  gap: 15px;
+  gap: 12px;
   overflow-x: auto;
-  padding-bottom: 15px;
+  padding-bottom: 12px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .project-thumbnails::-webkit-scrollbar {
-  height: 6px;
+  height: 4px;
 }
 
 .project-thumbnails::-webkit-scrollbar-track {
   background: #f1f1f1;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 .project-thumbnails::-webkit-scrollbar-thumb {
   background: #dc2626;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 .project-thumbnail {
   flex: 0 0 auto;
-  width: 100px;
-  height: 80px;
-  border-radius: 8px;
+  width: 80px;
+  height: 60px;
+  border-radius: 6px;
   overflow: hidden;
   cursor: pointer;
   border: 2px solid #e9ecef;
@@ -775,24 +969,24 @@ body {
 
 .current-image-details {
   background: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
+  padding: 16px;
+  border-radius: 8px;
   border: 1px solid #e9ecef;
-  margin-top: 20px;
+  margin-top: 16px;
   text-align: center;
 }
 
 .current-image-details h4 {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: bold;
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .current-image-details p {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #555;
-  line-height: 1.6;
+  line-height: 1.5;
   margin: 0;
 }
 
@@ -1166,6 +1360,174 @@ body {
   height: 48px;
 }
 
+/* Spectrometer Section Styles */
+.spectrometer-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.spectrometer-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.spectrometer-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 15px;
+}
+
+
+.spectrometer-title-highlight {
+  background: linear-gradient(135deg, #dc2626, #991b1b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.spectrometer-subtitle {
+  font-size: 1.1rem;
+  color: #6b7280;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.spectrometer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.spectrometer-image-container {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.spectrometer-image {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.spectrometer-image:hover {
+  transform: scale(1.02);
+}
+
+.spectrometer-logo-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.spectrometer-logo-badge img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.spectrometer-main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+
+.spectrometer-content {
+  padding: 0;
+}
+
+.spectrometer-features {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+
+.spectrometer-features-container {
+  width: 100%;
+}
+
+.spectrometer-feature {
+  display: flex;
+  gap: 15px;
+  padding: 18px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.spectrometer-feature:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.1);
+  border-color: rgba(220, 38, 38, 0.2);
+}
+
+.spectrometer-feature-dot {
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(135deg, #dc2626, #991b1b);
+  border-radius: 50%;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.spectrometer-feature-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.spectrometer-feature-description {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.spectrometer-quote {
+  margin-top: 30px;
+  background: #fef2f2;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  font-style: italic;
+  font-size: 1rem;
+  color: #374151;
+}
+
+.spectrometer-quote::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23dc2626' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.spectrometer-quote p {
+  color: #4b5563;
+  line-height: 1.7;
+  margin: 0;
+  font-size: 0.95rem;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+
 /* Mobile responsive styles */
 @media (max-width: 767px) {
   /* Prevent horizontal scroll */
@@ -1325,46 +1687,101 @@ body {
     font-size: 0.8rem;
   }
 
-  /* MOBILE PROJECT MODAL FIXES */
+  /* View Other Projects Button Mobile */
+  .view-other-projects-container {
+    padding: 15px;
+  }
+
+  .view-other-projects-button {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  /* Projects List Modal Mobile */
+  .projects-list-modal {
+    margin: 10px;
+    max-height: 90vh;
+  }
+
+  .projects-list-modal-header {
+    padding: 20px;
+  }
+
+  .projects-list-modal-title {
+    font-size: 1.4rem;
+  }
+
+  .projects-list-modal-content {
+    padding: 20px;
+    max-height: calc(90vh - 80px);
+  }
+
+  .projects-list-section-title {
+    font-size: 1.2rem;
+  }
+
+  .projects-list-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .projects-list-item {
+    padding: 10px 14px;
+  }
+
+  .projects-list-number {
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
+  }
+
+  .projects-list-name {
+    font-size: 0.9rem;
+  }
+
+  /* MOBILE PROJECT MODAL FIXES - REDESIGNED */
   .project-modal-overlay {
-    padding: 10px;
+    padding: 15px;
     align-items: flex-start;
-    padding-top: 10px;
+    padding-top: 20px;
   }
 
   .project-modal {
     width: 100%;
     max-width: 100vw;
-    max-height: 95vh;
+    max-height: 90vh;
     margin: 0;
-    border-radius: 15px;
+    border-radius: 12px;
   }
 
   .project-modal-header {
-    padding: 25px 20px 20px;
+    padding: 20px 16px 16px;
   }
 
   .project-modal-title {
-    font-size: 1.8rem;
-    margin-bottom: 12px;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
   }
 
   .project-modal-description {
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 0.9rem;
+    line-height: 1.4;
   }
 
   .project-modal-content {
     flex-direction: column;
-    padding: 20px 15px;
-    gap: 15px;
+    padding: 16px;
+    gap: 12px;
     position: relative;
-    min-height: 300px;
+    min-height: 250px;
   }
 
   .modal-nav-btn {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -1372,11 +1789,11 @@ body {
   }
 
   .modal-nav-btn:first-child {
-    left: 10px;
+    left: 8px;
   }
 
   .modal-nav-btn:last-child {
-    right: 10px;
+    right: 8px;
   }
 
   .project-modal-image-container {
@@ -1385,74 +1802,74 @@ body {
   }
 
   .project-modal-image {
-    height: 250px;
+    height: 220px;
     width: 100%;
   }
 
   .project-image-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .project-image-title-overlay {
-    padding: 15px;
+    padding: 12px;
   }
 
   .project-modal-indicators {
-    padding: 15px;
+    padding: 12px 16px;
     order: 3;
   }
 
   .project-modal-counter {
-    padding: 8px 15px;
-    font-size: 0.9rem;
+    padding: 8px 16px;
+    font-size: 0.85rem;
     order: 4;
   }
 
   .project-modal-footer {
-    padding: 20px 15px;
-    max-height: 250px;
+    padding: 16px;
+    max-height: 180px;
     order: 5;
   }
 
   .project-modal-footer h4 {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
+    font-size: 1rem;
+    margin-bottom: 12px;
   }
 
   .project-thumbnails {
-    gap: 10px;
+    gap: 8px;
     justify-content: flex-start;
     flex-wrap: nowrap;
     overflow-x: auto;
   }
 
   .project-thumbnail {
-    width: 80px;
-    height: 60px;
+    width: 70px;
+    height: 50px;
     flex-shrink: 0;
   }
 
   .current-image-details {
-    padding: 15px;
-    margin-top: 15px;
+    padding: 12px;
+    margin-top: 12px;
   }
 
   .current-image-details h4 {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
+    font-size: 1rem;
+    margin-bottom: 6px;
   }
 
   .current-image-details p {
-    font-size: 0.9rem;
-    line-height: 1.5;
+    font-size: 0.85rem;
+    line-height: 1.4;
   }
 
   .modal-close-btn {
-    top: 15px;
-    right: 15px;
-    width: 35px;
-    height: 35px;
-    font-size: 20px;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
   }
 
   /* Product button mobile */
@@ -1708,6 +2125,57 @@ body {
     font-weight: 600;
     background: #fef2f2;
   }
+
+  /* Mobile Spectrometer Styles */
+  .spectrometer-image {
+    height: 280px;
+  }
+
+  .spectrometer-logo-badge {
+    width: 45px;
+    height: 45px;
+    top: 12px;
+    right: 12px;
+  }
+
+  .spectrometer-logo-badge img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .spectrometer-title {
+    font-size: 1.8rem;
+  }
+
+  .spectrometer-subtitle {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .spectrometer-features {
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  .spectrometer-feature {
+    padding: 15px;
+  }
+
+  .spectrometer-feature-title {
+    font-size: 1.1rem;
+  }
+
+  .spectrometer-feature-description {
+    font-size: 0.9rem;
+  }
+
+  .spectrometer-quote {
+    padding: 18px;
+  }
+
+  .spectrometer-quote p {
+    font-size: 0.9rem;
+  }
 }
 
 /* Small mobile adjustments */
@@ -1780,86 +2248,90 @@ body {
     height: 300px;
   }
 
+  .projects-list-modal-title {
+    font-size: 1.2rem;
+  }
+
   .project-modal {
-    border-radius: 10px;
-    margin: 5px;
+    border-radius: 8px;
+    margin: 8px;
   }
 
   .project-modal-header {
-    padding: 20px 15px 15px;
+    padding: 16px 12px 12px;
   }
 
   .project-modal-title {
-    font-size: 1.5rem;
-    margin-bottom: 8px;
+    font-size: 1.3rem;
+    margin-bottom: 6px;
   }
 
   .project-modal-description {
-    font-size: 0.9rem;
-  }
-
-  .project-modal-content {
-    padding: 15px 10px;
-    min-height: 250px;
-  }
-
-  .project-modal-image {
-    height: 200px;
-  }
-
-  .project-image-title {
-    font-size: 1rem;
-  }
-
-  .project-image-title-overlay {
-    padding: 10px;
-  }
-
-  .modal-nav-btn {
-    width: 40px;
-    height: 40px;
-  }
-
-  .modal-nav-btn:first-child {
-    left: 5px;
-  }
-
-  .modal-nav-btn:last-child {
-    right: 5px;
-  }
-
-  .project-modal-footer {
-    padding: 15px 10px;
-    max-height: 200px;
-  }
-
-  .project-thumbnails {
-    gap: 8px;
-  }
-
-  .project-thumbnail {
-    width: 70px;
-    height: 50px;
-  }
-
-  .current-image-details {
-    padding: 12px;
-  }
-
-  .current-image-details h4 {
-    font-size: 1rem;
-  }
-
-  .current-image-details p {
     font-size: 0.85rem;
   }
 
+  .project-modal-content {
+    padding: 12px;
+    min-height: 200px;
+  }
+
+  .project-modal-image {
+    height: 180px;
+  }
+
+  .project-image-title {
+    font-size: 0.9rem;
+  }
+
+  .project-image-title-overlay {
+    padding: 8px;
+  }
+
+  .modal-nav-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .modal-nav-btn:first-child {
+    left: 4px;
+  }
+
+  .modal-nav-btn:last-child {
+    right: 4px;
+  }
+
+  .project-modal-footer {
+    padding: 12px;
+    max-height: 150px;
+  }
+
+  .project-thumbnails {
+    gap: 6px;
+  }
+
+  .project-thumbnail {
+    width: 60px;
+    height: 45px;
+  }
+
+  .current-image-details {
+    padding: 10px;
+  }
+
+  .current-image-details h4 {
+    font-size: 0.9rem;
+  }
+
+  .current-image-details p {
+    font-size: 0.8rem;
+  }
+
   .modal-close-btn {
-    width: 32px;
-    height: 32px;
-    font-size: 18px;
-    top: 10px;
-    right: 12px;
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+    top: 8px;
+    right: 8px;
   }
 
   .modal {
@@ -1896,58 +2368,91 @@ body {
     width: 32px;
     height: 32px;
   }
+
+  /* Very Small Mobile Spectrometer */
+  .spectrometer-image {
+    height: 250px;
+  }
+
+  .spectrometer-title {
+    font-size: 1.6rem;
+  }
+
+  .spectrometer-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .spectrometer-feature-title {
+    font-size: 1rem;
+  }
+
+  .spectrometer-feature-description {
+    font-size: 0.85rem;
+  }
+
+  .spectrometer-quote p {
+    font-size: 0.85rem;
+  }
 }
 
 /* Very small mobile */
 @media (max-width: 360px) {
   .project-modal-overlay {
-    padding: 5px;
-  }
-
-  .project-modal {
-    margin: 2px;
-  }
-
-  .project-modal-title {
-    font-size: 1.3rem;
-  }
-
-  .project-modal-description {
-    font-size: 0.85rem;
-  }
-
-  .project-modal-image {
-    height: 180px;
-  }
-
-  .project-image-title {
-    font-size: 0.9rem;
-  }
-
-  .modal-nav-btn {
-    width: 35px;
-    height: 35px;
-  }
-
-  .project-thumbnails {
-    gap: 5px;
-  }
-
-  .project-thumbnail {
-    width: 60px;
-    height: 45px;
-  }
-
-  .current-image-details {
     padding: 10px;
   }
 
+  .project-modal {
+    margin: 4px;
+  }
+
+  .project-modal-title {
+    font-size: 1.2rem;
+  }
+
+  .project-modal-description {
+    font-size: 0.8rem;
+  }
+
+  .project-modal-image {
+    height: 160px;
+  }
+
+  .project-image-title {
+    font-size: 0.85rem;
+  }
+
+  .modal-nav-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .project-thumbnails {
+    gap: 4px;
+  }
+
+  .project-thumbnail {
+    width: 55px;
+    height: 40px;
+  }
+
+  .current-image-details {
+    padding: 8px;
+  }
+
   .current-image-details h4 {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
   }
 
   .current-image-details p {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+  }
+
+  .projects-list-modal-content {
+    padding: 15px;
+  }
+
+  .projects-list-section-title {
+    font-size: 1.1rem;
   }
 }
 
@@ -1992,35 +2497,43 @@ body {
   }
 
   .project-modal {
-    max-width: 90vw;
-    margin: 10px;
+    max-width: 85vw;
+    margin: 15px;
   }
 
   .project-modal-title {
-    font-size: 2.2rem;
+    font-size: 1.6rem;
   }
 
   .project-modal-content {
-    padding: 20px 15px;
-    min-height: 320px;
+    padding: 20px 16px;
+    min-height: 280px;
   }
 
   .project-modal-image {
-    height: 280px;
+    height: 250px;
   }
 
   .modal-nav-btn {
-    width: 48px;
-    height: 48px;
+    width: 42px;
+    height: 42px;
   }
 
   .project-modal-footer {
-    padding: 25px 15px;
+    padding: 18px;
   }
 
   .project-thumbnail {
-    width: 90px;
-    height: 70px;
+    width: 75px;
+    height: 55px;
+  }
+
+  .projects-list-modal-content {
+    padding: 25px;
+  }
+
+  .projects-list-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
 }
 
@@ -2075,8 +2588,8 @@ body {
   }
 
   .project-modal {
-    width: 90%;
-    max-width: 1200px;
+    width: 85%;
+    max-width: 900px;
   }
 
   .project-modal-overlay {
@@ -2085,27 +2598,27 @@ body {
   }
 
   .project-modal-header {
-    padding: 40px 30px 30px;
+    padding: 24px 24px 20px;
   }
 
   .project-modal-title {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
 
   .project-modal-description {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
   }
 
   .project-modal-content {
     flex-direction: row;
-    padding: 30px;
-    gap: 20px;
-    min-height: 400px;
+    padding: 24px;
+    gap: 16px;
+    min-height: 300px;
   }
 
   .modal-nav-btn {
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
     position: static;
   }
 
@@ -2114,349 +2627,48 @@ body {
   }
 
   .project-modal-image {
-    height: 400px;
+    height: 300px;
   }
 
   .project-image-title {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 
   .project-image-title-overlay {
-    padding: 20px;
+    padding: 16px;
   }
 
   .project-modal-footer {
-    padding: 30px;
-    max-height: 300px;
+    padding: 20px 24px;
+    max-height: 200px;
   }
 
   .project-thumbnails {
-    gap: 15px;
+    gap: 12px;
     justify-content: center;
     flex-wrap: wrap;
   }
 
   .project-thumbnail {
-    width: 100px;
-    height: 80px;
+    width: 80px;
+    height: 60px;
   }
 
   .current-image-details {
-    padding: 20px;
-    margin-top: 20px;
+    padding: 16px;
+    margin-top: 16px;
   }
 
   .current-image-details h4 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
   }
 
   .current-image-details p {
-    font-size: 1rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .logo-icon {
-    width: 70px;
-    height: 70px;
-  }
-
-  .footer-company .logo-icon {
-    width: 52px;
-    height: 52px;
-  }
-
-  .footer-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .finished-products {
-    padding: 80px 20px;
-  }
-
-  .projects-header h1 {
-    font-size: 3.5rem;
-  }
-
-  .scrollable-carousel-container {
-    max-width: 1600px;
-  }
-
-  .project-modal {
-    max-width: 1200px;
-  }
-
-  .project-modal-image {
-    height: 450px;
-  }
-
-  .project-modal-footer {
-    max-height: 300px;
-  }
-}
-
-/* Spectrometer Section Styles */
-.spectrometer-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.spectrometer-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.spectrometer-title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #1f2937;
-  line-height: 1.2;
-  margin-bottom: 15px;
-}
-
-.spectrometer-title-highlight {
-  color: #dc2626;
-  background: linear-gradient(135deg, #dc2626, #991b1b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.spectrometer-container {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.spectrometer-image-container {
-  position: relative;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-}
-
-.spectrometer-image {
-  width: 100%;
-  height: 350px;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.spectrometer-image:hover {
-  transform: scale(1.02);
-}
-
-.spectrometer-logo-badge {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  width: 50px;
-  height: 50px;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.spectrometer-logo-badge img {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
-}
-
-.spectrometer-main-content {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  margin-bottom: 40px;
-}
-
-.spectrometer-content {
-  padding: 20px 0;
-  text-align: left;
-}
-
-.spectrometer-subtitle {
-  font-size: 1.1rem;
-  color: #6b7280;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.spectrometer-features {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  margin-bottom: 35px;
-}
-
-.spectrometer-features-container {
-  width: 100%;
-}
-
-.spectrometer-feature {
-  display: flex;
-  gap: 15px;
-  padding: 18px;
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-  border-radius: 12px;
-  border: 1px solid #e9ecef;
-  transition: all 0.3s ease;
-}
-
-.spectrometer-feature:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.1);
-  border-color: rgba(220, 38, 38, 0.2);
-}
-
-.spectrometer-feature-dot {
-  width: 12px;
-  height: 12px;
-  background: linear-gradient(135deg, #dc2626, #991b1b);
-  border-radius: 50%;
-  margin-top: 6px;
-  flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
-}
-
-.spectrometer-feature-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #1f2937;
-}
-
-.spectrometer-feature-description {
-  color: #6b7280;
-  margin: 0;
-  line-height: 1.6;
-  font-size: 0.95rem;
-}
-
-.spectrometer-quote {
-  border-left: 4px solid #dc2626;
-  background: linear-gradient(135deg, #fef2f2 0%, #ffffff 100%);
-  padding: 20px;
-  border-radius: 0 12px 12px 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.spectrometer-quote::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23dc2626' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
-  pointer-events: none;
-}
-
-.spectrometer-quote p {
-  color: #4b5563;
-  line-height: 1.7;
-  margin: 0;
-  font-size: 0.95rem;
-  font-style: italic;
-  position: relative;
-  z-index: 1;
-}
-
-/* Mobile Spectrometer Styles */
-@media (max-width: 480px) {
-  .spectrometer-image {
-    height: 280px;
-  }
-
-  .spectrometer-logo-badge {
-    width: 45px;
-    height: 45px;
-    top: 12px;
-    right: 12px;
-  }
-
-  .spectrometer-logo-badge img {
-    width: 25px;
-    height: 25px;
-  }
-
-  .spectrometer-title {
-    font-size: 1.8rem;
-  }
-
-  .spectrometer-subtitle {
-    font-size: 1rem;
-    margin-bottom: 30px;
-  }
-
-  .spectrometer-features {
-    gap: 20px;
-    margin-bottom: 30px;
-  }
-
-  .spectrometer-feature {
-    padding: 15px;
-  }
-
-  .spectrometer-feature-title {
-    font-size: 1.1rem;
-  }
-
-  .spectrometer-feature-description {
     font-size: 0.9rem;
   }
 
-  .spectrometer-quote {
-    padding: 18px;
-  }
-
-  .spectrometer-quote p {
-    font-size: 0.9rem;
-  }
-}
-
-/* Very Small Mobile Spectrometer */
-@media (max-width: 360px) {
-  .spectrometer-image {
-    height: 250px;
-  }
-
-  .spectrometer-title {
-    font-size: 1.6rem;
-  }
-
-  .spectrometer-subtitle {
-    font-size: 0.95rem;
-  }
-
-  .spectrometer-feature-title {
-    font-size: 1rem;
-  }
-
-  .spectrometer-feature-description {
-    font-size: 0.85rem;
-  }
-
-  .spectrometer-quote p {
-    font-size: 0.85rem;
-  }
-}
-
-/* Desktop Spectrometer Styles */
-@media (min-width: 768px) {
-  .main-body {
-    padding: 120px 40px;
-    margin-bottom: 80px;
-  }
-
+  /* Desktop Spectrometer Styles */
   .spectrometer-section {
     max-width: 1400px;
     padding: 0 40px;
@@ -2544,16 +2756,82 @@ body {
   }
 }
 
-/* Large Desktop Spectrometer */
 @media (min-width: 1024px) {
+  .logo-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .footer-company .logo-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .finished-products {
+    padding: 80px 20px;
+  }
+
+  .projects-header h1 {
+    font-size: 3.5rem;
+  }
+
+  .scrollable-carousel-container {
+    max-width: 1600px;
+  }
+
+  .project-modal {
+    max-width: 900px;
+  }
+
+  .project-modal-image {
+    height: 300px;
+  }
+
+  .project-modal-footer {
+    max-height: 200px;
+  }
+
+  /* Large Desktop Spectrometer */
   .spectrometer-section {
     max-width: 1600px;
     padding: 0 60px;
   }
 
   .spectrometer-container {
-    gap: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
   }
+
+  .spectrometer-header {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .spectrometer-quote {
+    grid-column: 1 / -1;
+    background: #fef2f2;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    text-align: center;
+    font-style: italic;
+  }
+
+  .spectrometer-image-container {
+    grid-column: 1;
+  }
+
+  .spectrometer-content {
+    grid-column: 2;
+  }
+
 
   .spectrometer-image {
     height: 500px;
@@ -2609,8 +2887,8 @@ body {
   }
 
   .spectrometer-quote {
-    padding: 35px;
-    border-radius: 0 20px 20px 0;
+    grid-column: 1 / -1;
+    margin-top: 40px;
   }
 
   .spectrometer-quote p {

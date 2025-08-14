@@ -320,6 +320,12 @@ interface ModalProps {
     image: string;
 }
 
+// Projects List Modal Interface
+interface ProjectsListModalProps {
+    isOpen: boolean;
+    setIsOpen: (open: boolean) => void;
+}
+
 const TopBanner = () => {
     const projects: ModalProps[] = [
         {
@@ -525,67 +531,77 @@ const PartnersCard = ({ name, url }: { name: string, url: string }) => {
 const OpticalEmissionSpectrometer = () => {
     return (
         <div className="spectrometer-section">
-            <h2 className="spectrometer-title">
-                Optical Emission
-                <span className="spectrometer-title-highlight"> Spectrometer</span>
-            </h2>
+            {/* Header */}
+            <div className="spectrometer-header">
+                <h2 className="spectrometer-title">
+                    Optical Emission
+                    <span className="spectrometer-title-highlight"> Spectrometer</span>
+                </h2>
+                <p className="spectrometer-subtitle">
+                    Advanced technology for uncompromised material analysis and quality assurance
+                </p>
+            </div>
 
-            <p className="spectrometer-subtitle">
-                Advanced technology for uncompromised material analysis and quality assurance
-            </p>
-
-            <div className="spectrometer-image-container">
-                <img
-                    src="https://res.cloudinary.com/drrzinr9v/image/upload/v1753189483/productpageSpectrometer_nkp7rb.jpg"
-                    alt="Optical Emission Spectrometer"
-                    className="spectrometer-image"
-                />
-                <div className="spectrometer-logo-badge">
+            {/* Image + Features grid */}
+            <div className="spectrometer-container">
+                {/* Left: Image */}
+                <div className="spectrometer-image-container">
                     <img
-                        src="https://res.cloudinary.com/drrzinr9v/image/upload/v1754201352/USSCI_logo_19x17inch-removebg-preview_idrn0g.png"
-                        alt="USSCI Logo"
+                        src="https://res.cloudinary.com/drrzinr9v/image/upload/v1753189483/productpageSpectrometer_nkp7rb.jpg"
+                        alt="Optical Emission Spectrometer"
+                        className="spectrometer-image"
                     />
+                    <div className="spectrometer-logo-badge">
+                        <img
+                            src="https://res.cloudinary.com/drrzinr9v/image/upload/v1754201352/USSCI_logo_19x17inch-removebg-preview_idrn0g.png"
+                            alt="USSCI Logo"
+                        />
+                    </div>
+                </div>
+
+                {/* Right: Features */}
+                <div className="spectrometer-content">
+                    <div className="spectrometer-features">
+                        <div className="spectrometer-feature">
+                            <div className="spectrometer-feature-dot" />
+                            <div>
+                                <h4 className="spectrometer-feature-title">
+                                    Spark Excitation Analysis
+                                </h4>
+                                <p className="spectrometer-feature-description">
+                                    Energy from electrode sparks excites specimen atoms, producing precise electromagnetic spectral patterns
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="spectrometer-feature">
+                            <div className="spectrometer-feature-dot" />
+                            <div>
+                                <h4 className="spectrometer-feature-title">
+                                    Quantitative Analysis
+                                </h4>
+                                <p className="spectrometer-feature-description">
+                                    Measures spectral peak intensity for accurate qualitative and quantitative metal composition analysis
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="spectrometer-feature">
+                            <div className="spectrometer-feature-dot" />
+                            <div>
+                                <h4 className="spectrometer-feature-title">
+                                    Quality Enhancement
+                                </h4>
+                                <p className="spectrometer-feature-description">
+                                    Enables effective raw material management and production efficiency optimization
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div className="spectrometer-features">
-                <div className="spectrometer-feature">
-                    <div className="spectrometer-feature-dot" />
-                    <div>
-                        <h4 className="spectrometer-feature-title">
-                            Spark Excitation Analysis
-                        </h4>
-                        <p className="spectrometer-feature-description">
-                            Energy from electrode sparks excites specimen atoms, producing precise electromagnetic spectral patterns
-                        </p>
-                    </div>
-                </div>
-
-                <div className="spectrometer-feature">
-                    <div className="spectrometer-feature-dot" />
-                    <div>
-                        <h4 className="spectrometer-feature-title">
-                            Quantitative Analysis
-                        </h4>
-                        <p className="spectrometer-feature-description">
-                            Measures spectral peak intensity for accurate qualitative and quantitative metal composition analysis
-                        </p>
-                    </div>
-                </div>
-
-                <div className="spectrometer-feature">
-                    <div className="spectrometer-feature-dot" />
-                    <div>
-                        <h4 className="spectrometer-feature-title">
-                            Quality Enhancement
-                        </h4>
-                        <p className="spectrometer-feature-description">
-                            Enables effective raw material management and production efficiency optimization
-                        </p>
-                    </div>
-                </div>
-            </div>
-
+            {/* Full width quote BELOW grid */}
             <div className="spectrometer-quote">
                 <p>
                     In line with our commitment to development and continued pursuit of excellence, our Optical Emission Spectrometer
@@ -595,6 +611,7 @@ const OpticalEmissionSpectrometer = () => {
         </div>
     );
 };
+
 
 const MainBody = () => {
     return (
@@ -677,6 +694,8 @@ const ScrollableProjectCarousel = ({ projects, openModal }: { projects: ProjectG
         const carousel = carouselRef.current;
         if (!carousel) return;
 
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         let autoScrollInterval: NodeJS.Timeout;
 
         const startAutoScroll = () => {
@@ -836,6 +855,80 @@ const ScrollableProjectCarousel = ({ projects, openModal }: { projects: ProjectG
     );
 };
 
+// Projects List Modal Component
+const ProjectsListModal = ({ isOpen, setIsOpen }: ProjectsListModalProps) => {
+    const infrastructureProjects = [
+        "Batangas Flyover",
+        "C-5 Flyover",
+        "Cavitex Airport",
+        "Cavitex C-5 Link Expressway",
+        "Kalayaan Bridge",
+        "La Mesa Dam",
+        "LRT – Sumitomo Project",
+        "Nagtahan Bridge",
+        "NAIA Skyway",
+        "NAIA Terminal 2",
+        "New Bacolod Silay Airport",
+        "NLEX Interchange",
+        "NLEX Toll Plaza",
+        "Skyway Stage 3",
+        "SLEX Rehabilitation",
+        "Startoll Bridge",
+        "Subic Bay Port Development Project",
+        "Subic Clark Pampanga Expressway"
+    ];
+
+    const currentProjects = [
+        "MRT 7",
+        "SLEX Widening"
+    ];
+
+    const closeModal = () => {
+        setIsOpen(false);
+    };
+
+    if (!isOpen) return null;
+
+    return (
+        <div className="projects-list-modal-overlay" onClick={closeModal}>
+            <div className="projects-list-modal" onClick={(e) => e.stopPropagation()}>
+                <div className="projects-list-modal-header">
+                    <h2 className="projects-list-modal-title">Complete Projects List</h2>
+                    <button onClick={closeModal} className="projects-list-modal-close">
+                        <X className="icon" />
+                    </button>
+                </div>
+
+                <div className="projects-list-modal-content">
+                    <div className="projects-list-section">
+                        <h3 className="projects-list-section-title">Infrastructure Projects</h3>
+                        <div className="projects-list-grid">
+                            {infrastructureProjects.map((project, index) => (
+                                <div key={index} className="projects-list-item">
+                                    <div className="projects-list-number">{index + 1}</div>
+                                    <span className="projects-list-name">{project}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="projects-list-section">
+                        <h3 className="projects-list-section-title">Current Projects</h3>
+                        <div className="projects-list-grid">
+                            {currentProjects.map((project, index) => (
+                                <div key={index} className="projects-list-item">
+                                    <div className="projects-list-number">{index + 1}</div>
+                                    <span className="projects-list-name">{project}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 const FinishedProjects = () => {
     const projectGroups: ProjectGroup[] = [
         {
@@ -852,13 +945,13 @@ const FinishedProjects = () => {
                 },
                 {
                     id: 2,
-                    name: "Bridge Infrastructure Development",
+                    name: "San Juanico Bridge",
                     description: "Critical bridge construction project utilizing our high-strength reinforcement solutions to ensure long-lasting structural performance and safety standards.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_7_tjttq6.jpg"
                 },
                 {
                     id: 3,
-                    name: "Highway Construction Project",
+                    name: "EDSA Shrine",
                     description: "Extensive highway development showcasing our comprehensive steel reinforcement capabilities for large-scale transportation infrastructure projects.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_1_wzrmyq.jpg"
                 }
@@ -872,19 +965,19 @@ const FinishedProjects = () => {
             images: [
                 {
                     id: 4,
-                    name: "Commercial Complex Foundation",
+                    name: "Metro Manila Skyway",
                     description: "Advanced foundation work for major commercial development utilizing our precision-manufactured rebars for optimal structural support and longevity.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_13_wrnwf1.jpg"
                 },
                 {
                     id: 5,
-                    name: "High-Rise Structural Framework",
+                    name: "Metro Manila Skyway",
                     description: "Multi-story building construction featuring our Grade 40 and Grade 60 reinforcement solutions for superior structural framework and seismic resistance.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_11_btaknk.jpg"
                 },
                 {
                     id: 6,
-                    name: "Upper Level Construction Phase",
+                    name: "Metro Manila Skyway",
                     description: "Progressive building construction demonstrating our consistent quality delivery across multiple construction phases and complex architectural requirements.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_10_gqdpk6.jpg"
                 }
@@ -893,24 +986,24 @@ const FinishedProjects = () => {
         {
             id: 3,
             title: "Future Developments",
-            description: "Upcoming multi-phase residential development project featuring our comprehensive steel reinforcement solutions, showcasing our ability to deliver consistent quality across large-scale construction projects.",
+            description: "Upcoming multi-phase development project featuring our comprehensive steel reinforcement solutions, showcasing our ability to deliver consistent quality across large-scale construction projects.",
             cardImage: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_Pics_for_website_3_haeba5.jpg",
             images: [
                 {
                     id: 7,
-                    name: "Residential Site Preparation",
+                    name: "MRT-7",
                     description: "Comprehensive site preparation and initial foundation work for large-scale residential development, featuring systematic reinforcement planning and installation.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_8_pbadil.jpg"
                 },
                 {
                     id: 8,
-                    name: "Residential Building Framework",
+                    name: "MRT Extension",
                     description: "Multi-unit residential construction showcasing our versatile rebar solutions designed for modern housing developments with emphasis on safety and durability.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_5_jo4ul6.jpg"
                 },
                 {
                     id: 9,
-                    name: "Project Completion Phase",
+                    name: "MRT Extension",
                     description: "Final construction phases demonstrating successful integration of our reinforcement materials in creating safe, durable residential structures for community development.",
                     image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_projects_for_website_3_hqua6e.jpg"
                 }
@@ -920,6 +1013,7 @@ const FinishedProjects = () => {
 
     const [isOpen, setIsOpen] = useState(false);
     const [selectedProject, setSelectedProject] = useState<ProjectGroup>(projectGroups[0]);
+    const [isProjectsListOpen, setIsProjectsListOpen] = useState(false);
 
     const openProjectModal = useCallback((project: ProjectGroup) => {
         setSelectedProject(project);
@@ -935,7 +1029,19 @@ const FinishedProjects = () => {
                 </p>
             </div>
             <ScrollableProjectCarousel projects={projectGroups} openModal={openProjectModal} />
+
+            {/* View Other Projects Button */}
+            <div className="view-other-projects-container">
+                <button
+                    className="view-other-projects-button"
+                    onClick={() => setIsProjectsListOpen(true)}
+                >
+                    VIEW OTHER PROJECTS <ArrowRight className="icon-sm" />
+                </button>
+            </div>
+
             <ProjectModal project={selectedProject} isOpen={isOpen} setIsOpen={setIsOpen} />
+            <ProjectsListModal isOpen={isProjectsListOpen} setIsOpen={setIsProjectsListOpen} />
         </div>
     );
 };
@@ -1014,26 +1120,6 @@ const ProjectModal = ({ project, isOpen, setIsOpen }: { project: ProjectGroup, i
                 {/* Counter */}
                 <div className="project-modal-counter">
                     {currentImageIndex + 1} of {project.images.length}
-                </div>
-
-                {/* Footer */}
-                <div className="project-modal-footer">
-                    <h4>Project Gallery</h4>
-                    <div className="project-thumbnails">
-                        {project.images.map((image, index) => (
-                            <div
-                                key={image.id}
-                                onClick={() => setCurrentImageIndex(index)}
-                                className={`project-thumbnail ${index === currentImageIndex ? 'active' : ''}`}
-                            >
-                                <img src={image.image} alt={image.name} />
-                            </div>
-                        ))}
-                    </div>
-                    <div className="current-image-details">
-                        <h4>{currentImage.name}</h4>
-                        <p>{currentImage.description}</p>
-                    </div>
                 </div>
             </div>
         </div>
