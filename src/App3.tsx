@@ -285,14 +285,63 @@ const HeroSection = () => {
                 backgroundImage: `url('${cloudinary.hero}')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
+                minHeight: '60vh', // Increase minimum height
+                height: '60vh', // Set fixed height
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
             }}
         >
-            <div className="hero-content">
-                <h1 className="hero-title">Contact Us</h1>
-                <h3 className="hero-subtitle">
+            <div
+                className="hero-content"
+                style={{
+                    textAlign: 'center',
+                    width: '100%',
+                    maxWidth: '720px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '0 20px'
+                }}
+            >
+                <h1
+                    className="hero-title"
+                    style={{
+                        textAlign: 'center',
+                        width: '100%',
+                        margin: '0 auto 16px auto',
+                        fontSize: 'clamp(2rem, 4vw, 2.5rem)',
+                        fontWeight: 'bold',
+                        color: 'white',
+                        lineHeight: '1.2'
+                    }}
+                >
+                    Contact Us
+                </h1>
+                <h3
+                    className="hero-subtitle"
+                    style={{
+                        textAlign: 'center',
+                        width: '100%',
+                        margin: '0 auto 12px auto',
+                        fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+                        color: '#e5e7eb'
+                    }}
+                >
                     Universal Steel Smelting Co. Inc.
                 </h3>
-                <p className="hero-description">
+                <p
+                    className="hero-description"
+                    style={{
+                        textAlign: 'center',
+                        maxWidth: '600px',
+                        margin: '0 auto',
+                        fontSize: 'clamp(0.9rem, 1.5vw, 1rem)',
+                        color: '#d1d5db',
+                        lineHeight: '1.5'
+                    }}
+                >
                     A leading steel smelting company providing high-quality, reliable steel solutions for construction and manufacturing industries.
                 </p>
             </div>

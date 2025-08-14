@@ -305,6 +305,183 @@ body {
   margin-bottom: 60px;
 }
 
+/* Spectrometer Section Styles */
+.spectrometer-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.spectrometer-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.spectrometer-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 15px;
+}
+
+.spectrometer-title-highlight {
+  background: linear-gradient(135deg, #dc2626, #991b1b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.spectrometer-subtitle {
+  font-size: 1.1rem;
+  color: #6b7280;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.spectrometer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.spectrometer-image-container {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.spectrometer-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  background: #f8f9fa;
+}
+
+.spectrometer-logo-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.spectrometer-logo-badge img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.spectrometer-content {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.spectrometer-features {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.spectrometer-feature {
+  display: flex;
+  gap: 15px;
+  padding: 18px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+  align-items: flex-start;
+}
+
+.spectrometer-feature:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.1);
+  border-color: rgba(220, 38, 38, 0.2);
+}
+
+.spectrometer-feature-dot {
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(135deg, #dc2626, #991b1b);
+  border-radius: 50%;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.spectrometer-feature-content {
+  flex: 1;
+  text-align: left;
+}
+
+.spectrometer-feature-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.spectrometer-feature-description {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.spectrometer-quote {
+  margin-top: 30px;
+  background: #fef2f2;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  font-style: italic;
+  font-size: 1rem;
+  color: #374151;
+  position: relative;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.spectrometer-quote::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23dc2626' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.spectrometer-quote p {
+  color: #4b5563;
+  line-height: 1.7;
+  margin: 0;
+  font-size: 0.95rem;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+
 /* Projects Section */
 .finished-products {
   padding: 60px 20px;
@@ -735,7 +912,6 @@ body {
   max-height: 80vh;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -1360,174 +1536,6 @@ body {
   height: 48px;
 }
 
-/* Spectrometer Section Styles */
-.spectrometer-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.spectrometer-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.spectrometer-title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #1f2937;
-  margin-bottom: 15px;
-}
-
-
-.spectrometer-title-highlight {
-  background: linear-gradient(135deg, #dc2626, #991b1b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.spectrometer-subtitle {
-  font-size: 1.1rem;
-  color: #6b7280;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto;
-}
-.spectrometer-container {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.spectrometer-image-container {
-  position: relative;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-}
-
-.spectrometer-image {
-  width: 100%;
-  height: 350px;
-  object-fit: cover;
-}
-
-.spectrometer-image:hover {
-  transform: scale(1.02);
-}
-
-.spectrometer-logo-badge {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  width: 50px;
-  height: 50px;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.spectrometer-logo-badge img {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
-}
-
-.spectrometer-main-content {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  margin-bottom: 40px;
-}
-
-
-.spectrometer-content {
-  padding: 0;
-}
-
-.spectrometer-features {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-}
-
-
-.spectrometer-features-container {
-  width: 100%;
-}
-
-.spectrometer-feature {
-  display: flex;
-  gap: 15px;
-  padding: 18px;
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-  border-radius: 12px;
-  border: 1px solid #e9ecef;
-  transition: all 0.3s ease;
-}
-
-.spectrometer-feature:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.1);
-  border-color: rgba(220, 38, 38, 0.2);
-}
-
-.spectrometer-feature-dot {
-  width: 12px;
-  height: 12px;
-  background: linear-gradient(135deg, #dc2626, #991b1b);
-  border-radius: 50%;
-  margin-top: 6px;
-  flex-shrink: 0;
-}
-
-.spectrometer-feature-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #1f2937;
-}
-
-.spectrometer-feature-description {
-  font-size: 0.95rem;
-  color: #4b5563;
-  line-height: 1.5;
-}
-
-.spectrometer-quote {
-  margin-top: 30px;
-  background: #fef2f2;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-  font-style: italic;
-  font-size: 1rem;
-  color: #374151;
-}
-
-.spectrometer-quote::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23dc2626' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
-  pointer-events: none;
-}
-
-.spectrometer-quote p {
-  color: #4b5563;
-  line-height: 1.7;
-  margin: 0;
-  font-size: 0.95rem;
-  font-style: italic;
-  position: relative;
-  z-index: 1;
-}
-
 /* Mobile responsive styles */
 @media (max-width: 767px) {
   /* Prevent horizontal scroll */
@@ -1604,10 +1612,6 @@ body {
   .banner-card h2 {
     font-size: 1.2rem;
     margin-top: 0.75rem;
-  }
-
-  .banner-card p {
-    font-size: 0.9rem;
   }
 
   /* Partners section mobile */
@@ -1846,17 +1850,15 @@ body {
   .project-thumbnail {
     width: 70px;
     height: 50px;
-    flex-shrink: 0;
   }
 
   .current-image-details {
-    padding: 12px;
-    margin-top: 12px;
+    padding: 10px;
+    margin-top: 10px;
   }
 
   .current-image-details h4 {
-    font-size: 1rem;
-    margin-bottom: 6px;
+    font-size: 0.9rem;
   }
 
   .current-image-details p {
@@ -1865,140 +1867,11 @@ body {
   }
 
   .modal-close-btn {
-    top: 12px;
-    right: 12px;
-    width: 32px;
-    height: 32px;
-    font-size: 18px;
-  }
-
-  /* Product button mobile */
-  .full-width-flex {
-    padding: 15px;
-  }
-
-  .product-button {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-    width: 100%;
-    max-width: 300px;
-    justify-content: center;
-  }
-
-  /* Modal adjustments for mobile */
-  .modal {
-    width: 95%;
-    padding: 20px;
-    max-height: 95vh;
-  }
-
-  .modal-header {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .modal-header img {
-    width: 100%;
-    height: 180px;
-    align-self: center;
-    max-width: 300px;
-  }
-
-  .modal .product-name {
-    font-size: 1.4rem;
-  }
-
-  .modal .price-range {
-    font-size: 1.1rem;
-  }
-
-  .modal .product-description {
-    font-size: 0.9rem;
-  }
-
-  .pricing-table-container {
-    margin-top: 15px;
-  }
-
-  .pricing-table-container h3 {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-  }
-
-  .pricing-table {
-    font-size: 0.75rem;
-    min-width: 600px;
-  }
-
-  .pricing-table th,
-  .pricing-table td {
-    padding: 8px 4px;
-  }
-
-  .pricing-table th {
-    font-size: 0.8rem;
-  }
-
-  /* Footer mobile */
-  .footer {
-    padding: 30px 0 0;
-  }
-
-  .footer-container {
-    padding: 0 15px;
-  }
-
-  .footer-grid {
-    gap: 25px;
-    grid-template-columns: 1fr;
-  }
-
-  .footer-company {
-    margin-bottom: 12px;
-  }
-
-  .footer-company .logo-icon {
-    width: 36px;
-    height: 36px;
-    padding: 3px;
-    font-size: 14px;
-    margin-right: 8px;
-    background: transparent;
-  }
-
-  .footer-company .logo-text {
-    font-size: 13px;
-    line-height: 1.2;
-  }
-
-  .footer-address {
-    font-size: 0.8rem;
-    margin-bottom: 12px;
-  }
-
-  .footer-section h3 {
-    font-size: 1rem;
-    margin-bottom: 12px;
-  }
-
-  .footer-section a,
-  .contact-item {
-    font-size: 0.8rem;
-  }
-
-  .social-links {
-    gap: 10px;
-  }
-
-  .social-link {
     width: 28px;
     height: 28px;
-    font-size: 12px;
-  }
-
-  .footer-bottom {
-    padding: 20px 0;
-    font-size: 0.75rem;
+    font-size: 16px;
+    top: 8px;
+    right: 8px;
   }
 
   /* Menu button mobile */
@@ -2670,29 +2543,38 @@ body {
 
   /* Desktop Spectrometer Styles */
   .spectrometer-section {
-    max-width: 1400px;
+    max-width: 1200px;
     padding: 0 40px;
+    margin: 0 auto;
+  }
+
+  .spectrometer-header {
+    text-align: center;
+    margin-bottom: 60px;
   }
 
   .spectrometer-container {
-    flex-direction: row;
-    gap: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
     align-items: center;
+    margin-bottom: 60px;
   }
 
   .spectrometer-image-container {
-    flex: 1;
-    max-width: 50%;
-  }
-
-  .spectrometer-image {
-    height: 450px;
+    justify-self: center;
+    max-width: 500px;
   }
 
   .spectrometer-content {
-    flex: 1;
-    max-width: 50%;
-    padding-top: 0;
+    justify-self: center;
+    max-width: 500px;
+  }
+
+  .spectrometer-image {
+    height: 400px;
+    width: 100%;
+    object-fit: contain;
   }
 
   .spectrometer-logo-badge {
@@ -2713,14 +2595,13 @@ body {
   }
 
   .spectrometer-subtitle {
-    text-align: left;
     font-size: 1.3rem;
     margin-bottom: 40px;
   }
 
   .spectrometer-features {
     gap: 30px;
-    margin-bottom: 40px;
+    margin-bottom: 0;
   }
 
   .spectrometer-feature {
@@ -2745,17 +2626,21 @@ body {
   }
 
   .spectrometer-quote {
+    grid-column: 1 / -1;
+    margin-top: 60px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
     padding: 30px;
-    border-radius: 0 15px 15px 0;
-    margin-top: 20px;
   }
 
   .spectrometer-quote p {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     line-height: 1.8;
   }
 }
 
+/* Large Desktop (1024px and up) */
 @media (min-width: 1024px) {
   .logo-icon {
     width: 70px;
@@ -2802,114 +2687,11 @@ body {
   }
 
   .spectrometer-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: start;
-  }
-
-  .spectrometer-header {
-    grid-column: 1 / -1;
-    text-align: center;
-    margin-bottom: 40px;
-  }
-
-  .spectrometer-quote {
-    grid-column: 1 / -1;
-    background: #fef2f2;
-    padding: 20px;
-    border-radius: 12px;
-    margin-top: 20px;
-    text-align: center;
-    font-style: italic;
-  }
-
-  .spectrometer-image-container {
-    grid-column: 1;
-  }
-
-  .spectrometer-content {
-    grid-column: 2;
-  }
-
-
-  .spectrometer-image {
-    height: 500px;
-  }
-
-  .spectrometer-logo-badge {
-    width: 80px;
-    height: 80px;
-    top: 30px;
-    right: 30px;
-  }
-
-  .spectrometer-logo-badge img {
-    width: 55px;
-    height: 55px;
-  }
-
-  .spectrometer-title {
-    font-size: 3.5rem;
-    margin-bottom: 30px;
-  }
-
-  .spectrometer-subtitle {
-    font-size: 1.4rem;
-    margin-bottom: 50px;
-  }
-
-  .spectrometer-features {
-    gap: 35px;
-    margin-bottom: 50px;
-  }
-
-  .spectrometer-feature {
-    gap: 25px;
-    padding: 28px;
-    border-radius: 18px;
-  }
-
-  .spectrometer-feature-dot {
-    width: 16px;
-    height: 16px;
-    margin-top: 10px;
-  }
-
-  .spectrometer-feature-title {
-    font-size: 1.5rem;
-    margin-bottom: 12px;
-  }
-
-  .spectrometer-feature-description {
-    font-size: 1.15rem;
-    line-height: 1.7;
-  }
-
-  .spectrometer-quote {
-    grid-column: 1 / -1;
-    margin-top: 40px;
-  }
-
-  .spectrometer-quote p {
-    font-size: 1.15rem;
-    line-height: 1.8;
-  }
-}
-
-/* Extra Large Desktop Spectrometer */
-@media (min-width: 1440px) {
-  .spectrometer-section {
-    max-width: 1800px;
-    padding: 0 80px;
-  }
-
-  .spectrometer-container {
-    gap: 120px;
+    gap: 80px;
   }
 
   .spectrometer-image {
-    height: 550px;
+    height: 450px;
   }
 
   .spectrometer-title {
@@ -2941,10 +2723,62 @@ body {
 
   .spectrometer-quote {
     padding: 40px;
-    border-radius: 0 24px 24px 0;
+    border-radius: 24px;
   }
 
   .spectrometer-quote p {
     font-size: 1.2rem;
+  }
+}
+
+/* Extra Large Desktop (1440px and up) */
+@media (min-width: 1440px) {
+  .spectrometer-section {
+    max-width: 1800px;
+    padding: 0 80px;
+  }
+
+  .spectrometer-container {
+    gap: 100px;
+  }
+
+  .spectrometer-image {
+    height: 500px;
+  }
+
+  .spectrometer-title {
+    font-size: 4.5rem;
+  }
+
+  .spectrometer-subtitle {
+    font-size: 1.6rem;
+    margin-bottom: 70px;
+  }
+
+  .spectrometer-features {
+    gap: 45px;
+    margin-bottom: 70px;
+  }
+
+  .spectrometer-feature {
+    padding: 35px;
+    border-radius: 22px;
+  }
+
+  .spectrometer-feature-title {
+    font-size: 1.7rem;
+  }
+
+  .spectrometer-feature-description {
+    font-size: 1.25rem;
+  }
+
+  .spectrometer-quote {
+    padding: 45px;
+    border-radius: 26px;
+  }
+
+  .spectrometer-quote p {
+    font-size: 1.25rem;
   }
 }

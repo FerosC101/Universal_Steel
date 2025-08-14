@@ -528,6 +528,8 @@ const PartnersCard = ({ name, url }: { name: string, url: string }) => {
     )
 }
 
+// ... existing code ...
+
 const OpticalEmissionSpectrometer = () => {
     return (
         <div className="spectrometer-section">
@@ -611,6 +613,8 @@ const OpticalEmissionSpectrometer = () => {
         </div>
     );
 };
+
+// ... rest of the file ...
 
 
 const MainBody = () => {
