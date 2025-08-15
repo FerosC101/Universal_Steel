@@ -549,7 +549,7 @@ const OpticalEmissionSpectrometer = () => {
                 {/* Left: Image */}
                 <div className="spectrometer-image-container">
                     <img
-                        src="https://res.cloudinary.com/drrzinr9v/image/upload/v1753189483/productpageSpectrometer_nkp7rb.jpg"
+                        src="https://res.cloudinary.com/drrzinr9v/image/upload/v1755264913/viber_image_2025-08-15_14-35-30-423_douzo9.jpg"
                         alt="Optical Emission Spectrometer"
                         className="spectrometer-image"
                     />

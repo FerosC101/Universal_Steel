@@ -235,8 +235,8 @@ const cloudinary = {
     hero4: 'https://res.cloudinary.com/drrzinr9v/image/upload/hero4_c9ylu9.jpg',
     hero5: 'https://res.cloudinary.com/drrzinr9v/image/upload/hero5_ydk14p.jpg',
     hero6: 'https://res.cloudinary.com/drrzinr9v/image/upload/hero6_e7u9ss.jpg',
-    product: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752675549/homepageAbout_wezvdg.jpg',
-    certs: 'https://res.cloudinary.com/drrzinr9v/image/upload/ourcertifications_nw8aid.jpg',
+    product: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1755264013/viber_image_2025-08-15_14-33-32-091_oboevs.jpg',
+    certs: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752675549/homepageAbout_wezvdg.jpg',
     about: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1752676337/514315094_122186224832360700_1263205354293391856_n_qrnviz.jpg',
 };
 

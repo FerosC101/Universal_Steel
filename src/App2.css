@@ -1367,7 +1367,7 @@ body {
   width: 100%;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 30px 20px;
   margin-bottom: 20px;
 }
 
@@ -1582,36 +1582,62 @@ body {
 
   /* Top banner mobile */
   .top-banner {
-    height: 280px;
-    margin-bottom: 120px;
+    height: auto;
+    min-height: 400px;
+    margin-bottom: 80px;
+    padding-bottom: 40px;
   }
 
   .top-banner > h1 {
-    font-size: 1.8rem;
-    padding-top: 40px;
-    padding-left: 15px;
-    padding-right: 15px;
+    font-size: 2.2rem;
+    padding-top: 50px;
+    margin-bottom: 30px;
   }
 
   /* Banner cards mobile */
   .carousel {
-    padding: 15px;
-    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    overflow-x: visible;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: none;
+    gap: 20px;
+    padding: 20px 15px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
   }
 
   .banner-card {
-    width: 280px;
-    min-width: 280px;
-    padding: 1rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 1);
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 350px;
+    min-width: unset;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    flex: none;
+    cursor: pointer;
+    margin: 0 auto;
   }
 
+
   .banner-card img {
-    height: 180px;
+    width: 100%;
+    height: 250px;
+    display: block;
+    object-fit: cover;
+    border-radius: 8px;
   }
 
   .banner-card h2 {
-    font-size: 1.2rem;
-    margin-top: 0.75rem;
+    font-size: 1.4rem;
+    margin-top: 1rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: #dc2626;
+    font-weight: bold;
   }
 
   /* Partners section mobile */
@@ -2050,7 +2076,69 @@ body {
     font-size: 0.9rem;
   }
 }
+@media (max-width: 480px) {
+  .carousel {
+    padding: 15px 10px;
+    gap: 18px;
+  }
 
+  .banner-card {
+    padding: 1.2rem;
+    max-width: 320px;
+  }
+
+  .banner-card img {
+    height: 220px;
+    border-radius: 6px;
+  }
+
+  .banner-card h2 {
+    font-size: 1.3rem;
+    margin-top: 0.8rem;
+  }
+
+  .banner-card p {
+    font-size: 0.9rem;
+  }
+
+  .top-banner > h1 {
+    font-size: 1.9rem;
+    padding-top: 40px;
+  }
+
+  .full-width-flex {
+    padding: 25px 15px;
+  }
+
+  .product-button {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Very small mobile */
+@media (max-width: 360px) {
+  .banner-card {
+    max-width: 300px;
+    padding: 1rem;
+  }
+
+  .banner-card img {
+    height: 200px;
+  }
+
+  .banner-card h2 {
+    font-size: 1.2rem;
+  }
+
+  .banner-card p {
+    font-size: 0.85rem;
+  }
+
+  .top-banner > h1 {
+    font-size: 1.7rem;
+  }
+}
 /* Small mobile adjustments */
 @media (max-width: 480px) {
   .header-container {
@@ -2539,6 +2627,32 @@ body {
 
   .current-image-details p {
     font-size: 0.9rem;
+  }
+
+  .product-button {
+    background: linear-gradient(to right, #dc2626, #991b1b);
+    color: white;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  .product-button:hover {
+    background: linear-gradient(to right, #991b1b, #7f1d1d);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
   }
 
   /* Desktop Spectrometer Styles */
