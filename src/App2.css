@@ -732,7 +732,7 @@ body {
   box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
 }
 
-/* Projects List Modal */
+/* REDESIGNED Projects List Modal - Client List Style */
 .projects-list-modal-overlay {
   position: fixed;
   top: 0;
@@ -750,14 +750,15 @@ body {
 
 .projects-list-modal {
   background: white;
-  border-radius: 16px;
-  max-width: 900px;
+  border-radius: 24px;
+  max-width: 520px;
   width: 100%;
   max-height: 85vh;
   overflow: hidden;
   position: relative;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
   animation: modalSlideIn 0.3s ease-out;
+  border: 1px solid #e5e7eb;
 }
 
 @keyframes modalSlideIn {
@@ -771,50 +772,123 @@ body {
   }
 }
 
+/* Modal Header */
 .projects-list-modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 30px;
-  border-bottom: 2px solid #e5e7eb;
-  background: linear-gradient(135deg, #dc2626, #991b1b);
-  color: white;
+  padding: 24px 32px 20px;
+  border-bottom: none;
+  background: white;
+  position: relative;
 }
 
 .projects-list-modal-title {
-  font-size: 1.8rem;
-  font-weight: bold;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #dc2626;
   margin: 0;
+  text-align: center;
+  flex: 1;
 }
 
 .projects-list-modal-close {
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  color: white;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  color: #6b7280;
   cursor: pointer;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   transition: all 0.2s ease;
-  backdrop-filter: blur(10px);
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .projects-list-modal-close:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: scale(1.1);
+  background: #e5e7eb;
+  color: #374151;
+  transform: scale(1.05);
 }
 
+/* Modal Content */
 .projects-list-modal-content {
-  padding: 30px;
+  padding: 0 32px 32px;
   overflow-y: auto;
   max-height: calc(85vh - 100px);
+  background: #f8f9fa;
 }
 
+/* Projects List Container */
+.projects-list-container {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+
+/* Individual Project Item */
+.projects-list-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.projects-list-item:last-child {
+  border-bottom: none;
+}
+
+.projects-list-item:hover {
+  background-color: #fef2f2;
+  margin: 0 -12px;
+  padding: 12px;
+  border-radius: 8px;
+  border-bottom: 1px solid transparent;
+}
+
+.projects-list-item:hover + .projects-list-item {
+  border-top: 1px solid transparent;
+}
+
+/* Project Number Styling */
+.projects-list-number {
+  background: #dc2626;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-right: 16px;
+}
+
+/* Project Name Styling */
+.projects-list-name {
+  font-size: 0.95rem;
+  color: #374151;
+  font-weight: 500;
+  line-height: 1.4;
+  flex: 1;
+}
+
+/* Section Titles */
 .projects-list-section {
-  margin-bottom: 40px;
+  margin-bottom: 24px;
 }
 
 .projects-list-section:last-child {
@@ -822,69 +896,35 @@ body {
 }
 
 .projects-list-section-title {
-  font-size: 1.4rem;
-  font-weight: bold;
+  font-size: 1.25rem;
+  font-weight: 700;
   color: #dc2626;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #fee2e2;
+  margin-bottom: 16px;
+  text-align: center;
   position: relative;
+  padding-bottom: 8px;
 }
 
 .projects-list-section-title::after {
   content: '';
   position: absolute;
-  bottom: -2px;
-  left: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 60px;
   height: 2px;
   background: #dc2626;
+  border-radius: 1px;
 }
 
-.projects-list-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 15px;
-}
-
-.projects-list-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-  border: 1px solid #e9ecef;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.projects-list-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.1);
-  border-color: rgba(220, 38, 38, 0.3);
-  background: linear-gradient(135deg, #fef2f2 0%, #ffffff 100%);
-}
-
-.projects-list-number {
-  background: linear-gradient(135deg, #dc2626, #991b1b);
-  color: white;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
-  font-weight: 600;
-  flex-shrink: 0;
-}
-
-.projects-list-name {
-  font-size: 0.95rem;
-  color: #374151;
-  font-weight: 500;
-  line-height: 1.4;
+/* Divider between sections */
+.projects-list-section + .projects-list-section::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+  margin-bottom: 24px;
 }
 
 /* REDESIGNED PROJECT MODAL STYLES */
@@ -1622,7 +1662,6 @@ body {
     margin: 0 auto;
   }
 
-
   .banner-card img {
     width: 100%;
     height: 250px;
@@ -1730,42 +1769,59 @@ body {
     justify-content: center;
   }
 
-  /* Projects List Modal Mobile */
+  /* Projects List Modal Mobile - Client List Style */
   .projects-list-modal {
-    margin: 10px;
+    margin: 15px;
     max-height: 90vh;
+    max-width: 100%;
+    border-radius: 16px;
   }
 
   .projects-list-modal-header {
-    padding: 20px;
+    padding: 20px 24px 16px;
   }
 
   .projects-list-modal-title {
     font-size: 1.4rem;
   }
 
+  .projects-list-modal-close {
+    top: 8px;
+    right: 8px;
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+
   .projects-list-modal-content {
-    padding: 20px;
+    padding: 0 24px 24px;
     max-height: calc(90vh - 80px);
   }
 
-  .projects-list-section-title {
-    font-size: 1.2rem;
+  .projects-list-container {
+    padding: 20px;
+    margin-bottom: 16px;
   }
 
-  .projects-list-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
+  .projects-list-section-title {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
   }
 
   .projects-list-item {
-    padding: 10px 14px;
+    padding: 10px 0;
+  }
+
+  .projects-list-item:hover {
+    margin: 0 -8px;
+    padding: 10px 8px;
   }
 
   .projects-list-number {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     font-size: 0.8rem;
+    margin-right: 12px;
   }
 
   .projects-list-name {
@@ -2076,6 +2132,7 @@ body {
     font-size: 0.9rem;
   }
 }
+
 @media (max-width: 480px) {
   .carousel {
     padding: 15px 10px;
@@ -2114,6 +2171,67 @@ body {
     padding: 12px 20px;
     font-size: 0.95rem;
   }
+
+  /* Small Mobile Projects List Modal */
+  .projects-list-modal {
+    margin: 10px;
+    border-radius: 12px;
+  }
+
+  .projects-list-modal-header {
+    padding: 16px 20px 12px;
+  }
+
+  .projects-list-modal-title {
+    font-size: 1.2rem;
+  }
+
+  .projects-list-modal-close {
+    top: 6px;
+    right: 6px;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+  }
+
+  .projects-list-modal-content {
+    padding: 0 20px 20px;
+  }
+
+  .projects-list-container {
+    padding: 16px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+  }
+
+  .projects-list-section-title {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .projects-list-section-title::after {
+    width: 40px;
+  }
+
+  .projects-list-item {
+    padding: 8px 0;
+  }
+
+  .projects-list-item:hover {
+    margin: 0 -6px;
+    padding: 8px 6px;
+  }
+
+  .projects-list-number {
+    width: 18px;
+    height: 18px;
+    font-size: 0.75rem;
+    margin-right: 10px;
+  }
+
+  .projects-list-name {
+    font-size: 0.85rem;
+  }
 }
 
 /* Very small mobile */
@@ -2138,7 +2256,69 @@ body {
   .top-banner > h1 {
     font-size: 1.7rem;
   }
+
+  /* Very Small Mobile Projects List Modal */
+  .projects-list-modal {
+    margin: 8px;
+    border-radius: 10px;
+  }
+
+  .projects-list-modal-header {
+    padding: 12px 16px 10px;
+  }
+
+  .projects-list-modal-title {
+    font-size: 1.1rem;
+  }
+
+  .projects-list-modal-close {
+    top: 4px;
+    right: 4px;
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+  }
+
+  .projects-list-modal-content {
+    padding: 0 16px 16px;
+  }
+
+  .projects-list-container {
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+
+  .projects-list-section-title {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+
+  .projects-list-section-title::after {
+    width: 30px;
+  }
+
+  .projects-list-item {
+    padding: 6px 0;
+  }
+
+  .projects-list-item:hover {
+    margin: 0 -4px;
+    padding: 6px 4px;
+  }
+
+  .projects-list-number {
+    width: 16px;
+    height: 16px;
+    font-size: 0.7rem;
+    margin-right: 8px;
+  }
+
+  .projects-list-name {
+    font-size: 0.8rem;
+  }
 }
+
 /* Small mobile adjustments */
 @media (max-width: 480px) {
   .header-container {
@@ -2493,8 +2673,43 @@ body {
     padding: 25px;
   }
 
-  .projects-list-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  /* Tablet Projects List Modal */
+  .projects-list-modal {
+    max-width: 600px;
+    border-radius: 20px;
+  }
+
+  .projects-list-modal-header {
+    padding: 24px 28px 18px;
+  }
+
+  .projects-list-modal-title {
+    font-size: 1.6rem;
+  }
+
+  .projects-list-modal-close {
+    width: 30px;
+    height: 30px;
+    top: 10px;
+    right: 10px;
+  }
+
+  .projects-list-container {
+    padding: 22px;
+  }
+
+  .projects-list-section-title {
+    font-size: 1.15rem;
+  }
+
+  .projects-list-number {
+    width: 22px;
+    height: 22px;
+    font-size: 0.85rem;
+  }
+
+  .projects-list-name {
+    font-size: 0.95rem;
   }
 }
 
@@ -2655,6 +2870,66 @@ body {
     box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
   }
 
+  /* Desktop Projects List Modal - Client List Style */
+  .projects-list-modal {
+    max-width: 600px;
+    border-radius: 24px;
+  }
+
+  .projects-list-modal-header {
+    padding: 28px 36px 24px;
+  }
+
+  .projects-list-modal-title {
+    font-size: 1.8rem;
+  }
+
+  .projects-list-modal-close {
+    top: 14px;
+    right: 14px;
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+  }
+
+  .projects-list-modal-content {
+    padding: 0 36px 36px;
+  }
+
+  .projects-list-container {
+    padding: 28px;
+    margin-bottom: 24px;
+  }
+
+  .projects-list-section-title {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+
+  .projects-list-section-title::after {
+    width: 80px;
+  }
+
+  .projects-list-item {
+    padding: 14px 0;
+  }
+
+  .projects-list-item:hover {
+    margin: 0 -16px;
+    padding: 14px 16px;
+  }
+
+  .projects-list-number {
+    width: 26px;
+    height: 26px;
+    font-size: 0.9rem;
+    margin-right: 18px;
+  }
+
+  .projects-list-name {
+    font-size: 1rem;
+  }
+
   /* Desktop Spectrometer Styles */
   .spectrometer-section {
     max-width: 1200px;
@@ -2794,6 +3069,52 @@ body {
     max-height: 200px;
   }
 
+  /* Large Desktop Projects List Modal */
+  .projects-list-modal {
+    max-width: 650px;
+  }
+
+  .projects-list-modal-header {
+    padding: 32px 40px 28px;
+  }
+
+  .projects-list-modal-title {
+    font-size: 2rem;
+  }
+
+  .projects-list-modal-content {
+    padding: 0 40px 40px;
+  }
+
+  .projects-list-container {
+    padding: 32px;
+  }
+
+  .projects-list-section-title {
+    font-size: 1.4rem;
+    margin-bottom: 24px;
+  }
+
+  .projects-list-item {
+    padding: 16px 0;
+  }
+
+  .projects-list-item:hover {
+    margin: 0 -20px;
+    padding: 16px 20px;
+  }
+
+  .projects-list-number {
+    width: 28px;
+    height: 28px;
+    font-size: 0.95rem;
+    margin-right: 20px;
+  }
+
+  .projects-list-name {
+    font-size: 1.05rem;
+  }
+
   /* Large Desktop Spectrometer */
   .spectrometer-section {
     max-width: 1600px;
@@ -2894,5 +3215,32 @@ body {
 
   .spectrometer-quote p {
     font-size: 1.25rem;
+  }
+
+  /* Extra Large Desktop Projects List Modal */
+  .projects-list-modal {
+    max-width: 700px;
+  }
+
+  .projects-list-modal-title {
+    font-size: 2.1rem;
+  }
+
+  .projects-list-container {
+    padding: 36px;
+  }
+
+  .projects-list-section-title {
+    font-size: 1.5rem;
+  }
+
+  .projects-list-number {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+
+  .projects-list-name {
+    font-size: 1.1rem;
   }
 }
