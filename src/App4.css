@@ -1202,15 +1202,27 @@ ol li {
     margin-top: 140px;
   }
 
+  .history .history-image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /* Add padding to prevent logo overlap with text */
+    padding-top: 20px;
+  }
+
   .history h1 {
     font-size: 2.2rem;
     text-align: center;
+    margin-bottom: 1rem;
+    padding-right: 80px;
   }
 
   .history h2 {
     font-size: 1.4rem;
     text-align: center;
     margin-left: 0;
+    padding-right: 80px;
   }
 
   .history .round-image {
@@ -1218,6 +1230,16 @@ ol li {
     height: 70px;
     right: 5%;
     top: 15%;
+    z-index: 1;
+    position: absolute;
+  }
+
+  .history .round-image.mobile-below {
+    position: relative;
+    right: auto;
+    top: auto;
+    margin: 20px auto 0;
+    display: block;
   }
 
   .vision {
