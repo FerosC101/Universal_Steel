@@ -372,7 +372,7 @@ const Modernization = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const images = [
         `https://res.cloudinary.com/drrzinr9v/image/upload/IMG_0634_ehtkiu.jpg?ts=${Date.now()}`,
-        `https://res.cloudinary.com/drrzinr9v/image/upload/productpageSpectrometer_nkp7rb.jpg?ts=${Date.now()}`,
+        `https://res.cloudinary.com/drrzinr9v/image/upload/v1755004449/hero5_ydk14p.jpg?ts=${Date.now()}`,
     ];
 
     const nextSlide = () => {
