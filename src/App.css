@@ -1106,7 +1106,68 @@ body {
   }
 
   .hero-sidebar {
-    display: none !important; /* Force hide on mobile */
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+  }
+  .hero-sidebar button,
+  .hero-sidebar .arrow-btn {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Ensure hero content has proper spacing and positioning */
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    padding: 0 15px;
+    text-align: center;
+  }
+
+  /* Make sure hero title and description are properly positioned */
+  .hero-title {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 11;
+  }
+
+  .hero-description {
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 11;
+  }
+
+  /* Ensure hero button is properly positioned */
+  .hero-button {
+    position: relative;
+    z-index: 11;
+    display: inline-block;
+    padding: 10px 24px;
+    font-size: 0.9rem;
+  }
+
+  /* Hide any navigation arrows that might be interfering */
+  .hero-nav {
+    display: none !important;
+  }
+
+  /* Adjust slideshow dots for mobile */
+  .hero-dots {
+    bottom: 15px;
+    z-index: 15;
+  }
+
+  .hero-dot {
+    width: 10px;
+    height: 10px;
   }
 }
 
