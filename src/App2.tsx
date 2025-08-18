@@ -1142,47 +1142,86 @@ const ProjectModal = ({ project, isOpen, setIsOpen }: { project: ProjectGroup, i
 
 const Carousel = ({ items, openModal }: { items: ModalProps[], openModal: (details: ModalProps) => void }) => {
     const carouselRef = useRef<HTMLDivElement>(null);
-    let dragged: boolean = false;
-    let dragging: boolean = false;
-    let mouseX: number = 0;
+    const draggedRef = useRef(false);
+    const draggingRef = useRef(false);
+    const mouseXRef = useRef(0);
+
+    // Render 3 sets so we can always "wrap" in both directions
+    const loopedItems = [...items, ...items, ...items];
+
+    // On mount → jump to the middle set
+    useEffect(() => {
+        if (carouselRef.current) {
+            const setWidth = carouselRef.current.scrollWidth / 3;
+            carouselRef.current.scrollLeft = setWidth;
+        }
+    }, [items.length]);
+
+    // Handle infinite loop reset
+    const handleScroll = () => {
+        const carousel = carouselRef.current!;
+        const setWidth = carousel.scrollWidth / 3;
+        const scrollLeft = carousel.scrollLeft;
+
+        // Too far left → jump forward into middle copy
+        if (scrollLeft <= setWidth * 0.05) {
+            carousel.scrollLeft = scrollLeft + setWidth;
+        }
+        // Too far right → jump back into middle copy
+        else if (scrollLeft >= setWidth * 1.95) {
+            carousel.scrollLeft = scrollLeft - setWidth;
+        }
+    };
+
     const mouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
         e.preventDefault();
-        dragged = false;
-        dragging = true;
-        mouseX = e.pageX - (carouselRef.current?.offsetLeft ?? 0);
-    }
+        draggedRef.current = false;
+        draggingRef.current = true;
+        mouseXRef.current = e.pageX - (carouselRef.current?.offsetLeft ?? 0);
+    };
+
     const mouseUp = (e: React.MouseEvent<HTMLDivElement>) => {
         e.preventDefault();
-        dragging = false;
-    }
-    const bannerClick = (item: ModalProps) => {
-        if (!dragged) {
-            openModal(item)
-        }
-    }
+        draggingRef.current = false;
+    };
 
     const mouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-        e.preventDefault();
-        if (dragging) {
-            const x = e.pageX - carouselRef.current!.offsetLeft;
-            const walk = (x - mouseX) * 1;
-            dragged = true;
-            carouselRef.current!.scrollLeft -= walk;
+        if (draggingRef.current && carouselRef.current) {
+            e.preventDefault();
+            const x = e.pageX - carouselRef.current.offsetLeft;
+            const walk = x - mouseXRef.current;
+            draggedRef.current = true;
+            carouselRef.current.scrollLeft -= walk;
         }
-    }
+    };
+
+    const bannerClick = (item: ModalProps) => {
+        if (!draggedRef.current) {
+            openModal(item);
+        }
+    };
 
     return (
-        <div className='carousel' ref={carouselRef}
-             onMouseDown={mouseDown}
-             onMouseUp={mouseUp}
-             onMouseMove={mouseMove}
+        <div
+            className="carousel"
+            ref={carouselRef}
+            onMouseDown={mouseDown}
+            onMouseUp={mouseUp}
+            onMouseMove={mouseMove}
+            onScroll={handleScroll}
         >
-            {items.map((project, index) => (
-                <BannerCard key={index} details={project} dragged={dragged} click={bannerClick} />
+            {loopedItems.map((project, index) => (
+                <BannerCard
+                    key={index}
+                    details={project}
+                    dragged={draggedRef.current}
+                    click={bannerClick}
+                />
             ))}
         </div>
-    )
-}
+    );
+};
+
 
 const Modal = ({ product, isOpen, setIsOpen }: { product: ModalProps, isOpen: boolean, setIsOpen:(o:boolean) => void }) => {
     return (
