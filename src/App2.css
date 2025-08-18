@@ -1731,7 +1731,7 @@ body {
   }
 
   .project-card {
-    flex: 0 0 280px;
+    flex: 0 0 750px;
     height: 350px;
   }
 
@@ -2385,7 +2385,7 @@ body {
   }
 
   .project-card {
-    flex: 0 0 250px;
+    flex: 0 0 750px;
     height: 300px;
   }
 
@@ -2633,7 +2633,7 @@ body {
   }
 
   .project-card {
-    flex: 0 0 320px;
+    flex: 0 0 750px;
     height: 380px;
   }
 
