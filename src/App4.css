@@ -304,7 +304,8 @@ body {
   max-width: 180px;
 }
 
-.history {
+/* Company Background Section */
+.company-background {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
@@ -312,11 +313,16 @@ body {
   align-items: center;
 }
 
-.history .text-container {
+.company-background .text-container {
+  text-align: center;
   padding: 20px 0;
 }
 
-.history p {
+.company-background .text-container p {
+  text-align: justify;
+}
+
+.company-background p {
   font-size: 1.1rem;
   line-height: 1.7;
   color: #333;
@@ -324,34 +330,35 @@ body {
   text-align: justify;
 }
 
-.history h1 {
+.company-background h1 {
   font-size: 2.5rem;
   color: #dc2626;
   margin-bottom: 1rem;
   font-weight: 700;
+
 }
 
-.history h2 {
+.company-background h2 {
   font-size: 1.6rem;
   margin-bottom: 2rem;
   color: #555;
   font-weight: 400;
 }
 
-.history .history-image-container {
+.company-background .background-image-container {
   position: relative;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
-.history img {
+.company-background img {
   width: 100%;
   border-radius: 15px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-.history .round-image {
+.company-background .round-image {
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -367,6 +374,151 @@ body {
   top: 12%;
 }
 
+/* Manufacturing Facility Section */
+.manufacturing-facility {
+  margin: 80px 0;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.manufacturing-facility h1 {
+  font-size: 2.5rem;
+  color: #dc2626;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.manufacturing-facility .text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.manufacturing-facility .image-cont {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  height: 450px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.manufacturing-facility .carousel-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+}
+
+.manufacturing-facility .carousel-slide {
+  min-width: 100%;
+  height: 100%;
+}
+
+.manufacturing-facility .carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.manufacturing-facility .carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.manufacturing-facility .carousel-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.manufacturing-facility .carousel-indicator.active {
+  background: #dc2626;
+  transform: scale(1.2);
+}
+
+/* Quality Assurance Section */
+.quality-assurance {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin: 80px 0;
+  align-items: center;
+}
+
+.quality-assurance .text-container {
+  padding: 20px 0;
+}
+
+.quality-assurance h1 {
+  font-size: 2.5rem;
+  color: #dc2626;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.quality-assurance p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.quality-assurance .quality-image-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.quality-assurance .quality-feature {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 25px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.quality-assurance .quality-feature:hover {
+  transform: translateY(-5px);
+}
+
+.quality-assurance .quality-icon {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+.quality-assurance .quality-feature h3 {
+  font-size: 1.3rem;
+  color: #dc2626;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.quality-assurance .quality-feature p {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Vision Section */
 .vision {
   padding: 80px 0;
 }
@@ -454,83 +606,15 @@ body {
   height: 40px;
 }
 
-.modernization {
-  margin: 80px 0;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 60px;
-  align-items: center;
-}
-
-.modernization h1 {
-  font-size: 2.5rem;
-  color: #dc2626;
-  margin-bottom: 30px;
-  font-weight: 700;
-}
-
-.modernization .text p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #333;
-}
-
-.modernization .image-cont {
-  position: relative;
-  overflow: hidden;
-  border-radius: 20px;
-  height: 450px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-}
-
-.modernization .carousel-container {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  height: 100%;
-}
-
-.modernization .carousel-slide {
-  min-width: 100%;
-  height: 100%;
-}
-
-.modernization .carousel-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
-}
-
-.modernization .carousel-indicators {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  z-index: 10;
-}
-
-.modernization .carousel-indicator {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.6);
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.modernization .carousel-indicator.active {
-  background: #dc2626;
-  transform: scale(1.2);
-}
-
-.certifications {
+/* ISO Certification Section */
+.iso-certification {
   padding: 80px 0;
+  background: #f9fafb;
+  border-radius: 30px;
+  margin: 80px 0;
 }
 
-.certifications h1 {
+.iso-certification h1 {
   text-align: center;
   font-size: 2.5rem;
   color: #dc2626;
@@ -538,13 +622,33 @@ body {
   font-weight: 700;
 }
 
-.certifications .cards-cont {
+.iso-certification .certification-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+.iso-certification .certification-text {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.iso-certification .certification-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.iso-certification .cards-cont {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
 
-.certifications .card {
+.iso-certification .card {
   background: linear-gradient(to top, #8b0000, #dc2626);
   color: white;
   padding: 40px 30px;
@@ -559,22 +663,104 @@ body {
   transition: transform 0.3s ease;
 }
 
-.certifications .card:hover {
+.iso-certification .card:hover {
   transform: translateY(-5px);
 }
 
-.certifications .card img {
+.iso-certification .card img {
   width: 80%;
   max-width: 450px;
   margin: 0 auto 25px;
 }
 
-.certifications .card p {
+.iso-certification .card p {
   margin-bottom: 8px;
   line-height: 1.5;
   font-weight: 500;
 }
 
+/* Customer Service Section */
+.customer-service {
+  margin: 80px 0;
+}
+
+.customer-service .service-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.customer-service h1 {
+  font-size: 2.5rem;
+  color: #dc2626;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.customer-service .service-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.customer-service .service-highlight {
+  background: linear-gradient(to right, #8b0000, #dc2626);
+  color: white;
+  padding: 25px;
+  border-radius: 15px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.customer-service .service-highlight h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.customer-service .service-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.customer-service .feature {
+  background: white;
+  padding: 30px 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.customer-service .feature:hover {
+  transform: translateY(-5px);
+}
+
+.customer-service .feature-icon {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 15px;
+}
+
+.customer-service .feature h4 {
+  font-size: 1.2rem;
+  color: #dc2626;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.customer-service .feature p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Clients Section */
 .clients {
   min-height: 500px;
   display: flex;
@@ -1196,36 +1382,45 @@ ol li {
     display: none;
   }
 
-  .history {
+  /* Mobile Company Background */
+  .company-background {
     grid-template-columns: 1fr;
     gap: 30px;
     margin-top: 140px;
   }
 
-  .history .history-image-container {
+  .company-background .text-container {
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .company-background .text-container p {
+    text-align: justify;
+  }
+
+  .company-background .background-image-container {
     position: relative;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    /* Add padding to prevent logo overlap with text */
     padding-top: 20px;
   }
 
-  .history h1 {
+  .company-background h1 {
     font-size: 2.2rem;
     text-align: center;
     margin-bottom: 1rem;
-    padding-right: 80px;
+    padding-right: 0;
   }
 
-  .history h2 {
+  .company-background h2 {
     font-size: 1.4rem;
     text-align: center;
     margin-left: 0;
-    padding-right: 80px;
+    padding-right: 0;
   }
 
-  .history .round-image {
+  .company-background .round-image {
     width: 70px;
     height: 70px;
     right: 5%;
@@ -1234,14 +1429,62 @@ ol li {
     position: absolute;
   }
 
-  .history .round-image.mobile-below {
-    position: relative;
-    right: auto;
-    top: auto;
-    margin: 20px auto 0;
-    display: block;
+  /* Mobile Manufacturing Facility */
+  .manufacturing-facility {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: none; /* Override grid */
+    gap: 30px;
+    margin: 60px 0;
   }
 
+  .manufacturing-facility .text {
+    order: 1; /* Title and text come first */
+  }
+
+  .manufacturing-facility h1 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .manufacturing-facility .text p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .manufacturing-facility .image-cont {
+    order: 2; /* Images come second */
+    height: 300px;
+  }
+
+  /* Mobile Quality Assurance */
+  .quality-assurance {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin: 60px 0;
+  }
+
+  .quality-assurance h1 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .quality-assurance .quality-feature {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .quality-assurance .quality-feature h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .quality-assurance .quality-feature p {
+    font-size: 0.9rem;
+  }
+
+  /* Mobile Vision */
   .vision {
     padding: 60px 15px;
   }
@@ -1308,44 +1551,62 @@ ol li {
     height: 35px;
   }
 
-  .modernization {
-    grid-template-columns: 1fr;
-    gap: 30px;
+  /* Mobile ISO Certification */
+  .iso-certification {
+    padding: 60px 15px;
     margin: 60px 0;
   }
 
-  .modernization h1 {
+  .iso-certification h1 {
     font-size: 2.2rem;
-    text-align: center;
+    margin-bottom: 40px;
   }
 
-  .modernization .text p {
-    font-size: 1rem;
-    text-align: center;
-  }
-
-  .modernization .image-cont {
-    height: 300px;
-  }
-
-  .certifications {
-    padding: 60px 0;
-  }
-
-  .certifications h1 {
-    font-size: 2.2rem;
-  }
-
-  .certifications .cards-cont {
+  .iso-certification .cards-cont {
     grid-template-columns: 1fr;
     gap: 20px;
   }
 
-  .certifications .card {
+  .iso-certification .card {
     min-height: 320px;
     padding: 30px 20px;
   }
 
+  .iso-certification .certification-text p {
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  /* Mobile Customer Service */
+  .customer-service {
+    margin: 60px 0;
+  }
+
+  .customer-service .service-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .customer-service h1 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .customer-service .service-text p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .customer-service .service-features {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .customer-service .service-highlight h3 {
+    font-size: 1.2rem;
+  }
+
+  /* Mobile Clients */
   .clients {
     padding: 60px 0;
   }
@@ -1443,27 +1704,45 @@ ol li {
     display: none;
   }
 
-  .history {
+  /* Tablet Company Background */
+  .company-background {
     grid-template-columns: 1fr;
     gap: 40px;
     margin-top: 120px;
   }
 
-  .history h1 {
+  .company-background h1 {
     font-size: 2.3rem;
     text-align: center;
   }
 
-  .history h2 {
+  .company-background h2 {
     font-size: 1.5rem;
     text-align: center;
   }
 
-  .history .round-image {
+  .company-background .round-image {
     width: 85px;
     height: 85px;
   }
 
+  /* Tablet Manufacturing Facility */
+  .manufacturing-facility {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .manufacturing-facility .image-cont {
+    height: 380px;
+  }
+
+  /* Tablet Quality Assurance */
+  .quality-assurance {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* Tablet Vision */
   .vision-grid-cont {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
@@ -1483,18 +1762,21 @@ ol li {
     padding: 35px 30px;
   }
 
-  .modernization {
+  /* Tablet ISO Certification */
+  .iso-certification .cards-cont {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  /* Tablet Customer Service */
+  .customer-service .service-content {
     grid-template-columns: 1fr;
     gap: 40px;
   }
 
-  .modernization .image-cont {
-    height: 380px;
-  }
-
-  .certifications .cards-cont {
-    grid-template-columns: 1fr;
-    gap: 25px;
+  .customer-service .service-features {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
   }
 }
 
