@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './App4.css';
 
-
 type IconProps = {
     className?: string;
     onclick?: () => void;
@@ -263,7 +262,7 @@ const Banner = () => {
                 <div>
                     <h1>About Us</h1>
                     <h2>Universal Steel Smelting Co., Inc.</h2>
-                    <p>A leading steel smelting company providing high quality, reliable steel solutions for construction and manufacturing industries</p>
+                    <p>Forging Strong Alliances for the Future - A leading steel smelting company providing high quality, reliable steel solutions for construction and manufacturing industries</p>
                 </div>
             </div>
             <div className="gray"></div>
@@ -300,22 +299,129 @@ const Banner = () => {
     );
 };
 
-const History = () => {
+const CompanyBackground = () => {
     return (
-        <div className='history'>
-            <div className='history-image-container'>
-                <h1>Company History</h1>
-                <h2><em>Our Legacy Since 1966</em></h2>
+        <div className='company-background'>
+            <div className='text-container'>
+                <h1>Company Background</h1>
+                <h2><em>Forging Strong Alliances for the Future</em></h2>
+                <p>
+                    Universal Steel Smelting Co., Inc. (USSCI) was established back in January 27, 1966
+                    with the manufacturing objective of producing the highest quality standards of
+                    reinforcing steel bars for the Philippine Construction Industry.
+                </p>
+                <p>
+                    It is financially strong as part of the LKG group of companies and with strategic
+                    alliances with several of the major financial institutions in the Philippines. Our
+                    manufacturing plant is located along Quirino Highway, Balintawak, Quezon City.
+                </p>
+            </div>
+            <div className='background-image-container'>
                 <img src={logoUrl5} alt="Company Building" className="logo" />
                 <div className="round-image"></div>
             </div>
+        </div>
+    );
+};
+
+const ManufacturingFacility = () => {
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const images = [
+        `https://res.cloudinary.com/drrzinr9v/image/upload/IMG_0634_ehtkiu.jpg?ts=${Date.now()}`,
+        `https://res.cloudinary.com/drrzinr9v/image/upload/v1755004449/hero5_ydk14p.jpg?ts=${Date.now()}`,
+    ];
+
+    const nextSlide = () => {
+        setCurrentSlide((prev) => (prev + 1) % images.length);
+    };
+
+    const goToSlide = (index: number) => {
+        setCurrentSlide(index);
+    };
+
+    // Auto-advance carousel
+    useEffect(() => {
+        const interval = setInterval(nextSlide, 5000);
+        return () => clearInterval(interval);
+    }, []);
+
+    return (
+        <div className='manufacturing-facility'>
+            <div className="image-cont">
+                <div className="carousel-container" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+                    {images.map((image, index) => (
+                        <div key={index} className="carousel-slide">
+                            <img src={image} alt={`Factory image ${index + 1}`} />
+                        </div>
+                    ))}
+                </div>
+
+                <div className="carousel-indicators">
+                    {images.map((_, index) => (
+                        <button
+                            key={index}
+                            className={`carousel-indicator ${currentSlide === index ? 'active' : ''}`}
+                            onClick={() => goToSlide(index)}
+                        />
+                    ))}
+                </div>
+            </div>
+            <div className='text' >
+                <h1>Manufacturing Facility</h1>
+                <p>
+                    From its humble beginnings as a hand-fed mill in the remote past, our management
+                    team has given top priority on facility modernization and today, our manufacturing
+                    process has finally evolved into becoming a Full Tandem Mill from the roughing all
+                    the way to the finishing passes.
+                </p>
+                <p>
+                    We operate a state-of-the-art continuous type reheating furnace, designed and
+                    supplied by FORNI INDUSTRIAL BENDOTTI (known as one of the best leader manufacturer
+                    of pre-constructed furnaces within its sector). The furnace utilizes a fully
+                    computerized High Pressure Burner System with atomized air to ensure efficient
+                    combustion of heavy fuel oil.
+                </p>
+                <p>
+                    The reheating system, which is fully automated and equipped with the latest
+                    Programmable Logic Control, has been designed to maintain consistent and uniform
+                    heating throughout the entire furnace, a critical aspect in the billet reheating process.
+                </p>
+            </div>
+        </div>
+    );
+};
+
+const QualityAssurance = () => {
+    return (
+        <div className='quality-assurance'>
             <div className='text-container'>
+                <h1>Quality Assurance Standard</h1>
                 <p>
-                    Universal Steel Smelting Co., Inc. (USSCI) was founded on January 27, 1966, with the goal of producing high-quality reinforcing steel bars for the Philippine construction industry.
+                    USSCI has given utmost priority to its manufacturing quality standards. Our Quality
+                    Assurance Testing Laboratory utilizes a Carbon analyzer Spectrometer and Universal
+                    Testing Machine to ensure that all of our mill's production is in conformity with the
+                    strictest quality standards in rebar manufacturing.
                 </p>
                 <p>
-                    Based in Balon Bato 1, Quezon City, USSCI is part of the LKG Group of Companies and backed by strategic alliances with leading financial institutions in the country.
+                    The Bureau of Product Standards has conferred upon USSCI the Philippine Standard
+                    Quality Certification Mark for all of its Deformed Steel Bars. Moreover, our testing
+                    laboratory has been fully accredited by the Bureau of Research and Standards to
+                    undertake materials testing for all government infrastructure projects.
                 </p>
+            </div>
+            <div className='quality-image-container'>
+                <div className="quality-feature">
+                    <h3>Testing Equipment</h3>
+                    <p>Carbon Analyzer Spectrometer & Universal Testing Machine</p>
+                </div>
+                <div className="quality-feature">
+                    <h3>BPS Certified</h3>
+                    <p>Philippine Standard Quality Certification Mark</p>
+                </div>
+                <div className="quality-feature">
+                    <h3>Government Accredited</h3>
+                    <p>Bureau of Research and Standards Accredited Laboratory</p>
+                </div>
             </div>
         </div>
     );
@@ -368,59 +474,7 @@ const Vision = () => {
     );
 };
 
-const Modernization = () => {
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const images = [
-        `https://res.cloudinary.com/drrzinr9v/image/upload/IMG_0634_ehtkiu.jpg?ts=${Date.now()}`,
-        `https://res.cloudinary.com/drrzinr9v/image/upload/v1755004449/hero5_ydk14p.jpg?ts=${Date.now()}`,
-    ];
-
-    const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % images.length);
-    };
-
-    const goToSlide = (index: number) => {
-        setCurrentSlide(index);
-    };
-
-    // Auto-advance carousel
-    useEffect(() => {
-        const interval = setInterval(nextSlide, 5000);
-        return () => clearInterval(interval);
-    }, []);
-
-    return (
-        <div className='modernization'>
-            <div className='text'>
-                <h1>Factory Modernization</h1>
-                <p>
-                    Our facility has evolved from a hand-fed mill to a fully modernized production plant. We operate a Full Tandem Mill from roughing to finishing passes and use a state-of-the-art continuous reheating furnace from FORNI INDUSTRIAL BENDOTTI - equipped with a high-pressure burner system and advanced PLC controls for consistent quality.
-                </p>
-            </div>
-            <div className="image-cont">
-                <div className="carousel-container" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-                    {images.map((image, index) => (
-                        <div key={index} className="carousel-slide">
-                            <img src={image} alt={`Factory image ${index + 1}`} />
-                        </div>
-                    ))}
-                </div>
-
-                <div className="carousel-indicators">
-                    {images.map((_, index) => (
-                        <button
-                            key={index}
-                            className={`carousel-indicator ${currentSlide === index ? 'active' : ''}`}
-                            onClick={() => goToSlide(index)}
-                        />
-                    ))}
-                </div>
-            </div>
-        </div>
-    );
-};
-
-const Certifications = () => {
+const ISOCertification = () => {
     const certImages = [
         `https://res.cloudinary.com/drrzinr9v/image/upload/USSCI_TUV_ISO_exp_2028_t3dha9.jpg?ts=${Date.now()}`,
         `https://res.cloudinary.com/drrzinr9v/image/upload/USSCI_PS_Mark_exp_24Aug2027_page-0001_z47en5.jpg?ts=${Date.now()}`,
@@ -428,23 +482,82 @@ const Certifications = () => {
     ];
 
     return (
-        <div className='certifications'>
-            <h1>Certifications</h1>
-            <div className="cards-cont">
-                <div className="card">
-                    <img src={certImages[0]} alt="ISO 9001:2015 Certificate" />
-                    <p>ISO 9001:2015 Certified</p>
-                    <p>by TÜV Philippines</p>
+        <div className='iso-certification'>
+            <h1>Proof of Quality: ISO 9001:2015 Certified</h1>
+            <div className="certification-content">
+                <div className="certification-text">
+                    <p>
+                        More importantly, USSCI has been conferred the distinguished citation of being
+                        ISO 9001:2015 standard compliant, a testament that its manufacturing processes
+                        operates with a total quality management system which has been assessed as
+                        conforming to internationally acclaimed manufacturing standards.
+                    </p>
+                    <p>
+                        TÜV Philippines Inc. of Germany, USSCI's certifying body, has fully documented
+                        the highest quality and safety of the products, system and services of USSCI
+                        as a reinforcing Bar Manufacturer.
+                    </p>
                 </div>
-                <div className="card">
-                    <img src={certImages[1]} alt="BPS Certification" />
-                    <p>BPS Certification Mark</p>
-                    <p>Bureau of Product Standards</p>
+                <div className="cards-cont">
+                    <div className="card">
+                        <img src={certImages[0]} alt="ISO 9001:2015 Certificate" />
+                        <p>ISO 9001:2015 Certified</p>
+                        <p>by TÜV Philippines</p>
+                    </div>
+                    <div className="card">
+                        <img src={certImages[1]} alt="BPS Certification" />
+                        <p>BPS Certification Mark</p>
+                        <p>Bureau of Product Standards</p>
+                    </div>
+                    <div className="card">
+                        <img src={certImages[2]} alt="DPWH Laboratory Accreditation" />
+                        <p>DPWH-Accredited Testing Laboratory</p>
+                        <p>by Bureau of Research and Standards (BRS)</p>
+                    </div>
                 </div>
-                <div className="card">
-                    <img src={certImages[2]} alt="DPWH Laboratory Accreditation" />
-                    <p>DPWH-Accredited Testing Laboratory</p>
-                    <p>by Bureau of Research and Standards (BRS)</p>
+            </div>
+        </div>
+    );
+};
+
+const CustomerService = () => {
+    return (
+        <div className='customer-service'>
+            <div className='service-content'>
+                <div className='service-text'>
+                    <h1>Customer Service Satisfaction Policy</h1>
+                    <p>
+                        USSCI is committed to fulfill its obligation to total customer service satisfaction
+                        from the actual performance of our rebars to its timely deliveries at the project site.
+                    </p>
+                    <p>
+                        Our Customer Service Team shall provide all the supports needed to ensure complete
+                        customer satisfaction at the bar-user level. Likewise, our professional management
+                        team is dedicated to the continuing development and training of its employees, all of
+                        which will translate to a high level of professionalism in providing our clients with
+                        the best after-sales service program.
+                    </p>
+                    <div className="service-highlight">
+                        <h3>At Universal Steel, we forge strong alliances for the future.</h3>
+                    </div>
+                </div>
+                <div className='service-features'>
+                    <div className='feature'>
+                        <h4>Quality Performance</h4>
+                        <p>Actual performance excellence of our rebars</p>
+                    </div>
+                    <div className='feature'>
+                        <h4>Timely Delivery</h4>
+                        <p>On-time deliveries at project sites</p>
+                    </div>
+                    <div className='feature'>
+                        <h4>Professional Support</h4>
+                        <p>Complete customer support at bar-user level</p>
+                    </div>
+                    <div className='feature'>
+                        <h4>After-Sales Service</h4>
+                        <p>Best after-sales service program</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -458,7 +571,8 @@ const MajorClients = () => {
 
     const clients = [
         "AYALA LAND, INC.",
-        "ANCHOR PROPERTIES",
+        "ALI ETON PROPERTY DEVELOPMENT CORPORATION",
+        "ANCHOR PROPERTIES & SUBSIDIARIES",
         "A.M. ORETA & COMPANY",
         "AVIDA LAND CORPORATION",
         "BUILDING BEAVER CORPORATION",
@@ -472,6 +586,7 @@ const MajorClients = () => {
         "DDT KONSTRACT INC.",
         "D.M. WENCESLAO & ASSOCIATES INC.",
         "D.M. CONSUNJI INC.",
+        "DMCI PROJECT DEVELOPERS INC",
         "E. I. CONSTRUCTION CO., INC.",
         "EEI CORPORATION",
         "EMPIRE EAST LAND HOLDINGS INC.",
@@ -492,9 +607,8 @@ const MajorClients = () => {
         "LEIGHTON CONTRACTORS",
         "MAKATI DEVELOPMENT CORPORATION",
         "MALLERS INVESTMENTS CORPORATION",
-        "MC CONNELL DOWELL PHILS., INC.",
         "MEGAWIDE CONSTRUCTION CORPORATION",
-        "MEGAWORLD PROPERTIES & HOLDINGS INC.",
+        "MEGAWORLD CORPORATION & SUBSIDIARIES",
         "MOLDEX REALTY INC.",
         "MONOCRETE CONSTRUCTION PHILIPPINES INC.",
         "MONOLITH CONSTRUCTION",
@@ -515,7 +629,7 @@ const MajorClients = () => {
         "SM DEVELOPMENT CORPORATION",
         "SM PRIME HOLDINGS, INC.",
         "SMCC PHILIPPINES, INC.",
-        "TAISEI - SHIMIZU JOINT VENTURE",
+        "TAISEI-SHIMIZU JOINT VENTURE",
         "TOWNSQUARE DEVELOPMENT INC.",
         "VICENTE T. LAO CONSTRUCTION",
         "V.B. COLUMNA CONSTRUCTION",
@@ -574,10 +688,12 @@ const App = () => {
             <main style={{ position: 'relative' }}>
                 <Banner />
                 <div className='center-div'>
-                    <History />
+                    <CompanyBackground />
+                    <ManufacturingFacility />
+                    <QualityAssurance />
                     <Vision />
-                    <Modernization />
-                    <Certifications />
+                    <ISOCertification />
+                    <CustomerService />
                     <MajorClients />
                 </div>
             </main>
