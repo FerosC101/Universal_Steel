@@ -390,17 +390,17 @@ const ProductsModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
 const CertificationsModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
     const certifications = [
         {
-            image: `https://res.cloudinary.com/drrzinr9v/image/upload/Screenshot_2025-06-16_235347-removebg-preview_sovmgu.png?ts=${Date.now()}`,
+            image: `https://res.cloudinary.com/drrzinr9v/image/upload/USSCI_TUV_ISO_exp_2028_t3dha9.jpg?ts=${Date.now()}`,
             title: "ISO 9001:2015 Certified",
             subtitle: "by TÃœV Philippines"
         },
         {
-            image: `https://res.cloudinary.com/drrzinr9v/image/upload/Screenshot_2025-06-16_235339-removebg-preview_tbznum.png?ts=${Date.now()}`,
+            image: `https://res.cloudinary.com/drrzinr9v/image/upload/USSCI_PS_Mark_exp_24Aug2027_page-0001_z47en5.jpg?ts=${Date.now()}`,
             title: "BPS Certification Mark",
             subtitle: "Bureau of Product Standards"
         },
         {
-            image: `https://res.cloudinary.com/drrzinr9v/image/upload/Screenshot_2025-06-16_235402-removebg-preview_zmsls7.png?ts=${Date.now()}`,
+            image: `https://res.cloudinary.com/drrzinr9v/image/upload/USSCI_DPWH_exp_2025_page-0001_cgqgyj.jpg?ts=${Date.now()}`,
             title: "DPWH-Accredited Testing Laboratory",
             subtitle: "by Bureau of Research and Standards (BRS)"
         }

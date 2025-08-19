@@ -860,7 +860,7 @@ body {
 .certification-card img {
   width: 100%;
   height: auto;
-  max-height: 150px;
+  max-height: 300px;
   object-fit: cover;
   margin-bottom: 15px;
   border-radius: 6px;
