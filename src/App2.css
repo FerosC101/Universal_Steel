@@ -582,8 +582,8 @@ body {
 
 /* Project Card Styles */
 .project-card {
-  flex: 0 0 750px;
-  height: 300px;
+  flex: 0 0 950px;
+  height: 450px;
   border-radius: 15px;
   overflow: hidden;
   cursor: pointer;
