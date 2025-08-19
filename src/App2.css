@@ -518,7 +518,6 @@ body {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
-  overflow:hidden;
 }
 
 .scrollable-carousel {
@@ -530,14 +529,11 @@ body {
   scrollbar-width: none;
   -ms-overflow-style: none;
   cursor: grab;
-  /* Remove scroll snap for infinite effect */
-  scroll-snap-type: none;
 }
 
 .scrollable-carousel:active {
   cursor: grabbing;
 }
-
 
 .scrollable-carousel::-webkit-scrollbar {
   display: none;
@@ -588,8 +584,8 @@ body {
 
 /* Project Card Styles */
 .project-card {
-  flex: 0 0 950px;
-  height: 450px;
+  flex: 0 0 750px;
+  height: 300px;
   border-radius: 15px;
   overflow: hidden;
   cursor: pointer;
@@ -1649,16 +1645,16 @@ body {
   /* FIXED Banner cards mobile - Horizontal scroll */
   .carousel {
     display: flex;
-    flex-direction: column; /* CHANGED from row to column */
-    overflow-x: visible; /* CHANGED from auto to visible */
+    flex-direction: row; /* CHANGED from column to row */
+    overflow-x: auto; /* CHANGED from visible */
     overflow-y: visible;
     scroll-behavior: smooth;
-    scroll-snap-type: none; /* REMOVED horizontal snap */
+    scroll-snap-type: x mandatory; /* ADDED for better scrolling */
     gap: 20px;
     padding: 20px 15px;
     width: 100%;
-    justify-content: center; /* CHANGED from flex-start to center */
-    align-items: center; /* ADDED for centering */
+    justify-content: flex-start; /* CHANGED from center */
+    align-items: stretch;
     order: 2;
     margin-top: 0;
   }
@@ -1667,14 +1663,14 @@ body {
     border-radius: 8px;
     background: rgba(255, 255, 255, 1);
     padding: 1.5rem;
-    width: 100%; /* CHANGED from fixed 300px to 100% */
-    max-width: 400px; /* ADDED max-width for better control */
-    min-width: unset; /* REMOVED min-width constraint */
+    width: 300px; /* FIXED width */
+    min-width: 300px; /* ADDED to prevent shrinking */
+    max-width: 300px; /* ADDED for consistency */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    flex: none; /* CHANGED from 0 0 auto to none */
+    flex: 0 0 auto; /* CHANGED to prevent flex growth/shrink */
     cursor: pointer;
     margin: 0;
-    scroll-snap-align: none; /* REMOVED snap alignment */
+    scroll-snap-align: start; /* ADDED for better scrolling */
   }
 
   .banner-card img {
@@ -1754,8 +1750,8 @@ body {
   }
 
   .project-card {
-    flex: 0 0 320px;
-    height: 260px;
+    flex: 0 0 280px;
+    height: 350px;
   }
 
   .carousel-nav-btn {
