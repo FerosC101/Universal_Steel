@@ -693,50 +693,60 @@ const ScrollableProjectCarousel = ({ projects, openModal }: { projects: ProjectG
         }
     };
 
-    // Auto-scroll functionality
-    useEffect(() => {
-        const carousel = carouselRef.current;
-        if (!carousel) return;
+// Auto-scroll functionality
+useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
 
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-expect-error
-        let autoScrollInterval: NodeJS.Timeout;
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    let autoScrollInterval: NodeJS.Timeout;
+    let direction = 1; 
 
-        const startAutoScroll = () => {
-            autoScrollInterval = setInterval(() => {
+    const startAutoScroll = () => {
+        autoScrollInterval = setInterval(() => {
+            if (direction === 1) {
+                // Going right
                 if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth) {
-                    // If at the end, scroll back to beginning
-                    carousel.scrollTo({ left: 0, behavior: 'smooth' });
+                    direction = -1; // switch direction to left
                 } else {
-                    // Otherwise scroll right
-                    carousel.scrollBy({ left: 350, behavior: 'smooth' });
+                    carousel.scrollBy({ left: 650, behavior: 'smooth' });
                 }
-            }, 4000); // Auto-scroll every 4 seconds
-        };
-
-        const stopAutoScroll = () => {
-            if (autoScrollInterval) {
-                clearInterval(autoScrollInterval);
+            } else {
+                // Going left
+                if (carousel.scrollLeft <= 0) {
+                    direction = 1; // switch direction to right
+                } else {
+                    carousel.scrollBy({ left: -650, behavior: 'smooth' });
+                }
             }
-        };
+        }, 4000); 
+    };
 
-        // Start auto-scroll
-        startAutoScroll();
+    const stopAutoScroll = () => {
+        if (autoScrollInterval) {
+            clearInterval(autoScrollInterval);
+        }
+    };
 
-        // Stop auto-scroll on hover or interaction
-        carousel.addEventListener('mouseenter', stopAutoScroll);
-        carousel.addEventListener('mouseleave', startAutoScroll);
-        carousel.addEventListener('touchstart', stopAutoScroll);
+    // Start auto-scroll
+    startAutoScroll();
 
-        return () => {
-            stopAutoScroll();
-            if (carousel) {
-                carousel.removeEventListener('mouseenter', stopAutoScroll);
-                carousel.removeEventListener('mouseleave', startAutoScroll);
-                carousel.removeEventListener('touchstart', stopAutoScroll);
-            }
-        };
-    }, []);
+    // Stop auto-scroll on hover or interaction
+    carousel.addEventListener('mouseenter', stopAutoScroll);
+    carousel.addEventListener('mouseleave', startAutoScroll);
+    carousel.addEventListener('touchstart', stopAutoScroll);
+
+    return () => {
+        stopAutoScroll();
+        if (carousel) {
+            carousel.removeEventListener('mouseenter', stopAutoScroll);
+            carousel.removeEventListener('mouseleave', startAutoScroll);
+            carousel.removeEventListener('touchstart', stopAutoScroll);
+        }
+    };
+}, []);
+
 
     // Mouse drag functionality
     const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
