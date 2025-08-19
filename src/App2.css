@@ -230,7 +230,7 @@ body {
   gap: 20px;
   padding: 20px;
   width: 100%;
-  justify-content: center;
+  justify-content: flex-start;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -244,9 +244,11 @@ body {
   background: rgba(255, 255, 255, 1);
   padding: 1.5em;
   width: 700px;
+  min-width: 700px;
   box-shadow: 6px 6px 15px rgba(20, 20, 20, 0.568);
   flex: 0 0 auto;
   cursor: pointer;
+  scroll-snap-align: start;
 }
 
 .banner-card img {
@@ -582,8 +584,8 @@ body {
 
 /* Project Card Styles */
 .project-card {
-  flex: 0 0 950px;
-  height: 450px;
+  flex: 0 0 750px;
+  height: 300px;
   border-radius: 15px;
   overflow: hidden;
   cursor: pointer;
@@ -1620,58 +1622,67 @@ body {
     line-height: 1.2;
   }
 
-  /* Top banner mobile */
+  /* Top banner mobile - FIXED */
   .top-banner {
     height: auto;
-    min-height: 400px;
-    margin-bottom: 80px;
-    padding-bottom: 40px;
+    min-height: 300px;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 40px;
   }
 
   .top-banner > h1 {
     font-size: 2.2rem;
-    padding-top: 50px;
-    margin-bottom: 30px;
+    padding-top: 20px;
+    margin-bottom: 20px;
+    order: 1;
   }
 
-  /* Banner cards mobile */
+  /* FIXED Banner cards mobile - Horizontal scroll */
   .carousel {
     display: flex;
-    flex-direction: column;
-    overflow-x: visible;
-    overflow-y: auto;
+    flex-direction: row; /* CHANGED from column to row */
+    overflow-x: auto; /* CHANGED from visible */
+    overflow-y: visible;
     scroll-behavior: smooth;
-    scroll-snap-type: none;
+    scroll-snap-type: x mandatory; /* ADDED for better scrolling */
     gap: 20px;
     padding: 20px 15px;
     width: 100%;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start; /* CHANGED from center */
+    align-items: stretch;
+    order: 2;
+    margin-top: 0;
   }
 
   .banner-card {
     border-radius: 8px;
     background: rgba(255, 255, 255, 1);
     padding: 1.5rem;
-    width: 100%;
-    max-width: 350px;
-    min-width: unset;
+    width: 300px; /* FIXED width */
+    min-width: 300px; /* ADDED to prevent shrinking */
+    max-width: 300px; /* ADDED for consistency */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    flex: none;
+    flex: 0 0 auto; /* CHANGED to prevent flex growth/shrink */
     cursor: pointer;
-    margin: 0 auto;
+    margin: 0;
+    scroll-snap-align: start; /* ADDED for better scrolling */
   }
 
   .banner-card img {
     width: 100%;
-    height: 250px;
+    height: 200px; /* REDUCED height for mobile */
     display: block;
     object-fit: cover;
     border-radius: 8px;
   }
 
   .banner-card h2 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     margin-top: 1rem;
     text-align: center;
     margin-bottom: 0.5rem;
@@ -1679,10 +1690,18 @@ body {
     font-weight: bold;
   }
 
+  .banner-card p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    text-align: center;
+    color: #666;
+    margin: 0;
+  }
+
   /* Partners section mobile */
   .partners-cont {
-    margin-top: 100px;
-    margin-bottom: 50px;
+    margin-top: 50px;
+    margin-bottom: 40px;
     flex-direction: column;
     gap: 20px;
     padding: 15px;
@@ -1759,6 +1778,8 @@ body {
   /* View Other Projects Button Mobile */
   .view-other-projects-container {
     padding: 15px;
+    order: 3;
+    margin-top: 20px;
   }
 
   .view-other-projects-button {
@@ -1767,6 +1788,13 @@ body {
     width: 100%;
     max-width: 300px;
     justify-content: center;
+  }
+
+  /* Full width flex mobile */
+  .full-width-flex {
+    padding: 20px 15px;
+    order: 3;
+    margin-bottom: 0;
   }
 
   /* Projects List Modal Mobile - Client List Style */
@@ -2131,9 +2159,73 @@ body {
   .spectrometer-quote p {
     font-size: 0.9rem;
   }
+
+  /* Mobile Modal Fixes */
+  .modal {
+    width: 95%;
+    max-width: 95vw;
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .modal-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .modal-header img {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+  }
+
+  .modal .product-name {
+    font-size: 1.5rem;
+  }
+
+  .modal .price-range {
+    font-size: 1.1rem;
+  }
+
+  .modal .product-description {
+    font-size: 0.9rem;
+  }
+
+  .pricing-table-container h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+
+  .pricing-table {
+    font-size: 0.8rem;
+    min-width: 600px;
+  }
+
+  .pricing-table th,
+  .pricing-table td {
+    padding: 8px 5px;
+  }
+
+  .pricing-table th {
+    font-size: 0.85rem;
+  }
 }
 
 @media (max-width: 480px) {
+  /* Extra small mobile fixes */
+  .top-banner {
+    min-height: 250px;
+    padding-top: 30px;
+  }
+
+  .top-banner > h1 {
+    font-size: 1.8rem;
+    padding-top: 15px;
+    margin-bottom: 15px;
+  }
+
   .carousel {
     padding: 15px 10px;
     gap: 18px;
@@ -2141,35 +2233,32 @@ body {
 
   .banner-card {
     padding: 1.2rem;
-    max-width: 320px;
+    width: 280px;
+    min-width: 280px;
+    max-width: 280px;
   }
 
   .banner-card img {
-    height: 220px;
+    height: 180px;
     border-radius: 6px;
   }
 
   .banner-card h2 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-top: 0.8rem;
   }
 
   .banner-card p {
-    font-size: 0.9rem;
-  }
-
-  .top-banner > h1 {
-    font-size: 1.9rem;
-    padding-top: 40px;
+    font-size: 0.8rem;
   }
 
   .full-width-flex {
-    padding: 25px 15px;
+    padding: 15px 10px;
   }
 
   .product-button {
-    padding: 12px 20px;
-    font-size: 0.95rem;
+    padding: 10px 16px;
+    font-size: 0.85rem;
   }
 
   /* Small Mobile Projects List Modal */
@@ -2232,29 +2321,55 @@ body {
   .projects-list-name {
     font-size: 0.85rem;
   }
+
+  /* Modal fixes for small screens */
+  .modal {
+    padding: 15px;
+    width: 98%;
+    max-width: 98vw;
+  }
+
+  .modal .close-button {
+    width: 25px;
+    height: 25px;
+    top: 10px;
+    right: 10px;
+  }
+
+  .pricing-table {
+    font-size: 0.7rem;
+    min-width: 500px;
+  }
+
+  .pricing-table th,
+  .pricing-table td {
+    padding: 6px 3px;
+  }
 }
 
 /* Very small mobile */
 @media (max-width: 360px) {
+  .top-banner > h1 {
+    font-size: 1.6rem;
+  }
+
   .banner-card {
-    max-width: 300px;
+    width: 250px;
+    min-width: 250px;
+    max-width: 250px;
     padding: 1rem;
   }
 
   .banner-card img {
-    height: 200px;
+    height: 160px;
   }
 
   .banner-card h2 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .banner-card p {
-    font-size: 0.85rem;
-  }
-
-  .top-banner > h1 {
-    font-size: 1.7rem;
+    font-size: 0.75rem;
   }
 
   /* Very Small Mobile Projects List Modal */
@@ -2317,167 +2432,10 @@ body {
   .projects-list-name {
     font-size: 0.8rem;
   }
-}
-
-/* Small mobile adjustments */
-@media (max-width: 480px) {
-  .header-container {
-    padding: 0 10px;
-  }
-
-  .logo-text {
-    font-size: 11px;
-  }
-
-  .logo-icon {
-    width: 35px;
-    height: 35px;
-  }
-
-  .top-banner {
-    height: 250px;
-    margin-bottom: 100px;
-  }
-
-  .top-banner > h1 {
-    font-size: 1.5rem;
-    padding-top: 30px;
-  }
-
-  .banner-card {
-    width: 260px;
-    min-width: 260px;
-    padding: 0.8rem;
-  }
-
-  .banner-card img {
-    height: 160px;
-  }
-
-  .banner-card h2 {
-    font-size: 1.1rem;
-  }
-
-  .partners-card {
-    height: 100px;
-    width: 140px;
-  }
-
-  .partners-card img {
-    max-height: 60px;
-  }
-
-  .main-body {
-    padding: 30px 10px;
-    margin-bottom: 30px;
-  }
-
-  .finished-products {
-    padding: 30px 5px;
-  }
-
-  .projects-header h1 {
-    font-size: 1.6rem;
-  }
-
-  .projects-subtitle {
-    font-size: 0.9rem;
-  }
-
-  .project-card {
-    flex: 0 0 250px;
-    height: 300px;
-  }
-
-  .projects-list-modal-title {
-    font-size: 1.2rem;
-  }
-
-  .project-modal {
-    border-radius: 8px;
-    margin: 8px;
-  }
-
-  .project-modal-header {
-    padding: 16px 12px 12px;
-  }
-
-  .project-modal-title {
-    font-size: 1.3rem;
-    margin-bottom: 6px;
-  }
-
-  .project-modal-description {
-    font-size: 0.85rem;
-  }
-
-  .project-modal-content {
-    padding: 12px;
-    min-height: 200px;
-  }
-
-  .project-modal-image {
-    height: 180px;
-  }
-
-  .project-image-title {
-    font-size: 0.9rem;
-  }
-
-  .project-image-title-overlay {
-    padding: 8px;
-  }
-
-  .modal-nav-btn {
-    width: 36px;
-    height: 36px;
-  }
-
-  .modal-nav-btn:first-child {
-    left: 4px;
-  }
-
-  .modal-nav-btn:last-child {
-    right: 4px;
-  }
-
-  .project-modal-footer {
-    padding: 12px;
-    max-height: 150px;
-  }
-
-  .project-thumbnails {
-    gap: 6px;
-  }
-
-  .project-thumbnail {
-    width: 60px;
-    height: 45px;
-  }
-
-  .current-image-details {
-    padding: 10px;
-  }
-
-  .current-image-details h4 {
-    font-size: 0.9rem;
-  }
-
-  .current-image-details p {
-    font-size: 0.8rem;
-  }
-
-  .modal-close-btn {
-    width: 28px;
-    height: 28px;
-    font-size: 16px;
-    top: 8px;
-    right: 8px;
-  }
 
   .modal {
-    padding: 15px;
-    width: 98%;
+    padding: 12px;
+    margin: 5px;
   }
 
   .modal .product-name {
@@ -2489,111 +2447,8 @@ body {
   }
 
   .pricing-table {
-    font-size: 0.7rem;
-  }
-
-  .pricing-table th,
-  .pricing-table td {
-    padding: 6px 3px;
-  }
-
-  .footer-container {
-    padding: 0 10px;
-  }
-
-  .footer-company .logo-text {
-    font-size: 12px;
-  }
-
-  .footer-company .logo-icon {
-    width: 32px;
-    height: 32px;
-  }
-
-  /* Very Small Mobile Spectrometer */
-  .spectrometer-image {
-    height: 250px;
-  }
-
-  .spectrometer-title {
-    font-size: 1.6rem;
-  }
-
-  .spectrometer-subtitle {
-    font-size: 0.95rem;
-  }
-
-  .spectrometer-feature-title {
-    font-size: 1rem;
-  }
-
-  .spectrometer-feature-description {
-    font-size: 0.85rem;
-  }
-
-  .spectrometer-quote p {
-    font-size: 0.85rem;
-  }
-}
-
-/* Very small mobile */
-@media (max-width: 360px) {
-  .project-modal-overlay {
-    padding: 10px;
-  }
-
-  .project-modal {
-    margin: 4px;
-  }
-
-  .project-modal-title {
-    font-size: 1.2rem;
-  }
-
-  .project-modal-description {
-    font-size: 0.8rem;
-  }
-
-  .project-modal-image {
-    height: 160px;
-  }
-
-  .project-image-title {
-    font-size: 0.85rem;
-  }
-
-  .modal-nav-btn {
-    width: 32px;
-    height: 32px;
-  }
-
-  .project-thumbnails {
-    gap: 4px;
-  }
-
-  .project-thumbnail {
-    width: 55px;
-    height: 40px;
-  }
-
-  .current-image-details {
-    padding: 8px;
-  }
-
-  .current-image-details h4 {
-    font-size: 0.85rem;
-  }
-
-  .current-image-details p {
-    font-size: 0.75rem;
-  }
-
-  .projects-list-modal-content {
-    padding: 15px;
-  }
-
-  .projects-list-section-title {
-    font-size: 1.1rem;
+    font-size: 0.65rem;
+    min-width: 450px;
   }
 }
 
@@ -2610,8 +2465,13 @@ body {
   }
 
   .banner-card {
-    width: 320px;
-    min-width: 320px;
+    width: 350px;
+    min-width: 350px;
+    max-width: 350px;
+  }
+
+  .banner-card img {
+    height: 220px;
   }
 
   .partners-card {
