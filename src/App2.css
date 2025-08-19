@@ -1645,16 +1645,16 @@ body {
   /* FIXED Banner cards mobile - Horizontal scroll */
   .carousel {
     display: flex;
-    flex-direction: row; /* CHANGED from column to row */
-    overflow-x: auto; /* CHANGED from visible */
+    flex-direction: column; /* CHANGED from row to column */
+    overflow-x: visible; /* CHANGED from auto to visible */
     overflow-y: visible;
     scroll-behavior: smooth;
-    scroll-snap-type: x mandatory; /* ADDED for better scrolling */
+    scroll-snap-type: none; /* REMOVED horizontal snap */
     gap: 20px;
     padding: 20px 15px;
     width: 100%;
-    justify-content: flex-start; /* CHANGED from center */
-    align-items: stretch;
+    justify-content: center; /* CHANGED from flex-start to center */
+    align-items: center; /* ADDED for centering */
     order: 2;
     margin-top: 0;
   }
@@ -1663,14 +1663,14 @@ body {
     border-radius: 8px;
     background: rgba(255, 255, 255, 1);
     padding: 1.5rem;
-    width: 300px; /* FIXED width */
-    min-width: 300px; /* ADDED to prevent shrinking */
-    max-width: 300px; /* ADDED for consistency */
+    width: 100%; /* CHANGED from fixed 300px to 100% */
+    max-width: 400px; /* ADDED max-width for better control */
+    min-width: unset; /* REMOVED min-width constraint */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    flex: 0 0 auto; /* CHANGED to prevent flex growth/shrink */
+    flex: none; /* CHANGED from 0 0 auto to none */
     cursor: pointer;
     margin: 0;
-    scroll-snap-align: start; /* ADDED for better scrolling */
+    scroll-snap-align: none; /* REMOVED snap alignment */
   }
 
   .banner-card img {
@@ -2233,9 +2233,8 @@ body {
 
   .banner-card {
     padding: 1.2rem;
-    width: 280px;
-    min-width: 280px;
-    max-width: 280px;
+    width: 100%;
+    max-width: 350px; /* ADJUSTED max-width for smaller screens */
   }
 
   .banner-card img {
@@ -2354,9 +2353,7 @@ body {
   }
 
   .banner-card {
-    width: 250px;
-    min-width: 250px;
-    max-width: 250px;
+    max-width: 320px; /* ADJUSTED for very small screens */
     padding: 1rem;
   }
 
