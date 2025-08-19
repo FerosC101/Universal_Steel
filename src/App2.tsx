@@ -662,8 +662,8 @@ const ProjectCard = ({ project, onClick }: { project: ProjectGroup, onClick: (pr
     );
 };
 
-const ScrollableProjectCarousel = ({ projects, openModal }) => {
-    const carouselRef = useRef(null);
+const ScrollableProjectCarousel = ({ projects, openModal }: { projects: ProjectGroup[], openModal: (project: ProjectGroup) => void }) => {
+    const carouselRef = useRef<HTMLDivElement>(null);
     const [canScrollLeft, setCanScrollLeft] = useState(false);
     const [canScrollRight, setCanScrollRight] = useState(true);
     const [isDragging, setIsDragging] = useState(false);
@@ -671,8 +671,8 @@ const ScrollableProjectCarousel = ({ projects, openModal }) => {
     const [scrollLeft, setScrollLeft] = useState(0);
     const [isAutoScrolling, setIsAutoScrolling] = useState(true);
 
-    // Create extended array for infinite scroll effect
-    const extendedProjects = [...projects, ...projects, ...projects]; // Triple the array for smooth infinite scroll
+    // Create multiple copies for seamless infinite scroll
+    const infiniteProjects = [...projects, ...projects, ...projects, ...projects];
 
     // Check scroll position
     const checkScrollPosition = () => {
@@ -683,88 +683,133 @@ const ScrollableProjectCarousel = ({ projects, openModal }) => {
         }
     };
 
-    // Handle infinite scroll - reset position when needed
+    // Infinite scroll logic
     const handleInfiniteScroll = () => {
         if (!carouselRef.current) return;
 
         const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
-        const itemWidth = 750 + 30; // card width + gap
-        const totalOriginalWidth = projects.length * itemWidth;
+        const cardWidth = 950 + 30; // card width + gap
+        const projectsLength = projects.length;
+        const oneSetWidth = projectsLength * cardWidth;
 
-        // If we've scrolled past 2 full sets, reset to the middle set
-        if (scrollLeft >= totalOriginalWidth * 2) {
-            carouselRef.current.scrollLeft = scrollLeft - totalOriginalWidth;
+        // If we've scrolled past the second set, jump back to the first set
+        if (scrollLeft >= oneSetWidth * 2) {
+            carouselRef.current.scrollLeft = scrollLeft - oneSetWidth;
         }
-        // If we've scrolled before the first set, jump to the end of the middle set
+        // If we've scrolled before the first set, jump to the second set
         else if (scrollLeft <= 0) {
-            carouselRef.current.scrollLeft = totalOriginalWidth;
+            carouselRef.current.scrollLeft = oneSetWidth;
         }
     };
 
-    // Scroll functions with infinite handling
+    // Initialize scroll position to start from the second set (for seamless backward scroll)
+    useEffect(() => {
+        if (carouselRef.current && projects.length > 0) {
+            const cardWidth = 950 + 30; // card width + gap
+            const oneSetWidth = projects.length * cardWidth;
+            carouselRef.current.scrollLeft = oneSetWidth;
+        }
+    }, [projects]);
+
+    // Scroll functions
     const scrollToLeft = () => {
         if (carouselRef.current) {
-            const itemWidth = 750 + 30; // card width + gap
-            carouselRef.current.scrollBy({ left: -itemWidth, behavior: 'smooth' });
-            setTimeout(handleInfiniteScroll, 300);
+            carouselRef.current.scrollBy({ left: -980, behavior: 'smooth' });
         }
     };
 
     const scrollToRight = () => {
         if (carouselRef.current) {
-            const itemWidth = 750 + 30; // card width + gap
-            carouselRef.current.scrollBy({ left: itemWidth, behavior: 'smooth' });
-            setTimeout(handleInfiniteScroll, 300);
+            carouselRef.current.scrollBy({ left: 980, behavior: 'smooth' });
         }
     };
 
-    // Initialize carousel position to middle set
+    // Auto-scroll functionality with infinite loop
     useEffect(() => {
-        if (carouselRef.current) {
-            const itemWidth = 750 + 30; // card width + gap
-            const totalOriginalWidth = projects.length * itemWidth;
-            carouselRef.current.scrollLeft = totalOriginalWidth; // Start at middle set
-        }
-    }, [projects.length]);
+        if (!isAutoScrolling) return;
 
-    // Auto-scroll functionality with infinite scroll
-    useEffect(() => {
-        if (!carouselRef.current || !isAutoScrolling) return;
+        const carousel = carouselRef.current;
+        if (!carousel) return;
 
-        const autoScrollInterval = setInterval(() => {
-            if (carouselRef.current) {
-                const itemWidth = 750 + 30;
-                carouselRef.current.scrollBy({ left: itemWidth, behavior: 'smooth' });
-                setTimeout(handleInfiniteScroll, 300);
-            }
-        }, 4000);
+        let autoScrollInterval: NodeJS.Timeout;
 
-        return () => {
+        const startAutoScroll = () => {
+            autoScrollInterval = setInterval(() => {
+                if (carousel) {
+                    // Always scroll right for auto-scroll
+                    carousel.scrollBy({ left: 980, behavior: 'smooth' });
+                }
+            }, 4000);
+        };
+
+        const stopAutoScroll = () => {
             if (autoScrollInterval) {
                 clearInterval(autoScrollInterval);
             }
         };
-    }, [isAutoScrolling, projects.length]);
 
-    // Handle mouse interactions
-    const handleMouseEnter = () => {
-        setIsAutoScrolling(false);
-    };
+        // Start auto-scroll
+        startAutoScroll();
 
-    const handleMouseLeave = () => {
-        setIsAutoScrolling(true);
-    };
+        // Stop auto-scroll on hover or interaction
+        const handleMouseEnter = () => {
+            setIsAutoScrolling(false);
+            stopAutoScroll();
+        };
+
+        const handleMouseLeave = () => {
+            setIsAutoScrolling(true);
+        };
+
+        const handleTouchStart = () => {
+            setIsAutoScrolling(false);
+            stopAutoScroll();
+        };
+
+        carousel.addEventListener('mouseenter', handleMouseEnter);
+        carousel.addEventListener('mouseleave', handleMouseLeave);
+        carousel.addEventListener('touchstart', handleTouchStart);
+
+        return () => {
+            stopAutoScroll();
+            if (carousel) {
+                carousel.removeEventListener('mouseenter', handleMouseEnter);
+                carousel.removeEventListener('mouseleave', handleMouseLeave);
+                carousel.removeEventListener('touchstart', handleTouchStart);
+            }
+        };
+    }, [isAutoScrolling]);
+
+    // Handle scroll events for infinite scroll
+    useEffect(() => {
+        const carousel = carouselRef.current;
+        if (!carousel) return;
+
+        const handleScroll = () => {
+            handleInfiniteScroll();
+            checkScrollPosition();
+        };
+
+        carousel.addEventListener('scroll', handleScroll);
+        checkScrollPosition();
+
+        return () => {
+            if (carousel) {
+                carousel.removeEventListener('scroll', handleScroll);
+            }
+        };
+    }, [projects]);
 
     // Mouse drag functionality
-    const handleMouseDown = (e) => {
+    const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
         setIsDragging(true);
-        setIsAutoScrolling(false);
         setStartX(e.pageX - (carouselRef.current?.offsetLeft ?? 0));
         setScrollLeft(carouselRef.current?.scrollLeft ?? 0);
+        setIsAutoScrolling(false);
         e.preventDefault();
     };
 
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         if (!isDragging) return;
         e.preventDefault();
         const x = e.pageX - (carouselRef.current?.offsetLeft ?? 0);
@@ -776,27 +821,21 @@ const ScrollableProjectCarousel = ({ projects, openModal }) => {
 
     const handleMouseUp = () => {
         setIsDragging(false);
-        setTimeout(() => {
-            handleInfiniteScroll();
-            setIsAutoScrolling(true);
-        }, 100);
+        setTimeout(() => setIsAutoScrolling(true), 2000); // Resume auto-scroll after 2 seconds
     };
 
-    const handleMouseLeaveCarousel = () => {
+    const handleMouseLeave = () => {
         setIsDragging(false);
-        setTimeout(() => {
-            setIsAutoScrolling(true);
-        }, 100);
     };
 
     // Touch events for mobile
-    const handleTouchStart = (e) => {
-        setIsAutoScrolling(false);
+    const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
         setStartX(e.touches[0].clientX);
         setScrollLeft(carouselRef.current?.scrollLeft ?? 0);
+        setIsAutoScrolling(false);
     };
 
-    const handleTouchMove = (e) => {
+    const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
         const x = e.touches[0].clientX;
         const walk = (startX - x) * 2;
         if (carouselRef.current) {
@@ -805,35 +844,12 @@ const ScrollableProjectCarousel = ({ projects, openModal }) => {
     };
 
     const handleTouchEnd = () => {
-        setTimeout(() => {
-            handleInfiniteScroll();
-            setIsAutoScrolling(true);
-        }, 100);
+        setTimeout(() => setIsAutoScrolling(true), 2000); // Resume auto-scroll after 2 seconds
     };
-
-    // Scroll event handler
-    const handleScroll = () => {
-        checkScrollPosition();
-        // Debounce infinite scroll handling
-        clearTimeout(window.infiniteScrollTimeout);
-        window.infiniteScrollTimeout = setTimeout(handleInfiniteScroll, 150);
-    };
-
-    useEffect(() => {
-        const carousel = carouselRef.current;
-        if (carousel) {
-            carousel.addEventListener('scroll', handleScroll);
-            checkScrollPosition();
-            return () => {
-                carousel.removeEventListener('scroll', handleScroll);
-                clearTimeout(window.infiniteScrollTimeout);
-            };
-        }
-    }, []);
 
     return (
         <div className="scrollable-carousel-container">
-            {/* Navigation Arrows */}
+            {/* Navigation Arrows - Always show them */}
             <button
                 className="carousel-nav-btn carousel-nav-left"
                 onClick={scrollToLeft}
@@ -854,16 +870,18 @@ const ScrollableProjectCarousel = ({ projects, openModal }) => {
             <div
                 ref={carouselRef}
                 className="scrollable-carousel"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
                 onMouseDown={handleMouseDown}
                 onMouseMove={handleMouseMove}
                 onMouseUp={handleMouseUp}
+                onMouseLeave={handleMouseLeave}
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
+                style={{
+                    scrollBehavior: isDragging ? 'auto' : 'smooth'
+                }}
             >
-                {extendedProjects.map((project, index) => (
+                {infiniteProjects.map((project, index) => (
                     <ProjectCard
                         key={`${project.id}-${index}`}
                         project={project}
@@ -872,38 +890,25 @@ const ScrollableProjectCarousel = ({ projects, openModal }) => {
                 ))}
             </div>
 
-            {/* Indicators - Only show original project count */}
+            {/* Scroll Indicators - Show only original project count */}
             <div className="carousel-indicators">
-                {projects.map((_, index) => {
-                    // Calculate current active indicator based on scroll position
-                    const carousel = carouselRef.current;
-                    let activeIndex = 0;
-                    if (carousel) {
-                        const itemWidth = 750 + 30;
-                        const scrollPos = carousel.scrollLeft;
-                        const totalOriginalWidth = projects.length * itemWidth;
-                        const normalizedPos = scrollPos % totalOriginalWidth;
-                        activeIndex = Math.round(normalizedPos / itemWidth) % projects.length;
-                    }
-
-                    return (
-                        <div
-                            key={index}
-                            className={`carousel-indicator ${index === activeIndex ? 'active' : ''}`}
-                            onClick={() => {
-                                if (carouselRef.current) {
-                                    const itemWidth = 750 + 30;
-                                    const totalOriginalWidth = projects.length * itemWidth;
-                                    const targetPosition = totalOriginalWidth + (index * itemWidth);
-                                    carouselRef.current.scrollTo({
-                                        left: targetPosition,
-                                        behavior: 'smooth'
-                                    });
-                                }
-                            }}
-                        />
-                    );
-                })}
+                {projects.map((_, index) => (
+                    <div
+                        key={index}
+                        className={`carousel-indicator ${index === 0 ? 'active' : ''}`}
+                        onClick={() => {
+                            if (carouselRef.current) {
+                                const cardWidth = 950 + 30; // card width + gap
+                                const oneSetWidth = projects.length * cardWidth;
+                                const targetScroll = oneSetWidth + (index * cardWidth);
+                                carouselRef.current.scrollTo({
+                                    left: targetScroll,
+                                    behavior: 'smooth'
+                                });
+                            }
+                        }}
+                    />
+                ))}
             </div>
         </div>
     );
