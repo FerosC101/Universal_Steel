@@ -518,6 +518,7 @@ body {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
+  overflow:hidden;
 }
 
 .scrollable-carousel {
@@ -529,11 +530,14 @@ body {
   scrollbar-width: none;
   -ms-overflow-style: none;
   cursor: grab;
+  /* Remove scroll snap for infinite effect */
+  scroll-snap-type: none;
 }
 
 .scrollable-carousel:active {
   cursor: grabbing;
 }
+
 
 .scrollable-carousel::-webkit-scrollbar {
   display: none;
@@ -1750,8 +1754,8 @@ body {
   }
 
   .project-card {
-    flex: 0 0 280px;
-    height: 350px;
+    flex: 0 0 320px;
+    height: 260px;
   }
 
   .carousel-nav-btn {
