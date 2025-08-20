@@ -1,0 +1,94 @@
+[33m394acdf[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{0}: rebase (finish): returning to refs/heads/main
+[33m394acdf[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{1}: rebase (continue): scroll loop
+[33md136600[m HEAD@{2}: rebase (pick): Minor fixes
+[33m049d1b8[m HEAD@{3}: rebase (continue): Minor fixes
+[33m08bd5de[m HEAD@{4}: rebase (continue): loop
+[33m816006d[m HEAD@{5}: rebase (pick): row to column
+[33m1225831[m HEAD@{6}: rebase (pick): Minor fixes
+[33me5bea3a[m HEAD@{7}: rebase (pick): revert to last commit for prdouct page
+[33m9dbd9d7[m HEAD@{8}: rebase (pick): minor fixes
+[33mcaf46c6[m HEAD@{9}: rebase (pick): Minor fixes
+[33m8179a24[m HEAD@{10}: rebase (pick): Minor fixes
+[33m0636a1c[m HEAD@{11}: rebase (continue): done 2 changes only
+[33mf1980ba[m[33m ([m[1;32mmaster[m[33m)[m HEAD@{12}: rebase (start): checkout refs/heads/master
+[33mffac62b[m[33m ([m[1;31morigin/main[m[33m)[m HEAD@{13}: commit: scroll loop
+[33mb1375ad[m HEAD@{14}: commit: Minor fixes
+[33m16ad8cd[m[33m ([m[1;31morigin/master[m[33m)[m HEAD@{15}: commit: Minor fixes
+[33mbce63bb[m HEAD@{16}: checkout: moving from editver3 to main
+[33m67bc2d5[m[33m ([m[1;31morigin/editver3[m[33m, [m[1;32meditver3[m[33m)[m HEAD@{17}: checkout: moving from master to editver3
+[33mf1980ba[m[33m ([m[1;32mmaster[m[33m)[m HEAD@{18}: merge origin/editver3: Merge made by the 'ort' strategy.
+[33mbf7665b[m HEAD@{19}: checkout: moving from main to master
+[33mbce63bb[m HEAD@{20}: commit (merge): Merge remote-tracking branch 'origin/editver3'
+[33m0e66734[m HEAD@{21}: commit (merge): Merge remote-tracking branch 'origin/master'
+[33m9de2f82[m HEAD@{22}: commit: loop
+[33m4330a34[m HEAD@{23}: commit: row to column
+[33m265f8e9[m HEAD@{24}: commit: Minor fixes
+[33m8fb4b38[m HEAD@{25}: commit: revert to last commit for prdouct page
+[33m931554b[m HEAD@{26}: commit: minor fixes
+[33m8ffe272[m HEAD@{27}: commit: Minor fixes
+[33m45a040a[m HEAD@{28}: pull --rebase origin main (finish): returning to refs/heads/main
+[33m45a040a[m HEAD@{29}: pull --rebase origin main (pick): Redesign for projects list
+[33m7a3db5f[m HEAD@{30}: pull --rebase origin main (pick): Minor fixes
+[33m68997fa[m HEAD@{31}: pull --rebase origin main (pick): done 2 changes only
+[33mb6fac2e[m HEAD@{32}: pull --rebase origin main (start): checkout b6fac2eda02a5f8cba6b75039101e51ba27de177
+[33ma78f170[m HEAD@{33}: pull origin main: Merge made by the 'ort' strategy.
+[33mbf7665b[m HEAD@{34}: checkout: moving from master to main
+[33mbf7665b[m HEAD@{35}: merge main: Fast-forward
+[33m9130aef[m[33m ([m[1;31morigin/editVer2[m[33m)[m HEAD@{36}: checkout: moving from main to master
+[33mbf7665b[m HEAD@{37}: commit: Redesign for projects list
+[33m8dcf8b0[m HEAD@{38}: commit: Minor fixes
+[33m9130aef[m[33m ([m[1;31morigin/editVer2[m[33m)[m HEAD@{39}: merge master: Fast-forward
+[33m90de9e0[m HEAD@{40}: checkout: moving from master to main
+[33m9130aef[m[33m ([m[1;31morigin/editVer2[m[33m)[m HEAD@{41}: merge origin/editVer2: Fast-forward
+[33me30a44c[m HEAD@{42}: commit: Minor Fixes
+[33m8092b5d[m HEAD@{43}: commit: Minor Fixes
+[33md578184[m HEAD@{44}: commit: Minor Fixes
+[33m1a9bfcd[m HEAD@{45}: commit: Minor Fixes
+[33m96c5e00[m HEAD@{46}: commit: Minor Fixes
+[33mb0aba0c[m HEAD@{47}: commit: Minor Fixes
+[33m41c0f77[m HEAD@{48}: commit: Minor Fixes
+[33m9decb9c[m HEAD@{49}: commit: Minor Fixes
+[33mddb868a[m HEAD@{50}: commit: fixed issues 4-5
+[33mc864ca7[m HEAD@{51}: commit (merge): Merge remote-tracking branch 'origin/editVer1'
+[33mecfe8cb[m HEAD@{52}: commit: Minor Fixes
+[33m0b45a2c[m HEAD@{53}: commit: Minor Fixes
+[33mb7ba060[m HEAD@{54}: commit: Minor Fixes
+[33m60429c8[m HEAD@{55}: commit: Minor Fixes
+[33m9009427[m HEAD@{56}: commit: Merge conflict in about us
+[33m694f6fc[m HEAD@{57}: commit: Fixed UI
+[33m14089af[m HEAD@{58}: commit: Merge conflict in about us
+[33ma5c6333[m HEAD@{59}: commit: needs qa
+[33ma0731fd[m HEAD@{60}: commit: Merge conflict in about us
+[33m4a09839[m HEAD@{61}: commit: merge conflict for about us
+[33m0f7426f[m HEAD@{62}: commit (merge): Merge remote-tracking branch 'origin/Aboutpage-Lore'
+[33mf6af26d[m HEAD@{63}: commit: Added Data
+[33m2962ce8[m HEAD@{64}: commit: Added Data
+[33mdd8411f[m HEAD@{65}: commit: Added Data
+[33m4136016[m HEAD@{66}: commit: Added Data
+[33m90de9e0[m HEAD@{67}: checkout: moving from main to master
+[33m90de9e0[m HEAD@{68}: merge master: Fast-forward
+[33m6ab2613[m HEAD@{69}: checkout: moving from master to main
+[33m90de9e0[m HEAD@{70}: commit: Added Data
+[33m2bb70c3[m HEAD@{71}: commit: Added Data
+[33m6ab2613[m HEAD@{72}: checkout: moving from main to master
+[33m6ab2613[m HEAD@{73}: commit: top banner change
+[33m8086550[m HEAD@{74}: commit: top banner change
+[33m75b64f8[m[33m ([m[1;32mProductpage-Lore[m[33m)[m HEAD@{75}: merge Productpage-Lore: Fast-forward
+[33mde35461[m HEAD@{76}: checkout: moving from Productpage-Lore to main
+[33m75b64f8[m[33m ([m[1;32mProductpage-Lore[m[33m)[m HEAD@{77}: merge origin/Productpage-Lore: Fast-forward
+[33m27f3e58[m HEAD@{78}: merge origin/Productpage-Lore: Fast-forward
+[33m691a0e0[m HEAD@{79}: checkout: moving from Productpage-Lore to Productpage-Lore
+[33m691a0e0[m HEAD@{80}: branch: Reset to origin/Productpage-Lore
+[33m691a0e0[m HEAD@{81}: checkout: moving from main to Productpage-Lore
+[33mde35461[m HEAD@{82}: commit: Fix base for Vercel
+[33m292b15c[m HEAD@{83}: commit: deployment
+[33m39b67c7[m HEAD@{84}: commit: Deployment Changes
+[33mbfaa054[m[33m ([m[1;31morigin/Homepage-Lore[m[33m, [m[1;32mHomepage-Lore[m[33m)[m HEAD@{85}: merge origin/Homepage-Lore: Fast-forward
+[33mc651e1c[m HEAD@{86}: checkout: moving from Homepage-Lore to main
+[33mbfaa054[m[33m ([m[1;31morigin/Homepage-Lore[m[33m, [m[1;32mHomepage-Lore[m[33m)[m HEAD@{87}: merge origin/Homepage-Lore: Fast-forward
+[33m6896ad2[m HEAD@{88}: checkout: moving from main to Homepage-Lore
+[33mc651e1c[m HEAD@{89}: rebase (finish): returning to refs/heads/main
+[33mc651e1c[m HEAD@{90}: commit (amend): Initial commit
+[33m34e2478[m HEAD@{91}: pull --rebase origin main (start): checkout 34e2478d11b701e02203433fd9143aca2ccf816c
+[33ma5b2028[m HEAD@{92}: Branch: renamed refs/heads/master to refs/heads/main
+[33ma5b2028[m HEAD@{94}: commit (initial): Initial ommit

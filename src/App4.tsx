@@ -570,71 +570,1039 @@ const MajorClients = () => {
     const clientimg = `https://res.cloudinary.com/drrzinr9v/image/upload/Group_1000001822_lkp9t8.png?ts=${Date.now()}`;
 
     const clients = [
-        "AYALA LAND, INC.",
-        "ALI ETON PROPERTY DEVELOPMENT CORPORATION",
-        "ANCHOR PROPERTIES & SUBSIDIARIES",
-        "A.M. ORETA & COMPANY",
-        "AVIDA LAND CORPORATION",
-        "BUILDING BEAVER CORPORATION",
-        "CAVDEAL INTERNATIONAL",
-        "CHINA INTERNATIONAL WATER & ELECTRICAL CORPORATION",
-        "CHINA ROAD AND BRIDGE CORPORATION",
-        "CHINA GEO-ENGINEERING PHILS. CORPORATION",
-        "DAIICHI PROPERTIES",
-        "DATEM, INC.",
-        "DATALAND INC.",
-        "DDT KONSTRACT INC.",
-        "D.M. WENCESLAO & ASSOCIATES INC.",
-        "D.M. CONSUNJI INC.",
-        "DMCI PROJECT DEVELOPERS INC",
-        "E. I. CONSTRUCTION CO., INC.",
-        "EEI CORPORATION",
-        "EMPIRE EAST LAND HOLDINGS INC.",
-        "ETON PROPERTIES PHILS. INC.",
-        "FEDERAL LAND, INC.",
-        "F.F. CRUZ & COMPANY",
-        "FILINVEST ALABANG INC. / FILINVEST LAND INC.",
-        "FIRST BALFOUR – LEIGHTON JOINT VENTURE",
-        "GLOBAL ESTATE RESORT INC.",
-        "HANJIN HEAVY INDUSTRIES & CONST. CO. LTD.",
-        "HANWHA E & C CORPORATION",
-        "HILMARCS CONSTRUCTION CORPORATION",
-        "HUMANTECH KOREA PHILS. CORPORATION",
-        "IPM CONSTRUCTION",
-        "JQ INTERNATIONAL CONSTRUCTION, INC.",
-        "KAJIMA PHILS. INC.",
-        "LEY CONST. & DEV'T. CORP.",
-        "LEIGHTON CONTRACTORS",
-        "MAKATI DEVELOPMENT CORPORATION",
-        "MALLERS INVESTMENTS CORPORATION",
-        "MEGAWIDE CONSTRUCTION CORPORATION",
-        "MEGAWORLD CORPORATION & SUBSIDIARIES",
-        "MOLDEX REALTY INC.",
-        "MONOCRETE CONSTRUCTION PHILIPPINES INC.",
-        "MONOLITH CONSTRUCTION",
-        "NATIONAL IRRIGATION ADMINISTRATION",
-        "NEW CITY BUILDERS INC.",
-        "NEW GOLDEN CITY BUILDERS",
-        "NEW KANLAON CONSTRUCTION",
-        "NEW SAN JOSE BUILDERS",
-        "OBAYASHI CORPORATION – Subic Expressway",
-        "PANORAMA PROPERTY VENTURES",
-        "PENTA – SHIMIZU TOA JOINT VENTURE",
-        "PERSAN CONSTRUCTION INC.",
-        "ROBINSONS LAND CORPORATION",
-        "ROCKWELL LAND CORPORATION",
-        "SAN MIGUEL CORPORATION & SUBSIDIARIES",
-        "SHANG ROBINSONS PROPERTIES, INC.",
-        "STAGES DESIGN & CONSTRUCTION CORPORATION",
-        "SM DEVELOPMENT CORPORATION",
-        "SM PRIME HOLDINGS, INC.",
-        "SMCC PHILIPPINES, INC.",
-        "TAISEI-SHIMIZU JOINT VENTURE",
-        "TOWNSQUARE DEVELOPMENT INC.",
-        "VICENTE T. LAO CONSTRUCTION",
-        "V.B. COLUMNA CONSTRUCTION",
-        "WHITEPORT INC.",
-        "YOUNG BUILDERS CORPORATION"
+        {
+            name: "AYALA LAND, INC.",
+            projects: [
+                "Montgomery Place",
+                "The Columns Ayala Avenue",
+                "The Residences @ Greenbelt 2",
+                "The Residences @ Greenbelt 3",
+                "Serendra Project",
+                "North Triangle Project",
+                "Two Serendra",
+                "Celadon Park Manila",
+                "Celadon Residences San Lazaro",
+                "The Columns Legaspi Village",
+                "The Aston @ Two Serendra",
+                "Glorietta Redevelopment",
+                "One Serendra East Tower",
+                "Senta",
+                "Meranti",
+                "The Montane",
+                "Manila Bay Shore",
+                "Vertis North"
+            ]
+        },
+        {
+            name: "ALI ETON PROPERTY DEVELOPMENT CORPORATION",
+            projects: [
+                "Parklinks South Tower",
+                "The Lattice at Parklinks"
+            ]
+        },
+        {
+            name: "ANCHOR PROPERTIES & SUBSIDIARIES",
+            projects: [
+                "8 Alonzo Parksuites",
+                "ALHI Corporate Office",
+                "Juna Luna Logistics Center",
+                "Cosmosuites",
+                "Anchor Grand Suites",
+                "One Legacy",
+                "Cornel Parksuites",
+                "One Financial Center",
+                "Copton Baysuites"
+            ]
+        },
+        {
+            name: "A.M. ORETA & COMPANY",
+            projects: [
+                "NAIA Terminal II",
+                "Manila Polo Club",
+                "MWSS – La Mesa Dam",
+                "Dasma Corporate Center",
+                "Masbate Project",
+                "Platinum",
+                "Metro bank",
+                "Balog-balog Multipurpose",
+                "New South Terminal Commercial Center",
+                "3 Forty Fifth Building",
+                "Malabon Grand Hotel",
+                "Taguig City Hall",
+                "SOCO Project"
+            ]
+        },
+        {
+            name: "AVIDA LAND CORPORATION",
+            projects: [
+                "Avida Towers New Manila",
+                "Avida Towers San Lazaro",
+                "Avida Horizontal & Manufacturing Plant",
+                "Avida Towers Makati West",
+                "Avida Nuvali",
+                "Makati South Point"
+            ]
+        },
+        {
+            name: "BUILDING BEAVER CORPORATION",
+            projects: [
+                "Medical Center of Taguig City",
+                "Pasig Doctor's Medical Center"
+            ]
+        },
+        {
+            name: "CAVDEAL INTERNATIONAL",
+            projects: [
+                "Abuyog – Silago Project",
+                "Baguio – Aritao Road",
+                "Imus River Bridge",
+                "TMC Arcade",
+                "SLEX Rehabilitation"
+            ]
+        },
+        {
+            name: "CHINA INTERNATIONAL WATER & ELECTRICAL CORPORATION",
+            projects: [
+                "Bago River Irrigation System Rehabilitation & Improvement",
+                "Iloilo Flood Control Phase II",
+                "Studio City Tower 5"
+            ]
+        },
+        {
+            name: "CHINA ROAD AND BRIDGE CORPORATION",
+            projects: []
+        },
+        {
+            name: "CHINA GEO-ENGINEERING PHILS. CORPORATION",
+            projects: []
+        },
+        {
+            name: "DAIICHI PROPERTIES",
+            projects: [
+                "One World Place",
+                "World Plaza",
+                "The Finance Plaza"
+            ]
+        },
+        {
+            name: "DATEM, INC.",
+            projects: [
+                "One Shangri-La Place",
+                "Venice Corporate Center",
+                "Unilab Corporate Center",
+                "UST Senior High Building",
+                "One Legrand Tower",
+                "Caticlan Hotel",
+                "MK Tan Center",
+                "Savya Financial Center",
+                "18th Avenue De Triomphe",
+                "Cyberpark Tower 3",
+                "Haraya Residences",
+                "Eluria"
+            ]
+        },
+        {
+            name: "DATALAND INC.",
+            projects: [
+                "Sky Tower"
+            ]
+        },
+        {
+            name: "DDT KONSTRACT INC.",
+            projects: [
+                "Hanjin Phils.",
+                "Taal Vista Hotel",
+                "Lancaster Suite",
+                "Dimensione Showroom",
+                "John Mary Retreat House",
+                "Fort 26 Project",
+                "Lexmark Plaza Bldg.",
+                "Pacita Commercial Complex Phase 2",
+                "Waltermart Munoz",
+                "Lexmark Plaza Building 2",
+                "San Lazaro BPO Bldg. A",
+                "Hamilo Coast Country Club",
+                "LDS – Cebu Temple",
+                "Lancaster Tower 2",
+                "Precast Plant",
+                "Cyber Scape Beta",
+                "Globe Telecom",
+                "SM Light Residences",
+                "Robinsons Cyberbeta",
+                "Manila Bay Resort",
+                "The Olive Place",
+                "Cyber Scape Gamma",
+                "Grand West Side Hotel",
+                "Park Mckinley West",
+                "Bayshore Residential Resort",
+                "Kristong Hari Shrine",
+                "MBP Office Building"
+            ]
+        },
+        {
+            name: "D.M. WENCESLAO & ASSOCIATES INC.",
+            projects: [
+                "Pixel Residences",
+                "PARQAL"
+            ]
+        },
+        {
+            name: "D.M. CONSUNJI INC.",
+            projects: [
+                "Bonifacio Heights",
+                "Mayfield Park",
+                "Palm Grove",
+                "Villa Alegre",
+                "Vista de Lago",
+                "Shangrila Resort & Spa @ Boracay",
+                "Riverfront Residences",
+                "Boracay Ready Mix Batching Plant",
+                "Maynilad Project",
+                "Cypress Towers",
+                "Kamanava Phase 2",
+                "Rosewood Tower"
+            ]
+        },
+        {
+            name: "DMCI PROJECT DEVELOPERS INC",
+            projects: [
+                "Alder Residences",
+                "Mulberry Place 2",
+                "Fortis Residences",
+                "The Oriana",
+                "Acacia Estates"
+            ]
+        },
+        {
+            name: "E. I. CONSTRUCTION CO., INC.",
+            projects: [
+                "New Bacolod Silay Airport",
+                "Subic Bay Port Development",
+                "Anvaya Cove"
+            ]
+        },
+        {
+            name: "EEI CORPORATION",
+            projects: [
+                "RCC Project",
+                "Wrigley Project",
+                "Isla Putting Bato",
+                "Daelim Project",
+                "Philips Project",
+                "LRT – Sumitomo Project",
+                "San Miguel Yamamura Project",
+                "GA Tower",
+                "NAIA Skyway",
+                "Petron Lima Project",
+                "Edsa Central IT Center",
+                "Rio Tuba Nickel",
+                "Makati Medical Center Annex Building",
+                "St. Francis",
+                "Biscom Projects",
+                "Mandarin Project",
+                "RCBC Building",
+                "Beacon Tower",
+                "MWCI Taguig",
+                "ADB Project",
+                "Novotel Araneta Center",
+                "Skyway Stage 3",
+                "ETY Project",
+                "Bocaue Toll Plaza",
+                "NLEX Toll Plaza",
+                "MRT 7 Project",
+                "SMNCI Line 3 Expansion",
+                "Caticlan Airport",
+                "UPPC",
+                "Sucat – Alabang Interchange",
+                "SEMME",
+                "C-3 A. Bonifacio Interchange",
+                "Malolos-Clark Railway project",
+                "Mapua Malayan College Laguna"
+            ]
+        },
+        {
+            name: "EMPIRE EAST LAND HOLDINGS INC.",
+            projects: [
+                "One Governor's Place",
+                "Gilmore Heights",
+                "Laguna Bel Air",
+                "IBM Plaza",
+                "Eastwood City",
+                "San Francisco",
+                "Greenhills Garden",
+                "California Garden",
+                "The Xavier Hills",
+                "UN Gardens",
+                "Sunrise Hills",
+                "The Cambridge Village",
+                "One Pioneer",
+                "Kasara Tower 3 & 5 project",
+                "Pioneer Woodlands Tower 3 to 6",
+                "Rochester Tower",
+                "Covent Tower",
+                "The Paddington Place Tower 1 & 2"
+            ]
+        },
+        {
+            name: "ETON PROPERTIES PHILS. INC.",
+            projects: [
+                "North Belton Place",
+                "Eton Centris",
+                "Eton Residences @ Greenbelt",
+                "8 Adriatico",
+                "68 Roces",
+                "Eton Centris 3 & 4 Cyberpod",
+                "Eton West End Square",
+                "Eton NXTower 1"
+            ]
+        },
+        {
+            name: "FEDERAL LAND, INC.",
+            projects: [
+                "Four Seasons Riviera",
+                "Six Senses Resort",
+                "Paseo de Roces Tower 2",
+                "IMET Tower",
+                "The Big apple",
+                "Peninsula Garden Midtown Homes Mahogany Tower",
+                "The Blue Wave",
+                "Grand Hyatt Residence",
+                "8 Park Avenue",
+                "The Seasons Residence",
+                "MI CASA Tower 1",
+                "Terrazas de Valencia",
+                "Palm Beach West",
+                "Siena Tower 1",
+                "The Grand Midori Ortigas",
+                "Four Seasons Riviera Tower 3"
+            ]
+        },
+        {
+            name: "F.F. CRUZ & COMPANY",
+            projects: [
+                "Nagtahan Bridge",
+                "Kalayaan Bridge",
+                "Estero Project",
+                "C-5 Fly over",
+                "Magsaysay Viaduct",
+                "Bubog Bridge",
+                "Apo Cement Project",
+                "ATI Pier 13 Building",
+                "SLEX Rehabilitation",
+                "Batangas Flyover",
+                "Startoll Way Bridge",
+                "Alabang Viaduct Rehabilitation",
+                "MM Skyway",
+                "PPA Port – Iloilo",
+                "ATI Manila South Harbor – Pier 3",
+                "Lamesa Dam",
+                "Libingan ng mga Bayani",
+                "Marikina Pipe Tumana",
+                "Cavitex C-5 Link Expressway",
+                "Balara Treatment Plant"
+            ]
+        },
+        {
+            name: "FILINVEST ALABANG INC. / FILINVEST LAND INC.",
+            projects: [
+                "Filinvest Corporate City",
+                "Alabang Stockfarm",
+                "Studio One Const.",
+                "Civic Prime Const.",
+                "West Park Lorenzty",
+                "La Vie Flats",
+                "I-Hub 3 & I-hub 4",
+                "Studio One & Two",
+                "South Station",
+                "One Oasis – Alabang",
+                "Sea Scapes - Cebu",
+                "Grand Cenia – Cebu",
+                "Entrata Project",
+                "Beaufort Project",
+                "Princeton Mall",
+                "Megablock Tower 1, 2, 3 & 4",
+                "Vector 3",
+                "100 West",
+                "Foramall Tagaytay",
+                "Formall Condotel",
+                "Boracay Sea Scapes Resort",
+                "Studio Tower 3",
+                "Studio 7",
+                "Sorrento Oasis",
+                "Panglao Oasis",
+                "One Filinvest",
+                "One Spatial – Iloilo",
+                "Filinvest Mimosa Estate Office",
+                "Mimosa Lodgeplus Building A to C",
+                "Dormitel Tower",
+                "Gil Puyat Office Building",
+                "Cebu Cyberzone Tower 3 & 4",
+                "Marina Town Dumaguete",
+                "Marina Spatial Dumaguete",
+                "Alta Spatial",
+                "Dormitel Tower A",
+                "Mimosa Lifestyle Mall",
+                "Bali Oasis 2",
+                "Studio Tower N",
+                "Manna East"
+            ]
+        },
+        {
+            name: "FIRST BALFOUR – LEIGHTON JOINT VENTURE",
+            projects: [
+                "Polaris Data Center Phase 1",
+                "River Water Treatment Facility",
+                "Diagon South"
+            ]
+        },
+        {
+            name: "GLOBAL ESTATE RESORT INC.",
+            projects: [
+                "Chancellor Hotel Boracay",
+                "Holand Park 3 & 4",
+                "Boracay Town Center",
+                "Oceanway Residences",
+                "Fairways and Blue Water Resort",
+                "Twinlakes Bel Vedere"
+            ]
+        },
+        {
+            name: "HANJIN HEAVY INDUSTRIES & CONST. CO. LTD.",
+            projects: [
+                "LRT 2 – Project 2",
+                "LRT 2 – Project 3",
+                "Pampanga Project",
+                "Subic Project",
+                "Iloilo Flood Control"
+            ]
+        },
+        {
+            name: "HANWHA E & C CORPORATION",
+            projects: []
+        },
+        {
+            name: "HILMARCS CONSTRUCTION CORPORATION",
+            projects: [
+                "Rizal Multi-purpose Bldg.",
+                "SP Tagaytay",
+                "Bacolor Warehouse",
+                "Makati Science Building",
+                "UST Thomasian Alumni Building",
+                "Edades Project",
+                "Ospital ng Makati",
+                "Quezon City Museum",
+                "Manila Bay Resort"
+            ]
+        },
+        {
+            name: "HUMANTECH KOREA PHILS. CORPORATION",
+            projects: []
+        },
+        {
+            name: "IPM CONSTRUCTION",
+            projects: [
+                "Xavier School",
+                "626 Heritage",
+                "627 Sanctuario de Carmen",
+                "445 Malolos",
+                "592 Hills View"
+            ]
+        },
+        {
+            name: "JQ INTERNATIONAL CONSTRUCTION, INC.",
+            projects: [
+                "101 Residences",
+                "Royal Tower",
+                "City Garden View",
+                "48 Storey Residential Bldg",
+                "68th Storey Bldg",
+                "Luxe Tower",
+                "Signature Residences",
+                "Index Residences",
+                "Riverpark Place",
+                "Lancris",
+                "Dowell Tower",
+                "Avenida Tower"
+            ]
+        },
+        {
+            name: "KAJIMA PHILS. INC.",
+            projects: [
+                "Honda Phils. Inc. Project",
+                "Ibiden Phils. Project",
+                "RASPI N2 Factory",
+                "Subic-Clark-Pampanga Expressway"
+            ]
+        },
+        {
+            name: "LEY CONST. & DEV'T. CORP.",
+            projects: [
+                "Sunview Palace – Ley Meccanica Phils.",
+                "Concorde Hotel – Baguio",
+                "Royal Plaza",
+                "SSS Project",
+                "168 Shopping Mall Project"
+            ]
+        },
+        {
+            name: "LEIGHTON CONTRACTORS",
+            projects: [
+                "Casecnan Bridges",
+                "Wyeth Phils",
+                "Rapu-rapu Restoration Project",
+                "Nutritional Nickel Corporation",
+                "Masbate Gold Tower",
+                "NLEX Interchange"
+            ]
+        },
+        {
+            name: "MAKATI DEVELOPMENT CORPORATION",
+            projects: [
+                "Honda Cars at the Port",
+                "North & Garden",
+                "Greenbelt Redevelopment",
+                "Glorieta #5 Redevelopment",
+                "UP North Science & Technology",
+                "East Tower @ One Serendra",
+                "Nuvali Vesta",
+                "St. Lukes Hospital Building",
+                "UP Integrated School",
+                "UP NSTP Buildings",
+                "Vertis North",
+                "Cloverleaf Projects",
+                "The Montane",
+                "MDC West Superblock",
+                "The Lerato",
+                "Avida Towers Vita",
+                "Alveo High Park",
+                "UP Town Center",
+                "Seda Hotel",
+                "Avida Towers 34th Street",
+                "Twinhead",
+                "Arbor Lanes Phase 1",
+                "Vertis North CBG",
+                "Ayala Triangle Garden",
+                "BGC Corporate Center",
+                "Park Terraces Projects",
+                "Avida Towers Astrea",
+                "Avida Towers Cityflex",
+                "Avida Towers Verte",
+                "One Park Drive",
+                "Circuit Makati",
+                "Avida Towers Asten",
+                "Arvo Mall South Park"
+            ]
+        },
+        {
+            name: "MALLERS INVESTMENTS CORPORATION",
+            projects: [
+                "Fishermall - Malabon"
+            ]
+        },
+        {
+            name: "MEGAWIDE CONSTRUCTION CORPORATION",
+            projects: [
+                "Proposed Golden Bay Tower ( Aspire)",
+                "Megawide – Precast Plant",
+                "Megahomes Construction",
+                "Gateway Mall & Hotel",
+                "Urban Deca Ortigas",
+                "Double Dragon Tower",
+                "Proposed Southwest Integrated Transport System",
+                "The Hive Tower",
+                "The Corner House",
+                "Urban Deca Cubao",
+                "Precast Plant Taytay 1 & 2"
+            ]
+        },
+        {
+            name: "MEGAWORLD CORPORATION & SUBSIDIARIES",
+            projects: [
+                "One Lafayette Square",
+                "Two Lafayette Square",
+                "Petron Mega Plaza",
+                "World Centre",
+                "Manhattan Square",
+                "One Beverly Place Condominium",
+                "World Commerce Plaza",
+                "Sheraton Marina Square I & II",
+                "Governors Place",
+                "Olympic Height",
+                "Narra Heights",
+                "World Finance Plaza",
+                "El – Jardin del Presidente",
+                "Golfhills Terraces",
+                "Eastwood Lafayette I to III",
+                "Eastwood Citywalk",
+                "Techno Plaza One & Two",
+                "Cyber One",
+                "Paseo Park View",
+                "Eastwood Excelsior",
+                "Eastwood Corporate Plaza",
+                "One Orchard Road",
+                "Citywalk 2 EC-20",
+                "Forbeswood Heights",
+                "Bellagio I & II",
+                "Two World Square",
+                "One Central Park",
+                "Marriot Newport Hotel",
+                "Residential Resort at New Port City",
+                "Mckinley Parking Building",
+                "Eastwood Park Hotel and Residences",
+                "Mckinley Corporate Plaza",
+                "Mckinley Garden Villa (Phase 2)",
+                "Manhattan Parkways (3 Towers)",
+                "Residential Resort @ Newport",
+                "Greenhills Heights",
+                "Cityplace Mall",
+                "Eastwood Legrand I to III",
+                "Mckinley Hills Tuscany Private Estate",
+                "Aurora Gardens",
+                "8 Forbestown Project",
+                "The Venice Luxury Residences",
+                "Science Hub",
+                "8 Campus Place",
+                "Uptown Arts Residence",
+                "Iloilo BPO",
+                "Venice Corporate Center",
+                "The Noble Place",
+                "World Commerce",
+                "Festive Walk Mall – Iloilo City",
+                "One Madison Palace tower 1 & 2 – Iloilo City",
+                "Iloilo Business Park",
+                "Lafayette Parksquare – Iloilo City",
+                "Marriot Courtyard Hotel – Iloilo City",
+                "Savoy Hotel Mactan Cebu",
+                "Salcedo Skysuites",
+                "The Florence",
+                "Uptown Parade",
+                "The Albany",
+                "The Palladium - Iloilo",
+                "Greenbelt Hamilton",
+                "Belmont Hotel Mactan Cebu",
+                "Mapple Grove",
+                "Upper East – Bacolod",
+                "One Regis – Bacolod",
+                "No. 1 Upper East Avenue (Upper East BPO Building 1)",
+                "Park Mckinley West Phase 1 & 2",
+                "Maple Grove Commercial District",
+                "Kingsquare Residential Suites",
+                "International Corporate Plaza",
+                "Uptown Park suites 1 & 2",
+                "Positano Mactan",
+                "One Republic Plaza",
+                "Enterprise Two",
+                "Two Regis",
+                "The Pearl Global Residences",
+                "Firenze Residence",
+                "Maple Park Residences",
+                "Manhattan Plaza Tower 3 (Laurent Park)",
+                "Kensington Sky Garden",
+                "Arden West Park Village",
+                "La Cassia Residences",
+                "Montrose Parkview",
+                "Savoy Hotel Capital Town",
+                "Bayshore Residential Resort",
+                "Sunny Coast Residential Resort",
+                "Kingsford Hotel",
+                "Arcovia Park Place"
+            ]
+        },
+        {
+            name: "MOLDEX REALTY INC.",
+            projects: [
+                "Alegria & Dos Rios",
+                "Heritage Homes Marilao",
+                "Heritage Homes Trece Martires",
+                "Metrogate Sapang Palay",
+                "Metrogate Angeles",
+                "Metrogate Tagaytay",
+                "Metrogate Silang Estate",
+                "Metrogate Dasmarinas",
+                "Villa Caceres Sta. Rosa"
+            ]
+        },
+        {
+            name: "MONOCRETE CONSTRUCTION PHILIPPINES INC.",
+            projects: [
+                "STI – Legaspi",
+                "Landmark Macapagal",
+                "Chinese General Hospital Garden Suites",
+                "Landmark Manila Bay",
+                "Luna Date Center",
+                "PGAI – Porsche Center Manila"
+            ]
+        },
+        {
+            name: "MONOLITH CONSTRUCTION",
+            projects: [
+                "Brisbane",
+                "Distinction Properties",
+                "Phoenix",
+                "Potomac Realty",
+                "TF Venture",
+                "Tower Tech",
+                "Rosemont Tower",
+                "First Taipan Tower",
+                "Yet Realty",
+                "Modular Metal",
+                "KSY Land Dev't.",
+                "Meiling Dev't.",
+                "RHL Property",
+                "San Mateo Precast",
+                "Intergulf Realty",
+                "Dexterton",
+                "Platinum Asia",
+                "Datacom System",
+                "Blue Cascade Dev't. Corp.",
+                "Goldland Phils. Corp.",
+                "J. King & Sons",
+                "UAP Building",
+                "Embassy Pointe Tower",
+                "SM Sucat",
+                "SM Annex North Edsa",
+                "Jollibee Tower",
+                "GSC corporate tower",
+                "Island Cove",
+                "Platinum BPO Tower",
+                "MCentral",
+                "CTP Asean Tower",
+                "Hotel 101",
+                "Harton Corporate Center",
+                "1210 Acacia Avenue",
+                "MCentral Building",
+                "One Triump Tower",
+                "Trium Square",
+                "Kaopeng",
+                "Dasma College Bldg. 2 & 3",
+                "MJ Tower Fort",
+                "M3 Corporate Center",
+                "DLSU Clean Building Extension",
+                "Bench Headquarters",
+                "UST – Interdisciplinary Research Institute"
+            ]
+        },
+        {
+            name: "NATIONAL IRRIGATION ADMINISTRATION",
+            projects: [
+                "ISIP II – Tacloban",
+                "Malitubog-Maridagao Irrigation – North Cotabato"
+            ]
+        },
+        {
+            name: "NEW CITY BUILDERS INC.",
+            projects: [
+                "Phil. Nihon Moki – Cavite",
+                "Inmark Makati",
+                "AMA Tower",
+                "Carmona Housing",
+                "Hotel Sogo",
+                "Eurotel North Edsa",
+                "New Galleria Baclaran",
+                "Edsa Shangrila Plaza",
+                "Kingsford Hotel",
+                "Milan Residences"
+            ]
+        },
+        {
+            name: "NEW GOLDEN CITY BUILDERS",
+            projects: [
+                "Southcove Inc – Imperial Plaza",
+                "H Mega Global Realty Inc – Gold Mansion",
+                "SW Global United Realty Corp – 35 Storey Warehouse",
+                "SM City EDSA BPO Tower / Hotel",
+                "Amarah and AOIME residences",
+                "Gold Mansion",
+                "W Sixth Avenue"
+            ]
+        },
+        {
+            name: "NEW KANLAON CONSTRUCTION",
+            projects: [
+                "Acropolis",
+                "BCDA Project",
+                "Bonifacio Tech.",
+                "Karport @ the Fort",
+                "Lexington Garden Village",
+                "Makro Cubao",
+                "Makro Las Pinas",
+                "Pricemart Aseana",
+                "St. Jude Catholic School",
+                "Brittany Bay Project",
+                "Fort Palm Spring"
+            ]
+        },
+        {
+            name: "NEW SAN JOSE BUILDERS",
+            projects: [
+                "Victoria Tower de Manila - Taft",
+                "Victoria Station Tower – Edsa",
+                "Isabelle de Valenzuela",
+                "Isabelle Hidalgo",
+                "Fort Victoria",
+                "Victoria Station 2",
+                "Victoria de Morato",
+                "NHA LRB Projects",
+                "Namria",
+                "Victoria de Malate",
+                "Dormitorio De Espana 2",
+                "Las Casas Filipinas De Acuzar",
+                "Ipil Project",
+                "Bataan Harbour City",
+                "Victoria Arts and Theater",
+                "Victoria De Valenzuela",
+                "Victoria Sports Tower Monumento"
+            ]
+        },
+        {
+            name: "OBAYASHI CORPORATION – Subic Expressway",
+            projects: [
+                "Subic-Tarlac Expressway Project"
+            ]
+        },
+        {
+            name: "PANORAMA PROPERTY VENTURES",
+            projects: []
+        },
+        {
+            name: "PENTA – SHIMIZU TOA JOINT VENTURE",
+            projects: [
+                "Subic Bay Port Devt. Project",
+                "Subic Bay Administration Building"
+            ]
+        },
+        {
+            name: "PERSAN CONSTRUCTION INC.",
+            projects: [
+                "Manila Science High School",
+                "Rosauro Almario Elementary School",
+                "Dr. Alejandro Albert elementary School",
+                "Baclaran Gateway Market",
+                "Malabon Sports Complex",
+                "Construction of Binondominium 1",
+                "Gotamco Elementary School",
+                "Aurora A. Quezon Elementary School",
+                "Paranaque Coliseum",
+                "Silverio Elementary School",
+                "Victorino Mapa High School"
+            ]
+        },
+        {
+            name: "ROBINSONS LAND CORPORATION",
+            projects: [
+                "Robinsons Place La Union",
+                "Robinsons Cybergate Delta 2",
+                "Pueblo Angono",
+                "Robinsons Cyber Omega",
+                "Dumaguete Expansion",
+                "Robinsons Bridgetowne Mall",
+                "Magnolia – CPPD project",
+                "Cybergate Delta 2 - Davao",
+                "The Sapphire Bloc-East Tower",
+                "Gateway Mall",
+                "GBF Center 1 & 2",
+                "Robinsons Place Balanga",
+                "Cybergate Bacolod 2",
+                "Opus Mall (Bridgetowne)",
+                "Cybergate Iloilo Tower",
+                "Montclair Land Development",
+                "Sync Tower",
+                "The Sapphire Bloc – East Tower & South Podium",
+                "Sierra Valley Gardens Tower 3 and Podium",
+                "Cybergate Bacolod 2",
+                "Cybergate Iloilo Tower 2 & 3",
+                "Gateway Regency Studios",
+                "Robinsons Place Antipolo Expansion",
+                "Malolos Bayan Park Mall",
+                "The Jewel (Forum Redevelopment Project)",
+                "Le Pont Residences Tower Phase 1",
+                "Grand Summit Hotel Pangasinan"
+            ]
+        },
+        {
+            name: "ROCKWELL LAND CORPORATION",
+            projects: [
+                "The Proscenium Tower Residences Tower 2",
+                "The Proscenium – The Lorraine",
+                "The Proscenium – The Kirov",
+                "The Proscenium – The Lincoln",
+                "The Vantage"
+            ]
+        },
+        {
+            name: "SAN MIGUEL CORPORATION & SUBSIDIARIES",
+            projects: [
+                "SMC MRT 7",
+                "Skyway Stage 3",
+                "SLEX Widening",
+                "Port Development Works at Orion Bataan",
+                "SMC Spunpole",
+                "Block 3 Pier",
+                "Proposed Cement Plant - Calatagan Batangas",
+                "MRT 7 Guideway",
+                "NAIAX West Bound"
+            ]
+        },
+        {
+            name: "SHANG ROBINSONS PROPERTIES, INC.",
+            projects: [
+                "Aurelia Residence",
+                "Haraya project",
+                "Shang residences at Wack Wack",
+                "Laya by Shang Properties",
+                "SPILDI ABS CBN"
+            ]
+        },
+        {
+            name: "STAGES DESIGN & CONSTRUCTION CORPORATION",
+            projects: [
+                "Tiendesitas",
+                "Gloria Maris Redevelopment",
+                "Silver City – KPO",
+                "Acacia Project",
+                "Waltermart – Carmona",
+                "Sto. Thomas School Building",
+                "Talisay School Building",
+                "Abenson – Quezon Avenue",
+                "Nacional Memorial",
+                "Sta. Anastacia School Building",
+                "Waltermart – Antipolo",
+                "Abenzon – San Juan",
+                "Waltermart – Antipolo",
+                "Waltermart – Mabalacat",
+                "Waltermart – Silang"
+            ]
+        },
+        {
+            name: "SM DEVELOPMENT CORPORATION",
+            projects: [
+                "Bloom Residences",
+                "Charm Residences",
+                "Field residences",
+                "Lush Residences",
+                "Coast Residences",
+                "Shore 3 Residences",
+                "SM Fame Residences",
+                "Spring Residences",
+                "Vine Residences",
+                "Springtown Development - Leaf Residences",
+                "Costa Del Hamilo – Freia Condominium",
+                "Mint Residences",
+                "Glade Residences"
+            ]
+        },
+        {
+            name: "SM PRIME HOLDINGS, INC.",
+            projects: [
+                "Park Inn Bacolod",
+                "CPG Silangan Warehouse",
+                "SM MOA Block 4",
+                "Hope Residences",
+                "SM City Fairview Mall Expansion",
+                "SM City Legazpi",
+                "SM Southmall BPO & Car Park Bldg.",
+                "SM City – Iloilo BPO",
+                "Style Residence – Iloilo City",
+                "Silangan Warehouse",
+                "Horizon Terraces Tagaytay",
+                "SM Tanza",
+                "SM Sorsogon",
+                "SM City Sta. Rosa Mall Expansion",
+                "SM City Cagayan De Oro Redevelopment",
+                "SM City Cauayan",
+                "SM Tarlac",
+                "SM Sto. Tomas",
+                "Light 2 Residences",
+                "Twin Residences",
+                "Sail Residences",
+                "Horizon Terraces project",
+                "SM Iloilo Public Central & Terminal",
+                "SM Tagum"
+            ]
+        },
+        {
+            name: "SMCC PHILIPPINES, INC.",
+            projects: [
+                "Sakamoto Plant Expansion",
+                "NIDEC Precision Phils. Factory",
+                "Komyo Phils. Factory Expansion",
+                "40MW Northern Negros Geothermal Plant",
+                "Coral Bay 3 & 4",
+                "RIO Tuba Nickel HPP",
+                "Sakamoto projects",
+                "SMS 3 Projects",
+                "NYK – TDG Project",
+                "Molex Integrated Products Phils. Inc.",
+                "Proposed Daiho – Lima Factory 2",
+                "New Leaf Warehouse",
+                "Daiho Lima",
+                "Hayashi project",
+                "The Villages at Lipa"
+            ]
+        },
+        {
+            name: "TAISEI-SHIMIZU JOINT VENTURE",
+            projects: [
+                "Iloilo Intl. Airport Project",
+                "Cagayan Power Plant Project"
+            ]
+        },
+        {
+            name: "TOWNSQUARE DEVELOPMENT INC.",
+            projects: [
+                "The Cambridge Village",
+                "NPC – Pasay City High School",
+                "Suntrust Parkview",
+                "Suntrust Aurora Garden",
+                "Little Baguio Terraces",
+                "Suntrust Asmara",
+                "Suntrust Shanata",
+                "Suntrust Parkview",
+                "Suntrust Capitol Plaza",
+                "Clark Green Frontier Phase 1"
+            ]
+        },
+        {
+            name: "VICENTE T. LAO CONSTRUCTION",
+            projects: [
+                "Ipil Capitol Bldg.",
+                "Dipolog & Dapitan Project",
+                "Ozamis Public Market"
+            ]
+        },
+        {
+            name: "V.B. COLUMNA CONSTRUCTION",
+            projects: [
+                "Ace Balagtas",
+                "Ace Mandaluyong",
+                "Ace San Jose",
+                "Ace San Miguel",
+                "Jose Reyes",
+                "Regina Rica",
+                "La Salle – Lipa Batangas"
+            ]
+        },
+        {
+            name: "WHITEPORT INC.",
+            projects: [
+                "Robinson's Las Piñas",
+                "Scape Project",
+                "Spark Place",
+                "The Glaston Tower",
+                "WPI-Uzume Building"
+            ]
+        },
+        {
+            name: "YOUNG BUILDERS CORPORATION",
+            projects: [
+                "Osmena Tower – Cebu",
+                "Cokaliong Tower – Cebu",
+                "20 Lansbergh Place – QC",
+                "CKS Tower – Cebu",
+                "Hancit Tower – Cebu",
+                "Dakay Commercial Bldg. – Cebu"
+            ]
+        }
     ];
 
     return (
@@ -657,13 +1625,50 @@ const MajorClients = () => {
                             <h2>Our Valued Clients</h2>
                             <div className="outer-cont">
                                 <div className="cont">
-                                    <ol>
-                                        {clients.map((name, index) => (
-                                            <li className="client" key={index}>
-                                                {name}
-                                            </li>
+                                    <div className="client-grid">
+                                        {clients.map((client, index) => (
+                                            <div key={index} className="client-item">
+                                                <div className="client-header">
+                                                    <span className="client-number">{index + 1}.</span>
+                                                    <h3 className="client-name">{client.name}</h3>
+                                                </div>
+                                                {client.projects.length > 0 && (
+                                                    <div className="projects-list">
+                                                        {client.projects.map((project, projIndex) => (
+                                                            <div key={projIndex} className="project-item">
+                                                                <span className="project-letter">
+                                                                    {(() => {
+                                                                        const letters = "abcdefghijklmnopqrstuvwxyz";
+                                                                        let index = projIndex;
+                                                                        let result = "";
+
+                                                                        // Determine the "length" of repetition group
+                                                                        let length = 1;
+                                                                        let count = 26; // number of combinations for each length
+
+                                                                        while (index >= count) {
+                                                                            index -= count;
+                                                                            length++;
+                                                                            count = 26; // always 26 per repetition length
+                                                                        }
+
+                                                                        // The chosen letter (cycle every 26)
+                                                                        const letter = letters[index % 26];
+
+                                                                        // Repeat that letter "length" times
+                                                                        result = letter.repeat(length);
+
+                                                                        return result + ".";
+                                                                    })()}
+                                                                </span>
+                                                                <span className="project-name">{project}</span>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </div>
                                         ))}
-                                    </ol>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -673,6 +1678,7 @@ const MajorClients = () => {
         </div>
     );
 };
+
 
 const TopBar = () => {
     return (

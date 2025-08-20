@@ -805,7 +805,8 @@ body {
   box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
 }
 
-.clients .modal-cli {
+/* Modal Styles */
+.modal-cli {
   position: fixed;
   top: 0;
   left: 0;
@@ -816,15 +817,16 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 2000;
+  padding: 10px;
 }
 
-.clients .clients-list-cont {
+.clients-list-cont {
   background-color: white;
-  padding: 30px;
-  border-radius: 20px;
-  width: 85%;
-  max-width: 650px;
-  max-height: 80vh;
+  padding: 20px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 85vh;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   z-index: 1000;
   position: relative;
@@ -833,74 +835,61 @@ body {
   align-items: center;
 }
 
-.clients .clients-list-cont svg {
+.clients-list-cont svg {
   border: #999999 2px solid;
   border-radius: 50%;
-  padding: 5px;
-  width: 35px;
-  height: 35px;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
   position: absolute;
-  right: 20px;
-  top: 20px;
+  right: 15px;
+  top: 15px;
   stroke: #818181;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.clients .clients-list-cont svg:hover {
+.clients-list-cont svg:hover {
   background: #f3f4f6;
   border-color: #dc2626;
   stroke: #dc2626;
 }
 
-.clients .clients-list-cont .cont {
-  max-height: 400px;
+.cont {
+  max-height: 65vh;
   overflow-y: auto;
   width: 100%;
-  padding: 20px;
+  padding: 10px;
 }
 
-.clients .clients-list-cont .cont ol {
-  padding-left: 30px;
-  list-style-type: decimal;
-  list-style-position: outside;
-}
-
-.clients .clients-list-cont .cont ol li {
-  font-size: 1rem;
-  color: #333;
-  margin: 10px 0;
-  line-height: 1.5;
-  padding-left: 10px;
-  position: relative;
-}
-
-.clients .clients-list-cont .outer-cont {
+.outer-cont {
   border: #d1d5db 2px solid;
-  border-radius: 15px;
-  width: 95%;
+  border-radius: 12px;
+  width: 100%;
   padding: 15px;
+  margin-top: 10px;
 }
 
-.clients .clients-list-cont .cont::-webkit-scrollbar {
+.cont::-webkit-scrollbar {
   background: #f3f4f6;
   border-radius: 10px;
   width: 8px;
 }
 
-.clients .clients-list-cont .cont::-webkit-scrollbar-thumb {
+.cont::-webkit-scrollbar-thumb {
   background: #dc2626;
   border-radius: 10px;
 }
 
-.clients .clients-list-cont h2 {
+.clients-list-cont h2 {
   font-size: 2rem;
   color: #dc2626;
   margin-bottom: 25px;
   font-weight: 700;
+  text-align: center;
 }
 
-.clients .click-block {
+.click-block {
   position: absolute;
   top: 0;
   left: 0;
@@ -909,11 +898,73 @@ body {
   z-index: 1;
 }
 
-ol li {
-  font-size: 1rem;
+.client-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.client-item {
+  padding: 20px;
+  border-left: 4px solid #dc2626;
+  background: #fafafa;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.client-item:hover {
+  background: #f5f5f5;
+  transform: translateX(5px);
+}
+
+.client-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.client-number {
+  color: #dc2626;
+  font-weight: 700;
+  font-size: 1.1rem;
+  min-width: 30px;
+  flex-shrink: 0;
+}
+
+.client-name {
   color: #333;
-  margin: 10px 0;
-  line-height: 1.5;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 40px;
+}
+
+.project-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.project-letter {
+  color: #666;
+  font-weight: 500;
+  min-width: 20px;
+  flex-shrink: 0;
+}
+
+.project-name {
+  color: #555;
+  flex: 1;
 }
 
 /* Mobile Menu Overlay */
@@ -1606,6 +1657,85 @@ ol li {
     font-size: 1.2rem;
   }
 
+  /* Mobile Clients Modal */
+  .modal-cli {
+    padding: 5px;
+  }
+
+  .clients-list-cont {
+    width: 95%;
+    max-height: 80vh;
+    padding: 15px;
+    border-radius: 12px;
+  }
+
+  .clients-list-cont svg {
+    width: 28px;
+    height: 28px;
+    padding: 4px;
+    right: 10px;
+    top: 10px;
+  }
+
+  .clients-list-cont h2 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+  }
+
+  .outer-cont {
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .cont {
+    max-height: 58vh;
+    padding: 5px;
+  }
+
+  .client-grid {
+    gap: 15px;
+  }
+
+  .client-item {
+    padding: 12px;
+    border-left-width: 3px;
+  }
+
+  .client-header {
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .client-number {
+    font-size: 0.9rem;
+    min-width: 22px;
+  }
+
+  .client-name {
+    font-size: 0.9rem;
+    line-height: 1.2;
+  }
+
+  .projects-list {
+    padding-left: 28px;
+    gap: 4px;
+  }
+
+  .project-item {
+    font-size: 0.8rem;
+    gap: 4px;
+    line-height: 1.2;
+  }
+
+  .project-letter {
+    min-width: 16px;
+    font-size: 0.75rem;
+  }
+
+  .project-name {
+    font-size: 0.8rem;
+  }
+
   /* Mobile Clients */
   .clients {
     padding: 60px 0;
@@ -1613,25 +1743,6 @@ ol li {
 
   .clients h1 {
     font-size: 2.2rem;
-  }
-
-  .clients .clients-list-cont {
-    width: 95%;
-    max-height: 75vh;
-    padding: 20px;
-  }
-
-  .clients .clients-list-cont .cont ol {
-    padding-left: 25px;
-  }
-
-  .clients .clients-list-cont .cont ol li {
-    font-size: 0.95rem;
-    padding-left: 8px;
-  }
-
-  .clients .clients-list-cont h2 {
-    font-size: 1.8rem;
   }
 
   .footer-container {
@@ -1777,6 +1888,186 @@ ol li {
   .customer-service .service-features {
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+  }
+
+  /* Tablet Modal */
+  .clients-list-cont {
+    width: 90%;
+    max-height: 85vh;
+    padding: 18px;
+  }
+
+  .clients-list-cont svg {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    right: 12px;
+    top: 12px;
+  }
+
+  .clients-list-cont h2 {
+    font-size: 1.8rem;
+    margin-bottom: 18px;
+  }
+
+  .client-item {
+    padding: 15px;
+  }
+
+  .client-name {
+    font-size: 1rem;
+  }
+
+  .projects-list {
+    padding-left: 32px;
+  }
+
+  .project-item {
+    font-size: 0.9rem;
+  }
+}
+
+/* iPhone 11 and similar screen sizes */
+@media (max-width: 414px) {
+  .modal-cli {
+    padding: 5px;
+  }
+
+  .clients-list-cont {
+    width: 98%;
+    max-height: 85vh;
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .clients-list-cont svg {
+    width: 26px;
+    height: 26px;
+    padding: 3px;
+    right: 8px;
+    top: 8px;
+  }
+
+  .clients-list-cont h2 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+  }
+
+  .outer-cont {
+    padding: 8px;
+    border-radius: 8px;
+  }
+
+  .cont {
+    max-height: 65vh;
+    padding: 3px;
+  }
+
+  .client-item {
+    padding: 10px;
+    border-left-width: 2px;
+    margin-bottom: 10px;
+  }
+
+  .client-header {
+    gap: 5px;
+    margin-bottom: 8px;
+  }
+
+  .client-number {
+    font-size: 0.85rem;
+    min-width: 20px;
+  }
+
+  .client-name {
+    font-size: 0.85rem;
+    line-height: 1.1;
+  }
+
+  .projects-list {
+    padding-left: 25px;
+    gap: 3px;
+  }
+
+  .project-item {
+    font-size: 0.75rem;
+    gap: 3px;
+    line-height: 1.1;
+  }
+
+  .project-letter {
+    min-width: 14px;
+    font-size: 0.7rem;
+  }
+
+  .project-name {
+    font-size: 0.75rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+  .modal-cli {
+    padding: 3px;
+  }
+
+  .clients-list-cont {
+    width: 100%;
+    max-height: 90vh;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .clients-list-cont h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .clients-list-cont svg {
+    width: 24px;
+    height: 24px;
+    padding: 2px;
+    right: 5px;
+    top: 5px;
+  }
+
+  .outer-cont {
+    padding: 6px;
+  }
+
+  .cont {
+    max-height: 70vh;
+  }
+
+  .client-item {
+    padding: 8px;
+    margin-bottom: 8px;
+  }
+
+  .client-number {
+    font-size: 0.8rem;
+    min-width: 18px;
+  }
+
+  .client-name {
+    font-size: 0.8rem;
+  }
+
+  .projects-list {
+    padding-left: 22px;
+  }
+
+  .project-item {
+    font-size: 0.7rem;
+  }
+
+  .project-letter {
+    min-width: 12px;
+    font-size: 0.65rem;
+  }
+
+  .project-name {
+    font-size: 0.7rem;
   }
 }
 
