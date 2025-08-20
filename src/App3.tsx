@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './App3.css';
 
@@ -113,13 +113,13 @@ const Header = ({ currentPage = "contact" }: { currentPage?: string }) => {
                                 Home
                             </Link>
                             <Link to="/about" className={currentPage === "about" ? "active" : ""}>
-                                About Us <ChevronDown className="icon-sm" />
+                                About Us
                             </Link>
                             <Link to="/products" className={currentPage === "products" ? "active" : ""}>
-                                Products <ChevronDown className="icon-sm" />
+                                Products
                             </Link>
                             <Link to="/contact" className={currentPage === "contact" ? "active" : ""}>
-                                Contact Us <ChevronDown className="icon-sm" />
+                                Contact Us
                             </Link>
                         </nav>
 
@@ -173,21 +173,21 @@ const Header = ({ currentPage = "contact" }: { currentPage?: string }) => {
                                 onClick={closeMenu}
                                 className={currentPage === "about" ? "active" : ""}
                             >
-                                About Us <ChevronDown className="icon-sm" />
+                                About Us
                             </Link>
                             <Link
                                 to="/products"
                                 onClick={closeMenu}
                                 className={currentPage === "products" ? "active" : ""}
                             >
-                                Products <ChevronDown className="icon-sm" />
+                                Products
                             </Link>
                             <Link
                                 to="/contact"
                                 onClick={closeMenu}
                                 className={currentPage === "contact" ? "active" : ""}
                             >
-                                Contact Us <ChevronDown className="icon-sm" />
+                                Contact Us
                             </Link>
                         </div>
                     </div>
@@ -234,9 +234,9 @@ const Footer = () => {
                     <div className="footer-section">
                         <h3>PRODUCTS</h3>
                         <ul>
-                            <li><Link to="/products">Process</Link></li>
+                            <li><Link to="/products">Products</Link></li>
                             <li><Link to="/products">Quality Assurance</Link></li>
-                            <li><Link to="/products">Partners</Link></li>
+                            <li><Link to="/products">Projects</Link></li>
                             <li><Link to="/products">Accreditation</Link></li>
                         </ul>
                     </div>

@@ -128,19 +128,19 @@ const Header = ({ currentPage = "home" }: { currentPage?: string }) => {
                                 to="/about"
                                 className={currentPage === "about" ? "active" : ""}
                             >
-                                About Us <ChevronDown className="icon-sm" />
+                                About Us
                             </Link>
                             <Link
                                 to="/products"
                                 className={currentPage === "products" ? "active" : ""}
                             >
-                                Products <ChevronDown className="icon-sm" />
+                                Products
                             </Link>
                             <Link
                                 to="/contact"
                                 className={currentPage === "contact" ? "active" : ""}
                             >
-                                Contact Us <ChevronDown className="icon-sm" />
+                                Contact Us
                             </Link>
                         </nav>
 
@@ -201,7 +201,6 @@ const Header = ({ currentPage = "home" }: { currentPage?: string }) => {
                                 className={currentPage === "about" ? "active" : ""}
                             >
                                 About Us
-                                <ChevronDown className="icon-sm" />
                             </Link>
                             <Link
                                 to="/products"
@@ -209,7 +208,6 @@ const Header = ({ currentPage = "home" }: { currentPage?: string }) => {
                                 className={currentPage === "products" ? "active" : ""}
                             >
                                 Products
-                                <ChevronDown className="icon-sm" />
                             </Link>
                             <Link
                                 to="/contact"
@@ -217,7 +215,6 @@ const Header = ({ currentPage = "home" }: { currentPage?: string }) => {
                                 className={currentPage === "contact" ? "active" : ""}
                             >
                                 Contact Us
-                                <ChevronDown className="icon-sm" />
                             </Link>
                         </div>
                     </nav>
@@ -870,9 +867,9 @@ const Footer = () => {
                     <div className="footer-section">
                         <h3>PRODUCTS</h3>
                         <ul>
-                            <li><Link to="/products">Process</Link></li>
+                            <li><Link to="/products">Products</Link></li>
                             <li><Link to="/products">Quality Assurance</Link></li>
-                            <li><Link to="/products">Partners</Link></li>
+                            <li><Link to="/products">Projects</Link></li>
                             <li><Link to="/products">Accreditation</Link></li>
                         </ul>
                     </div>

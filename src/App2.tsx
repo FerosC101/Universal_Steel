@@ -138,13 +138,13 @@ const Header = ({ currentPage = "products" }: { currentPage?: string }) => {
                                 Home
                             </Link>
                             <Link to="/about" className={currentPage === "about" ? "active" : ""}>
-                                About Us <ChevronDown className="icon-sm" />
+                                About Us
                             </Link>
                             <Link to="/products" className={currentPage === "products" ? "active" : ""}>
-                                Products <ChevronDown className="icon-sm" />
+                                Products
                             </Link>
                             <Link to="/contact" className={currentPage === "contact" ? "active" : ""}>
-                                Contact Us <ChevronDown className="icon-sm" />
+                                Contact Us
                             </Link>
                         </nav>
 
@@ -198,21 +198,21 @@ const Header = ({ currentPage = "products" }: { currentPage?: string }) => {
                                 onClick={closeMenu}
                                 className={currentPage === "about" ? "active" : ""}
                             >
-                                About Us <ChevronDown className="icon-sm" />
+                                About Us
                             </Link>
                             <Link
                                 to="/products"
                                 onClick={closeMenu}
                                 className={currentPage === "products" ? "active" : ""}
                             >
-                                Products <ChevronDown className="icon-sm" />
+                                Products
                             </Link>
                             <Link
                                 to="/contact"
                                 onClick={closeMenu}
                                 className={currentPage === "contact" ? "active" : ""}
                             >
-                                Contact Us <ChevronDown className="icon-sm" />
+                                Contact Us
                             </Link>
                         </div>
                     </div>
@@ -247,10 +247,10 @@ const Footer = () => {
                     <div className="footer-section">
                         <h3>ABOUT</h3>
                         <ul>
-                            <li><a href="#">Company History</a></li>
-                            <li><a href="#">Vision, Mission, & Values</a></li>
-                            <li><a href="#">Factory Modernization</a></li>
-                            <li><a href="#">Certifications</a></li>
+                            <li><Link to="/about">Company History</Link></li>
+                            <li><Link to="/about">Vision, Mission, & Values</Link></li>
+                            <li><Link to="/about">Factory Modernization</Link></li>
+                            <li><Link to="/about">Certifications</Link></li>
                         </ul>
                     </div>
 
@@ -258,10 +258,10 @@ const Footer = () => {
                     <div className="footer-section">
                         <h3>PRODUCTS</h3>
                         <ul>
-                            <li><a href="#">Process</a></li>
-                            <li><a href="#">Quality Assurance</a></li>
-                            <li><a href="#">Partners</a></li>
-                            <li><a href="#">Accreditation</a></li>
+                            <li><Link to="/products">Products</Link></li>
+                            <li><Link to="/products">Quality Assurance</Link></li>
+                            <li><Link to="/products">Projects</Link></li>
+                            <li><Link to="/products">Accreditation</Link></li>
                         </ul>
                     </div>
 
