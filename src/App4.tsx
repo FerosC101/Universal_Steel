@@ -1607,7 +1607,6 @@ const MajorClients = () => {
     return (
         <div className='clients'>
             <h1>Major Clients</h1>
-            <img src={clientimg} alt="Client Logos" />
             <button onClick={() => setIsModalOpen(true)}>View Complete Client List</button>
             {isModalOpen && (
                 <>
