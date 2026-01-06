@@ -8,11 +8,6 @@ type IconProps = {
 };
 
 // Custom Icon Components
-const ChevronDown = ({ className }: IconProps) => (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-    </svg>
-);
 
 const Menu = ({ className }: IconProps) => (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -664,8 +659,6 @@ const ProjectCard = ({ project, onClick }: { project: ProjectGroup, onClick: (pr
 
 const ScrollableProjectCarousel = ({ projects, openModal }: { projects: ProjectGroup[], openModal: (project: ProjectGroup) => void }) => {
     const carouselRef = useRef<HTMLDivElement>(null);
-    const [canScrollLeft, setCanScrollLeft] = useState(false);
-    const [canScrollRight, setCanScrollRight] = useState(true);
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0);
     const [scrollLeft, setScrollLeft] = useState(0);
@@ -677,9 +670,7 @@ const ScrollableProjectCarousel = ({ projects, openModal }: { projects: ProjectG
     // Check scroll position
     const checkScrollPosition = () => {
         if (carouselRef.current) {
-            const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
-            setCanScrollLeft(scrollLeft > 0);
-            setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
+            const { scrollLeft } = carouselRef.current;
         }
     };
 
@@ -731,10 +722,10 @@ const ScrollableProjectCarousel = ({ projects, openModal }: { projects: ProjectG
         const carousel = carouselRef.current;
         if (!carousel) return;
 
-        let autoScrollInterval: NodeJS.Timeout;
+        let autoScrollInterval: number;
 
         const startAutoScroll = () => {
-            autoScrollInterval = setInterval(() => {
+            autoScrollInterval = window.setInterval(() => {
                 if (carousel) {
                     // Always scroll right for auto-scroll
                     carousel.scrollBy({ left: 980, behavior: 'smooth' });

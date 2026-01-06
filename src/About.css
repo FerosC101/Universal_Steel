@@ -1,303 +1,963 @@
-/* About Page Styles */
+/* About Page - Simplified Redesign */
 .about-page {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-/* About Hero */
-.about-hero {
-    height: 400px;
-    background-image: url('https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_Pics_for_website_2_crov5j.jpg');
-    background-size: cover;
-    background-position: center;
-    position: relative;
+/* Banner - Simple */
+.banner {
+    background: #dc2626;
+    color: white;
+    padding: 3.5rem 2rem 2.5rem;
 }
 
-.hero-overlay-about {
-    background: linear-gradient(135deg, rgba(220, 38, 38, 0.85), rgba(26, 26, 26, 0.75));
-    height: 100%;
+.banner-content {
+    max-width: 1000px;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.banner-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.banner-content h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+    opacity: 0.95;
+}
+
+.banner-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.icons-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.25rem;
+    padding: 0;
+    background-color: transparent;
+}
+
+.icons-container .item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    color: white;
+    gap: 0.75rem;
+    text-align: center;
+    padding: 1.5rem 0.75rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: background-color 0.2s;
 }
 
-.hero-overlay-about h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+.icons-container .item:hover {
+    background: rgba(255, 255, 255, 0.12);
 }
 
-.hero-overlay-about p {
-    font-size: 1.25rem;
+.icons-container .item img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
 }
 
-/* About Content Grid */
-.about-content-grid {
+.icons-container .item p {
+    font-size: 0.875rem;
+    line-height: 1.3;
+    font-weight: 400;
+}
+
+.icons-container svg {
+    display: none;
+}
+
+/* Company Background - Simple */
+.company-background {
+    padding: 5rem 0;
+    max-width: 1100px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.2fr 1fr;
     gap: 4rem;
     align-items: center;
 }
 
-.about-text h2 {
-    font-size: 2.5rem;
-    color: #1a1a1a;
-    margin-bottom: 1.5rem;
+.company-background .text-container {
+    padding: 0 3rem;
 }
 
-.about-text p {
-    color: #6b7280;
-    line-height: 1.8;
+.company-background h2 {
+    font-size: 2.75rem;
+    color: #111827;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.company-background h3 {
+    font-size: 1.5rem;
+    color: #dc2626;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.company-background p {
     font-size: 1.05rem;
-    margin-bottom: 1.5rem;
-}
-
-.about-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Vision, Mission, Values */
-.vmv-section {
-    background: #f9fafb;
-}
-
-.vmv-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.vmv-card {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-top: 4px solid #dc2626;
-}
-
-.vmv-card h3 {
-    font-size: 1.75rem;
-    color: #1a1a1a;
-    margin-bottom: 1rem;
-}
-
-.vmv-card p {
+    line-height: 1.9;
     color: #6b7280;
-    line-height: 1.8;
+    margin-bottom: 1.25rem;
 }
 
-.vmv-card ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.vmv-card li {
+.company-background .image-container {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 0;
-    color: #1a1a1a;
-    font-size: 1.05rem;
+    justify-content: center;
 }
 
-.check-icon {
-    width: 24px;
-    height: 24px;
-    color: #dc2626;
-    flex-shrink: 0;
-}
-
-/* Modernization Section */
-.modernization-section {
-    background: white;
-}
-
-.modernization-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 3rem;
-    margin-top: 3rem;
-}
-
-.modernization-card {
-    background: #f9fafb;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.modernization-card:hover {
-    transform: translateY(-8px);
-}
-
-.modernization-card img {
+.company-background .image-container img {
     width: 100%;
-    height: 300px;
+    max-width: 450px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1));
+}
+
+/* Manufacturing Facility - Redesigned */
+.manufacturing-facility {
+    padding: 6rem 0;
+    background-color: #f9fafb;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    height: 100%;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
-.modernization-card h4 {
-    font-size: 1.5rem;
-    color: #1a1a1a;
-    padding: 1.5rem 1.5rem 0.75rem;
+.carousel-indicators {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 2;
 }
 
-.modernization-card p {
-    color: #6b7280;
-    line-height: 1.6;
-    padding: 0 1.5rem 1.5rem;
-}
-
-/* Certifications Section */
-.certifications-section {
-    background: #f9fafb;
-}
-
-.certifications-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
-}
-
-.cert-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.cert-card:hover {
-    transform: translateY(-8px);
-}
-
-.cert-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #dc2626, #b91c1c);
-    color: white;
-    font-size: 1.5rem;
-    font-weight: 700;
+.carousel-indicator {
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    margin-bottom: 1.5rem;
-}
-
-.cert-card h4 {
-    font-size: 1.25rem;
-    color: #1a1a1a;
-    margin-bottom: 0.5rem;
-}
-
-.cert-card p {
-    color: #6b7280;
-    font-size: 0.95rem;
-}
-
-.commitment-statement {
-    max-width: 900px;
-    margin: 3rem auto 0;
-    padding: 2rem;
-    background: white;
-    border-radius: 8px;
-    border-left: 4px solid #dc2626;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.commitment-statement p {
-    color: #374151;
-    line-height: 1.8;
-    font-size: 1.05rem;
-    margin: 0;
-}
-
-/* Why Choose Us Section */
-.why-choose-section {
-    background: white;
-}
-
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.benefit-item {
-    padding: 2rem;
-    background: #f9fafb;
-    border-radius: 8px;
-    border-left: 4px solid #dc2626;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.benefit-item:hover {
-    background: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.carousel-indicator.active {
+    background-color: #dc2626;
+    border-color: #dc2626;
+    transform: scale(1.3);
 }
 
-.benefit-item h4 {
-    font-size: 1.25rem;
+.manufacturing-facility .text-container {
+    padding: 0;
+}
+
+.manufacturing-facility h2 {
+    font-size: 2.25rem;
     color: #1a1a1a;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
 }
 
-.benefit-item p {
+.manufacturing-facility p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+/* Quality Assurance - Simple */
+.quality-assurance {
+    padding: 5rem 0;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.quality-assurance .text-container {
+    padding: 0;
+}
+
+.quality-assurance h2 {
+    font-size: 2.25rem;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.quality-assurance p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.features-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.quality-feature {
+    padding: 2rem;
+    background-color: #fafafa;
+    border-left: 3px solid #dc2626;
+    transition: background-color 0.2s;
+}
+
+.quality-feature:hover {
+    background-color: #f5f5f5;
+}
+
+.quality-feature h3 {
+    font-size: 1.15rem;
+    color: #dc2626;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.quality-feature p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Vision, Mission, Values - Simple Layout */
+.vision {
+    padding: 5rem 2rem;
+    background-color: #fafafa;
+}
+
+.vision h2 {
+    text-align: center;
+    font-size: 2.25rem;
+    color: #1a1a1a;
+    margin-bottom: 3rem;
+    font-weight: 600;
+}
+
+.vision-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.vision-mission-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.vision-item,
+.mission-item {
+    background: white;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.vision-item img,
+.mission-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 1.5rem;
+}
+
+.vision-item .text h3,
+.mission-item .text h3 {
+    font-size: 1.5rem;
+    color: #dc2626;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.vision-item .text p,
+.mission-item .text p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #666;
+}
+
+.values-item {
+    padding: 3rem 2rem;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.values-item h3 {
+    font-size: 1.5rem;
+    color: #dc2626;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.value {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+.value svg {
+    flex-shrink: 0;
+}
+
+.value p {
+    font-size: 1rem;
+    color: #1a1a1a;
+}
+
+.value img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.value p {
+    font-size: 1rem;
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+/* ISO Certification - Simplified */
+.iso-certification {
+    padding: 6rem 3rem;
+}
+
+.iso-certification h2 {
+    text-align: center;
+    font-size: 2.75rem;
+    color: #111827;
+    margin-bottom: 4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.certification-content {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.certification-text {
+    margin-bottom: 3.5rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.certification-text p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: #6b7280;
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.cert-card {
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.cert-card:hover {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    transform: translateY(-12px);
+}
+
+.cert-card img {
+    width: 100%;
+    height: 340px;
+    object-fit: contain;
+    margin-bottom: 1.5rem;
+    background-color: #f9fafb;
+    padding: 1.25rem;
+}
+
+.cert-card h4 {
+    font-size: 1.15rem;
+    color: #111827;
+    margin-bottom: 0.65rem;
+    font-weight: 600;
+}
+
+.cert-card p {
+    font-size: 0.975rem;
+    color: #6b7280;
+}
+
+/* Customer Service - Simplified */
+.customer-service {
+    padding: 5rem 2rem;
+    background-color: #fafafa;
+}
+
+.service-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+}
+
+.service-text h2 {
+    font-size: 2.25rem;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.service-text p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.service-highlight {
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: #dc2626;
+    color: white;
+    text-align: center;
+}
+
+.service-highlight h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.service-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.service-features .feature {
+    padding: 2rem;
+    background-color: white;
+    transition: background-color 0.2s;
+}
+
+.service-features .feature:hover {
+    background-color: #f5f5f5;
+}
+
+.service-features .feature h4 {
+    font-size: 1.1rem;
+    color: #dc2626;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.service-features .feature p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Major Clients - Simplified */
+.major-clients {
+    padding: 6rem 3rem;
+    text-align: center;
+}
+
+.major-clients h2 {
+    font-size: 2.75rem;
+    color: #111827;
+    margin-bottom: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.view-clients-btn {
+    padding: 1.25rem 3rem;
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    font-size: 1.15rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(220, 38, 38, 0.3);
+}
+
+.view-clients-btn:hover {
+    background-color: #b91c1c;
+    box-shadow: 0 8px 24px rgba(220, 38, 38, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Clients Modal - Simplified */
+.clients-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 3rem;
+    overflow-y: auto;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background-color: white;
+    padding: 3rem;
+    max-width: 1400px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #6b7280;
+    padding: 0.75rem;
+    font-size: 1.75rem;
+    transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+    color: #dc2626;
+    transform: scale(1.1);
+}
+
+.modal-content h2 {
+    font-size: 2.5rem;
+    color: #111827;
+    margin-bottom: 3rem;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+}
+
+.client-item {
+    padding: 2rem;
+    background-color: #f9fafb;
+    transition: all 0.3s ease;
+    border-left: 4px solid #dc2626;
+}
+
+.client-item:hover {
+    background-color: white;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateX(8px);
+}
+
+.client-header {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+}
+
+.client-number {
+    color: #dc2626;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.client-item h3 {
+    font-size: 1.15rem;
+    color: #111827;
+    font-weight: 600;
+}
+
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.project-item {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 1rem;
+    padding: 0.35rem 0;
+}
+
+.project-item.category-header {
+    font-weight: 600;
+    color: #dc2626;
+    margin-top: 0.75rem;
+    font-size: 1.05rem;
+}
+
+.project-letter {
+    color: #6b7280;
+    min-width: 30px;
+    font-weight: 500;
+}
+
+.project-name {
     color: #6b7280;
     line-height: 1.6;
-    margin: 0;
 }
 
-/* Responsive */
+/* Responsive Design - Simplified */
 @media (max-width: 1024px) {
-    .about-content-grid {
+    .banner-content {
+        padding: 4rem 2rem;
+    }
+
+    .icons-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .company-background,
+    .manufacturing-facility,
+    .quality-assurance,
+    .service-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .manufacturing-facility .text-container {
+        order: -1;
+    }
+
+    .vision-mission-container {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
 
-    .modernization-grid {
+    .vision-item,
+    .mission-item {
+        padding: 2.5rem 2rem;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .value {
+        padding: 1.5rem 1rem;
+    }
+
+    .value svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .clients-grid {
         grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 768px) {
-    .about-hero {
-        height: 300px;
+    .banner-content {
+        padding: 3rem 1.5rem;
     }
 
-    .hero-overlay-about h1 {
+    .banner-content h1 {
+        font-size: 2.25rem;
+    }
+
+    .banner-content h2 {
+        font-size: 1.35rem;
+    }
+
+    .icons-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .icons-container .item img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .company-background h2,
+    .manufacturing-facility h2,
+    .quality-assurance h2,
+    .vision h2,
+    .iso-certification h2,
+    .service-text h2,
+    .major-clients h2 {
         font-size: 2rem;
     }
 
-    .hero-overlay-about p {
+    .company-background,
+    .manufacturing-facility,
+    .quality-assurance,
+    .iso-certification,
+    .customer-service,
+    .major-clients,
+    .vision {
+        padding: 4rem 1.5rem;
+    }
+
+    .vision-item,
+    .mission-item {
+        padding: 2rem 1.5rem;
+    }
+
+    .vision-item img,
+    .mission-item img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .vision-item .text h3,
+    .mission-item .text h3 {
+        font-size: 1.35rem;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .value {
+        padding: 1.25rem 0.75rem;
+    }
+
+    .value svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    .value p {
+        font-size: 0.9rem;
+    }
+
+    .cards-container,
+    .service-features {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        padding: 2rem;
+    }
+
+    .modal-content h2 {
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+    }
+
+    .clients-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-content h1 {
+        font-size: 1.75rem;
+    }
+
+    .banner-content h2 {
+        font-size: 1.1rem;
+    }
+
+    .icons-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .icons-container .item img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .icons-container .item p {
+        font-size: 0.75rem;
+    }
+
+    .company-background h2,
+    .manufacturing-facility h2,
+    .quality-assurance h2,
+    .vision h2,
+    .iso-certification h2,
+    .service-text h2,
+    .major-clients h2 {
+        font-size: 1.75rem;
+    }
+
+    .company-background,
+    .manufacturing-facility,
+    .quality-assurance,
+    .iso-certification,
+    .customer-service,
+    .major-clients,
+    .vision {
+        padding: 3rem 1rem;
+    }
+
+    .vision h2 {
+        font-size: 1.75rem;
+    }
+
+    .vision-mission-container {
+        padding: 0;
+    }
+
+    .vision-item,
+    .mission-item {
+        padding: 1.5rem 1rem;
+    }
+
+    .vision-item img,
+    .mission-item img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .vision-item .text h3,
+    .mission-item .text h3 {
+        font-size: 1.25rem;
+    }
+
+    .vision-item .text p,
+    .mission-item .text p {
+        font-size: 0.9rem;
+    }
+
+    .values-item {
+        padding: 2rem 1rem;
+    }
+
+    .values-item h3 {
+        font-size: 1.35rem;
+        margin-bottom: 2rem;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .value {
+        padding: 1.25rem 1rem;
+    }
+
+    .value svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .value p {
+        font-size: 0.95rem;
+    }
+
+    .vision-item,
+    .mission-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .vision-icon,
+    .mission-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .modal-content {
+        padding: 1.5rem;
+    }
+
+    .modal-close {
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .view-clients-btn {
+        padding: 1rem 2rem;
         font-size: 1rem;
-    }
-
-    .about-text h2 {
-        font-size: 2rem;
-    }
-
-    .vmv-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .certifications-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .benefits-grid {
-        grid-template-columns: 1fr;
     }
 }
