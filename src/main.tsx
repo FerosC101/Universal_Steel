@@ -2,19 +2,19 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
-import App from './App';
-import App2 from './App2';
-import App3 from './App3';
-import App4 from './App4';
+import Home from './Home';
+import Products from './Products';
+import Contact from './Contact';
+import About from './About';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/products" element={<App2 />} />
-        <Route path="/contact" element={<App3 />} />
-        <Route path="/about" element={<App4 />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
