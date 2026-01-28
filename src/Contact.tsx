@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import './Contact.css';
 
+// Icons
 const Phone = ({ className }: { className?: string }) => (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -28,13 +29,71 @@ const Clock = ({ className }: { className?: string }) => (
     </svg>
 );
 
-const Contact = () => {
+// Page Hero
+const PageHero = () => (
+    <section className="page-hero">
+        <div className="page-hero__overlay" />
+        <div className="page-hero__content">
+            <span className="page-hero__label">Get in Touch</span>
+            <h1 className="page-hero__title">Contact Us</h1>
+            <p className="page-hero__text">
+                We're here to help and answer any questions you might have. 
+                We look forward to hearing from you.
+            </p>
+        </div>
+    </section>
+);
+
+// Contact Info Cards
+const ContactInfo = () => {
+    const info = [
+        {
+            icon: <MapPin className="contact-info__icon" />,
+            title: 'Address',
+            lines: ['28 Quirino Highway, Balon Bato', 'Quezon City, 1106, Philippines'],
+        },
+        {
+            icon: <Phone className="contact-info__icon" />,
+            title: 'Phone',
+            lines: ['(02) 8363-2651', '(02) 8363-7081 to 82', '(02) 8361-1247'],
+        },
+        {
+            icon: <Mail className="contact-info__icon" />,
+            title: 'Email',
+            lines: ['office@universalsteelph.com'],
+        },
+        {
+            icon: <Clock className="contact-info__icon" />,
+            title: 'Business Hours',
+            lines: ['Monday – Saturday', '8:00 AM – 4:00 PM'],
+        },
+    ];
+
+    return (
+        <div className="contact-info">
+            {info.map((item, i) => (
+                <div key={i} className="contact-info__card">
+                    {item.icon}
+                    <div className="contact-info__text">
+                        <h3 className="contact-info__title">{item.title}</h3>
+                        {item.lines.map((line, j) => (
+                            <p key={j}>{line}</p>
+                        ))}
+                    </div>
+                </div>
+            ))}
+        </div>
+    );
+};
+
+// Contact Form
+const ContactForm = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         phone: '',
         company: '',
-        message: ''
+        message: '',
     });
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -47,144 +106,121 @@ const Contact = () => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
         });
     };
 
     return (
-        <div className="contact-page">
-            <Header />
+        <form className="contact-form" onSubmit={handleSubmit}>
+            <h2 className="contact-form__title">Send Us a Message</h2>
             
-            {/* Hero Section */}
-            <section className="contact-hero">
-                <div className="hero-overlay-contact">
-                    <h1>Contact Us</h1>
-                    <p>Get in touch with us for inquiries and support</p>
+            <div className="contact-form__group">
+                <label htmlFor="name">Full Name *</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                />
+            </div>
+
+            <div className="contact-form__row">
+                <div className="contact-form__group">
+                    <label htmlFor="email">Email Address *</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                    />
                 </div>
-            </section>
+                <div className="contact-form__group">
+                    <label htmlFor="phone">Phone Number</label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                    />
+                </div>
+            </div>
 
-            {/* Contact Content */}
-            <section className="section-simple">
-                <div className="container-simple">
-                    <div className="contact-grid">
-                        {/* Contact Information */}
-                        <div className="contact-info-section">
-                            <h2>Get In Touch</h2>
-                            <p>We're here to help and answer any question you might have. We look forward to hearing from you.</p>
+            <div className="contact-form__group">
+                <label htmlFor="company">Company Name</label>
+                <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                />
+            </div>
 
-                            <div className="info-cards">
-                                <div className="info-card">
-                                    <MapPin className="info-icon" />
-                                    <h4>Address</h4>
-                                    <p>28 Quirino Highway, Balon Bato 1<br />Quezon City, 1106, Philippines</p>
-                                </div>
+            <div className="contact-form__group">
+                <label htmlFor="message">Message *</label>
+                <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                />
+            </div>
 
-                                <div className="info-card">
-                                    <Phone className="info-icon" />
-                                    <h4>Phone</h4>
-                                    <p>(02) 8363-2651<br />(02) 8363-7081 to 82<br />(02) 8361-1247</p>
-                                </div>
+            <button type="submit" className="btn btn--primary contact-form__submit">
+                Send Message
+            </button>
+        </form>
+    );
+};
 
-                                <div className="info-card">
-                                    <Mail className="info-icon" />
-                                    <h4>Email</h4>
-                                    <p>office@universalsteelph.com</p>
-                                </div>
+// Map Section
+const MapSection = () => (
+    <section className="contact-map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.5762144399!2d121.0180!3d14.6570!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDM5JzI1LjIiTiAxMjHCsDAxJzA0LjgiRQ!5e0!3m2!1sen!2sph!4v1234567890"
+            width="100%"
+            height="400"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Universal Steel location"
+        />
+    </section>
+);
 
-                                <div className="info-card">
-                                    <Clock className="info-icon" />
-                                    <h4>Business Hours</h4>
-                                    <p>Monday - Saturday<br />8:00 AM - 4:00 PM</p>
-                                </div>
-                            </div>
+// Main Contact Component
+const Contact = () => {
+    return (
+        <div className="page">
+            <Header />
+            <main>
+                <PageHero />
+                <section className="contact-main">
+                    <div className="contact-main__container">
+                        <div className="contact-main__info">
+                            <span className="section-label">Contact Information</span>
+                            <h2 className="contact-main__heading">Let's Talk</h2>
+                            <p className="contact-main__text">
+                                Have questions about our products? Need a quote for your project? 
+                                Our team is ready to assist you.
+                            </p>
+                            <ContactInfo />
                         </div>
-
-                        {/* Contact Form */}
-                        <div className="contact-form-section">
-                            <h3>Send Us A Message</h3>
-                            <form onSubmit={handleSubmit} className="contact-form">
-                                <div className="form-group">
-                                    <label htmlFor="name">Full Name *</label>
-                                    <input
-                                        type="text"
-                                        id="name"
-                                        name="name"
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                        required
-                                    />
-                                </div>
-
-                                <div className="form-row">
-                                    <div className="form-group">
-                                        <label htmlFor="email">Email Address *</label>
-                                        <input
-                                            type="email"
-                                            id="email"
-                                            name="email"
-                                            value={formData.email}
-                                            onChange={handleChange}
-                                            required
-                                        />
-                                    </div>
-
-                                    <div className="form-group">
-                                        <label htmlFor="phone">Phone Number</label>
-                                        <input
-                                            type="tel"
-                                            id="phone"
-                                            name="phone"
-                                            value={formData.phone}
-                                            onChange={handleChange}
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="company">Company Name</label>
-                                    <input
-                                        type="text"
-                                        id="company"
-                                        name="company"
-                                        value={formData.company}
-                                        onChange={handleChange}
-                                    />
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="message">Message *</label>
-                                    <textarea
-                                        id="message"
-                                        name="message"
-                                        rows={6}
-                                        value={formData.message}
-                                        onChange={handleChange}
-                                        required
-                                    />
-                                </div>
-
-                                <button type="submit" className="btn-submit">
-                                    Send Message
-                                </button>
-                            </form>
+                        <div className="contact-main__form">
+                            <ContactForm />
                         </div>
                     </div>
-                </div>
-            </section>
-
-            {/* Map Section */}
-            <section className="map-section">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.0!2d121.0!3d14.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDQyJzAwLjAiTiAxMjHCsDAwJzAwLjAiRQ!5e0!3m2!1sen!2sph!4v1234567890123!5m2!1sen!2sph"
-                    width="100%"
-                    height="450"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    title="Company Location"
-                />
-            </section>
-
+                </section>
+                <MapSection />
+            </main>
             <Footer />
         </div>
     );

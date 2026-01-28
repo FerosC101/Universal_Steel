@@ -4,13 +4,22 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import './Pricing.css';
 
-const ArrowRight = ({ className }: { className?: string }) => (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-    </svg>
+// Page Hero
+const PageHero = () => (
+    <section className="page-hero">
+        <div className="page-hero__overlay" />
+        <div className="page-hero__content">
+            <span className="page-hero__label">Product Pricing</span>
+            <h1 className="page-hero__title">Rebar Pricing</h1>
+            <p className="page-hero__text">
+                Transparent pricing for our premium quality reinforcing steel bars
+            </p>
+        </div>
+    </section>
 );
 
-const Pricing = () => {
+// Pricing Table
+const PricingTable = () => {
     const [activeTab, setActiveTab] = useState<'grade40' | 'grade60'>('grade40');
 
     const grade40Data = [
@@ -38,103 +47,92 @@ const Pricing = () => {
     const currentData = activeTab === 'grade40' ? grade40Data : grade60Data;
 
     return (
-        <div className="pricing-page">
+        <section className="pricing-table-section">
+            <div className="pricing-table-section__container">
+                {/* Tabs */}
+                <div className="pricing-tabs">
+                    <button
+                        className={`pricing-tab ${activeTab === 'grade40' ? 'pricing-tab--active' : ''}`}
+                        onClick={() => setActiveTab('grade40')}
+                    >
+                        <span className="pricing-tab__title">Grade 40</span>
+                        <span className="pricing-tab__price">₱21.80 – ₱22.00/kg</span>
+                    </button>
+                    <button
+                        className={`pricing-tab ${activeTab === 'grade60' ? 'pricing-tab--active' : ''}`}
+                        onClick={() => setActiveTab('grade60')}
+                    >
+                        <span className="pricing-tab__title">Grade 60</span>
+                        <span className="pricing-tab__price">₱22.50 – ₱22.70/kg</span>
+                    </button>
+                </div>
+
+                {/* Table */}
+                <div className="pricing-table-wrapper">
+                    <table className="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>Size</th>
+                                <th>Price/kg</th>
+                                <th>Weight (kg/m)</th>
+                                <th>6.0M</th>
+                                <th>7.5M</th>
+                                <th>9.0M</th>
+                                <th>10.5M</th>
+                                <th>12.0M</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {currentData.map((row, i) => (
+                                <tr key={i}>
+                                    <td className="pricing-table__size">{row.size}</td>
+                                    <td className="pricing-table__price">₱{row.price.toFixed(2)}</td>
+                                    <td>{row.weight}</td>
+                                    <td>₱{row['6.0M'].toFixed(2)}</td>
+                                    <td>₱{row['7.5M'].toFixed(2)}</td>
+                                    <td>₱{row['9.0M'].toFixed(2)}</td>
+                                    <td>₱{row['10.5M'].toFixed(2)}</td>
+                                    <td>₱{row['12.0M'].toFixed(2)}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+
+                <p className="pricing-note">
+                    * Prices are subject to change without prior notice. Contact us for bulk order discounts.
+                </p>
+            </div>
+        </section>
+    );
+};
+
+// CTA
+const CTA = () => (
+    <section className="pricing-cta">
+        <div className="pricing-cta__container">
+            <h2 className="pricing-cta__title">Need a Custom Quote?</h2>
+            <p className="pricing-cta__text">
+                Contact our sales team for bulk orders and special requirements.
+            </p>
+            <div className="pricing-cta__actions">
+                <Link to="/contact" className="btn btn--primary">Contact Sales</Link>
+                <Link to="/products" className="btn btn--outline">View Products</Link>
+            </div>
+        </div>
+    </section>
+);
+
+// Main Component
+const Pricing = () => {
+    return (
+        <div className="page">
             <Header />
-
-            {/* Hero Section */}
-            <section className="page-hero">
-                <div className="page-hero-content">
-                    <span className="page-hero-label">Product Pricing</span>
-                    <h1>Rebar Pricing</h1>
-                    <p>Transparent pricing for our premium quality reinforcing steel bars</p>
-                </div>
-            </section>
-
-            {/* Pricing Section */}
-            <section className="pricing-section">
-                <div className="container">
-                    {/* Tab Navigation */}
-                    <div className="pricing-tabs">
-                        <button 
-                            className={`pricing-tab ${activeTab === 'grade40' ? 'active' : ''}`}
-                            onClick={() => setActiveTab('grade40')}
-                        >
-                            <span className="tab-title">Grade 40</span>
-                            <span className="tab-subtitle">₱21.80 - ₱22.00/KG</span>
-                        </button>
-                        <button 
-                            className={`pricing-tab ${activeTab === 'grade60' ? 'active' : ''}`}
-                            onClick={() => setActiveTab('grade60')}
-                        >
-                            <span className="tab-title">Grade 60</span>
-                            <span className="tab-subtitle">₱22.50 - ₱22.70/KG</span>
-                        </button>
-                    </div>
-
-                    {/* Pricing Table */}
-                    <div className="pricing-table-container">
-                        <div className="table-wrapper">
-                            <table className="pricing-table">
-                                <thead>
-                                    <tr>
-                                        <th>Size</th>
-                                        <th>Price/KG</th>
-                                        <th>Weight (KG/M)</th>
-                                        <th>6.0M</th>
-                                        <th>7.5M</th>
-                                        <th>9.0M</th>
-                                        <th>10.5M</th>
-                                        <th>12.0M</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {currentData.map((row, index) => (
-                                        <tr key={index}>
-                                            <td className="size-cell">{row.size}</td>
-                                            <td className="price-cell">₱{row.price.toFixed(2)}</td>
-                                            <td>{row.weight}</td>
-                                            <td>₱{row['6.0M'].toFixed(2)}</td>
-                                            <td>₱{row['7.5M'].toFixed(2)}</td>
-                                            <td>₱{row['9.0M'].toFixed(2)}</td>
-                                            <td>₱{row['10.5M'].toFixed(2)}</td>
-                                            <td>₱{row['12.0M'].toFixed(2)}</td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    {/* Pricing Note */}
-                    <div className="pricing-note">
-                        <div className="note-icon">ℹ️</div>
-                        <div className="note-content">
-                            <strong>Important Notice:</strong> All prices are subject to change without prior notice. 
-                            Contact us for the most current pricing and availability. Bulk orders may qualify for special pricing.
-                        </div>
-                    </div>
-
-                    {/* CTA Section */}
-                    <div className="pricing-cta">
-                        <h3>Need a Custom Quote?</h3>
-                        <p>Contact our sales team for bulk orders, custom lengths, or special requirements.</p>
-                        <div className="cta-buttons">
-                            <Link to="/contact" className="btn-primary">
-                                Contact Sales <ArrowRight className="btn-icon" />
-                            </Link>
-                            <a 
-                                href="https://drive.google.com/file/d/1KmRxQPS3W630KvdKM4bNdMeA4FNBqlFS/view?usp=drive_link" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="btn-secondary"
-                            >
-                                Download Full Price List
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+            <main>
+                <PageHero />
+                <PricingTable />
+                <CTA />
+            </main>
             <Footer />
         </div>
     );

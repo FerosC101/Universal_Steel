@@ -1,105 +1,180 @@
+import { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 import './Certifications.css';
 
-const Certifications = () => {
+// Images
+const images = {
+    hero: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_Pics_for_website_3_haeba5.jpg',
+    facility: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_Pics_for_website_1_yzhack.jpg',
+    lab: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_Pics_for_website_2_crov5j.jpg',
+};
+
+// Page Hero with Image Background
+const PageHero = () => (
+    <section className="certs-hero">
+        <div className="certs-hero__bg">
+            <img src={images.hero} alt="Quality Assurance" />
+            <div className="certs-hero__overlay" />
+        </div>
+        <div className="certs-hero__content">
+            <span className="certs-hero__label">Proof of Quality</span>
+            <h1 className="certs-hero__title">ISO 9001:2015 Certified</h1>
+            <p className="certs-hero__text">
+                Committed to excellence through internationally recognized quality standards
+            </p>
+        </div>
+    </section>
+);
+
+// Certifications Grid with Modal
+const CertificationsGrid = () => {
+    const [selectedCert, setSelectedCert] = useState<number | null>(null);
+    
     const certifications = [
         {
             image: "https://res.cloudinary.com/drrzinr9v/image/upload/USSCI_TUV_ISO_exp_2028_t3dha9.jpg",
             title: "ISO 9001:2015 Certified",
-            subtitle: "by TÜV Philippines",
-            description: "Our Quality Management System meets international standards, ensuring consistent product quality and customer satisfaction."
+            issuer: "TÜV Philippines",
+            description: "Our Quality Management System meets international standards, ensuring consistent product quality and customer satisfaction.",
+            validity: "Valid until 2028",
         },
         {
             image: "https://res.cloudinary.com/drrzinr9v/image/upload/USSCI_PS_Mark_exp_24Aug2027_page-0001_z47en5.jpg",
             title: "BPS Certification Mark",
-            subtitle: "Bureau of Product Standards",
-            description: "Philippine Standard Quality Certification Mark for all Deformed Steel Bars, ensuring compliance with national quality standards."
+            issuer: "Bureau of Product Standards",
+            description: "Philippine Standard Quality Certification Mark for all Deformed Steel Bars, ensuring compliance with national quality standards.",
+            validity: "Valid until August 2027",
         },
         {
             image: "https://res.cloudinary.com/drrzinr9v/image/upload/USSCI_DPWH_exp_2025_page-0001_cgqgyj.jpg",
-            title: "DPWH-Accredited Testing Laboratory",
-            subtitle: "Bureau of Research and Standards (BRS)",
-            description: "Fully accredited to undertake materials testing for all government infrastructure projects."
-        }
+            title: "DPWH-Accredited Laboratory",
+            issuer: "Bureau of Research and Standards",
+            description: "Fully accredited to undertake materials testing for all government infrastructure projects.",
+            validity: "Valid until 2025",
+        },
     ];
 
     return (
-        <div className="certifications-page">
-            <Header />
-
-            {/* Hero Section */}
-            <section className="page-hero">
-                <div className="page-hero-content">
-                    <span className="page-hero-label">Quality Assurance</span>
-                    <h1>Our Certifications</h1>
-                    <p>Committed to excellence through internationally recognized quality standards</p>
-                </div>
-            </section>
-
-            {/* Certifications Grid */}
-            <section className="certifications-section">
-                <div className="container">
-                    <div className="section-header">
-                        <h2>Industry-Leading Standards</h2>
-                        <p>Our certifications demonstrate our commitment to producing high-quality steel products that meet rigorous international and national standards.</p>
+        <>
+            <section className="certs-grid-section">
+                <div className="certs-grid-section__container">
+                    <div className="certs-grid-section__header">
+                        <span className="section-label">Industry Standards</span>
+                        <h2 className="certs-grid-section__title">Industry-Leading Certifications</h2>
+                        <p className="certs-grid-section__subtitle">
+                            Our certifications demonstrate our commitment to producing high-quality 
+                            steel products that meet rigorous international and national standards.
+                        </p>
                     </div>
-
-                    <div className="certifications-grid">
-                        {certifications.map((cert, index) => (
-                            <article key={index} className="certification-card">
-                                <div className="certification-image">
+                    <div className="certs-grid">
+                        {certifications.map((cert, i) => (
+                            <div 
+                                key={i} 
+                                className="cert-card"
+                                onClick={() => setSelectedCert(i)}
+                            >
+                                <div className="cert-card__image">
                                     <img src={cert.image} alt={cert.title} />
+                                    <div className="cert-card__zoom">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                                        </svg>
+                                        <span>View Certificate</span>
+                                    </div>
                                 </div>
-                                <div className="certification-content">
-                                    <h3>{cert.title}</h3>
-                                    <span className="certification-issuer">{cert.subtitle}</span>
-                                    <p>{cert.description}</p>
+                                <div className="cert-card__content">
+                                    <h3 className="cert-card__title">{cert.title}</h3>
+                                    <span className="cert-card__issuer">{cert.issuer}</span>
+                                    <span className="cert-card__validity">{cert.validity}</span>
+                                    <p className="cert-card__desc">{cert.description}</p>
                                 </div>
-                            </article>
+                            </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Quality Statement Section */}
-            <section className="quality-statement">
-                <div className="container">
-                    <div className="statement-content">
-                        <h2>Our Commitment to Quality</h2>
-                        <p>
-                            At Universal Steel Smelting Co., Inc., quality is not just a goal—it's our foundation. 
-                            Our Quality Assurance Testing Laboratory utilizes advanced Carbon Analyzer Spectrometer 
-                            and Universal Testing Machine to ensure that all production meets the strictest quality 
-                            standards in rebar manufacturing.
-                        </p>
-                        <div className="quality-features">
-                            <div className="quality-feature">
-                                <div className="feature-number">01</div>
-                                <div className="feature-text">
-                                    <h4>Advanced Testing</h4>
-                                    <p>Carbon Analyzer Spectrometer & Universal Testing Machine</p>
-                                </div>
-                            </div>
-                            <div className="quality-feature">
-                                <div className="feature-number">02</div>
-                                <div className="feature-text">
-                                    <h4>Continuous Monitoring</h4>
-                                    <p>Real-time quality control throughout production</p>
-                                </div>
-                            </div>
-                            <div className="quality-feature">
-                                <div className="feature-number">03</div>
-                                <div className="feature-text">
-                                    <h4>Standards Compliance</h4>
-                                    <p>Meeting international and Philippine standards</p>
-                                </div>
-                            </div>
+            {/* Certificate Modal */}
+            {selectedCert !== null && (
+                <div className="cert-modal" onClick={() => setSelectedCert(null)}>
+                    <div className="cert-modal__content" onClick={(e) => e.stopPropagation()}>
+                        <button className="cert-modal__close" onClick={() => setSelectedCert(null)}>✕</button>
+                        <img src={certifications[selectedCert].image} alt={certifications[selectedCert].title} />
+                        <h3>{certifications[selectedCert].title}</h3>
+                        <p>{certifications[selectedCert].issuer}</p>
+                    </div>
+                </div>
+            )}
+        </>
+    );
+};
+
+// Quality Statement
+const QualityStatement = () => (
+    <section className="quality-statement">
+        <div className="quality-statement__container">
+            <div className="quality-statement__content">
+                <span className="section-label">Our Commitment</span>
+                <h2 className="quality-statement__title">Commitment to Quality</h2>
+                <p className="quality-statement__text">
+                    At Universal Steel Smelting Co., Inc., quality is not just a goal—it's our 
+                    foundation. Our Quality Assurance Testing Laboratory utilizes advanced 
+                    equipment to ensure all production meets the strictest standards.
+                </p>
+                <div className="quality-statement__features">
+                    <div className="quality-statement__feature">
+                        <span className="quality-statement__number">01</span>
+                        <div>
+                            <h4>Advanced Testing</h4>
+                            <p>Carbon Analyzer Spectrometer & Universal Testing Machine</p>
+                        </div>
+                    </div>
+                    <div className="quality-statement__feature">
+                        <span className="quality-statement__number">02</span>
+                        <div>
+                            <h4>Continuous Monitoring</h4>
+                            <p>Real-time quality control throughout production</p>
+                        </div>
+                    </div>
+                    <div className="quality-statement__feature">
+                        <span className="quality-statement__number">03</span>
+                        <div>
+                            <h4>Standards Compliance</h4>
+                            <p>Meeting international and Philippine standards</p>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    </section>
+);
 
+// CTA
+const CTA = () => (
+    <section className="certs-cta">
+        <div className="certs-cta__container">
+            <h2 className="certs-cta__title">Need Documentation?</h2>
+            <p className="certs-cta__text">
+                Contact us for certification documents and product test reports.
+            </p>
+            <Link to="/contact" className="btn btn--primary">Contact Us</Link>
+        </div>
+    </section>
+);
+
+// Main Component
+const Certifications = () => {
+    return (
+        <div className="page">
+            <Header />
+            <main>
+                <PageHero />
+                <CertificationsGrid />
+                <QualityStatement />
+                <CTA />
+            </main>
             <Footer />
         </div>
     );

@@ -1,213 +1,232 @@
-/* Contact Page Styles */
-.contact-page {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    padding-top: 80px; /* Account for fixed header */
+/* ==============================================
+   CONTACT PAGE - Enterprise Corporate Design
+   ============================================== */
+
+/* Section Label */
+.section-label {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
 }
 
-/* Contact Hero */
-.contact-hero {
-    height: 350px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                      url('https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_Pics_for_website_2_crov5j.jpg');
-    background-size: cover;
-    background-position: center;
+/* ==============================================
+   PAGE HERO (shared)
+   ============================================== */
+.page-hero {
     position: relative;
-}
-
-.hero-overlay-contact {
-    background: linear-gradient(135deg, rgba(220, 38, 38, 0.85), rgba(26, 26, 26, 0.75));
-    height: 100%;
+    min-height: 50vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: white;
+    background: var(--navy-900);
+    padding: 8rem 2rem 4rem;
 }
 
-.hero-overlay-contact h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+.page-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: url('https://res.cloudinary.com/drrzinr9v/image/upload/v1752675549/hero_sqtj19.jpg') center/cover;
+    opacity: 0.2;
 }
 
-.hero-overlay-contact p {
-    font-size: 1.25rem;
+.page-hero__content {
+    position: relative;
+    text-align: center;
+    max-width: 700px;
 }
 
-/* Contact Grid */
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    margin: 3rem 0;
-}
-
-/* Contact Information */
-.contact-info-section h2 {
-    font-size: 2rem;
-    color: #1a1a1a;
-    margin-bottom: 1rem;
-}
-
-.contact-info-section > p {
-    color: #6b7280;
-    line-height: 1.8;
-    margin-bottom: 2rem;
-}
-
-.info-cards {
-    display: grid;
-    gap: 1.5rem;
-}
-
-.info-card {
-    background: #f9fafb;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border-left: 4px solid #dc2626;
-}
-
-.info-icon {
-    width: 32px;
-    height: 32px;
-    color: #dc2626;
-    margin-bottom: 1rem;
-}
-
-.info-card h4 {
-    font-size: 1.1rem;
-    color: #1a1a1a;
-    margin-bottom: 0.5rem;
-}
-
-.info-card p {
-    color: #6b7280;
-    line-height: 1.6;
-}
-
-/* Contact Form */
-.contact-form-section {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form-section h3 {
-    font-size: 1.75rem;
-    color: #1a1a1a;
-    margin-bottom: 2rem;
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group label {
+.page-hero__label {
+    display: inline-block;
+    font-size: 0.875rem;
     font-weight: 600;
-    color: #1a1a1a;
-    margin-bottom: 0.5rem;
-    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
 }
 
-.form-group input,
-.form-group textarea {
-    padding: 0.75rem 1rem;
-    border: 1px solid #d1d5db;
-    border-radius: 4px;
+.page-hero__title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.page-hero__text {
+    font-size: 1.0625rem;
+    color: var(--gray-300);
+    line-height: 1.7;
+}
+
+/* ==============================================
+   CONTACT MAIN SECTION
+   ============================================== */
+.contact-main {
+    padding: 5rem 0;
+    background: #ffffff;
+}
+
+.contact-main__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+}
+
+.contact-main__heading {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--navy-900);
+    margin-bottom: 1rem;
+}
+
+.contact-main__text {
+    font-size: 1rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+/* ==============================================
+   CONTACT INFO CARDS
+   ============================================== */
+.contact-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.contact-info__card {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--gray-50);
+}
+
+.contact-info__icon {
+    width: 24px;
+    height: 24px;
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.contact-info__title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy-900);
+    margin-bottom: 0.5rem;
+}
+
+.contact-info__text p {
+    font-size: 0.9375rem;
+    color: var(--gray-600);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ==============================================
+   CONTACT FORM
+   ============================================== */
+.contact-form {
+    background: var(--gray-50);
+    padding: 2.5rem;
+}
+
+.contact-form__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy-900);
+    margin-bottom: 2rem;
+}
+
+.contact-form__group {
+    margin-bottom: 1.25rem;
+}
+
+.contact-form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--navy-900);
+    margin-bottom: 0.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.875rem 1rem;
     font-size: 1rem;
     font-family: inherit;
-    transition: border-color 0.3s ease;
+    border: 1px solid var(--gray-300);
+    background: #ffffff;
+    color: var(--navy-900);
+    transition: border-color 0.2s ease;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
+.contact-form input:focus,
+.contact-form textarea:focus {
     outline: none;
-    border-color: #dc2626;
+    border-color: var(--navy-900);
 }
 
-.form-group textarea {
+.contact-form textarea {
     resize: vertical;
+    min-height: 120px;
 }
 
-.btn-submit {
-    background: #dc2626;
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    align-self: flex-start;
-}
-
-.btn-submit:hover {
-    background: #b91c1c;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
-}
-
-/* Map Section */
-.map-section {
+.contact-form__submit {
     width: 100%;
-    margin-top: 3rem;
+    margin-top: 0.5rem;
 }
 
-.map-section iframe {
+/* ==============================================
+   MAP SECTION
+   ============================================== */
+.contact-map {
+    width: 100%;
+    height: 400px;
+    background: var(--gray-100);
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 100%;
     display: block;
 }
 
-/* Responsive */
+/* ==============================================
+   RESPONSIVE DESIGN
+   ============================================== */
 @media (max-width: 1024px) {
-    .contact-grid {
+    .contact-main__container {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
-
-    .form-row {
-        grid-template-columns: 1fr;
-    }
 }
 
-@media (max-width: 768px) {
-    .contact-hero {
-        height: 300px;
+@media (max-width: 640px) {
+    .contact-info {
+        grid-template-columns: 1fr;
     }
-
-    .hero-overlay-contact h1 {
-        font-size: 2rem;
+    
+    .contact-form__row {
+        grid-template-columns: 1fr;
     }
-
-    .hero-overlay-contact p {
-        font-size: 1rem;
-    }
-
-    .contact-info-section h2 {
-        font-size: 1.5rem;
-    }
-
-    .contact-form-section {
+    
+    .contact-form {
         padding: 1.5rem;
-    }
-
-    .btn-submit {
-        width: 100%;
-        align-self: stretch;
     }
 }

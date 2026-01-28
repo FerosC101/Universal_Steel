@@ -35,39 +35,39 @@ const LinkedIn = ({ className }: { className?: string }) => (
 const Footer = () => {
     return (
         <footer className="footer">
-            <div className="footer-container">
+            <div className="footer__container">
                 {/* Main Footer Content */}
-                <div className="footer-grid">
+                <div className="footer__grid">
                     {/* Company Info */}
-                    <div className="footer-brand">
-                        <div className="footer-logo">
+                    <div className="footer__brand">
+                        <div className="footer__logo">
                             <img 
                                 src="https://res.cloudinary.com/drrzinr9v/image/upload/v1754201352/USSCI_logo_19x17inch-removebg-preview_idrn0g.png" 
                                 alt="Universal Steel Smelting Co., Inc." 
                             />
-                            <div className="footer-logo-text">
-                                <span className="footer-company-name">Universal Steel</span>
-                                <span className="footer-company-tagline">Smelting Co., Inc.</span>
+                            <div className="footer__logo-text">
+                                <span className="footer__company-name">Universal Steel</span>
+                                <span className="footer__company-tagline">Smelting Co., Inc.</span>
                             </div>
                         </div>
-                        <p className="footer-description">
+                        <p className="footer__description">
                             For over 60 years, we have been a trusted leader in steel manufacturing, 
                             powering the construction and infrastructure sectors across the Philippines.
                         </p>
-                        <div className="footer-social">
+                        <div className="footer__social">
                             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                                <Facebook className="social-icon" />
+                                <Facebook className="footer__social-icon" />
                             </a>
                             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                                <LinkedIn className="social-icon" />
+                                <LinkedIn className="footer__social-icon" />
                             </a>
                         </div>
                     </div>
 
                     {/* Quick Links */}
-                    <div className="footer-section">
-                        <h4 className="footer-heading">Quick Links</h4>
-                        <ul className="footer-links">
+                    <div className="footer__section">
+                        <h4 className="footer__heading">Quick Links</h4>
+                        <ul className="footer__links">
                             <li><Link to="/">Home</Link></li>
                             <li><Link to="/about">About Us</Link></li>
                             <li><Link to="/products">Products</Link></li>
@@ -77,9 +77,9 @@ const Footer = () => {
                     </div>
 
                     {/* Products & Services */}
-                    <div className="footer-section">
-                        <h4 className="footer-heading">Products & Services</h4>
-                        <ul className="footer-links">
+                    <div className="footer__section">
+                        <h4 className="footer__heading">Products & Services</h4>
+                        <ul className="footer__links">
                             <li><Link to="/products">Grade 40 Rebars</Link></li>
                             <li><Link to="/products">Grade 60 Rebars</Link></li>
                             <li><Link to="/pricing">Pricing</Link></li>
@@ -88,22 +88,23 @@ const Footer = () => {
                     </div>
 
                     {/* Contact Info */}
-                    <div className="footer-section">
-                        <h4 className="footer-heading">Contact Us</h4>
-                        <ul className="footer-contact">
+                    <div className="footer__section">
+                        <h4 className="footer__heading">Contact Us</h4>
+                        <ul className="footer__contact">
                             <li>
-                                <MapPin className="contact-icon" />
-                                <span>28 Quirino Highway, Balon Bato 1<br />Quezon City, 1106, Philippines</span>
+                                <MapPin className="footer__contact-icon" />
+                                <span>28 Quirino Highway, Balon Bato<br />Quezon City, 1106, Philippines</span>
                             </li>
                             <li>
-                                <Phone className="contact-icon" />
+                                <Phone className="footer__contact-icon" />
                                 <div>
                                     <span>(02) 8363-2651</span>
                                     <span>(02) 8363-7081 to 82</span>
+                                    <span>(02) 8361-1247</span>
                                 </div>
                             </li>
                             <li>
-                                <Mail className="contact-icon" />
+                                <Mail className="footer__contact-icon" />
                                 <a href="mailto:office@universalsteelph.com">office@universalsteelph.com</a>
                             </li>
                         </ul>
@@ -111,15 +112,10 @@ const Footer = () => {
                 </div>
 
                 {/* Footer Bottom */}
-                <div className="footer-bottom">
-                    <p className="footer-copyright">
+                <div className="footer__bottom">
+                    <p className="footer__copyright">
                         &copy; {new Date().getFullYear()} Universal Steel Smelting Co., Inc. All rights reserved.
                     </p>
-                    <div className="footer-legal">
-                        <Link to="/privacy">Privacy Policy</Link>
-                        <span className="footer-divider">|</span>
-                        <Link to="/terms">Terms of Service</Link>
-                    </div>
                 </div>
             </div>
         </footer>

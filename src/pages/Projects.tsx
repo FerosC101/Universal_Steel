@@ -1,126 +1,139 @@
 import { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 import './Projects.css';
 
-interface ProjectImage {
-    id: number;
-    name: string;
-    description: string;
-    image: string;
-}
+// Project Data
+const projectGroups = [
+    {
+        id: 1,
+        title: "Past Developments",
+        description: "A comprehensive infrastructure development project showcasing our steel reinforcement solutions in major construction works.",
+        cardImage: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_Pics_for_website_2_crov5j.jpg",
+        images: [
+            { name: "Magallanes Interchange Project", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_projects_for_website_2_hrfykz.jpg" },
+            { name: "San Juanico Bridge", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_7_tjttq6.jpg" },
+            { name: "EDSA Shrine", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_1_wzrmyq.jpg" },
+        ],
+    },
+    {
+        id: 2,
+        title: "Present Developments",
+        description: "Current ongoing projects highlighting our capability to supply high-quality materials for extensive construction developments.",
+        cardImage: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_Pics_for_website_1_yzhack.jpg",
+        images: [
+            { name: "Metro Manila Skyway Stage 1", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_13_wrnwf1.jpg" },
+            { name: "Metro Manila Skyway Stage 2", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_11_btaknk.jpg" },
+            { name: "Metro Manila Skyway Stage 3", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_10_gqdpk6.jpg" },
+        ],
+    },
+    {
+        id: 3,
+        title: "Future Developments",
+        description: "Upcoming multi-phase development project featuring our comprehensive steel reinforcement solutions.",
+        cardImage: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_Pics_for_website_3_haeba5.jpg",
+        images: [
+            { name: "MRT-7", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_8_pbadil.jpg" },
+            { name: "MRT Extension Phase 1", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_5_jo4ul6.jpg" },
+            { name: "MRT Extension Phase 2", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_projects_for_website_3_hqua6e.jpg" },
+        ],
+    },
+];
 
-interface ProjectGroup {
-    id: number;
-    title: string;
-    description: string;
-    cardImage: string;
-    images: ProjectImage[];
-}
-
-const ChevronLeft = ({ className }: { className?: string }) => (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-    </svg>
+// Page Hero
+const PageHero = () => (
+    <section className="page-hero">
+        <div className="page-hero__overlay" />
+        <div className="page-hero__content">
+            <span className="page-hero__label">Our Portfolio</span>
+            <h1 className="page-hero__title">Featured Projects</h1>
+            <p className="page-hero__text">
+                Explore infrastructure projects powered by our premium steel products
+            </p>
+        </div>
+    </section>
 );
 
-const ChevronRight = ({ className }: { className?: string }) => (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-    </svg>
+// Projects Grid
+const ProjectsGrid = () => {
+    const [selectedGroup, setSelectedGroup] = useState<typeof projectGroups[0] | null>(null);
+
+    return (
+        <>
+            <section className="projects-grid-section">
+                <div className="projects-grid-section__container">
+                    <div className="projects-grid">
+                        {projectGroups.map((group) => (
+                            <div
+                                key={group.id}
+                                className="project-card"
+                                onClick={() => setSelectedGroup(group)}
+                            >
+                                <div className="project-card__image">
+                                    <img src={group.cardImage} alt={group.title} />
+                                    <div className="project-card__overlay">
+                                        <h3 className="project-card__title">{group.title}</h3>
+                                        <p className="project-card__desc">{group.description}</p>
+                                        <span className="project-card__cta">
+                                            View Gallery →
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Modal */}
+            {selectedGroup && (
+                <div className="projects-modal" onClick={() => setSelectedGroup(null)}>
+                    <div className="projects-modal__content" onClick={(e) => e.stopPropagation()}>
+                        <button 
+                            className="projects-modal__close"
+                            onClick={() => setSelectedGroup(null)}
+                        >
+                            ✕
+                        </button>
+                        <h2 className="projects-modal__title">{selectedGroup.title}</h2>
+                        <div className="projects-modal__grid">
+                            {selectedGroup.images.map((img, i) => (
+                                <div key={i} className="projects-modal__item">
+                                    <img src={img.image} alt={img.name} />
+                                    <p>{img.name}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            )}
+        </>
+    );
+};
+
+// Stats Section
+const StatsSection = () => (
+    <section className="projects-stats">
+        <div className="projects-stats__container">
+            <div className="projects-stats__item">
+                <span className="projects-stats__value">500+</span>
+                <span className="projects-stats__label">Projects Supplied</span>
+            </div>
+            <div className="projects-stats__item">
+                <span className="projects-stats__value">60+</span>
+                <span className="projects-stats__label">Years Experience</span>
+            </div>
+            <div className="projects-stats__item">
+                <span className="projects-stats__value">100%</span>
+                <span className="projects-stats__label">Quality Commitment</span>
+            </div>
+        </div>
+    </section>
 );
 
-const X = ({ className }: { className?: string }) => (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-    </svg>
-);
-
-const Projects = () => {
-    const [selectedProject, setSelectedProject] = useState<ProjectGroup | null>(null);
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-    const projectGroups: ProjectGroup[] = [
-        {
-            id: 1,
-            title: "Past Developments",
-            description: "A comprehensive infrastructure development project showcasing our steel reinforcement solutions in major construction works.",
-            cardImage: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_Pics_for_website_2_crov5j.jpg",
-            images: [
-                {
-                    id: 1,
-                    name: "Magallanes Interchange Project",
-                    description: "Major infrastructure development featuring our premium Grade 60 rebars for enhanced structural integrity.",
-                    image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_projects_for_website_2_hrfykz.jpg"
-                },
-                {
-                    id: 2,
-                    name: "San Juanico Bridge",
-                    description: "Critical bridge construction project utilizing our high-strength reinforcement solutions.",
-                    image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_7_tjttq6.jpg"
-                },
-                {
-                    id: 3,
-                    name: "EDSA Shrine",
-                    description: "Extensive highway development showcasing our comprehensive steel reinforcement capabilities.",
-                    image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_1_wzrmyq.jpg"
-                }
-            ]
-        },
-        {
-            id: 2,
-            title: "Present Developments",
-            description: "Current ongoing projects highlighting our capability to supply high-quality materials for extensive construction developments.",
-            cardImage: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_Pics_for_website_1_yzhack.jpg",
-            images: [
-                {
-                    id: 4,
-                    name: "Metro Manila Skyway",
-                    description: "Advanced foundation work for major commercial development utilizing our precision-manufactured rebars.",
-                    image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_13_wrnwf1.jpg"
-                },
-                {
-                    id: 5,
-                    name: "Metro Manila Skyway Phase 2",
-                    description: "Multi-story building construction featuring our Grade 40 and Grade 60 reinforcement solutions.",
-                    image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_11_btaknk.jpg"
-                },
-                {
-                    id: 6,
-                    name: "Metro Manila Skyway Phase 3",
-                    description: "Progressive building construction demonstrating our consistent quality delivery.",
-                    image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_10_gqdpk6.jpg"
-                }
-            ]
-        },
-        {
-            id: 3,
-            title: "Future Developments",
-            description: "Upcoming multi-phase development project featuring our comprehensive steel reinforcement solutions.",
-            cardImage: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_Pics_for_website_3_haeba5.jpg",
-            images: [
-                {
-                    id: 7,
-                    name: "MRT-7",
-                    description: "Comprehensive site preparation and initial foundation work for large-scale development.",
-                    image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_8_pbadil.jpg"
-                },
-                {
-                    id: 8,
-                    name: "MRT Extension",
-                    description: "Multi-unit construction showcasing our versatile rebar solutions.",
-                    image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_5_jo4ul6.jpg"
-                },
-                {
-                    id: 9,
-                    name: "MRT Extension Phase 2",
-                    description: "Final construction phases demonstrating successful integration of our reinforcement materials.",
-                    image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_projects_for_website_3_hqua6e.jpg"
-                }
-            ]
-        }
-    ];
-
+// Projects List Section
+const ProjectsList = () => {
     const infrastructureProjects = [
         "Batangas Flyover",
         "C-5 Flyover",
@@ -147,165 +160,69 @@ const Projects = () => {
         "SLEX Widening"
     ];
 
-    const openGallery = (project: ProjectGroup) => {
-        setSelectedProject(project);
-        setCurrentImageIndex(0);
-    };
-
-    const closeGallery = () => {
-        setSelectedProject(null);
-        setCurrentImageIndex(0);
-    };
-
-    const nextImage = () => {
-        if (selectedProject) {
-            setCurrentImageIndex((prev) => 
-                prev === selectedProject.images.length - 1 ? 0 : prev + 1
-            );
-        }
-    };
-
-    const prevImage = () => {
-        if (selectedProject) {
-            setCurrentImageIndex((prev) => 
-                prev === 0 ? selectedProject.images.length - 1 : prev - 1
-            );
-        }
-    };
-
     return (
-        <div className="projects-page">
-            <Header />
-
-            {/* Hero Section */}
-            <section className="page-hero">
-                <div className="page-hero-content">
-                    <span className="page-hero-label">Our Portfolio</span>
-                    <h1>Projects</h1>
-                    <p>Explore our comprehensive portfolio of construction projects showcasing our quality steel reinforcement solutions</p>
+        <section className="projects-list">
+            <div className="projects-list__container">
+                <div className="projects-list__header">
+                    <span className="section-label">Complete Portfolio</span>
+                    <h2 className="projects-list__title">Infrastructure Projects</h2>
                 </div>
-            </section>
-
-            {/* Featured Projects */}
-            <section className="featured-projects">
-                <div className="container">
-                    <div className="section-header">
-                        <h2>Featured Projects</h2>
-                        <p>Discover how our steel products power the nation's infrastructure</p>
-                    </div>
-
-                    <div className="projects-grid">
-                        {projectGroups.map((project) => (
-                            <article 
-                                key={project.id} 
-                                className="project-card"
-                                onClick={() => openGallery(project)}
-                            >
-                                <div className="project-image">
-                                    <img src={project.cardImage} alt={project.title} />
-                                    <div className="project-overlay">
-                                        <span className="view-gallery">View Gallery</span>
-                                    </div>
+                
+                <div className="projects-list__sections">
+                    <div className="projects-list__section">
+                        <h3 className="projects-list__section-title">Completed Projects</h3>
+                        <div className="projects-list__grid">
+                            {infrastructureProjects.map((project, i) => (
+                                <div key={i} className="projects-list__item">
+                                    <span className="projects-list__number">{i + 1}</span>
+                                    <span className="projects-list__name">{project}</span>
                                 </div>
-                                <div className="project-content">
-                                    <h3>{project.title}</h3>
-                                    <p>{project.description}</p>
-                                    <span className="project-count">{project.images.length} Images</span>
-                                </div>
-                            </article>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* All Projects List */}
-            <section className="all-projects">
-                <div className="container">
-                    <div className="section-header">
-                        <h2>Complete Project Portfolio</h2>
-                        <p>A comprehensive list of infrastructure projects powered by Universal Steel</p>
-                    </div>
-
-                    <div className="projects-list-container">
-                        <div className="projects-list-section">
-                            <h3>Infrastructure Projects</h3>
-                            <ul className="projects-list">
-                                {infrastructureProjects.map((project, index) => (
-                                    <li key={index}>
-                                        <span className="project-number">{String(index + 1).padStart(2, '0')}</span>
-                                        <span className="project-name">{project}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        <div className="projects-list-section current">
-                            <h3>Current Projects</h3>
-                            <ul className="projects-list">
-                                {currentProjects.map((project, index) => (
-                                    <li key={index}>
-                                        <span className="project-number">{String(index + 1).padStart(2, '0')}</span>
-                                        <span className="project-name">{project}</span>
-                                        <span className="status-badge">Ongoing</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Gallery Modal */}
-            {selectedProject && (
-                <div className="gallery-modal" onClick={closeGallery}>
-                    <div className="gallery-content" onClick={(e) => e.stopPropagation()}>
-                        <button className="gallery-close" onClick={closeGallery}>
-                            <X />
-                        </button>
-
-                        <div className="gallery-header">
-                            <h2>{selectedProject.title}</h2>
-                            <p>{selectedProject.description}</p>
-                        </div>
-
-                        <div className="gallery-main">
-                            <button className="gallery-nav prev" onClick={prevImage}>
-                                <ChevronLeft />
-                            </button>
-
-                            <div className="gallery-image-container">
-                                <img 
-                                    src={selectedProject.images[currentImageIndex].image} 
-                                    alt={selectedProject.images[currentImageIndex].name} 
-                                />
-                                <div className="image-info">
-                                    <h4>{selectedProject.images[currentImageIndex].name}</h4>
-                                    <p>{selectedProject.images[currentImageIndex].description}</p>
-                                </div>
-                            </div>
-
-                            <button className="gallery-nav next" onClick={nextImage}>
-                                <ChevronRight />
-                            </button>
-                        </div>
-
-                        <div className="gallery-indicators">
-                            {selectedProject.images.map((_, index) => (
-                                <button
-                                    key={index}
-                                    className={`indicator ${index === currentImageIndex ? 'active' : ''}`}
-                                    onClick={() => setCurrentImageIndex(index)}
-                                />
                             ))}
                         </div>
-
-                        <div className="gallery-counter">
-                            {currentImageIndex + 1} / {selectedProject.images.length}
+                    </div>
+                    
+                    <div className="projects-list__section">
+                        <h3 className="projects-list__section-title">Current Projects</h3>
+                        <div className="projects-list__grid">
+                            {currentProjects.map((project, i) => (
+                                <div key={i} className="projects-list__item projects-list__item--current">
+                                    <span className="projects-list__number">{i + 1}</span>
+                                    <span className="projects-list__name">{project}</span>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
-            )}
+            </div>
+        </section>
+    );
+};
 
+// CTA
+const CTA = () => (
+    <section className="projects-cta">
+        <div className="projects-cta__container">
+            <h2 className="projects-cta__title">Partner With Us</h2>
+            <p className="projects-cta__text">
+                Let USSCI be your trusted steel supplier for your next project.
+            </p>
+            <Link to="/contact" className="btn btn--primary">Contact Us</Link>
+        </div>
+    </section>
+);
+
+// Main Component
+const Projects = () => {
+    return (
+        <div className="page">
+            <Header />
+            <main>
+                <PageHero />
+                <ProjectsGrid />
+                <ProjectsList />
+                <StatsSection />
+                <CTA />
+            </main>
             <Footer />
         </div>
     );
