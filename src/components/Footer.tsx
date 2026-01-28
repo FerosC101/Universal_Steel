@@ -13,78 +13,112 @@ const Mail = ({ className }: { className?: string }) => (
     </svg>
 );
 
+const MapPin = ({ className }: { className?: string }) => (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+    </svg>
+);
+
+const Facebook = ({ className }: { className?: string }) => (
+    <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+    </svg>
+);
+
+const LinkedIn = ({ className }: { className?: string }) => (
+    <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+    </svg>
+);
+
 const Footer = () => {
     return (
-        <footer className="footer-simple">
-            <div className="footer-content-simple">
-                <div className="footer-grid-simple">
+        <footer className="footer">
+            <div className="footer-container">
+                {/* Main Footer Content */}
+                <div className="footer-grid">
                     {/* Company Info */}
-                    <div className="footer-section-simple">
-                        <div className="footer-logo-simple">
+                    <div className="footer-brand">
+                        <div className="footer-logo">
                             <img 
                                 src="https://res.cloudinary.com/drrzinr9v/image/upload/v1754201352/USSCI_logo_19x17inch-removebg-preview_idrn0g.png" 
-                                alt="USSCI Logo" 
+                                alt="Universal Steel Smelting Co., Inc." 
                             />
-                            <h3>UNIVERSAL STEEL SMELTING CO INC</h3>
+                            <div className="footer-logo-text">
+                                <span className="footer-company-name">Universal Steel</span>
+                                <span className="footer-company-tagline">Smelting Co., Inc.</span>
+                            </div>
                         </div>
-                        <p className="footer-address-simple">
-                            28 Quirino Highway, Balon Bato 1<br />
-                            Quezon City, 1106, Philippines
+                        <p className="footer-description">
+                            For over 60 years, we have been a trusted leader in steel manufacturing, 
+                            powering the construction and infrastructure sectors across the Philippines.
                         </p>
+                        <div className="footer-social">
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                                <Facebook className="social-icon" />
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                <LinkedIn className="social-icon" />
+                            </a>
+                        </div>
                     </div>
 
                     {/* Quick Links */}
-                    <div className="footer-section-simple">
-                        <h4>Quick Links</h4>
-                        <ul className="footer-links-simple">
+                    <div className="footer-section">
+                        <h4 className="footer-heading">Quick Links</h4>
+                        <ul className="footer-links">
                             <li><Link to="/">Home</Link></li>
                             <li><Link to="/about">About Us</Link></li>
                             <li><Link to="/products">Products</Link></li>
-                            <li><Link to="/contact">Contact Us</Link></li>
+                            <li><Link to="/projects">Projects</Link></li>
+                            <li><Link to="/contact">Contact</Link></li>
                         </ul>
                     </div>
 
-                    {/* Products */}
-                    <div className="footer-section-simple">
-                        <h4>Products</h4>
-                        <ul className="footer-links-simple">
+                    {/* Products & Services */}
+                    <div className="footer-section">
+                        <h4 className="footer-heading">Products & Services</h4>
+                        <ul className="footer-links">
                             <li><Link to="/products">Grade 40 Rebars</Link></li>
                             <li><Link to="/products">Grade 60 Rebars</Link></li>
-                            <li><Link to="/products">Quality Assurance</Link></li>
-                            <li><Link to="/products">Certifications</Link></li>
+                            <li><Link to="/pricing">Pricing</Link></li>
+                            <li><Link to="/certifications">Certifications</Link></li>
                         </ul>
                     </div>
 
-                    {/* Contact */}
-                    <div className="footer-section-simple">
-                        <h4>Contact Information</h4>
-                        <ul className="footer-contact-simple">
+                    {/* Contact Info */}
+                    <div className="footer-section">
+                        <h4 className="footer-heading">Contact Us</h4>
+                        <ul className="footer-contact">
                             <li>
-                                <Phone className="icon-small" />
-                                <span>(02) 8363-2651</span>
+                                <MapPin className="contact-icon" />
+                                <span>28 Quirino Highway, Balon Bato 1<br />Quezon City, 1106, Philippines</span>
                             </li>
                             <li>
-                                <Phone className="icon-small" />
-                                <span>(02) 8363-7081 to 82</span>
+                                <Phone className="contact-icon" />
+                                <div>
+                                    <span>(02) 8363-2651</span>
+                                    <span>(02) 8363-7081 to 82</span>
+                                </div>
                             </li>
                             <li>
-                                <Phone className="icon-small" />
-                                <span>(02) 8361-1247</span>
-                            </li>
-                            <li>
-                                <Mail className="icon-small" />
-                                <span>office@universalsteelph.com</span>
+                                <Mail className="contact-icon" />
+                                <a href="mailto:office@universalsteelph.com">office@universalsteelph.com</a>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <div className="footer-bottom-simple">
-                    <p>&copy; 2025 Universal Steel Smelting Co Inc. All rights reserved.</p>
-                    <div className="social-links-simple">
-                        <a href="#" aria-label="Facebook">f</a>
-                        <a href="#" aria-label="LinkedIn">in</a>
-                        <a href="#" aria-label="Email">@</a>
+                {/* Footer Bottom */}
+                <div className="footer-bottom">
+                    <p className="footer-copyright">
+                        &copy; {new Date().getFullYear()} Universal Steel Smelting Co., Inc. All rights reserved.
+                    </p>
+                    <div className="footer-legal">
+                        <Link to="/privacy">Privacy Policy</Link>
+                        <span className="footer-divider">|</span>
+                        <Link to="/terms">Terms of Service</Link>
                     </div>
                 </div>
             </div>
