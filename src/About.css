@@ -634,11 +634,13 @@
     .overview__container {
         grid-template-columns: 1fr;
         gap: 3rem;
+        padding: 0 1.5rem;
     }
     
     .facility__container {
         grid-template-columns: 1fr;
         gap: 3rem;
+        padding: 0 1.5rem;
     }
     
     .facility__image {
@@ -676,9 +678,60 @@
     }
 }
 
+@media (max-width: 768px) {
+    .page-hero {
+        padding: 6rem 1.5rem 3rem;
+        min-height: auto;
+    }
+
+    .page-hero h1 {
+        font-size: clamp(1.75rem, 5vw, 2.5rem);
+    }
+
+    .page-hero p {
+        font-size: 1rem;
+    }
+
+    .overview {
+        padding: 3rem 0;
+    }
+
+    .overview__title {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+    }
+
+    .facility {
+        padding: 3rem 0;
+    }
+
+    .facility__title {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+    }
+
+    .vmv {
+        padding: 3rem 0;
+    }
+
+    .quality {
+        padding: 3rem 0;
+    }
+
+    .proof-quality {
+        padding: 3rem 0;
+    }
+
+    .proof-quality__title {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+    }
+
+    .about-cta {
+        padding: 3rem 0;
+    }
+}
+
 @media (max-width: 640px) {
     .page-hero {
-        padding: 7rem 1.5rem 3rem;
+        padding: 5rem 1rem 2rem;
     }
     
     .stats-bar__container {
@@ -717,6 +770,42 @@
     
     .major-clients__title {
         font-size: 2rem;
+    }
+
+    .overview__container,
+    .facility__container,
+    .proof-quality__container,
+    .vmv__container,
+    .quality__container {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .overview__title,
+    .facility__title,
+    .proof-quality__title {
+        font-size: 1.25rem;
+    }
+
+    .stats-bar__value {
+        font-size: 1.75rem;
+    }
+
+    .vmv__card {
+        padding: 1.5rem;
+    }
+
+    .quality__card {
+        padding: 1.5rem;
+    }
+
+    .proof-quality__image {
+        height: 200px;
     }
 }
 

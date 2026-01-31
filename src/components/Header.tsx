@@ -74,6 +74,12 @@ const Header = () => {
                 </button>
             </div>
 
+            {/* Mobile Menu Overlay */}
+            <div 
+                className={`header__mobile-overlay ${isMobileMenuOpen ? 'header__mobile-overlay--open' : ''}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+            />
+
             {/* Mobile Menu */}
             <div className={`header__mobile-menu ${isMobileMenuOpen ? 'header__mobile-menu--open' : ''}`}>
                 <nav className="header__mobile-nav">

@@ -482,6 +482,7 @@
     .product-detail__container {
         grid-template-columns: 1fr;
         gap: 2rem;
+        padding: 0 1.5rem;
     }
     
     .product-detail:nth-child(even) .product-detail__container {
@@ -517,7 +518,43 @@
     }
 }
 
+@media (max-width: 768px) {
+    .products-hero {
+        padding-top: 6rem;
+        min-height: auto;
+        padding-bottom: 3rem;
+    }
+
+    .products-hero__title {
+        font-size: clamp(1.75rem, 5vw, 2.5rem);
+    }
+
+    .products-hero__subtitle {
+        font-size: 1rem;
+    }
+
+    .product-detail {
+        padding: 3rem 0;
+    }
+
+    .product-detail__content {
+        padding: 0;
+    }
+
+    .spectrometer {
+        padding: 3rem 0;
+    }
+
+    .spectrometer__content {
+        padding: 0 1rem;
+    }
+}
+
 @media (max-width: 640px) {
+    .product-detail__container {
+        padding: 0 1rem;
+    }
+
     .product-detail__tabs {
         width: 100%;
     }
@@ -525,10 +562,13 @@
     .product-detail__tab {
         flex: 1;
         text-align: center;
+        padding: 0.75rem;
+        font-size: 0.8125rem;
     }
     
     .products-cta__actions {
         flex-direction: column;
+        padding: 0 1rem;
     }
     
     .products-cta__actions .btn {
@@ -541,5 +581,23 @@
     
     .partners__item img {
         height: 40px;
+    }
+
+    .spectrometer__image img {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-hero__title {
+        font-size: 1.5rem;
+    }
+
+    .product-detail__title {
+        font-size: 1.25rem;
+    }
+
+    .product-detail__image img {
+        height: 250px;
     }
 }

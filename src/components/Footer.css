@@ -191,11 +191,34 @@
         grid-column: span 2;
         max-width: 100%;
     }
+
+    .footer__container {
+        padding: 0 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 3rem 0 0;
+    }
+
+    .footer__grid {
+        gap: 2rem;
+    }
+
+    .footer__description {
+        font-size: 0.875rem;
+    }
+
+    .footer__links a,
+    .footer__contact li {
+        font-size: 0.875rem;
+    }
 }
 
 @media (max-width: 640px) {
-    .footer {
-        padding: 3rem 0 0;
+    .footer__container {
+        padding: 0 1rem;
     }
     
     .footer__grid {
@@ -206,4 +229,24 @@
     .footer__brand {
         grid-column: span 1;
     }
+
+    .footer__social {
+        justify-content: flex-start;
+    }
 }
+
+@media (max-width: 480px) {
+    .footer__logo img {
+        height: 36px;
+    }
+
+    .footer__company-name {
+        font-size: 0.9375rem;
+    }
+
+    .footer__heading {
+        font-size: 0.8125rem;
+    }
+
+    .footer__copyright {
+        font-size: 0.8125rem;

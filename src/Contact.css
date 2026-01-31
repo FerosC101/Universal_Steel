@@ -214,10 +214,39 @@
     .contact-main__container {
         grid-template-columns: 1fr;
         gap: 3rem;
+        padding: 0 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-hero {
+        padding-top: 6rem;
+        min-height: auto;
+        padding-bottom: 3rem;
+    }
+
+    .contact-hero__title {
+        font-size: clamp(1.75rem, 5vw, 2.5rem);
+    }
+
+    .contact-hero__subtitle {
+        font-size: 1rem;
+    }
+
+    .contact-main {
+        padding: 3rem 0;
+    }
+
+    .contact-map {
+        height: 300px;
     }
 }
 
 @media (max-width: 640px) {
+    .contact-main__container {
+        padding: 0 1rem;
+    }
+
     .contact-info {
         grid-template-columns: 1fr;
     }
@@ -228,5 +257,20 @@
     
     .contact-form {
         padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-hero__title {
+        font-size: 1.5rem;
+    }
+
+    .contact-form {
+        padding: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
     }
 }
