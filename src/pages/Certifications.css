@@ -161,8 +161,14 @@
 
 .certs-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .certs-grid {
+        grid-template-columns: 1fr !important;
+    }
 }
 
 .cert-card {
@@ -420,27 +426,217 @@
    RESPONSIVE
    ============================================== */
 @media (max-width: 1024px) {
+    .certs-hero {
+        min-height: 50vh;
+    }
+    
+    .certs-hero__content {
+        padding: 0 1.5rem;
+    }
+    
     .certs-hero__title {
         font-size: 2.5rem;
     }
     
     .certs-grid {
         grid-template-columns: 1fr;
-        max-width: 500px;
+        max-width: 600px;
         margin: 0 auto;
+        gap: 1.5rem;
     }
     
     .quality-statement__features {
         grid-template-columns: 1fr;
     }
+    
+    .certs-grid-section {
+        padding: 3rem 0;
+    }
+    
+    .certs-grid-section__container {
+        padding: 0 1.5rem;
+    }
+    
+    .certs-grid-section__header {
+        margin-bottom: 2.5rem;
+    }
+    
+    .cert-card__image {
+        height: 280px;
+    }
 }
 
 @media (max-width: 640px) {
+    .certs-hero {
+        min-height: 40vh;
+    }
+    
+    .certs-hero__content {
+        padding: 0 1rem;
+    }
+    
+    .certs-hero__label {
+        font-size: 0.75rem;
+        padding: 0.4rem 1rem;
+        margin-bottom: 1rem;
+    }
+    
     .certs-hero__title {
-        font-size: 2rem;
+        font-size: 1.75rem;
+        margin-bottom: 0.75rem;
     }
     
     .certs-hero__text {
+        font-size: 0.9375rem;
+        line-height: 1.5;
+    }
+    
+    /* Grid Section Mobile */
+    .certs-grid-section {
+        padding: 2.5rem 0;
+    }
+    
+    .certs-grid-section__container {
+        padding: 0 1rem;
+    }
+    
+    .certs-grid-section__header {
+        margin-bottom: 2rem;
+    }
+    
+    .certs-grid-section__title {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .certs-grid-section__subtitle {
+        font-size: 0.9375rem;
+    }
+    
+    /* Certificate Cards Mobile */
+    .certs-grid {
+        gap: 1.25rem;
+        max-width: 100%;
+    }
+    
+    .cert-card {
+        border-radius: 8px;
+    }
+    
+    .cert-card__image {
+        height: auto;
+        min-height: 240px;
+        padding: 1rem 0.75rem;
+    }
+    
+    .cert-card__content {
+        padding: 1.25rem 1rem;
+    }
+    
+    .cert-card__title {
         font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .cert-card__issuer {
+        font-size: 0.8125rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .cert-card__validity {
+        font-size: 0.6875rem;
+        padding: 0.25rem 0.625rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .cert-card__desc {
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+    
+    /* Certificate Modal Mobile */
+    .cert-modal {
+        padding: 1rem;
+    }
+    
+    .cert-modal__content {
+        max-width: 100%;
+        border-radius: 8px;
+    }
+    
+    .cert-modal__close {
+        width: 36px;
+        height: 36px;
+        font-size: 1.125rem;
+        top: 0.75rem;
+        right: 0.75rem;
+    }
+    
+    .cert-modal__content h3 {
+        font-size: 1.125rem;
+        padding: 1.25rem 1rem 0.5rem;
+    }
+    
+    .cert-modal__content p {
+        font-size: 0.875rem;
+        padding: 0 1rem 1.25rem;
+    }
+    
+    /* Quality Statement Mobile */
+    .quality-statement {
+        padding: 3rem 0;
+    }
+    
+    .quality-statement__container {
+        padding: 0 1rem;
+    }
+    
+    .quality-statement__title {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .quality-statement__text {
+        font-size: 0.9375rem;
+        margin-bottom: 2rem;
+    }
+    
+    .quality-statement__features {
+        gap: 1rem;
+    }
+    
+    .quality-statement__feature {
+        padding: 1.25rem 1rem;
+    }
+    
+    .quality-statement__number {
+        font-size: 1.25rem;
+    }
+    
+    .quality-statement__feature h4 {
+        font-size: 0.9375rem;
+    }
+    
+    .quality-statement__feature p {
+        font-size: 0.8125rem;
+    }
+    
+    /* CTA Mobile */
+    .certs-cta {
+        padding: 3rem 0;
+    }
+    
+    .certs-cta__container {
+        padding: 0 1rem;
+    }
+    
+    .certs-cta__title {
+        font-size: 1.375rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .certs-cta__text {
+        font-size: 0.9375rem;
+        margin-bottom: 1.5rem;
     }
 }

@@ -73,6 +73,10 @@ const PageHero = () => (
 const Overview = () => (
     <section className="overview">
         <div className="overview__container">
+            <div className="overview__header">
+                <span className="section-label">Our Story</span>
+                <h2 className="overview__title">Company Background</h2>
+            </div>
             <div className="overview__image">
                 <div className="overview__logo">
                     <img 
@@ -86,8 +90,6 @@ const Overview = () => (
                 />
             </div>
             <div className="overview__content">
-                <span className="section-label">Our Story</span>
-                <h2 className="overview__title">Company Background</h2>
                 <p className="overview__text">
                     Universal Steel Smelting Co., Inc. (USSCI) was established on January 27, 1966 
                     with the manufacturing objective of producing the highest quality standards of 
@@ -153,26 +155,9 @@ const Facility = () => {
     return (
         <section className="facility">
             <div className="facility__container">
-                <div className="facility__content">
+                <div className="facility__header">
                     <span className="section-label">Our Facilities</span>
                     <h2 className="facility__title">State-of-the-Art Manufacturing</h2>
-                    <p className="facility__text">
-                        From its humble beginnings as a hand-fed mill, our management team has 
-                        prioritized facility modernization. Today, our manufacturing process has 
-                        evolved into a Full Tandem Mill from roughing to finishing passes.
-                    </p>
-                    <p className="facility__text">
-                        We operate a state-of-the-art continuous type reheating furnace, designed 
-                        and supplied by FORNI INDUSTRIAL BENDOTTI. The furnace utilizes a fully 
-                        computerized High Pressure Burner System with atomized air for efficient 
-                        combustion.
-                    </p>
-                    <ul className="facility__list">
-                        <li>Full Tandem Mill production line</li>
-                        <li>Continuous reheating furnace system</li>
-                        <li>Programmable Logic Control automation</li>
-                        <li>Uniform heating technology</li>
-                    </ul>
                 </div>
                 <div className="facility__carousel">
                     <div className="facility__carousel-track" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
@@ -191,6 +176,25 @@ const Facility = () => {
                             />
                         ))}
                     </div>
+                </div>
+                <div className="facility__content">
+                    <p className="facility__text">
+                        From its humble beginnings as a hand-fed mill, our management team has 
+                        prioritized facility modernization. Today, our manufacturing process has 
+                        evolved into a Full Tandem Mill from roughing to finishing passes.
+                    </p>
+                    <p className="facility__text">
+                        We operate a state-of-the-art continuous type reheating furnace, designed 
+                        and supplied by FORNI INDUSTRIAL BENDOTTI. The furnace utilizes a fully 
+                        computerized High Pressure Burner System with atomized air for efficient 
+                        combustion.
+                    </p>
+                    <ul className="facility__list">
+                        <li>Full Tandem Mill production line</li>
+                        <li>Continuous reheating furnace system</li>
+                        <li>Programmable Logic Control automation</li>
+                        <li>Uniform heating technology</li>
+                    </ul>
                 </div>
             </div>
         </section>

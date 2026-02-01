@@ -179,12 +179,24 @@
     padding: 0 2rem;
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: 4rem;
+    grid-template-areas: 
+        "image header"
+        "image content";
+    gap: 2rem 4rem;
     align-items: center;
 }
 
+.overview__header {
+    grid-area: header;
+}
+
 .overview__image {
+    grid-area: image;
     position: relative;
+}
+
+.overview__content {
+    grid-area: content;
 }
 
 .overview__image img {
@@ -284,8 +296,23 @@
     padding: 0 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-areas: 
+        "header carousel"
+        "content carousel";
+    gap: 2rem 4rem;
     align-items: center;
+}
+
+.facility__header {
+    grid-area: header;
+}
+
+.facility__content {
+    grid-area: content;
+}
+
+.facility__carousel {
+    grid-area: carousel;
 }
 
 .facility__title {
@@ -632,19 +659,41 @@
    ============================================== */
 @media (max-width: 1024px) {
     .overview__container {
-        grid-template-columns: 1fr;
-        gap: 3rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
         padding: 0 1.5rem;
+    }
+    
+    .overview__header {
+        order: 1;
+    }
+    
+    .overview__image {
+        order: 2;
+    }
+    
+    .overview__content {
+        order: 3;
     }
     
     .facility__container {
-        grid-template-columns: 1fr;
-        gap: 3rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
         padding: 0 1.5rem;
     }
     
-    .facility__image {
-        order: -1;
+    .facility__header {
+        order: 1;
+    }
+    
+    .facility__carousel {
+        order: 2;
+    }
+    
+    .facility__content {
+        order: 3;
     }
     
     .stats-bar__container {
@@ -759,8 +808,61 @@
         width: 100%;
     }
     
+    .customer-service {
+        padding: 3rem 0;
+    }
+    
+    .customer-service__container {
+        padding: 0 1rem;
+    }
+    
+    .customer-service__content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    .customer-service__title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .customer-service__intro {
+        font-size: 1rem;
+    }
+    
+    .customer-service__desc {
+        font-size: 0.9375rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .customer-service__highlight {
+        padding: 1.25rem;
+    }
+    
+    .customer-service__highlight h3 {
+        font-size: 1rem;
+    }
+    
     .customer-service__features {
         grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .customer-service__feature {
+        padding: 1.25rem 1rem;
+    }
+    
+    .customer-service__icon {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .customer-service__feature h4 {
+        font-size: 0.9375rem;
+    }
+    
+    .customer-service__feature p {
+        font-size: 0.8125rem;
     }
     
     .major-clients__card {
@@ -807,6 +909,36 @@
     .proof-quality__image {
         height: 200px;
     }
+    
+    .customer-service__title {
+        font-size: 1.375rem;
+    }
+    
+    .customer-service__intro {
+        font-size: 0.9375rem;
+    }
+    
+    .customer-service__desc {
+        font-size: 0.875rem;
+    }
+    
+    .customer-service__highlight {
+        padding: 1rem;
+    }
+    
+    .customer-service__highlight h3 {
+        font-size: 0.9375rem;
+    }
+    
+    .customer-service__feature {
+        padding: 1rem 0.875rem;
+        gap: 0.875rem;
+    }
+    
+    .customer-service__icon {
+        width: 32px;
+        height: 32px;
+    }
 }
 
 /* ==============================================
@@ -842,8 +974,14 @@
 
 .proof-quality__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .proof-quality__grid {
+        grid-template-columns: 1fr !important;
+    }
 }
 
 .proof-quality__card {
@@ -999,6 +1137,109 @@
     font-size: 0.875rem;
     color: var(--gray-600);
     line-height: 1.5;
+}
+
+/* Customer Service Mobile Styles */
+@media (max-width: 1024px) {
+    .customer-service__content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    .customer-service__features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .customer-service {
+        padding: 3rem 0;
+    }
+    
+    .customer-service__container {
+        padding: 0 1rem;
+    }
+    
+    .customer-service__title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .customer-service__intro {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    .customer-service__desc {
+        font-size: 0.9375rem;
+        margin-bottom: 1.25rem;
+        line-height: 1.6;
+    }
+    
+    .customer-service__highlight {
+        padding: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .customer-service__highlight h3 {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+    
+    .customer-service__features {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .customer-service__feature {
+        padding: 1.25rem 1rem;
+    }
+    
+    .customer-service__icon {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .customer-service__feature h4 {
+        font-size: 0.9375rem;
+    }
+    
+    .customer-service__feature p {
+        font-size: 0.8125rem;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 480px) {
+    .customer-service__title {
+        font-size: 1.375rem;
+    }
+    
+    .customer-service__intro {
+        font-size: 0.9375rem;
+    }
+    
+    .customer-service__desc {
+        font-size: 0.875rem;
+    }
+    
+    .customer-service__highlight {
+        padding: 1rem;
+    }
+    
+    .customer-service__highlight h3 {
+        font-size: 0.9375rem;
+    }
+    
+    .customer-service__feature {
+        padding: 1rem 0.875rem;
+        gap: 0.875rem;
+    }
+    
+    .customer-service__icon {
+        width: 32px;
+        height: 32px;
+    }
 }
 
 /* ==============================================

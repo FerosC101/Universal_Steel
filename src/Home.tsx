@@ -66,6 +66,12 @@ const Hero = () => {
 const About = () => (
     <section className="about">
         <div className="about__container">
+            <div className="about__header">
+                <span className="about__label">About Us</span>
+                <h2 className="about__title">
+                    UNIVERSAL STEEL SMELTING CO INC
+                </h2>
+            </div>
             <div className="about__image">
                 <img 
                     src="https://res.cloudinary.com/drrzinr9v/image/upload/v1752676337/514315094_122186224832360700_1263205354293391856_n_qrnviz.jpg" 
@@ -73,10 +79,6 @@ const About = () => (
                 />
             </div>
             <div className="about__content">
-                <span className="about__label">About Us</span>
-                <h2 className="about__title">
-                    UNIVERSAL STEEL SMELTING CO INC
-                </h2>
                 <p className="about__text">
                     Founded with a vision to fuel industrial growth through innovation and strength, 
                     Universal Steel Smelting Company Incorporated is a trusted leader in steel 

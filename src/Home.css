@@ -257,12 +257,24 @@
     padding: 0 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 5rem;
+    grid-template-areas: 
+        "image header"
+        "image content";
+    gap: 2rem 5rem;
     align-items: center;
 }
 
+.about__header {
+    grid-area: header;
+}
+
 .about__image {
+    grid-area: image;
     position: relative;
+}
+
+.about__content {
+    grid-area: content;
 }
 
 .about__image img {
@@ -753,9 +765,22 @@
     }
     
     .about__container {
-        grid-template-columns: 1fr;
-        gap: 3rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
         padding: 0 1.5rem;
+    }
+    
+    .about__header {
+        order: 1;
+    }
+    
+    .about__image {
+        order: 2;
+    }
+    
+    .about__content {
+        order: 3;
     }
     
     .about__image::before {
