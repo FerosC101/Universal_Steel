@@ -234,31 +234,6 @@ const SpectrometerSection = () => (
     </section>
 );
 
-// Partners Section
-const Partners = () => {
-    const partners = [
-        { name: "Bendotti", url: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753362856/partner1_dita9v.png" },
-        { name: "CMC", url: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753362870/partner2_qqt38f.png" },
-        { name: "Steel Work", url: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753362876/partner3_ygi4en.png" },
-        { name: "Atlas Steel", url: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753362882/partner4_qiimgs.png" },
-    ];
-
-    return (
-        <section className="partners">
-            <div className="partners__container">
-                <h2 className="partners__title">Our Partners</h2>
-                <div className="partners__grid">
-                    {partners.map((partner, i) => (
-                        <div key={i} className="partners__item">
-                            <img src={partner.url} alt={partner.name} />
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-};
-
 // CTA Section
 const CTA = () => (
     <section className="products-cta">
@@ -285,7 +260,6 @@ const Products = () => {
                 {products.map((product) => (
                     <ProductDetail key={product.id} product={product} />
                 ))}
-                <Partners />
                 <SpectrometerSection />
                 <QualitySection />
                 <CTA />
