@@ -8,12 +8,12 @@ import './Home.css';
 const Hero = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const slides = [
-        'https://res.cloudinary.com/drrzinr9v/image/upload/v1752675549/hero_sqtj19.jpg',
-        'https://res.cloudinary.com/drrzinr9v/image/upload/hero2_omdk5s.jpg',
-        'https://res.cloudinary.com/drrzinr9v/image/upload/hero3_exwvmu.jpg',
-        'https://res.cloudinary.com/drrzinr9v/image/upload/hero4_c9ylu9.jpg',
-        'https://res.cloudinary.com/drrzinr9v/image/upload/hero5_ydk14p.jpg',
-        'https://res.cloudinary.com/drrzinr9v/image/upload/hero6_e7u9ss.jpg',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6053.jpg',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6136.jpg',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6205.jpg',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6269.jpg',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6380.jpg',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6518.jpg',
     ];
 
     useEffect(() => {
@@ -293,6 +293,8 @@ const Partners = () => {
 // CTA Section
 const CTA = () => (
     <section className="cta">
+        <div className="cta__bg" style={{ backgroundImage: 'url(/images/facility/Unisteel%20Final%20Photos/5E8A6425.jpg)' }}></div>
+        <div className="cta__overlay"></div>
         <div className="cta__container">
             <h2 className="cta__title">Ready to Start Your Project?</h2>
             <p className="cta__text">

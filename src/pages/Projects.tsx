@@ -43,12 +43,12 @@ const projectGroups = [
 
 // Page Hero
 const PageHero = () => (
-    <section className="page-hero">
-        <div className="page-hero__overlay" />
-        <div className="page-hero__content">
-            <span className="page-hero__label">Our Portfolio</span>
-            <h1 className="page-hero__title">Featured Projects</h1>
-            <p className="page-hero__text">
+    <section className="projects-page-hero">
+        <div className="projects-page-hero__overlay" />
+        <div className="projects-page-hero__content">
+            <span className="projects-page-hero__label">Our Portfolio</span>
+            <h1 className="projects-page-hero__title">Featured Projects</h1>
+            <p className="projects-page-hero__text">
                 Explore infrastructure projects powered by our premium steel products
             </p>
         </div>
@@ -201,6 +201,8 @@ const ProjectsList = () => {
 // CTA
 const CTA = () => (
     <section className="projects-cta">
+        <div className="projects-cta__bg" style={{ backgroundImage: 'url(/images/facility/Unisteel%20Final%20Photos/5E8A6462.jpg)' }}></div>
+        <div className="projects-cta__overlay"></div>
         <div className="projects-cta__container">
             <h2 className="projects-cta__title">Partner With Us</h2>
             <p className="projects-cta__text">

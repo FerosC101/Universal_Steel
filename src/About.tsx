@@ -54,14 +54,14 @@ const Milestones = () => {
 
 // Page Hero
 const PageHero = () => (
-    <section className="page-hero">
-        <div className="page-hero__overlay" />
-        <div className="page-hero__content">
-            <span className="page-hero__label">About Us</span>
-            <h1 className="page-hero__title">
+    <section className="about-page-hero">
+        <div className="about-page-hero__overlay" />
+        <div className="about-page-hero__content">
+            <span className="about-page-hero__label">About Us</span>
+            <h1 className="about-page-hero__title">
                 Building Excellence Since 1966
             </h1>
-            <p className="page-hero__text">
+            <p className="about-page-hero__text">
                 Universal Steel Smelting Co., Inc. is a trusted leader in steel manufacturing, 
                 powering the construction and infrastructure sectors across the Philippines.
             </p>
@@ -136,8 +136,16 @@ const StatsBar = () => {
 const Facility = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const images = [
-        'https://res.cloudinary.com/drrzinr9v/image/upload/IMG_0634_ehtkiu.jpg',
-        'https://res.cloudinary.com/drrzinr9v/image/upload/v1755004449/hero5_ydk14p.jpg',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6094.jpg',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6112.jpg',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6148.jpg',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6161.jpg',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6180.jpg',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6216.jpg',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6238.jpg',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6291.jpg',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6325.jpg',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6396.jpg',
     ];
 
     const goToSlide = (index: number) => {
@@ -459,6 +467,8 @@ const MajorClients = () => {
 // CTA Section
 const CTA = () => (
     <section className="about-cta">
+        <div className="about-cta__bg" style={{ backgroundImage: 'url(/images/facility/Unisteel%20Final%20Photos/5E8A6436.jpg)' }}></div>
+        <div className="about-cta__overlay"></div>
         <div className="about-cta__container">
             <h2 className="about-cta__title">Ready to Partner With Us?</h2>
             <p className="about-cta__text">

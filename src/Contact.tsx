@@ -31,12 +31,12 @@ const Clock = ({ className }: { className?: string }) => (
 
 // Page Hero
 const PageHero = () => (
-    <section className="page-hero">
-        <div className="page-hero__overlay" />
-        <div className="page-hero__content">
-            <span className="page-hero__label">Get in Touch</span>
-            <h1 className="page-hero__title">Contact Us</h1>
-            <p className="page-hero__text">
+    <section className="contact-page-hero">
+        <div className="contact-page-hero__overlay" />
+        <div className="contact-page-hero__content">
+            <span className="contact-page-hero__label">Get in Touch</span>
+            <h1 className="contact-page-hero__title">Contact Us</h1>
+            <p className="contact-page-hero__text">
                 We're here to help and answer any questions you might have. 
                 We look forward to hearing from you.
             </p>

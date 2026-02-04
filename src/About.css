@@ -16,7 +16,7 @@
 /* ==============================================
    PAGE HERO
    ============================================== */
-.page-hero {
+.about-page-hero {
     position: relative;
     min-height: 50vh;
     display: flex;
@@ -26,20 +26,22 @@
     padding: 8rem 2rem 4rem;
 }
 
-.page-hero__overlay {
+.about-page-hero__overlay {
     position: absolute;
     inset: 0;
-    background: url('https://res.cloudinary.com/drrzinr9v/image/upload/v1752675549/hero_sqtj19.jpg') center/cover;
+    background: url('/images/facility/Unisteel%20Final%20Photos/5E8A6567.jpg') center/cover;
+    background-size: cover;
+    background-position: center;
     opacity: 0.2;
 }
 
-.page-hero__content {
+.about-page-hero__content {
     position: relative;
     text-align: center;
     max-width: 700px;
 }
 
-.page-hero__label {
+.about-page-hero__label {
     display: inline-block;
     font-size: 0.875rem;
     font-weight: 600;
@@ -49,7 +51,7 @@
     margin-bottom: 1rem;
 }
 
-.page-hero__title {
+.about-page-hero__title {
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 700;
     color: #ffffff;
@@ -57,7 +59,7 @@
     line-height: 1.2;
 }
 
-.page-hero__text {
+.about-page-hero__text {
     font-size: 1.0625rem;
     color: var(--gray-300);
     line-height: 1.7;
@@ -658,11 +660,29 @@
    ABOUT CTA
    ============================================== */
 .about-cta {
+    position: relative;
     padding: 5rem 0;
-    background: var(--navy-900);
+    overflow: hidden;
+}
+
+.about-cta__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.about-cta__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(18, 35, 60, 0.92), rgba(18, 35, 60, 0.85));
 }
 
 .about-cta__container {
+    position: relative;
+    z-index: 1;
     max-width: 800px;
     margin: 0 auto;
     padding: 0 2rem;
@@ -678,7 +698,7 @@
 
 .about-cta__text {
     font-size: 1.0625rem;
-    color: var(--gray-400);
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 2rem;
 }
 
@@ -773,6 +793,10 @@
 }
 
 @media (max-width: 768px) {
+    .about-cta__bg {
+        background-attachment: scroll;
+    }
+
     .page-hero {
         padding: 6rem 1.5rem 3rem;
         min-height: auto;

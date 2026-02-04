@@ -688,11 +688,29 @@
    CTA SECTION
    ============================================== */
 .cta {
+    position: relative;
     padding: 5rem 0;
-    background: var(--navy-900);
+    overflow: hidden;
+}
+
+.cta__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.cta__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(18, 35, 60, 0.92), rgba(18, 35, 60, 0.85));
 }
 
 .cta__container {
+    position: relative;
+    z-index: 1;
     max-width: 800px;
     margin: 0 auto;
     padding: 0 2rem;
@@ -708,7 +726,7 @@
 
 .cta__text {
     font-size: 1.0625rem;
-    color: var(--gray-400);
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 2rem;
 }
 
@@ -801,6 +819,10 @@
 @media (max-width: 768px) {
     :root {
         --section-padding: 4rem;
+    }
+
+    .cta__bg {
+        background-attachment: scroll;
     }
 
     .hero {

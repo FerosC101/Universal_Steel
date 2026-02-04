@@ -14,9 +14,9 @@
 }
 
 /* ==============================================
-   PAGE HERO (shared with About)
+   PAGE HERO
    ============================================== */
-.page-hero {
+.products-page-hero {
     position: relative;
     min-height: 50vh;
     display: flex;
@@ -26,20 +26,20 @@
     padding: 8rem 2rem 4rem;
 }
 
-.page-hero__overlay {
+.products-page-hero__overlay {
     position: absolute;
     inset: 0;
-    background: url('https://res.cloudinary.com/drrzinr9v/image/upload/v1752675549/hero_sqtj19.jpg') center/cover;
+    background: url('https://res.cloudinary.com/drrzinr9v/image/upload/v1753545927/Grade_40_1_epdri0.jpg') center/cover;
     opacity: 0.2;
 }
 
-.page-hero__content {
+.products-page-hero__content {
     position: relative;
     text-align: center;
     max-width: 700px;
 }
 
-.page-hero__label {
+.products-page-hero__label {
     display: inline-block;
     font-size: 0.875rem;
     font-weight: 600;
@@ -49,7 +49,7 @@
     margin-bottom: 1rem;
 }
 
-.page-hero__title {
+.products-page-hero__title {
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 700;
     color: #ffffff;
@@ -57,7 +57,7 @@
     line-height: 1.2;
 }
 
-.page-hero__text {
+.products-page-hero__text {
     font-size: 1.0625rem;
     color: var(--gray-300);
     line-height: 1.7;
@@ -444,11 +444,29 @@
    CTA SECTION
    ============================================== */
 .products-cta {
+    position: relative;
     padding: 4rem 0;
-    background: var(--gray-50);
+    overflow: hidden;
+}
+
+.products-cta__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.products-cta__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(18, 35, 60, 0.92), rgba(18, 35, 60, 0.85));
 }
 
 .products-cta__container {
+    position: relative;
+    z-index: 1;
     max-width: 800px;
     margin: 0 auto;
     padding: 0 2rem;
@@ -458,13 +476,13 @@
 .products-cta__title {
     font-size: 1.75rem;
     font-weight: 700;
-    color: var(--navy-900);
+    color: #ffffff;
     margin-bottom: 0.75rem;
 }
 
 .products-cta__text {
     font-size: 1rem;
-    color: var(--gray-600);
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 2rem;
 }
 
@@ -519,6 +537,10 @@
 }
 
 @media (max-width: 768px) {
+    .products-cta__bg {
+        background-attachment: scroll;
+    }
+
     .products-hero {
         padding-top: 6rem;
         min-height: auto;

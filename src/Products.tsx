@@ -54,14 +54,14 @@ const products = [
 
 // Page Hero
 const PageHero = () => (
-    <section className="page-hero">
-        <div className="page-hero__overlay" />
-        <div className="page-hero__content">
-            <span className="page-hero__label">Our Products</span>
-            <h1 className="page-hero__title">
+    <section className="products-page-hero">
+        <div className="products-page-hero__overlay" />
+        <div className="products-page-hero__content">
+            <span className="products-page-hero__label">Our Products</span>
+            <h1 className="products-page-hero__title">
                 Premium Quality Steel Bars
             </h1>
-            <p className="page-hero__text">
+            <p className="products-page-hero__text">
                 We manufacture high-grade deformed bars that meet international standards, 
                 tailored to the demanding requirements of modern construction.
             </p>
@@ -237,6 +237,8 @@ const SpectrometerSection = () => (
 // CTA Section
 const CTA = () => (
     <section className="products-cta">
+        <div className="products-cta__bg" style={{ backgroundImage: 'url(/images/facility/Unisteel%20Final%20Photos/5E8A6458.jpg)' }}></div>
+        <div className="products-cta__overlay"></div>
         <div className="products-cta__container">
             <h2 className="products-cta__title">Need a Custom Quote?</h2>
             <p className="products-cta__text">
