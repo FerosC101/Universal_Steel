@@ -34,6 +34,7 @@ const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+    const [activeMobileDropdown, setActiveMobileDropdown] = useState<string | null>(null);
     const location = useLocation();
 
     useEffect(() => {
@@ -45,6 +46,7 @@ const Header = () => {
     useEffect(() => {
         setIsMobileMenuOpen(false);
         setActiveDropdown(null);
+        setActiveMobileDropdown(null);
     }, [location]);
 
     useEffect(() => {
@@ -152,13 +154,44 @@ const Header = () => {
             <div className={`header__mobile-menu ${isMobileMenuOpen ? 'header__mobile-menu--open' : ''}`}>
                 <nav className="header__mobile-nav">
                     {navLinks.map(link => (
-                        <Link 
-                            key={link.path}
-                            to={link.path} 
-                            className={`header__mobile-link ${isActive(link.path) ? 'header__mobile-link--active' : ''}`}
-                        >
-                            {link.label}
-                        </Link>
+                        <div key={link.path} className="header__mobile-item">
+                            {link.hasDropdown ? (
+                                <>
+                                    <button
+                                        className={`header__mobile-link header__mobile-link--expandable ${isActive(link.path) ? 'header__mobile-link--active' : ''}`}
+                                        onClick={() => setActiveMobileDropdown(activeMobileDropdown === link.path ? null : link.path)}
+                                    >
+                                        {link.label}
+                                        <svg 
+                                            className={`header__mobile-arrow ${activeMobileDropdown === link.path ? 'header__mobile-arrow--open' : ''}`} 
+                                            width="12" 
+                                            height="8" 
+                                            viewBox="0 0 12 8" 
+                                            fill="none"
+                                        >
+                                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                        </svg>
+                                    </button>
+                                    <div className={`header__mobile-dropdown ${activeMobileDropdown === link.path ? 'header__mobile-dropdown--open' : ''}`}>
+                                        <Link to={link.path} className="header__mobile-sublink header__mobile-sublink--main">
+                                            Overview
+                                        </Link>
+                                        {dropdownContent[link.path]?.links.map((subLink, i) => (
+                                            <Link key={i} to={subLink.path} className="header__mobile-sublink">
+                                                {subLink.label}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </>
+                            ) : (
+                                <Link 
+                                    to={link.path} 
+                                    className={`header__mobile-link ${isActive(link.path) ? 'header__mobile-link--active' : ''}`}
+                                >
+                                    {link.label}
+                                </Link>
+                            )}
+                        </div>
                     ))}
                     <Link to="/pricing" className="header__mobile-cta">
                         Get Quote
