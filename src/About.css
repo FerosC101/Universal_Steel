@@ -599,13 +599,58 @@
 }
 
 @media (max-width: 640px) {
+    .vmv {
+        padding: 4rem 0;
+    }
+
+    .vmv__container {
+        padding: 0 1rem;
+    }
+
     .vmv__card {
         flex-direction: column;
         gap: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .vmv__card-title {
+        font-size: 1.25rem;
+    }
+
+    .vmv__card-text {
+        font-size: 0.9375rem;
     }
     
     .vmv__title {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
+    }
+
+    .vmv__values-card {
+        padding: 1.5rem;
+    }
+
+    .vmv__values-title {
+        font-size: 1.25rem;
+    }
+
+    .vmv__values-list {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .vmv__value-item {
+        padding: 0.75rem;
+    }
+
+    .vmv__value-icon {
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+        min-height: 28px;
+    }
+
+    .vmv__value-item span {
+        font-size: 0.875rem;
     }
 }
 
