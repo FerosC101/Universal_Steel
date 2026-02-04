@@ -328,11 +328,11 @@
     .header__mobile-menu {
         width: 260px;
         max-width: 85vw;
-        padding-top: 70px;
+        padding-top: 0;
     }
 
     .header__mobile-nav {
-        padding: 1.5rem 1.25rem;
+        padding: 0 1.25rem 1.5rem;
     }
 }
 
