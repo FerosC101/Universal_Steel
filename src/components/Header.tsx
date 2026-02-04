@@ -101,7 +101,7 @@ const Header = () => {
                             
                             {link.hasDropdown && dropdownContent[link.path] && (
                                 <div className={`header__dropdown ${activeDropdown === link.path ? 'header__dropdown--open' : ''}`}>
-                                    <div className="header__dropdown-sidebar">
+                                    <div className="header__dropdown-sidebar" data-section={link.path}>
                                         <span className="header__dropdown-label">{dropdownContent[link.path].title}</span>
                                         <p className="header__dropdown-desc">{dropdownContent[link.path].description}</p>
                                         <Link to={link.path} className="header__dropdown-btn">
@@ -172,7 +172,7 @@ const Header = () => {
                                             <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                                         </svg>
                                     </button>
-                                    <div className={`header__mobile-dropdown ${activeMobileDropdown === link.path ? 'header__mobile-dropdown--open' : ''}`}>
+                                    <div className={`header__mobile-dropdown ${activeMobileDropdown === link.path ? 'header__mobile-dropdown--open' : ''}`} data-section={link.path}>
                                         <Link to={link.path} className="header__mobile-sublink header__mobile-sublink--main">
                                             Overview
                                         </Link>

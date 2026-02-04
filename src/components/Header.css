@@ -148,6 +148,23 @@
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.header__dropdown-sidebar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.85);
+    z-index: 0;
+}
+
+.header__dropdown-sidebar > * {
+    position: relative;
+    z-index: 1;
 }
 
 .header__dropdown-label {
@@ -157,6 +174,7 @@
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 0.75rem;
+    text-align: left;
 }
 
 .header__dropdown-desc {
@@ -165,6 +183,7 @@
     line-height: 1.6;
     margin-bottom: 1.25rem;
     flex: 1;
+    text-align: left;
 }
 
 .header__dropdown-btn {
@@ -199,6 +218,7 @@
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 1rem;
+    text-align: left;
 }
 
 .header__dropdown-links {
@@ -397,6 +417,18 @@
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.header__mobile-dropdown::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.95);
+    z-index: 0;
 }
 
 .header__mobile-dropdown--open {
@@ -411,6 +443,8 @@
     color: var(--gray-600);
     border-left: 2px solid var(--gray-200);
     transition: all 0.2s ease;
+    position: relative;
+    z-index: 1;
 }
 
 .header__mobile-sublink:hover {
@@ -458,6 +492,34 @@
     color: var(--gray-900);
 }
 
+/* Dropdown Background Images */
+/* About Section */
+.header__dropdown-sidebar[data-section="/about"] {
+    background-image: url('/images/facility/Unisteel Final Photos/5E8A6332.jpg');
+}
+
+.header__mobile-dropdown[data-section="/about"] {
+    background-image: url('/images/facility/Unisteel Final Photos/5E8A6332.jpg');
+}
+
+/* Products Section */
+.header__dropdown-sidebar[data-section="/products"] {
+    background-image: url('/images/facility/Unisteel Final Photos/5E8A6269.jpg');
+}
+
+.header__mobile-dropdown[data-section="/products"] {
+    background-image: url('/images/facility/Unisteel Final Photos/5E8A6269.jpg');
+}
+
+/* Projects Section */
+.header__dropdown-sidebar[data-section="/projects"] {
+    background-image: url('/images/facility/Unisteel Final Photos/5E8A6380.jpg');
+}
+
+.header__mobile-dropdown[data-section="/projects"] {
+    background-image: url('/images/facility/Unisteel Final Photos/5E8A6380.jpg');
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
     .header__nav,
@@ -471,6 +533,17 @@
 
     .header__container {
         padding: 1rem 1.5rem;
+    }
+
+    /* Center align mobile dropdown content */
+    .header__mobile-sublink {
+        text-align: center;
+        border-left: none;
+        padding: 0.625rem 0;
+    }
+
+    .header__mobile-link {
+        text-align: center;
     }
 }
 

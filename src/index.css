@@ -182,11 +182,45 @@ ul, ol {
 
 .section-title {
   margin-bottom: 1rem;
+  text-align: left;
 }
 
 .section-description {
   font-size: 1.125rem;
   color: var(--text-secondary);
+}
+
+/* Mobile: Center all titles and labels */
+@media (max-width: 1024px) {
+  .section-title,
+  [class*="__title"],
+  [class*="__label"] {
+    text-align: center !important;
+  }
+  
+  .section-label {
+    text-align: center !important;
+  }
+  
+  /* Center containers that hold inline-block labels */
+  [class*="__header"],
+  [class*="-header"],
+  [class*="__text"],
+  section > div,
+  .section {
+    text-align: center;
+  }
+  
+  /* Reset text-align for child elements that shouldn't be centered */
+  [class*="__description"],
+  [class*="__intro"],
+  [class*="__desc"],
+  [class*="__content"] p:not([class*="__title"]),
+  [class*="__text"] p:not([class*="__title"]),
+  [class*="__content"] ul,
+  [class*="__content"] li {
+    text-align: left;
+  }
 }
 
 /* Selection */
