@@ -2,9 +2,38 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
 
+// Dropdown content for nav items
+const dropdownContent: Record<string, { title: string; description: string; links: { label: string; path: string }[] }> = {
+    '/about': {
+        title: 'Our Company',
+        description: 'For over 60 years, Universal Steel Smelting Co., Inc. has been a trusted leader in steel manufacturing.',
+        links: [
+            { label: 'About Us', path: '/about' },
+            { label: 'Certifications', path: '/certifications' },
+        ]
+    },
+    '/products': {
+        title: 'Our Products',
+        description: 'We manufacture high-grade deformed bars that meet international standards for modern construction.',
+        links: [
+            { label: 'Grade 40 Rebars', path: '/products#product-1' },
+            { label: 'Grade 60 Rebars', path: '/products#product-2' },
+            { label: 'Pricing', path: '/pricing' },
+        ]
+    },
+    '/projects': {
+        title: 'Our Projects',
+        description: 'Explore the landmark projects built with Universal Steel quality products.',
+        links: [
+            { label: 'Featured Projects', path: '/projects' },
+        ]
+    },
+};
+
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const location = useLocation();
 
     useEffect(() => {
@@ -15,6 +44,7 @@ const Header = () => {
 
     useEffect(() => {
         setIsMobileMenuOpen(false);
+        setActiveDropdown(null);
     }, [location]);
 
     useEffect(() => {
@@ -25,11 +55,11 @@ const Header = () => {
     const isActive = (path: string) => location.pathname === path;
 
     const navLinks = [
-        { path: '/', label: 'Home' },
-        { path: '/about', label: 'About' },
-        { path: '/products', label: 'Products' },
-        { path: '/projects', label: 'Projects' },
-        { path: '/contact', label: 'Contact' },
+        { path: '/', label: 'Home', hasDropdown: false },
+        { path: '/about', label: 'About', hasDropdown: true },
+        { path: '/products', label: 'Products', hasDropdown: true },
+        { path: '/projects', label: 'Projects', hasDropdown: true },
+        { path: '/contact', label: 'Contact', hasDropdown: false },
     ];
 
     return (
@@ -49,13 +79,51 @@ const Header = () => {
 
                 <nav className="header__nav">
                     {navLinks.map(link => (
-                        <Link 
+                        <div 
                             key={link.path}
-                            to={link.path} 
-                            className={`header__nav-link ${isActive(link.path) ? 'header__nav-link--active' : ''}`}
+                            className="header__nav-item"
+                            onMouseEnter={() => link.hasDropdown && setActiveDropdown(link.path)}
+                            onMouseLeave={() => setActiveDropdown(null)}
                         >
-                            {link.label}
-                        </Link>
+                            <Link 
+                                to={link.path} 
+                                className={`header__nav-link ${isActive(link.path) ? 'header__nav-link--active' : ''} ${link.hasDropdown ? 'header__nav-link--has-dropdown' : ''}`}
+                            >
+                                {link.label}
+                                {link.hasDropdown && (
+                                    <svg className="header__nav-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                                        <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                    </svg>
+                                )}
+                            </Link>
+                            
+                            {link.hasDropdown && dropdownContent[link.path] && (
+                                <div className={`header__dropdown ${activeDropdown === link.path ? 'header__dropdown--open' : ''}`}>
+                                    <div className="header__dropdown-sidebar">
+                                        <span className="header__dropdown-label">{dropdownContent[link.path].title}</span>
+                                        <p className="header__dropdown-desc">{dropdownContent[link.path].description}</p>
+                                        <Link to={link.path} className="header__dropdown-btn">
+                                            Overview
+                                        </Link>
+                                    </div>
+                                    <div className="header__dropdown-content">
+                                        <span className="header__dropdown-section-title">In This Section</span>
+                                        <ul className="header__dropdown-links">
+                                            {dropdownContent[link.path].links.map((dropLink, i) => (
+                                                <li key={i}>
+                                                    <Link to={dropLink.path} className="header__dropdown-link">
+                                                        <svg width="6" height="10" viewBox="0 0 6 10" fill="none">
+                                                            <path d="M1 1L5 5L1 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                                        </svg>
+                                                        {dropLink.label}
+                                                    </Link>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                     ))}
                 </nav>
 
