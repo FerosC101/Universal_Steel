@@ -184,14 +184,14 @@ const ContactForm = () => {
 const MapSection = () => (
     <section className="contact-map">
         <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.5762144399!2d121.0180!3d14.6570!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDM5JzI1LjIiTiAxMjHCsDAxJzA0LjgiRQ!5e0!3m2!1sen!2sph!4v1234567890"
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3859.8!2d121.00251922426425!3d14.660300576748753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTTCsDM5JzM3LjEiTiAxMjHCsDAwJzA5LjEiRQ!5e0!3m2!1sen!2sph!4v1707048000000!5m2!1sen!2sph"
             width="100%"
             height="400"
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Universal Steel location"
+            title="Universal Steel Smelting Co., Inc. location"
         />
     </section>
 );
