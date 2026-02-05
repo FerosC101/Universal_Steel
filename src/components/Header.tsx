@@ -39,6 +39,8 @@ const Header = () => {
 
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 10);
+        // Check initial scroll position
+        handleScroll();
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
@@ -47,6 +49,8 @@ const Header = () => {
         setIsMobileMenuOpen(false);
         setActiveDropdown(null);
         setActiveMobileDropdown(null);
+        // Check scroll position after navigation
+        setIsScrolled(window.scrollY > 10);
     }, [location]);
 
     useEffect(() => {
