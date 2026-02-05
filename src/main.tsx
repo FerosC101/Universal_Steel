@@ -9,10 +9,12 @@ import About from './About';
 import Certifications from './pages/Certifications';
 import Pricing from './pages/Pricing';
 import Projects from './pages/Projects';
+import ScrollToTop from './components/ScrollToTop';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />

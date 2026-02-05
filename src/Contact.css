@@ -260,8 +260,8 @@
     }
 
     .contact-info {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 140px 140px;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
         gap: 1rem;
     }
 
@@ -269,7 +269,7 @@
         grid-template-columns: 1fr;
         text-align: center;
         justify-items: center;
-        padding: 1rem;
+        padding: 1.25rem;
         overflow: hidden;
     }
 

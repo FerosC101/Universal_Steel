@@ -152,6 +152,19 @@ const Header = () => {
 
             {/* Mobile Menu */}
             <div className={`header__mobile-menu ${isMobileMenuOpen ? 'header__mobile-menu--open' : ''}`}>
+                <div className="header__mobile-header">
+                    <Link to="/" className="header__mobile-logo" onClick={() => setIsMobileMenuOpen(false)}>
+                        <img 
+                            src="https://res.cloudinary.com/drrzinr9v/image/upload/v1754201352/USSCI_logo_19x17inch-removebg-preview_idrn0g.png" 
+                            alt="Universal Steel" 
+                            className="header__mobile-logo-img"
+                        />
+                        <div className="header__mobile-logo-text">
+                            <span className="header__mobile-logo-name">Universal Steel</span>
+                            <span className="header__mobile-logo-tagline">Smelting Co., Inc.</span>
+                        </div>
+                    </Link>
+                </div>
                 <nav className="header__mobile-nav">
                     {navLinks.map(link => (
                         <div key={link.path} className="header__mobile-item">
