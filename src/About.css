@@ -795,6 +795,22 @@
 }
 
 @media (max-width: 768px) {
+    .about-page-hero {
+        padding: 6rem 1.5rem 3rem;
+        text-align: center;
+    }
+    
+    .about-page-hero__content {
+        text-align: center;
+        align-items: center;
+    }
+    
+    .about-page-hero__text {
+        text-align: center !important;
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+
     .about-cta__bg {
         background-attachment: scroll;
     }

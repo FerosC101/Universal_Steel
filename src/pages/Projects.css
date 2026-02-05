@@ -428,6 +428,22 @@
 }
 
 @media (max-width: 768px) {
+    .projects-page-hero {
+        padding: 6rem 1.5rem 3rem;
+        text-align: center;
+    }
+    
+    .projects-page-hero__content {
+        text-align: center;
+        align-items: center;
+    }
+    
+    .projects-page-hero__text {
+        text-align: center !important;
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+
     .projects-cta__bg {
         background-attachment: scroll;
     }
