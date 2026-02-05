@@ -926,10 +926,12 @@
     .hero {
         min-height: auto;
         padding-bottom: 3rem;
+        text-align: center;
     }
 
     .hero__content {
         padding-top: 7rem;
+        align-items: center;
     }
 
     .hero__title {
@@ -938,6 +940,11 @@
 
     .hero__text {
         font-size: 1rem;
+        text-align: center !important;
+        max-width: 100%;
+        padding: 0 1rem;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .hero__label {
