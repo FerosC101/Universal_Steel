@@ -253,6 +253,7 @@ const VMV = () => (
     <section className="vmv">
         <div className="vmv__container">
             <div className="vmv__header">
+                <span className="section-label">Our Foundation</span>
                 <h2 className="vmv__title">Vision, Mission, & Values</h2>
             </div>
             <div className="vmv__layout">

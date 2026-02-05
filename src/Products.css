@@ -493,6 +493,16 @@
     flex-wrap: wrap;
 }
 
+.products-cta .btn--outline {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.products-cta .btn--outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+}
+
 /* ==============================================
    RESPONSIVE DESIGN
    ============================================== */

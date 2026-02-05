@@ -60,21 +60,35 @@ const Hero = () => {
     );
 };
 
-// Milestone Section
-const Milestone = () => (
-    <section className="milestone">
-        <div className="milestone__parallax" />
-        <div className="milestone__overlay" />
-        <div className="milestone__container">
-            <span className="milestone__label">60 Years of Excellence</span>
+// Legacy Celebration Section
+const LegacyCelebration = () => (
+    <section className="legacy">
+        <div className="legacy__header">
+            <span className="legacy__label">Our Legacy</span>
+            <h2 className="legacy__title">60 Years of Building the Nation</h2>
+        </div>
+        <div className="legacy__image">
             <img 
                 src="/images/hero/test%205.jpg" 
                 alt="60 Years Milestone" 
-                className="milestone__image"
             />
-            <p className="milestone__caption">
-                Watch how UNIVERSAL STEEL SMELTING CO INC has grown from post-war resilience to multi-industry leadership.
+        </div>
+        <div className="legacy__content">
+            <p className="legacy__text">
+                Since 1964, Universal Steel Smelting Co. Inc. has been a cornerstone of 
+                Philippine infrastructure. From humble beginnings to becoming one of the 
+                country's top steel manufacturers, our commitment to quality remains unwavering.
             </p>
+            <div className="legacy__stats">
+                <div className="legacy__stat">
+                    <span className="legacy__stat-value">60+</span>
+                    <span className="legacy__stat-label">Years of Excellence</span>
+                </div>
+                <div className="legacy__stat">
+                    <span className="legacy__stat-value">500+</span>
+                    <span className="legacy__stat-label">Projects Supplied</span>
+                </div>
+            </div>
         </div>
     </section>
 );
@@ -89,39 +103,41 @@ const About = () => (
                     UNIVERSAL STEEL SMELTING CO INC
                 </h2>
             </div>
-            <div className="about__image">
-                <img 
-                    src="https://res.cloudinary.com/drrzinr9v/image/upload/v1752676337/514315094_122186224832360700_1263205354293391856_n_qrnviz.jpg" 
-                    alt="Universal Steel facility"
-                />
-            </div>
-            <div className="about__content">
-                <p className="about__text">
-                    Founded with a vision to fuel industrial growth through innovation and strength, 
-                    Universal Steel Smelting Company Incorporated is a trusted leader in steel 
-                    manufacturing and smelting solutions.
-                </p>
-                <p className="about__text">
-                    For over 60 years, we have specialized in the production of high-grade deformed 
-                    bars that power the construction and infrastructure sectors.
-                </p>
-                <p className="about__text">
-                    Headquartered in Quezon City, our advanced smelting and manufacturing facilities 
-                    are equipped with cutting-edge technology and operated by a skilled workforce 
-                    committed to quality, safety, and sustainability.
-                </p>
-                <p className="about__text">
-                    At Universal Steel Smelting, we prioritize innovation, environmental responsibility, 
-                    and long-term client relationships. Our operations are TUV and BPS certified and 
-                    DPWH-Accredited Testing Laboratory by the Bureau of Research and Standards (BRS).
-                </p>
-                <p className="about__text about__text--highlight">
-                    Driven by integrity, engineered for durability — Universal Steel Smelting Company 
-                    Inc. is forging strong alliances for the future.
-                </p>
-                <Link to="/about" className="btn btn--primary">
-                    Read More About Us →
-                </Link>
+            <div className="about__body">
+                <div className="about__image">
+                    <img 
+                        src="https://res.cloudinary.com/drrzinr9v/image/upload/v1752676337/514315094_122186224832360700_1263205354293391856_n_qrnviz.jpg" 
+                        alt="Universal Steel facility"
+                    />
+                </div>
+                <div className="about__content">
+                    <p className="about__text">
+                        Founded with a vision to fuel industrial growth through innovation and strength, 
+                        Universal Steel Smelting Company Incorporated is a trusted leader in steel 
+                        manufacturing and smelting solutions.
+                    </p>
+                    <p className="about__text">
+                        For over 60 years, we have specialized in the production of high-grade deformed 
+                        bars that power the construction and infrastructure sectors.
+                    </p>
+                    <p className="about__text">
+                        Headquartered in Quezon City, our advanced smelting and manufacturing facilities 
+                        are equipped with cutting-edge technology and operated by a skilled workforce 
+                        committed to quality, safety, and sustainability.
+                    </p>
+                    <p className="about__text">
+                        At Universal Steel Smelting, we prioritize innovation, environmental responsibility, 
+                        and long-term client relationships. Our operations are TUV and BPS certified and 
+                        DPWH-Accredited Testing Laboratory by the Bureau of Research and Standards (BRS).
+                    </p>
+                    <p className="about__text about__text--highlight">
+                        Driven by integrity, engineered for durability — Universal Steel Smelting Company 
+                        Inc. is forging strong alliances for the future.
+                    </p>
+                    <Link to="/about" className="btn btn--primary">
+                        Read More About Us →
+                    </Link>
+                </div>
             </div>
         </div>
     </section>
@@ -184,35 +200,16 @@ const Products = () => {
 
 // Video Section
 const Video = () => {
-    const videoRef = useRef<HTMLVideoElement>(null);
-    const [isPlaying, setIsPlaying] = useState(false);
-
-    const toggleVideo = () => {
-        if (videoRef.current) {
-            if (isPlaying) {
-                videoRef.current.pause();
-            } else {
-                videoRef.current.play();
-            }
-            setIsPlaying(!isPlaying);
-        }
-    };
-
     return (
         <section className="video">
             <div className="video__container">
-                <div className="video__wrapper" onClick={toggleVideo}>
-                    {!isPlaying && (
-                        <div className="video__play">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M8 5v14l11-7z" />
-                            </svg>
-                        </div>
-                    )}
+                <div className="video__wrapper">
                     <video
-                        ref={videoRef}
                         className="video__player"
-                        onEnded={() => setIsPlaying(false)}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
                         poster="https://res.cloudinary.com/drrzinr9v/image/upload/v1752675549/hero_sqtj19.jpg"
                     >
                         <source 
@@ -332,10 +329,10 @@ const Home = () => {
             <Header />
             <main>
                 <Hero />
-                <Milestone />
                 <Partners />
                 <About />
                 <Products />
+                <LegacyCelebration />
                 <Video />
                 <WhyUs />
                 <CTA />

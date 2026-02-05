@@ -244,62 +244,111 @@
 }
 
 /* ==============================================
-   MILESTONE SECTION
+   LEGACY CELEBRATION SECTION
    ============================================== */
-.milestone {
-    position: relative;
-    padding: 4rem 0;
-    overflow: hidden;
+.legacy {
     background: #ffffff;
+    padding-top: 4rem;
 }
 
-.milestone__parallax {
-    position: absolute;
-    inset: 0;
-    background-image: url('/images/hero/test%205.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: 0;
-}
-
-.milestone__overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(255, 255, 255, 0.85);
-    z-index: 1;
-}
-
-.milestone__container {
-    position: relative;
-    z-index: 2;
-    max-width: 1280px;
+.legacy__image {
+    width: 100%;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 3rem 1rem 0;
     text-align: center;
 }
 
-.milestone__label {
+.legacy__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.legacy__content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem 4rem;
+    text-align: center;
+}
+
+.legacy__label {
     display: block;
     font-size: 0.875rem;
     font-weight: 600;
     color: var(--accent);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
+    margin: 0 auto 1rem;
+    text-align: center;
+}
+
+.legacy__title {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: var(--navy-900);
+    margin: 0 auto 1rem;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.legacy__text {
+    font-size: 1rem;
+    color: var(--gray-600);
+    line-height: 1.7;
     margin-bottom: 2rem;
 }
 
-.milestone__image {
-    display: none;
+.legacy__stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
 }
 
-.milestone__caption {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--gray-600);
-    max-width: 800px;
-    margin: 0 auto;
+.legacy__stat {
+    text-align: center;
+}
+
+.legacy__stat-value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--navy-900);
+    line-height: 1.2;
+}
+
+.legacy__stat-label {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .legacy__stats {
+        gap: 2rem;
+    }
+    
+    .legacy__stat-value {
+        font-size: 1.75rem;
+    }
+    
+    .legacy__stat-label {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .legacy__stats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .legacy__content {
+        padding: 2rem 1.5rem 3rem;
+    }
 }
 
 /* ==============================================
@@ -314,26 +363,22 @@
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-        "image header"
-        "image content";
-    gap: 2rem 5rem;
-    align-items: center;
 }
 
 .about__header {
-    grid-area: header;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.about__body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
 }
 
 .about__image {
-    grid-area: image;
     position: relative;
-}
-
-.about__content {
-    grid-area: content;
 }
 
 .about__image img {
