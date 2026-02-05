@@ -1264,18 +1264,15 @@
     
     .customer-service__feature {
         padding: 1.25rem 1rem;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
     
     .customer-service__icon {
         width: 36px;
         height: 36px;
-    }
-    
-    .customer-service__feature h4 {
-        font-size: 0.9375rem;
-    }
-    
-    .customer-service__feature p {
+        display: none;
         font-size: 0.8125rem;
         line-height: 1.5;
     }

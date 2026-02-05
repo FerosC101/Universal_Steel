@@ -170,18 +170,21 @@
     right: 1rem;
     width: 40px;
     height: 40px;
-    background: var(--gray-100);
+    background: var(--accent);
+    color: #ffffff;
     border: none;
+    border-radius: 4px;
     font-size: 1.25rem;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: background 0.2s ease;
+    z-index: 10;
 }
 
 .projects-modal__close:hover {
-    background: var(--gray-200);
+    background: var(--accent-hover);
 }
 
 .projects-modal__title {
@@ -189,7 +192,8 @@
     font-weight: 700;
     color: var(--navy-900);
     margin-bottom: 2rem;
-    padding-right: 3rem;
+    text-align: center;
+    padding: 0 3rem;
 }
 
 .projects-modal__grid {
