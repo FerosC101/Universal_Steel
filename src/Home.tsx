@@ -21,7 +21,7 @@ const Hero = () => {
             setCurrentSlide((prev) => (prev + 1) % slides.length);
         }, 4000);
         return () => clearInterval(timer);
-    }, []);
+    }, [slides.length]);
 
     return (
         <section className="hero">
@@ -69,7 +69,7 @@ const LegacyCelebration = () => (
         </div>
         <div className="legacy__image">
             <img 
-                src="/images/hero/test%205.jpg" 
+                src="/images/hero/test-5.jpg" 
                 alt="60 Years Milestone" 
             />
         </div>
@@ -200,21 +200,56 @@ const Products = () => {
 
 // Video Section
 const Video = () => {
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    useEffect(() => {
+        const video = videoRef.current;
+        if (video) {
+            // Ensure video is muted (required for autoplay)
+            video.muted = true;
+            
+            const playVideo = () => {
+                const playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(() => {
+                        // Autoplay failed, will show poster
+                    });
+                }
+            };
+
+            // Try to play immediately
+            playVideo();
+
+            // Also try when video data is loaded
+            video.addEventListener('loadeddata', playVideo);
+            
+            return () => {
+                video.removeEventListener('loadeddata', playVideo);
+            };
+        }
+    }, []);
+
     return (
         <section className="video">
             <div className="video__container">
                 <div className="video__wrapper">
                     <video
+                        ref={videoRef}
                         className="video__player"
                         autoPlay
                         loop
                         muted
                         playsInline
+                        preload="metadata"
                         poster="https://res.cloudinary.com/drrzinr9v/image/upload/v1752675549/hero_sqtj19.jpg"
                     >
                         <source 
-                            src="https://res.cloudinary.com/drrzinr9v/video/upload/v1752759885/homepageVid_a3fuh3.mov" 
+                            src="https://res.cloudinary.com/drrzinr9v/video/upload/v1752759885/homepageVid_a3fuh3.mp4" 
                             type="video/mp4" 
+                        />
+                        <source 
+                            src="https://res.cloudinary.com/drrzinr9v/video/upload/v1752759885/homepageVid_a3fuh3.mov" 
+                            type="video/quicktime" 
                         />
                     </video>
                 </div>
