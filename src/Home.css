@@ -1020,6 +1020,8 @@
         flex-direction: column;
         gap: 1rem;
         padding: 1.5rem;
+        text-align: center;
+        align-items: center;
     }
     
     .why__number {
