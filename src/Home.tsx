@@ -60,7 +60,24 @@ const Hero = () => {
     );
 };
 
-
+// Milestone Section
+const Milestone = () => (
+    <section className="milestone">
+        <div className="milestone__parallax" />
+        <div className="milestone__overlay" />
+        <div className="milestone__container">
+            <span className="milestone__label">60 Years of Excellence</span>
+            <img 
+                src="/images/hero/test%205.jpg" 
+                alt="60 Years Milestone" 
+                className="milestone__image"
+            />
+            <p className="milestone__caption">
+                Watch how UNIVERSAL STEEL SMELTING CO INC has grown from post-war resilience to multi-industry leadership.
+            </p>
+        </div>
+    </section>
+);
 
 // About Section
 const About = () => (
@@ -315,6 +332,7 @@ const Home = () => {
             <Header />
             <main>
                 <Hero />
+                <Milestone />
                 <Partners />
                 <About />
                 <Products />

@@ -189,6 +189,7 @@
     font-weight: 700;
     color: var(--navy-900);
     margin-bottom: 2rem;
+    padding-right: 3rem;
 }
 
 .projects-modal__grid {

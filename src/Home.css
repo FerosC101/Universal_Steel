@@ -244,6 +244,65 @@
 }
 
 /* ==============================================
+   MILESTONE SECTION
+   ============================================== */
+.milestone {
+    position: relative;
+    padding: 4rem 0;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.milestone__parallax {
+    position: absolute;
+    inset: 0;
+    background-image: url('/images/hero/test%205.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+}
+
+.milestone__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.85);
+    z-index: 1;
+}
+
+.milestone__container {
+    position: relative;
+    z-index: 2;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.milestone__label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+}
+
+.milestone__image {
+    display: none;
+}
+
+.milestone__caption {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--gray-600);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ==============================================
    ABOUT SECTION
    ============================================== */
 .about {
