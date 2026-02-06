@@ -103,7 +103,7 @@ const GalleryGrid = () => {
                         <span className="section-label">Photo Gallery</span>
                         <h2 className="facility-gallery-grid__title">Inside Our Manufacturing Plant</h2>
                         <p className="facility-gallery-grid__subtitle">
-                            Browse through {facilityImages.length} photos of our facility, equipment, and production lines
+                            Browse through photos of our facility, equipment, and production lines
                         </p>
                     </div>
                     <div className="facility-gallery-grid__images">
@@ -135,6 +135,64 @@ const GalleryGrid = () => {
     );
 };
 
+// Optical Emission Spectrometer Section
+const SpectrometerSection = () => (
+    <section className="spectrometer">
+        <div className="spectrometer__container">
+            <div className="spectrometer__header">
+                <span className="section-label">Technology</span>
+                <h2 className="spectrometer__title">
+                    Optical Emission <span>Spectrometer</span>
+                </h2>
+                <p className="spectrometer__subtitle">
+                    Advanced technology for uncompromised material analysis and quality assurance
+                </p>
+            </div>
+            
+            <div className="spectrometer__grid">
+                <div className="spectrometer__image">
+                    <img 
+                        src="https://res.cloudinary.com/drrzinr9v/image/upload/v1755264913/viber_image_2025-08-15_14-35-30-423_douzo9.jpg" 
+                        alt="Optical Emission Spectrometer"
+                    />
+                </div>
+                <div className="spectrometer__content">
+                    <div className="spectrometer__features">
+                        <div className="spectrometer__feature">
+                            <div className="spectrometer__feature-dot" />
+                            <div>
+                                <h4>Spark Excitation Analysis</h4>
+                                <p>Energy from electrode sparks excites specimen atoms, producing precise electromagnetic spectral patterns</p>
+                            </div>
+                        </div>
+                        <div className="spectrometer__feature">
+                            <div className="spectrometer__feature-dot" />
+                            <div>
+                                <h4>Quantitative Analysis</h4>
+                                <p>Measures spectral peak intensity for accurate qualitative and quantitative metal composition analysis</p>
+                            </div>
+                        </div>
+                        <div className="spectrometer__feature">
+                            <div className="spectrometer__feature-dot" />
+                            <div>
+                                <h4>Quality Enhancement</h4>
+                                <p>Enables effective raw material management and production efficiency optimization</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div className="spectrometer__quote">
+                <p>
+                    In line with our commitment to development and continued pursuit of excellence, our Optical Emission Spectrometer
+                    represents another step towards furthering our dedication to quality improvement and production efficiency.
+                </p>
+            </div>
+        </div>
+    </section>
+);
+
 // CTA Section
 const CTA = () => (
     <section className="facility-gallery-cta">
@@ -159,6 +217,7 @@ const FacilityGallery = () => (
         <Header />
         <main>
             <PageHero />
+            <SpectrometerSection />
             <GalleryGrid />
             <CTA />
         </main>

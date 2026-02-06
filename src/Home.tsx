@@ -97,47 +97,48 @@ const LegacyCelebration = () => (
 const About = () => (
     <section className="about">
         <div className="about__container">
-            <div className="about__header">
-                <span className="about__label">About Us</span>
-                <h2 className="about__title">
-                    UNIVERSAL STEEL SMELTING CO INC
-                </h2>
+            <span className="about__label">About Us</span>
+            <h2 className="about__title">
+                UNIVERSAL STEEL SMELTING CO INC
+            </h2>
+            <div className="about__video">
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                >
+                    <source src="/UniSteelVid.mp4" type="video/mp4" />
+                </video>
             </div>
-            <div className="about__body">
-                <div className="about__image">
-                    <img 
-                        src="https://res.cloudinary.com/drrzinr9v/image/upload/v1752676337/514315094_122186224832360700_1263205354293391856_n_qrnviz.jpg" 
-                        alt="Universal Steel facility"
-                    />
-                </div>
-                <div className="about__content">
-                    <p className="about__text">
-                        Founded with a vision to fuel industrial growth through innovation and strength, 
-                        Universal Steel Smelting Company Incorporated is a trusted leader in steel 
-                        manufacturing and smelting solutions.
-                    </p>
-                    <p className="about__text">
-                        For over 60 years, we have specialized in the production of high-grade deformed 
-                        bars that power the construction and infrastructure sectors.
-                    </p>
-                    <p className="about__text">
-                        Headquartered in Quezon City, our advanced smelting and manufacturing facilities 
-                        are equipped with cutting-edge technology and operated by a skilled workforce 
-                        committed to quality, safety, and sustainability.
-                    </p>
-                    <p className="about__text">
-                        At Universal Steel Smelting, we prioritize innovation, environmental responsibility, 
-                        and long-term client relationships. Our operations are TUV and BPS certified and 
-                        DPWH-Accredited Testing Laboratory by the Bureau of Research and Standards (BRS).
-                    </p>
-                    <p className="about__text about__text--highlight">
-                        Driven by integrity, engineered for durability — Universal Steel Smelting Company 
-                        Inc. is forging strong alliances for the future.
-                    </p>
-                    <Link to="/about" className="btn btn--primary">
-                        Read More About Us →
-                    </Link>
-                </div>
+            <div className="about__content">
+                <p className="about__text">
+                    Founded with a vision to fuel industrial growth through innovation and strength, 
+                    Universal Steel Smelting Company Incorporated is a trusted leader in steel 
+                    manufacturing and smelting solutions.
+                </p>
+                <p className="about__text">
+                    For over 60 years, we have specialized in the production of high-grade deformed 
+                    bars that power the construction and infrastructure sectors.
+                </p>
+                <p className="about__text">
+                    Headquartered in Quezon City, our advanced smelting and manufacturing facilities 
+                    are equipped with cutting-edge technology and operated by a skilled workforce 
+                    committed to quality, safety, and sustainability.
+                </p>
+                <p className="about__text">
+                    At Universal Steel Smelting, we prioritize innovation, environmental responsibility, 
+                    and long-term client relationships. Our operations are TUV and BPS certified and 
+                    DPWH-Accredited Testing Laboratory by the Bureau of Research and Standards (BRS).
+                </p>
+                <p className="about__text about__text--highlight">
+                    Driven by integrity, engineered for durability — Universal Steel Smelting Company 
+                    Inc. is forging strong alliances for the future.
+                </p>
+                <Link to="/about" className="btn btn--primary">
+                    Read More About Us →
+                </Link>
             </div>
         </div>
     </section>
@@ -192,6 +193,18 @@ const Products = () => {
                     >
                         View Full Product List →
                     </button>
+                </div>
+                <div className="announcement-banner announcement-banner--inline">
+                    <div className="announcement-banner__card">
+                        <span className="announcement-banner__badge">NEW</span>
+                        <div className="announcement-banner__body">
+                            <h3 className="announcement-banner__title">New Products Coming Soon</h3>
+                            <p className="announcement-banner__text">
+                                We're expanding our lineup with <strong>Grade 75</strong> and <strong>Grade 80</strong> rebars — engineered for the most demanding structural applications.
+                            </p>
+                        </div>
+                        <Link to="/products" className="announcement-banner__link">Learn More →</Link>
+                    </div>
                 </div>
             </div>
         </section>

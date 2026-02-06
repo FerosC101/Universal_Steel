@@ -176,64 +176,6 @@ const QualitySection = () => (
     </section>
 );
 
-// Optical Emission Spectrometer Section
-const SpectrometerSection = () => (
-    <section className="spectrometer">
-        <div className="spectrometer__container">
-            <div className="spectrometer__header">
-                <span className="section-label">Technology</span>
-                <h2 className="spectrometer__title">
-                    Optical Emission <span>Spectrometer</span>
-                </h2>
-                <p className="spectrometer__subtitle">
-                    Advanced technology for uncompromised material analysis and quality assurance
-                </p>
-            </div>
-            
-            <div className="spectrometer__grid">
-                <div className="spectrometer__image">
-                    <img 
-                        src="https://res.cloudinary.com/drrzinr9v/image/upload/v1755264913/viber_image_2025-08-15_14-35-30-423_douzo9.jpg" 
-                        alt="Optical Emission Spectrometer"
-                    />
-                </div>
-                <div className="spectrometer__content">
-                    <div className="spectrometer__features">
-                        <div className="spectrometer__feature">
-                            <div className="spectrometer__feature-dot" />
-                            <div>
-                                <h4>Spark Excitation Analysis</h4>
-                                <p>Energy from electrode sparks excites specimen atoms, producing precise electromagnetic spectral patterns</p>
-                            </div>
-                        </div>
-                        <div className="spectrometer__feature">
-                            <div className="spectrometer__feature-dot" />
-                            <div>
-                                <h4>Quantitative Analysis</h4>
-                                <p>Measures spectral peak intensity for accurate qualitative and quantitative metal composition analysis</p>
-                            </div>
-                        </div>
-                        <div className="spectrometer__feature">
-                            <div className="spectrometer__feature-dot" />
-                            <div>
-                                <h4>Quality Enhancement</h4>
-                                <p>Enables effective raw material management and production efficiency optimization</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div className="spectrometer__quote">
-                <p>
-                    In line with our commitment to development and continued pursuit of excellence, our Optical Emission Spectrometer
-                    represents another step towards furthering our dedication to quality improvement and production efficiency.
-                </p>
-            </div>
-        </div>
-    </section>
-);
-
 // CTA Section
 const CTA = () => (
     <section className="products-cta">
@@ -262,7 +204,20 @@ const Products = () => {
                 {products.map((product) => (
                     <ProductDetail key={product.id} product={product} />
                 ))}
-                <SpectrometerSection />
+                <div className="announcement-banner">
+                    <div className="announcement-banner__container">
+                        <div className="announcement-banner__card">
+                            <span className="announcement-banner__badge">NEW</span>
+                            <div className="announcement-banner__body">
+                                <h3 className="announcement-banner__title">New Products Coming Soon</h3>
+                                <p className="announcement-banner__text">
+                                    We're expanding our lineup with <strong>Grade 75</strong> and <strong>Grade 80</strong> rebars — engineered for the most demanding structural applications.
+                                </p>
+                            </div>
+                            <Link to="/contact" className="announcement-banner__link">Get Notified →</Link>
+                        </div>
+                    </div>
+                </div>
                 <QualitySection />
                 <CTA />
             </main>

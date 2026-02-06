@@ -306,11 +306,120 @@
 }
 
 /* ==============================================
+   SPECTROMETER SECTION
+   ============================================== */
+.spectrometer {
+    padding: 5rem 0;
+    background: #ffffff;
+}
+
+.spectrometer__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.spectrometer__header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+.spectrometer__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--navy-900);
+    margin-bottom: 1rem;
+}
+
+.spectrometer__title span {
+    color: var(--accent);
+}
+
+.spectrometer__subtitle {
+    font-size: 1.0625rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+}
+
+.spectrometer__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.spectrometer__image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.spectrometer__features {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.spectrometer__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.spectrometer__feature-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-top: 0.4rem;
+    flex-shrink: 0;
+}
+
+.spectrometer__feature h4 {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--navy-900);
+    margin-bottom: 0.5rem;
+}
+
+.spectrometer__feature p {
+    font-size: 0.9375rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+}
+
+.spectrometer__quote {
+    background: var(--gray-50);
+    padding: 2rem;
+    text-align: center;
+    border-left: 4px solid var(--accent);
+}
+
+.spectrometer__quote p {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--gray-700);
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ==============================================
    RESPONSIVE
    ============================================== */
 @media (max-width: 1024px) {
     .facility-gallery-grid__images {
         columns: 3;
+    }
+
+    .spectrometer__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .spectrometer__image img {
+        height: 300px;
     }
 }
 
@@ -326,6 +435,45 @@
     .facility-gallery-cta__bg {
         background-attachment: scroll;
     }
+
+    .spectrometer {
+        padding: 3rem 0;
+    }
+
+    .spectrometer__header {
+        text-align: left;
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 100%;
+    }
+
+    .spectrometer__header .section-label {
+        text-align: left !important;
+    }
+
+    .spectrometer__title {
+        text-align: left !important;
+    }
+
+    .spectrometer__subtitle {
+        text-align: left !important;
+    }
+
+    .spectrometer__feature h4 {
+        text-align: left !important;
+    }
+
+    .spectrometer__quote {
+        text-align: left;
+    }
+
+    .spectrometer__quote p {
+        margin: 0;
+    }
+
+    .spectrometer__content {
+        padding: 0 1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -339,5 +487,9 @@
 
     .facility-lightbox__nav--next {
         right: 0.5rem;
+    }
+
+    .spectrometer__image img {
+        height: 250px;
     }
 }
