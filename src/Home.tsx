@@ -75,7 +75,7 @@ const LegacyCelebration = () => (
         </div>
         <div className="legacy__content">
             <p className="legacy__text">
-                Since 1964, Universal Steel Smelting Co. Inc. has been a cornerstone of 
+                Since 1966, Universal Steel Smelting Co. Inc. has been a cornerstone of 
                 Philippine infrastructure. From humble beginnings to becoming one of the 
                 country's top steel manufacturers, our commitment to quality remains unwavering.
             </p>

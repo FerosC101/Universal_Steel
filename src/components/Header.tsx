@@ -10,6 +10,7 @@ const dropdownContent: Record<string, { title: string; description: string; link
         links: [
             { label: 'About Us', path: '/about' },
             { label: 'Certifications', path: '/certifications' },
+            { label: 'Facility Gallery', path: '/facility-gallery' },
         ]
     },
     '/products': {

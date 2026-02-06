@@ -9,6 +9,7 @@ import About from './About';
 import Certifications from './pages/Certifications';
 import Pricing from './pages/Pricing';
 import Projects from './pages/Projects';
+import FacilityGallery from './pages/FacilityGallery';
 import ScrollToTop from './components/ScrollToTop';
 
 createRoot(document.getElementById('root')!).render(
@@ -23,6 +24,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/certifications" element={<Certifications />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/facility-gallery" element={<FacilityGallery />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

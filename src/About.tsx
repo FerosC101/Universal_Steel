@@ -158,7 +158,7 @@ const Facility = () => {
             setCurrentSlide((prev) => (prev + 1) % images.length);
         }, 5000);
         return () => clearInterval(interval);
-    }, []);
+    }, [images.length]);
 
     return (
         <section className="facility">
@@ -185,6 +185,10 @@ const Facility = () => {
                         ))}
                     </div>
                 </div>
+                <Link to="/facility-gallery" className="facility__view-more">
+                    View More Photos
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </Link>
                 <div className="facility__content">
                     <p className="facility__text">
                         From its humble beginnings as a hand-fed mill, our management team has 
