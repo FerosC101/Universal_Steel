@@ -8,6 +8,7 @@ import './Home.css';
 const Hero = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const slides = [
+        '/images/hero/test-5.jpg',
         '/images/facility/Unisteel%20Final%20Photos/5E8A6053.jpg',
         '/images/facility/Unisteel%20Final%20Photos/5E8A6136.jpg',
         '/images/facility/Unisteel%20Final%20Photos/5E8A6205.jpg',
@@ -60,89 +61,107 @@ const Hero = () => {
     );
 };
 
-// Legacy Celebration Section
-const LegacyCelebration = () => (
-    <section className="legacy">
-        <div className="legacy__header">
-            <span className="legacy__label">Our Legacy</span>
-            <h2 className="legacy__title">60 Years of Building the Nation</h2>
-        </div>
-        <div className="legacy__image">
-            <img 
-                src="/images/hero/test-5.jpg" 
-                alt="60 Years Milestone" 
-            />
-        </div>
-        <div className="legacy__content">
-            <p className="legacy__text">
-                Since 1966, Universal Steel Smelting Co. Inc. has been a cornerstone of 
-                Philippine infrastructure. From humble beginnings to becoming one of the 
-                country's top steel manufacturers, our commitment to quality remains unwavering.
-            </p>
-            <div className="legacy__stats">
-                <div className="legacy__stat">
-                    <span className="legacy__stat-value">60+</span>
-                    <span className="legacy__stat-label">Years of Excellence</span>
+// About & Legacy Section (2-Panel Layout)
+const AboutAndLegacy = () => (
+    <section className="about-legacy">
+        <div className="about-legacy__container">
+            {/* About Panel */}
+            <div className="about-legacy__panel about-legacy__panel--about">
+                <div className="about-legacy__header">
+                    <span className="about-legacy__label">About Us</span>
+                    <h2 className="about-legacy__title">
+                        UNIVERSAL STEEL SMELTING CO INC
+                    </h2>
                 </div>
-                <div className="legacy__stat">
-                    <span className="legacy__stat-value">500+</span>
-                    <span className="legacy__stat-label">Projects Supplied</span>
+                <div className="about-legacy__video">
+                    <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="auto"
+                    >
+                        <source src="/UniSteelVid.mp4" type="video/mp4" />
+                    </video>
+                </div>
+                <div className="about-legacy__text-content">
+                    <p className="about-legacy__text">
+                        Founded with a vision to fuel industrial growth through innovation and strength, 
+                        Universal Steel Smelting Company Incorporated is a trusted leader in steel 
+                        manufacturing and smelting solutions.
+                    </p>
+                    <p className="about-legacy__text">
+                        For over 60 years, we have specialized in the production of high-grade deformed 
+                        bars that power the construction and infrastructure sectors.
+                    </p>
+                    <p className="about-legacy__text">
+                        Headquartered in Quezon City, our advanced smelting and manufacturing facilities 
+                        are equipped with cutting-edge technology and operated by a skilled workforce 
+                        committed to quality, safety, and sustainability.
+                    </p>
+                </div>
+            </div>
+
+            {/* Legacy Panel */}
+            <div className="about-legacy__panel about-legacy__panel--legacy">
+                <div className="about-legacy__header">
+                    <span className="about-legacy__label">Our Legacy</span>
+                    <h2 className="about-legacy__title">60 Years of Building the Nation</h2>
+                </div>
+                <div className="about-legacy__image">
+                    <img 
+                        src="/images/hero/test-5.jpg" 
+                        alt="60 Years Milestone" 
+                    />
+                </div>
+                <div className="about-legacy__legacy-content">
+                    <p className="about-legacy__text">
+                        Since 1966, Universal Steel Smelting Co. Inc. has been a cornerstone of 
+                        Philippine infrastructure. From humble beginnings to becoming one of the 
+                        country's top steel manufacturers, our commitment to quality remains unwavering.
+                    </p>
+                    <div className="about-legacy__stats">
+                        <div className="about-legacy__stat">
+                            <span className="about-legacy__stat-value">60+</span>
+                            <span className="about-legacy__stat-label">Years of Excellence</span>
+                        </div>
+                        <div className="about-legacy__stat">
+                            <span className="about-legacy__stat-value">500+</span>
+                            <span className="about-legacy__stat-label">Projects Supplied</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 );
 
-// About Section
-const About = () => (
-    <section className="about">
-        <div className="about__container">
-            <span className="about__label">About Us</span>
-            <h2 className="about__title">
-                UNIVERSAL STEEL SMELTING CO INC
-            </h2>
-            <div className="about__video">
-                <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="auto"
-                >
-                    <source src="/UniSteelVid.mp4" type="video/mp4" />
-                </video>
-            </div>
-            <div className="about__content">
-                <p className="about__text">
-                    Founded with a vision to fuel industrial growth through innovation and strength, 
-                    Universal Steel Smelting Company Incorporated is a trusted leader in steel 
-                    manufacturing and smelting solutions.
-                </p>
-                <p className="about__text">
-                    For over 60 years, we have specialized in the production of high-grade deformed 
-                    bars that power the construction and infrastructure sectors.
-                </p>
-                <p className="about__text">
-                    Headquartered in Quezon City, our advanced smelting and manufacturing facilities 
-                    are equipped with cutting-edge technology and operated by a skilled workforce 
-                    committed to quality, safety, and sustainability.
-                </p>
-                <p className="about__text">
-                    At Universal Steel Smelting, we prioritize innovation, environmental responsibility, 
-                    and long-term client relationships. Our operations are TUV and BPS certified and 
-                    DPWH-Accredited Testing Laboratory by the Bureau of Research and Standards (BRS).
-                </p>
-                <p className="about__text about__text--highlight">
-                    Driven by integrity, engineered for durability — Universal Steel Smelting Company 
-                    Inc. is forging strong alliances for the future.
-                </p>
-                <Link to="/about" className="btn btn--primary">
-                    Read More About Us →
-                </Link>
-            </div>
-        </div>
-    </section>
-);
+// Parallax Image Section
+const Parallax = () => {
+    const [offset, setOffset] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setOffset(window.scrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    return (
+        <section className="parallax">
+            <div 
+                className="parallax__image" 
+                style={{ 
+                    backgroundImage: 'url(/images/hero/construction-site-with-cranes-against-blue-sky.jpg)',
+                    backgroundPosition: `center ${-offset * 0.2}px`,
+                    backgroundSize: 'cover',
+                }}
+            />
+        </section>
+    );
+};
 
 // Products Section
 const Products = () => {
@@ -378,9 +397,9 @@ const Home = () => {
             <main>
                 <Hero />
                 <Partners />
-                <About />
+                <AboutAndLegacy />
+                <Parallax />
                 <Products />
-                <LegacyCelebration />
                 <Video />
                 <WhyUs />
                 <CTA />

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { Link } from 'react-router-dom';
@@ -27,7 +27,8 @@ const ArrowRight = () => (
 );
 
 // Milestones Section (4 Widgets)
-const Milestones = () => {
+// Page Hero with Milestones
+const PageHero = () => {
     const milestones = [
         { icon: iconUrls.building, text: 'USSCI was established in 1966' },
         { icon: iconUrls.setting, text: 'Continuous modernization of production lines' },
@@ -36,8 +37,19 @@ const Milestones = () => {
     ];
 
     return (
-        <section className="milestones">
-            <div className="milestones__container">
+        <section className="about-page-hero">
+            <div className="about-page-hero__overlay" />
+            <div className="about-page-hero__content">
+                <span className="about-page-hero__label">About Us</span>
+                <h1 className="about-page-hero__title">
+                    Building Excellence Since 1966
+                </h1>
+                <p className="about-page-hero__text">
+                    Universal Steel Smelting Co., Inc. is a trusted leader in steel manufacturing, 
+                    powering the construction and infrastructure sectors across the Philippines.
+                </p>
+            </div>
+            <div className="about-page-hero__milestones">
                 {milestones.map((item, i) => (
                     <div key={i} className="milestone__wrapper">
                         <div className="milestone__item">
@@ -51,23 +63,6 @@ const Milestones = () => {
         </section>
     );
 };
-
-// Page Hero
-const PageHero = () => (
-    <section className="about-page-hero">
-        <div className="about-page-hero__overlay" />
-        <div className="about-page-hero__content">
-            <span className="about-page-hero__label">About Us</span>
-            <h1 className="about-page-hero__title">
-                Building Excellence Since 1966
-            </h1>
-            <p className="about-page-hero__text">
-                Universal Steel Smelting Co., Inc. is a trusted leader in steel manufacturing, 
-                powering the construction and infrastructure sectors across the Philippines.
-            </p>
-        </div>
-    </section>
-);
 
 // Company Overview
 const Overview = () => (
@@ -215,7 +210,8 @@ const Facility = () => {
 
 // Quality Assurance
 const Quality = () => (
-    <section className="quality">
+    <section className="quality" style={{ backgroundImage: 'url(/images/hero/heavy-machines-construction-workers-working-building.jpg)' }}>
+        <div className="quality__overlay" />
         <div className="quality__container">
             <div className="quality__header">
                 <span className="section-label">Quality Assurance</span>
@@ -495,12 +491,11 @@ const About = () => {
             <Header />
             <main>
                 <PageHero />
-                <Milestones />
                 <Overview />
+                <VMV />
                 <StatsBar />
                 <Facility />
                 <Quality />
-                <VMV />
                 <ProofOfQuality />
                 <CustomerService />
                 <MajorClients />

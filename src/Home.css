@@ -352,6 +352,234 @@
 }
 
 /* ==============================================
+   ABOUT & LEGACY SECTION (2-PANEL)
+   ============================================== */
+.about-legacy {
+    background: #ffffff;
+    padding: 6rem 2rem;
+}
+
+.about-legacy__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.about-legacy__panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-legacy__header {
+    margin-bottom: 2.5rem;
+}
+
+.about-legacy__label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.75rem;
+}
+
+.about-legacy__title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--navy-900);
+    line-height: 1.3;
+    margin: 0;
+}
+
+.about-legacy__video {
+    width: 100%;
+    margin-bottom: 2.5rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.about-legacy__video video {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+}
+
+.about-legacy__image {
+    width: 100%;
+    margin-bottom: 2.5rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.about-legacy__image img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+}
+
+.about-legacy__text-content,
+.about-legacy__legacy-content {
+    flex: 1;
+}
+
+.about-legacy__text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--gray-600);
+    margin-bottom: 1.25rem;
+}
+
+.about-legacy__stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.about-legacy__stat {
+    text-align: center;
+    flex: 1;
+}
+
+.about-legacy__stat-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--navy-900);
+    line-height: 1.2;
+}
+
+.about-legacy__stat-label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+    .about-legacy__container {
+        gap: 3rem;
+    }
+    
+    .about-legacy__title {
+        font-size: 1.5rem;
+    }
+    
+    .about-legacy__video video,
+    .about-legacy__image img {
+        height: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-legacy {
+        padding: 4rem 1.5rem;
+    }
+
+    .about-legacy__container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .about-legacy__title {
+        font-size: 1.5rem;
+    }
+    
+    .about-legacy__video video,
+    .about-legacy__image img {
+        height: 260px;
+    }
+    
+    .about-legacy__stats {
+        gap: 1.5rem;
+    }
+    
+    .about-legacy__stat-value {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-legacy {
+        padding: 3rem 1rem;
+    }
+    
+    .about-legacy__header {
+        margin-bottom: 1.5rem;
+    }
+    
+    .about-legacy__label {
+        font-size: 0.7rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .about-legacy__title {
+        font-size: 1.25rem;
+    }
+    
+    .about-legacy__text {
+        font-size: 0.9rem;
+    }
+    
+    .about-legacy__video video,
+    .about-legacy__image img {
+        height: 200px;
+    }
+    
+    .about-legacy__stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* ==============================================
+   PARALLAX IMAGE SECTION
+   ============================================== */
+.parallax {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    overflow: hidden;
+    background: #000;
+    margin: 0;
+}
+
+.parallax__image {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: block;
+}
+
+@media (max-width: 1024px) {
+    .parallax {
+        height: 550px;
+    }
+}
+
+@media (max-width: 768px) {
+    .parallax {
+        height: 450px;
+    }
+}
+
+@media (max-width: 480px) {
+    .parallax {
+        height: 300px;
+    }
+}
+
+/* ==============================================
    ABOUT SECTION
    ============================================== */
 .about {

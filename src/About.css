@@ -20,10 +20,11 @@
     position: relative;
     min-height: 50vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background: var(--navy-900);
-    padding: 8rem 2rem 4rem;
+    padding: 8rem 2rem 3rem;
 }
 
 .about-page-hero__overlay {
@@ -65,12 +66,25 @@
     line-height: 1.7;
 }
 
+.about-page-hero__milestones {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1400px;
+    margin: 3rem auto 0;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    align-items: stretch;
+}
+
 /* ==============================================
    MILESTONES SECTION (4 WIDGETS)
    ============================================== */
 .milestones {
-    background: var(--navy-800);
-    padding: 2.5rem 0;
+    background: var(--navy-900);
+    padding: 2.5rem 0 3rem;
 }
 
 .milestones__container {
@@ -86,7 +100,9 @@
 .milestone__wrapper {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
+    flex: 1;
+    min-width: 0;
 }
 
 .milestone__wrapper:last-child .milestone__arrow {
@@ -98,15 +114,19 @@
     align-items: center;
     gap: 1rem;
     padding: 1.25rem 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.08);
     border-radius: 8px;
-    transition: background 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    transition: background 0.2s ease, border-color 0.2s ease;
     flex: 1;
     min-height: 80px;
+    height: 100%;
 }
 
 .milestone__item:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .milestone__icon {
@@ -131,7 +151,8 @@
 }
 
 @media (max-width: 1200px) {
-    .milestones__container {
+    .milestones__container,
+    .about-page-hero__milestones {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
     }
@@ -147,7 +168,8 @@
         padding: 1.5rem 0;
     }
     
-    .milestones__container {
+    .milestones__container,
+    .about-page-hero__milestones {
         grid-template-columns: 1fr;
         gap: 0.75rem;
     }
@@ -434,11 +456,24 @@
    QUALITY SECTION
    ============================================== */
 .quality {
+    position: relative;
     padding: 6rem 0;
-    background: #ffffff;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.quality__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 22, 40, 0.85);
+    z-index: 0;
 }
 
 .quality__container {
+    position: relative;
+    z-index: 1;
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 2rem;
@@ -450,16 +485,20 @@
     margin: 0 auto 4rem;
 }
 
+.quality__header .section-label {
+    color: var(--accent);
+}
+
 .quality__title {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--navy-900);
+    color: #ffffff;
     margin-bottom: 1rem;
 }
 
 .quality__subtitle {
     font-size: 1.0625rem;
-    color: var(--gray-600);
+    color: rgba(255, 255, 255, 0.8);
     line-height: 1.7;
 }
 
@@ -470,11 +509,12 @@
 }
 
 .quality__card {
-    background: var(--gray-50);
+    background: rgba(255, 255, 255, 0.1);
     padding: 2.5rem 2rem;
     text-align: center;
     border-radius: 8px;
-    border: 1px solid var(--gray-200);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
 }
 
 .quality__icon-img {
@@ -487,13 +527,13 @@
 .quality__card-title {
     font-size: 1.125rem;
     font-weight: 700;
-    color: var(--navy-900);
+    color: #ffffff;
     margin-bottom: 0.75rem;
 }
 
 .quality__card-text {
     font-size: 0.9375rem;
-    color: var(--gray-600);
+    color: rgba(255, 255, 255, 0.75);
     line-height: 1.6;
 }
 
@@ -542,6 +582,25 @@
     align-items: flex-start;
     gap: 1.5rem;
     color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.vmv__card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.15;
+    z-index: -1;
+}
+
+.vmv__card:first-child::before {
+    background: url('/images/hero/steel-bar-site-construction.jpg') center/cover no-repeat;
+}
+
+.vmv__card:last-child::before {
+    background: url('/images/hero/engineer-group-worker-meeting-discussion-with-construction-blueprint-site-work-point-finger-work-site.jpg') center/cover no-repeat;
 }
 
 .vmv__card-icon {
@@ -580,6 +639,18 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.vmv__values-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/images/hero/manager-meeting-with-engineer-outdoor-site-stack-hand-teamwork.jpg') center/cover no-repeat;
+    opacity: 0.15;
+    z-index: -1;
 }
 
 .vmv__values-title {
