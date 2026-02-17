@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { Link } from 'react-router-dom';
@@ -9,12 +9,12 @@ const Hero = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const slides = [
         '/images/hero/test-5.jpg',
-        '/images/facility/Unisteel%20Final%20Photos/5E8A6053.jpg',
-        '/images/facility/Unisteel%20Final%20Photos/5E8A6136.jpg',
-        '/images/facility/Unisteel%20Final%20Photos/5E8A6205.jpg',
-        '/images/facility/Unisteel%20Final%20Photos/5E8A6269.jpg',
-        '/images/facility/Unisteel%20Final%20Photos/5E8A6380.jpg',
-        '/images/facility/Unisteel%20Final%20Photos/5E8A6518.jpg',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6053.webp',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6136.webp',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6205.webp',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6269.webp',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6380.webp',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6518.webp',
     ];
 
     useEffect(() => {
@@ -230,65 +230,7 @@ const Products = () => {
     );
 };
 
-// Video Section
-const Video = () => {
-    const videoRef = useRef<HTMLVideoElement>(null);
 
-    useEffect(() => {
-        const video = videoRef.current;
-        if (video) {
-            // Ensure video is muted (required for autoplay)
-            video.muted = true;
-            
-            const playVideo = () => {
-                const playPromise = video.play();
-                if (playPromise !== undefined) {
-                    playPromise.catch(() => {
-                        // Autoplay failed, will show poster
-                    });
-                }
-            };
-
-            // Try to play immediately
-            playVideo();
-
-            // Also try when video data is loaded
-            video.addEventListener('loadeddata', playVideo);
-            
-            return () => {
-                video.removeEventListener('loadeddata', playVideo);
-            };
-        }
-    }, []);
-
-    return (
-        <section className="video">
-            <div className="video__container">
-                <div className="video__wrapper">
-                    <video
-                        ref={videoRef}
-                        className="video__player"
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        preload="metadata"
-                        poster="https://res.cloudinary.com/drrzinr9v/image/upload/v1752675549/hero_sqtj19.jpg"
-                    >
-                        <source 
-                            src="https://res.cloudinary.com/drrzinr9v/video/upload/v1752759885/homepageVid_a3fuh3.mp4" 
-                            type="video/mp4" 
-                        />
-                        <source 
-                            src="https://res.cloudinary.com/drrzinr9v/video/upload/v1752759885/homepageVid_a3fuh3.mov" 
-                            type="video/quicktime" 
-                        />
-                    </video>
-                </div>
-            </div>
-        </section>
-    );
-};
 
 // Why Choose Us - Original content from main branch
 const WhyUs = () => {
@@ -350,6 +292,11 @@ const Partners = () => {
         { name: "CMC", url: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753362870/partner2_qqt38f.png" },
         { name: "Steel Work", url: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753362876/partner3_ygi4en.png" },
         { name: "Atlas Steel", url: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753362882/partner4_qiimgs.png" },
+        { name: "BDO", url: "/images/partners/BDO_logo.png" },
+        { name: "BPI", url: "/images/partners/BPI logo.png" },
+        { name: "China Bank", url: "/images/partners/Chinabank_Since_1910_Logo.png" },
+        { name: "Metrobank", url: "/images/partners/metrobanklogo.png" },
+        { name: "UnionBank", url: "/images/partners/Unionbank_2018_logo.png" },
     ];
 
     // Duplicate partners array for seamless infinite scroll
@@ -374,7 +321,7 @@ const Partners = () => {
 // CTA Section
 const CTA = () => (
     <section className="cta">
-        <div className="cta__bg" style={{ backgroundImage: 'url(/images/facility/Unisteel%20Final%20Photos/5E8A6425.jpg)' }}></div>
+        <div className="cta__bg" style={{ backgroundImage: 'url(/images/facility/Unisteel%20Final%20Photos/5E8A6425.webp)' }}></div>
         <div className="cta__overlay"></div>
         <div className="cta__container">
             <h2 className="cta__title">Ready to Start Your Project?</h2>
@@ -400,7 +347,6 @@ const Home = () => {
                 <AboutAndLegacy />
                 <Parallax />
                 <Products />
-                <Video />
                 <WhyUs />
                 <CTA />
             </main>

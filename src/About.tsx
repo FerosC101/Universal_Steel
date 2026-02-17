@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { Link } from 'react-router-dom';
@@ -99,6 +99,45 @@ const Overview = () => (
                     Today, USSCI continues to uphold its commitment to quality, innovation, and 
                     customer satisfaction, serving as a cornerstone of the Philippine steel industry.
                 </p>
+            </div>
+        </div>
+    </section>
+);
+
+// Founder History
+const FounderHistory = () => (
+    <section className="founder">
+        <div className="founder__container">
+            <div className="founder__header">
+                <span className="section-label">Our Legacy</span>
+                <h2 className="founder__title">The Visionary Behind USSCI</h2>
+            </div>
+            <div className="founder__content">
+                <div className="founder__images">
+                    <div className="founder__image founder__image--main">
+                        <img 
+                            src="/images/Old Pics/Pic1.jpg" 
+                            alt="USSCI Historical" 
+                        />
+                    </div>
+                    <div className="founder__image founder__image--secondary">
+                        <img 
+                            src="/images/Old Pics/Pic2.jpg" 
+                            alt="USSCI Legacy" 
+                        />
+                    </div>
+                </div>
+                <div className="founder__text">
+                    <p>
+                        As a young individual, Mr. Lim began his career even before the Second World War, starting out as an apprentice in a small trading firm in the textile quarters of Manila's Binondo district where he learned the intricate aspects involved in building a business enterprise. His trading business gradually grew and became very prosperous.
+                    </p>
+                    <p>
+                        When the Second World War began, many of his colleagues halted their business operations, but Mr. Lim persevered even in the face of great adversity in ingenious ways. Following the country's liberation from the Japanese, he pressed forward with his businesses, enterprising in fully integrated textile manufacturing, steel making and cement manufacturing and the rest, as we know, is our history.
+                    </p>
+                    <p>
+                        It is also well worth mentioning that throughout all these business endeavors, the primary identity of our founder in building his organization has faithfully remained, to be a good Christian first &amp; foremost then a successful businessman only second to it. This explains why in 1965, he co-founded the metropolitan hospital now the Metropolitan Medical Center in Binondo.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -407,63 +446,63 @@ const CustomerService = () => {
 };
 
 // Major Clients - Modern Marquee Animation
-const MajorClients = () => {
-    const clientsRow1 = [
-        { name: "AYALA LAND, INC.", category: "Real Estate" },
-        { name: "A.M. ORETA & COMPANY", category: "Construction" },
-        { name: "D.M. CONSUNJI INC.", category: "Construction" },
-        { name: "EEI CORPORATION", category: "Infrastructure" },
-        { name: "FEDERAL LAND, INC.", category: "Real Estate" },
-        { name: "F.F. CRUZ & COMPANY", category: "Infrastructure" },
-    ];
+// const MajorClients = () => {
+//     const clientsRow1 = [
+//         { name: "AYALA LAND, INC.", category: "Real Estate" },
+//         { name: "A.M. ORETA & COMPANY", category: "Construction" },
+//         { name: "D.M. CONSUNJI INC.", category: "Construction" },
+//         { name: "EEI CORPORATION", category: "Infrastructure" },
+//         { name: "FEDERAL LAND, INC.", category: "Real Estate" },
+//         { name: "F.F. CRUZ & COMPANY", category: "Infrastructure" },
+//     ];
     
-    const clientsRow2 = [
-        { name: "FILINVEST LAND INC.", category: "Real Estate" },
-        { name: "MAKATI DEVELOPMENT CORP.", category: "Real Estate" },
-        { name: "MEGAWIDE CONSTRUCTION", category: "Construction" },
-        { name: "MEGAWORLD CORPORATION", category: "Real Estate" },
-        { name: "ROBINSONS LAND CORP.", category: "Real Estate" },
-        { name: "SM PRIME HOLDINGS", category: "Real Estate" },
-    ];
+//     const clientsRow2 = [
+//         { name: "FILINVEST LAND INC.", category: "Real Estate" },
+//         { name: "MAKATI DEVELOPMENT CORP.", category: "Real Estate" },
+//         { name: "MEGAWIDE CONSTRUCTION", category: "Construction" },
+//         { name: "MEGAWORLD CORPORATION", category: "Real Estate" },
+//         { name: "ROBINSONS LAND CORP.", category: "Real Estate" },
+//         { name: "SM PRIME HOLDINGS", category: "Real Estate" },
+//     ];
 
-    return (
-        <section className="major-clients">
-            <div className="major-clients__container">
-                <div className="major-clients__header">
-                    <span className="section-label">Trusted Partnerships</span>
-                    <h2 className="major-clients__title">Major Clients</h2>
-                    <p className="major-clients__subtitle">
-                        Building the nation's infrastructure with the Philippines' leading developers
-                    </p>
-                </div>
+//     return (
+//         <section className="major-clients">
+//             <div className="major-clients__container">
+//                 <div className="major-clients__header">
+//                     <span className="section-label">Trusted Partnerships</span>
+//                     <h2 className="major-clients__title">Major Clients</h2>
+//                     <p className="major-clients__subtitle">
+//                         Building the nation's infrastructure with the Philippines' leading developers
+//                     </p>
+//                 </div>
                 
-                {/* Animated Marquee Row 1 - Left to Right */}
-                <div className="major-clients__track">
-                    <div className="major-clients__marquee major-clients__marquee--left">
-                        {[...clientsRow1, ...clientsRow1].map((client, i) => (
-                            <div key={i} className="major-clients__card">
-                                <span className="major-clients__category">{client.category}</span>
-                                <h3 className="major-clients__name">{client.name}</h3>
-                            </div>
-                        ))}
-                    </div>
-                </div>
+//                 {/* Animated Marquee Row 1 - Left to Right */}
+//                 <div className="major-clients__track">
+//                     <div className="major-clients__marquee major-clients__marquee--left">
+//                         {[...clientsRow1, ...clientsRow1].map((client, i) => (
+//                             <div key={i} className="major-clients__card">
+//                                 <span className="major-clients__category">{client.category}</span>
+//                                 <h3 className="major-clients__name">{client.name}</h3>
+//                             </div>
+//                         ))}
+//                     </div>
+//                 </div>
                 
-                {/* Animated Marquee Row 2 - Right to Left */}
-                <div className="major-clients__track">
-                    <div className="major-clients__marquee major-clients__marquee--right">
-                        {[...clientsRow2, ...clientsRow2].map((client, i) => (
-                            <div key={i} className="major-clients__card">
-                                <span className="major-clients__category">{client.category}</span>
-                                <h3 className="major-clients__name">{client.name}</h3>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
-};
+//                 {/* Animated Marquee Row 2 - Right to Left */}
+//                 <div className="major-clients__track">
+//                     <div className="major-clients__marquee major-clients__marquee--right">
+//                         {[...clientsRow2, ...clientsRow2].map((client, i) => (
+//                             <div key={i} className="major-clients__card">
+//                                 <span className="major-clients__category">{client.category}</span>
+//                                 <h3 className="major-clients__name">{client.name}</h3>
+//                             </div>
+//                         ))}
+//                     </div>
+//                 </div>
+//             </div>
+//         </section>
+//     );
+// };
 
 // CTA Section
 const CTA = () => (
@@ -492,13 +531,13 @@ const About = () => {
             <main>
                 <PageHero />
                 <Overview />
+                <FounderHistory />
                 <VMV />
                 <StatsBar />
                 <Facility />
                 <Quality />
                 <ProofOfQuality />
                 <CustomerService />
-                <MajorClients />
                 <CTA />
             </main>
             <Footer />

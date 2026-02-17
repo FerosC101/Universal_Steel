@@ -507,6 +507,92 @@
     border-color: #ffffff;
 }
 
+.products-cta .btn--outline-light {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.products-cta .btn--outline-light:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+}
+
+/* ==============================================
+   PRODUCT APPLICATIONS SECTION
+   ============================================== */
+.product-applications {
+    padding: 5rem 0;
+    background: var(--gray-50);
+}
+
+.product-applications__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.product-applications__header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.product-applications__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--navy-900);
+}
+
+.product-applications__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.product-applications__item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    transition: all 0.2s ease;
+}
+
+.product-applications__item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.product-applications__icon {
+    font-size: 1.125rem;
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.product-applications__item span:last-child {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--navy-900);
+}
+
+@media (max-width: 768px) {
+    .product-applications__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .product-applications {
+        padding: 3rem 0;
+    }
+
+    .product-applications__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* ==============================================
    RESPONSIVE DESIGN
    ============================================== */

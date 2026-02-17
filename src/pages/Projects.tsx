@@ -68,7 +68,7 @@ const projectGroups = [
         id: 1,
         title: "Past Developments",
         description: "A comprehensive infrastructure development project showcasing our steel reinforcement solutions in major construction works.",
-        cardImage: "/images/facility/Unisteel%20Final%20Photos/5E8A6053.jpg",
+        cardImage: "/images/facility/Unisteel%20Final%20Photos/5E8A6053.webp",
         images: [
             { name: "Magallanes Interchange Project", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_projects_for_website_2_hrfykz.jpg" },
             { name: "San Juanico Bridge", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_7_tjttq6.jpg" },
@@ -79,7 +79,7 @@ const projectGroups = [
         id: 2,
         title: "Present Developments",
         description: "Current ongoing projects highlighting our capability to supply high-quality materials for extensive construction developments.",
-        cardImage: "/images/facility/Unisteel%20Final%20Photos/5E8A6172.jpg",
+        cardImage: "/images/facility/Unisteel%20Final%20Photos/5E8A6172.webp",
         images: [
             { name: "Metro Manila Skyway Stage 1", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_13_wrnwf1.jpg" },
             { name: "Metro Manila Skyway Stage 2", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_11_btaknk.jpg" },
@@ -90,7 +90,7 @@ const projectGroups = [
         id: 3,
         title: "Future Developments",
         description: "Upcoming multi-phase development project featuring our comprehensive steel reinforcement solutions.",
-        cardImage: "/images/facility/Unisteel%20Final%20Photos/5E8A6396.jpg",
+        cardImage: "/images/facility/Unisteel%20Final%20Photos/5E8A6396.webp",
         images: [
             { name: "MRT-7", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_8_pbadil.jpg" },
             { name: "MRT Extension Phase 1", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_5_jo4ul6.jpg" },
@@ -245,7 +245,7 @@ const ProjectsList = () => {
 // CTA
 const CTA = () => (
     <section className="projects-cta">
-        <div className="projects-cta__bg" style={{ backgroundImage: 'url(/images/facility/Unisteel%20Final%20Photos/5E8A6462.jpg)' }}></div>
+        <div className="projects-cta__bg" style={{ backgroundImage: 'url(/images/facility/Unisteel%20Final%20Photos/5E8A6462.webp)' }}></div>
         <div className="projects-cta__overlay"></div>
         <div className="projects-cta__container">
             <h2 className="projects-cta__title">Partner With Us</h2>

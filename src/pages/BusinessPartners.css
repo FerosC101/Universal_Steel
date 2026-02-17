@@ -1,0 +1,288 @@
+/* ==============================================
+   BUSINESS PARTNERS PAGE
+   ============================================== */
+
+/* ==============================================
+   PAGE HERO
+   ============================================== */
+.bp-hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--navy-900);
+    padding: 8rem 2rem 4rem;
+}
+
+.bp-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: url('/images/facility/Unisteel%20Final%20Photos/5E8A6518.webp') center/cover;
+    opacity: 0.2;
+}
+
+.bp-hero__content {
+    position: relative;
+    text-align: center;
+    max-width: 700px;
+}
+
+.bp-hero__label {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.bp-hero__title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.bp-hero__text {
+    font-size: 1.0625rem;
+    color: var(--gray-300);
+    line-height: 1.7;
+}
+
+/* ==============================================
+   SUPPLIER SECTIONS
+   ============================================== */
+.bp-section {
+    padding: 5rem 0;
+}
+
+.bp-section--default {
+    background: #ffffff;
+}
+
+.bp-section--accent {
+    background: var(--gray-50);
+}
+
+.bp-section--dark {
+    background: var(--navy-900);
+}
+
+.bp-section__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.bp-section__header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.bp-section__title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--navy-900);
+    margin-bottom: 0.5rem;
+}
+
+.bp-section--dark .bp-section__title {
+    color: #ffffff;
+}
+
+.bp-section--dark .section-label {
+    color: var(--accent);
+}
+
+/* ==============================================
+   SUPPLIER CARDS GRID
+   ============================================== */
+.bp-section__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.bp-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.125rem 1.5rem;
+    transition: all 0.2s ease;
+}
+
+/* Default variant */
+.bp-card--default {
+    background: var(--gray-50);
+}
+
+.bp-card--default:hover {
+    background: var(--navy-900);
+}
+
+.bp-card--default:hover .bp-card__number,
+.bp-card--default:hover .bp-card__name {
+    color: #ffffff;
+}
+
+/* Accent variant */
+.bp-card--accent {
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.bp-card--accent:hover {
+    background: var(--navy-900);
+}
+
+.bp-card--accent:hover .bp-card__number,
+.bp-card--accent:hover .bp-card__name {
+    color: #ffffff;
+}
+
+/* Dark variant */
+.bp-card--dark {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.bp-card--dark:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.bp-card--dark .bp-card__number {
+    color: var(--accent);
+}
+
+.bp-card--dark .bp-card__name {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.bp-card--dark:hover .bp-card__name {
+    color: #ffffff;
+}
+
+/* Card elements */
+.bp-card__number {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--accent);
+    min-width: 28px;
+    transition: color 0.2s ease;
+}
+
+.bp-card__name {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--navy-900);
+    transition: color 0.2s ease;
+}
+
+/* ==============================================
+   CTA
+   ============================================== */
+.bp-cta {
+    position: relative;
+    padding: 4rem 0;
+    overflow: hidden;
+}
+
+.bp-cta__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.bp-cta__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(18, 35, 60, 0.92), rgba(18, 35, 60, 0.85));
+}
+
+.bp-cta__container {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.bp-cta__title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+}
+
+.bp-cta__text {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+}
+
+/* ==============================================
+   RESPONSIVE
+   ============================================== */
+@media (max-width: 1024px) {
+    .bp-section__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .bp-hero {
+        padding: 6rem 1.5rem 3rem;
+    }
+
+    .bp-section {
+        padding: 3.5rem 0;
+    }
+
+    .bp-section__container {
+        padding: 0 1.5rem;
+    }
+
+    .bp-section__header {
+        margin-bottom: 2rem;
+    }
+
+    .bp-section__title {
+        font-size: 1.75rem;
+    }
+
+    .bp-cta__bg {
+        background-attachment: scroll;
+    }
+}
+
+@media (max-width: 640px) {
+    .bp-section__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .bp-section {
+        padding: 2.5rem 0;
+    }
+
+    .bp-section__container {
+        padding: 0 1rem;
+    }
+
+    .bp-section__title {
+        font-size: 1.5rem;
+    }
+
+    .bp-cta__container {
+        padding: 0 1rem;
+    }
+}

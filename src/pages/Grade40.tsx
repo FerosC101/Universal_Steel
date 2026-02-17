@@ -1,0 +1,170 @@
+import { useState } from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
+import '../Products.css';
+
+const product = {
+    id: 1,
+    name: "Grade 40 Rebars",
+    image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753545927/Grade_40_1_epdri0.jpg",
+    description: "Standard strength deformed bars manufactured to international standards. Ideal for residential and light commercial construction projects.",
+    longDescription: "Grade 40 deformed steel bars are the go-to choice for residential construction and light commercial applications. Manufactured with precision at our state-of-the-art facility, these rebars deliver reliable performance at a yield strength of 275 MPa. Every bar undergoes rigorous quality testing in our DPWH-accredited laboratory to ensure full compliance with PNS 49:2020 standards.",
+    features: [
+        "Meets PNS 49:2020 standards",
+        "BPS Certified quality",
+        "Available in 10mm to 36mm",
+        "Standard and custom lengths",
+        "Yield Strength: 275 MPa minimum",
+        "DPWH Laboratory tested",
+    ],
+    applications: [
+        "Residential buildings & houses",
+        "Light commercial structures",
+        "Retaining walls & foundations",
+        "Standard floor slabs",
+        "Columns & beams for low-rise buildings",
+    ],
+    sizes: [
+        { size: "10mm", weight: "0.617 kg/m", price: "₱22.00/kg" },
+        { size: "12mm", weight: "0.888 kg/m", price: "₱22.00/kg" },
+        { size: "16mm", weight: "1.578 kg/m", price: "₱21.80/kg" },
+        { size: "20mm", weight: "2.466 kg/m", price: "₱21.80/kg" },
+        { size: "25mm", weight: "3.853 kg/m", price: "₱21.80/kg" },
+        { size: "28mm", weight: "4.834 kg/m", price: "₱21.80/kg" },
+        { size: "32mm", weight: "6.313 kg/m", price: "₱22.00/kg" },
+        { size: "36mm", weight: "7.990 kg/m", price: "₱22.00/kg" },
+    ],
+};
+
+// Page Hero
+const PageHero = () => (
+    <section className="products-page-hero">
+        <div className="products-page-hero__overlay" />
+        <div className="products-page-hero__content">
+            <span className="products-page-hero__label">Our Products</span>
+            <h1 className="products-page-hero__title">Grade 40 Rebars</h1>
+            <p className="products-page-hero__text">
+                Standard strength deformed bars ideal for residential and light commercial construction
+            </p>
+        </div>
+    </section>
+);
+
+// Product Detail
+const ProductDetail = () => {
+    const [activeTab, setActiveTab] = useState<'specs' | 'pricing'>('specs');
+
+    return (
+        <section className="product-detail" id="product-1">
+            <div className="product-detail__container">
+                <div className="product-detail__image">
+                    <img src={product.image} alt={product.name} />
+                </div>
+                <div className="product-detail__content">
+                    <h2 className="product-detail__title">{product.name}</h2>
+                    <p className="product-detail__desc">{product.longDescription}</p>
+                    
+                    <ul className="product-detail__features">
+                        {product.features.map((feature, i) => (
+                            <li key={i}>{feature}</li>
+                        ))}
+                    </ul>
+
+                    <div className="product-detail__tabs">
+                        <button 
+                            className={`product-detail__tab ${activeTab === 'specs' ? 'product-detail__tab--active' : ''}`}
+                            onClick={() => setActiveTab('specs')}
+                        >
+                            Specifications
+                        </button>
+                        <button 
+                            className={`product-detail__tab ${activeTab === 'pricing' ? 'product-detail__tab--active' : ''}`}
+                            onClick={() => setActiveTab('pricing')}
+                        >
+                            Pricing
+                        </button>
+                    </div>
+
+                    <div className="product-detail__table-wrapper">
+                        <table className="product-detail__table">
+                            <thead>
+                                <tr>
+                                    <th>Size</th>
+                                    <th>Unit Weight</th>
+                                    {activeTab === 'pricing' && <th>Price</th>}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {product.sizes.map((size, i) => (
+                                    <tr key={i}>
+                                        <td>{size.size}</td>
+                                        <td>{size.weight}</td>
+                                        {activeTab === 'pricing' && <td>{size.price}</td>}
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <Link to="/contact" className="btn btn--primary">
+                        Request Quote
+                    </Link>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+// Applications Section
+const Applications = () => (
+    <section className="product-applications">
+        <div className="product-applications__container">
+            <div className="product-applications__header">
+                <span className="section-label">Ideal For</span>
+                <h2 className="product-applications__title">Common Applications</h2>
+            </div>
+            <div className="product-applications__grid">
+                {product.applications.map((app, i) => (
+                    <div key={i} className="product-applications__item">
+                        <span className="product-applications__icon">✓</span>
+                        <span>{app}</span>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+);
+
+// CTA
+const CTA = () => (
+    <section className="products-cta">
+        <div className="products-cta__bg" style={{ backgroundImage: 'url(/images/facility/Unisteel%20Final%20Photos/5E8A6458.webp)' }} />
+        <div className="products-cta__overlay" />
+        <div className="products-cta__container">
+            <h2 className="products-cta__title">Need a Custom Quote?</h2>
+            <p className="products-cta__text">
+                Contact our sales team for bulk orders, custom lengths, and special requirements.
+            </p>
+            <div className="products-cta__actions">
+                <Link to="/contact" className="btn btn--primary">Contact Sales</Link>
+                <Link to="/products/grade-60" className="btn btn--outline-light">View Grade 60 →</Link>
+            </div>
+        </div>
+    </section>
+);
+
+const Grade40 = () => (
+    <div className="page">
+        <Header />
+        <main>
+            <PageHero />
+            <ProductDetail />
+            <Applications />
+            <CTA />
+        </main>
+        <Footer />
+    </div>
+);
+
+export default Grade40;

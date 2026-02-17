@@ -6,8 +6,8 @@ import './Certifications.css';
 
 // Images
 const images = {
-    hero: '/images/facility/Unisteel%20Final%20Photos/5E8A6567.jpg',
-    facility: '/images/facility/Unisteel%20Final%20Photos/5E8A6458.jpg',
+    hero: '/images/facility/Unisteel%20Final%20Photos/5E8A6567.webp',
+    facility: '/images/facility/Unisteel%20Final%20Photos/5E8A6458.webp',
     lab: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_Pics_for_website_2_crov5j.jpg',
 };
 
@@ -154,7 +154,7 @@ const QualityStatement = () => (
 // CTA
 const CTA = () => (
     <section className="certs-cta">
-        <div className="certs-cta__bg" style={{ backgroundImage: 'url(/images/facility/Unisteel%20Final%20Photos/5E8A6425.jpg)' }}></div>
+        <div className="certs-cta__bg" style={{ backgroundImage: 'url(/images/facility/Unisteel%20Final%20Photos/5E8A6425.webp)' }}></div>
         <div className="certs-cta__overlay"></div>
         <div className="certs-cta__container">
             <h2 className="certs-cta__title">Need Documentation?</h2>

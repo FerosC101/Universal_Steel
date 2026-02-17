@@ -3,30 +3,32 @@ import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
 
 // Dropdown content for nav items
-const dropdownContent: Record<string, { title: string; description: string; links: { label: string; path: string }[] }> = {
+const dropdownContent: Record<string, { title: string; description: string; links: { label: string; path: string; desc: string }[] }> = {
     '/about': {
         title: 'Our Company',
         description: 'For over 60 years, Universal Steel Smelting Co., Inc. has been a trusted leader in steel manufacturing.',
         links: [
-            { label: 'About Us', path: '/about' },
-            { label: 'Certifications', path: '/certifications' },
-            { label: 'Facility Gallery', path: '/facility-gallery' },
+            { label: 'About Us', path: '/about', desc: 'Learn about our history, mission, vision, and values' },
+            { label: 'Certifications', path: '/certifications', desc: 'ISO 9001, BPS, and DPWH accreditations' },
+            { label: 'Facility Gallery', path: '/facility-gallery', desc: 'Tour our state-of-the-art manufacturing plant' },
+            { label: 'Business Partners', path: '/business-partners', desc: 'Our trusted global and local supplier network' },
         ]
     },
     '/products': {
         title: 'Our Products',
         description: 'We manufacture high-grade deformed bars that meet international standards for modern construction.',
         links: [
-            { label: 'Grade 40 Rebars', path: '/products#product-1' },
-            { label: 'Grade 60 Rebars', path: '/products#product-2' },
-            { label: 'Pricing', path: '/pricing' },
+            { label: 'Grade 40 Rebars', path: '/products/grade-40', desc: 'Standard strength bars for residential & light commercial' },
+            { label: 'Grade 60 Rebars', path: '/products/grade-60', desc: 'High-strength bars for bridges & heavy infrastructure' },
+            { label: 'Pricing', path: '/pricing', desc: 'View current pricing for all rebar sizes' },
         ]
     },
     '/projects': {
         title: 'Our Projects',
         description: 'Explore the landmark projects built with Universal Steel quality products.',
         links: [
-            { label: 'Featured Projects', path: '/projects' },
+            { label: 'Featured Projects', path: '/projects', desc: 'Past, present, and future infrastructure developments' },
+            { label: 'Business Partners', path: '/business-partners', desc: 'Our trusted billet suppliers and service partners' },
         ]
     },
 };
@@ -122,7 +124,10 @@ const Header = () => {
                                                         <svg width="6" height="10" viewBox="0 0 6 10" fill="none">
                                                             <path d="M1 1L5 5L1 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                                                         </svg>
-                                                        {dropLink.label}
+                                                        <div className="header__dropdown-link-text">
+                                                            <span className="header__dropdown-link-label">{dropLink.label}</span>
+                                                            <span className="header__dropdown-link-desc">{dropLink.desc}</span>
+                                                        </div>
                                                     </Link>
                                                 </li>
                                             ))}

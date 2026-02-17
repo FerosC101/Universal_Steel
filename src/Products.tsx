@@ -179,7 +179,7 @@ const QualitySection = () => (
 // CTA Section
 const CTA = () => (
     <section className="products-cta">
-        <div className="products-cta__bg" style={{ backgroundImage: 'url(/images/facility/Unisteel%20Final%20Photos/5E8A6458.jpg)' }}></div>
+        <div className="products-cta__bg" style={{ backgroundImage: 'url(/images/facility/Unisteel%20Final%20Photos/5E8A6458.webp)' }}></div>
         <div className="products-cta__overlay"></div>
         <div className="products-cta__container">
             <h2 className="products-cta__title">Need a Custom Quote?</h2>
