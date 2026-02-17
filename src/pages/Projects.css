@@ -77,6 +77,35 @@
     padding: 0 2rem;
 }
 
+.projects-grid-section__header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.projects-grid-section__header .section-label {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #c0392b;
+    margin-bottom: 0.75rem;
+}
+
+.projects-grid-section__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0a1628;
+    margin-bottom: 0.75rem;
+}
+
+.projects-grid-section__subtitle {
+    font-size: 1.1rem;
+    color: #5a6a7a;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -270,6 +299,7 @@
 
 .projects-list__header {
     margin-bottom: 3rem;
+    text-align: center;
 }
 
 .projects-list__title {

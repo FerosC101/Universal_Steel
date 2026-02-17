@@ -42,6 +42,8 @@ const facilityImages = [
     { src: '/images/facility/Unisteel%20Final%20Photos/5E8A6549.jpg', name: 'Facility View 34' },
     { src: '/images/facility/Unisteel%20Final%20Photos/5E8A6556.jpg', name: 'Facility View 35' },
     { src: '/images/facility/Unisteel%20Final%20Photos/5E8A6567.jpg', name: 'Facility View 36' },
+    { src: '/images/hero/New cooling tower.jpg', name: 'Facility View 37' },
+    { src: '/images/hero/New dividing shear.jpg', name: 'Facility View 38' },
 ];
 
 // Page Hero

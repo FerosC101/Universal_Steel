@@ -3,6 +3,64 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 import './Projects.css';
+import '../About.css';
+
+// Major Clients - Modern Marquee Animation
+const MajorClients = () => {
+    const clientsRow1 = [
+        { name: "AYALA LAND, INC.", category: "Real Estate" },
+        { name: "A.M. ORETA & COMPANY", category: "Construction" },
+        { name: "D.M. CONSUNJI INC.", category: "Construction" },
+        { name: "EEI CORPORATION", category: "Infrastructure" },
+        { name: "FEDERAL LAND, INC.", category: "Real Estate" },
+        { name: "F.F. CRUZ & COMPANY", category: "Infrastructure" },
+    ];
+    
+    const clientsRow2 = [
+        { name: "FILINVEST LAND INC.", category: "Real Estate" },
+        { name: "MAKATI DEVELOPMENT CORP.", category: "Real Estate" },
+        { name: "MEGAWIDE CONSTRUCTION", category: "Construction" },
+        { name: "MEGAWORLD CORPORATION", category: "Real Estate" },
+        { name: "ROBINSONS LAND CORP.", category: "Real Estate" },
+        { name: "SM PRIME HOLDINGS", category: "Real Estate" },
+    ];
+
+    return (
+        <section className="major-clients">
+            <div className="major-clients__container">
+                <div className="major-clients__header">
+                    <span className="section-label">Trusted Partnerships</span>
+                    <h2 className="major-clients__title">Major Clients</h2>
+                    <p className="major-clients__subtitle">
+                        Building the nation's infrastructure with the Philippines' leading developers
+                    </p>
+                </div>
+                
+                <div className="major-clients__track">
+                    <div className="major-clients__marquee major-clients__marquee--left">
+                        {[...clientsRow1, ...clientsRow1].map((client, i) => (
+                            <div key={i} className="major-clients__card">
+                                <span className="major-clients__category">{client.category}</span>
+                                <h3 className="major-clients__name">{client.name}</h3>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                
+                <div className="major-clients__track">
+                    <div className="major-clients__marquee major-clients__marquee--right">
+                        {[...clientsRow2, ...clientsRow2].map((client, i) => (
+                            <div key={i} className="major-clients__card">
+                                <span className="major-clients__category">{client.category}</span>
+                                <h3 className="major-clients__name">{client.name}</h3>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
 
 // Project Data
 const projectGroups = [
@@ -10,7 +68,7 @@ const projectGroups = [
         id: 1,
         title: "Past Developments",
         description: "A comprehensive infrastructure development project showcasing our steel reinforcement solutions in major construction works.",
-        cardImage: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_Pics_for_website_2_crov5j.jpg",
+        cardImage: "/images/facility/Unisteel%20Final%20Photos/5E8A6053.jpg",
         images: [
             { name: "Magallanes Interchange Project", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_projects_for_website_2_hrfykz.jpg" },
             { name: "San Juanico Bridge", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_7_tjttq6.jpg" },
@@ -21,7 +79,7 @@ const projectGroups = [
         id: 2,
         title: "Present Developments",
         description: "Current ongoing projects highlighting our capability to supply high-quality materials for extensive construction developments.",
-        cardImage: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_Pics_for_website_1_yzhack.jpg",
+        cardImage: "/images/facility/Unisteel%20Final%20Photos/5E8A6172.jpg",
         images: [
             { name: "Metro Manila Skyway Stage 1", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_13_wrnwf1.jpg" },
             { name: "Metro Manila Skyway Stage 2", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_11_btaknk.jpg" },
@@ -32,7 +90,7 @@ const projectGroups = [
         id: 3,
         title: "Future Developments",
         description: "Upcoming multi-phase development project featuring our comprehensive steel reinforcement solutions.",
-        cardImage: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_Pics_for_website_3_haeba5.jpg",
+        cardImage: "/images/facility/Unisteel%20Final%20Photos/5E8A6396.jpg",
         images: [
             { name: "MRT-7", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_8_pbadil.jpg" },
             { name: "MRT Extension Phase 1", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_5_jo4ul6.jpg" },
@@ -63,6 +121,11 @@ const ProjectsGrid = () => {
         <>
             <section className="projects-grid-section">
                 <div className="projects-grid-section__container">
+                    <div className="projects-grid-section__header">
+                        <span className="section-label">Project Gallery</span>
+                        <h2 className="projects-grid-section__title">Development Portfolio</h2>
+                        <p className="projects-grid-section__subtitle">Browse our past, present, and future infrastructure projects</p>
+                    </div>
                     <div className="projects-grid">
                         {projectGroups.map((group) => (
                             <div
@@ -112,25 +175,6 @@ const ProjectsGrid = () => {
     );
 };
 
-// Stats Section
-const StatsSection = () => (
-    <section className="projects-stats">
-        <div className="projects-stats__container">
-            <div className="projects-stats__item">
-                <span className="projects-stats__value">500+</span>
-                <span className="projects-stats__label">Projects Supplied</span>
-            </div>
-            <div className="projects-stats__item">
-                <span className="projects-stats__value">60+</span>
-                <span className="projects-stats__label">Years Experience</span>
-            </div>
-            <div className="projects-stats__item">
-                <span className="projects-stats__value">100%</span>
-                <span className="projects-stats__label">Quality Commitment</span>
-            </div>
-        </div>
-    </section>
-);
 
 // Projects List Section
 const ProjectsList = () => {
@@ -220,9 +264,9 @@ const Projects = () => {
             <Header />
             <main>
                 <PageHero />
+                <MajorClients />
                 <ProjectsGrid />
                 <ProjectsList />
-                <StatsSection />
                 <CTA />
             </main>
             <Footer />
