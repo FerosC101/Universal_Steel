@@ -415,7 +415,7 @@
 .certs-cta__overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(18, 35, 60, 0.92), rgba(18, 35, 60, 0.85));
+    background: linear-gradient(to bottom, rgba(18, 35, 60, 0.85) 0%, rgba(10, 22, 40, 0.95) 70%, #0a1628 100%);
 }
 
 .certs-cta__container {

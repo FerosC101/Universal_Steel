@@ -68,18 +68,20 @@ const projectGroups = [
         id: 1,
         title: "Past Developments",
         description: "A comprehensive infrastructure development project showcasing our steel reinforcement solutions in major construction works.",
-        cardImage: "/images/facility/Unisteel%20Final%20Photos/5E8A6053.webp",
+        cardImage: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_7_tjttq6.jpg",
         images: [
             { name: "Magallanes Interchange Project", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_projects_for_website_2_hrfykz.jpg" },
             { name: "San Juanico Bridge", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_7_tjttq6.jpg" },
             { name: "EDSA Shrine", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_1_wzrmyq.jpg" },
+            { name: "NAIA Terminal 1", image: "/images/hero/NAIA%201.jpg" },
+            { name: "NAIA Terminal 2", image: "/images/hero/NAIA%202.webp" },
         ],
     },
     {
         id: 2,
         title: "Present Developments",
         description: "Current ongoing projects highlighting our capability to supply high-quality materials for extensive construction developments.",
-        cardImage: "/images/facility/Unisteel%20Final%20Photos/5E8A6172.webp",
+        cardImage: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_11_btaknk.jpg",
         images: [
             { name: "Metro Manila Skyway Stage 1", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_13_wrnwf1.jpg" },
             { name: "Metro Manila Skyway Stage 2", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516396/USSCI_projects_for_website_11_btaknk.jpg" },
@@ -89,8 +91,8 @@ const projectGroups = [
     {
         id: 3,
         title: "Future Developments",
-        description: "Upcoming multi-phase development project featuring our comprehensive steel reinforcement solutions.",
-        cardImage: "/images/facility/Unisteel%20Final%20Photos/5E8A6396.webp",
+        description: "Upcoming multi-phase development project featuring our comprehensive steel reinforcement solutions for modern transit infrastructure.",
+        cardImage: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_5_jo4ul6.jpg",
         images: [
             { name: "MRT-7", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_8_pbadil.jpg" },
             { name: "MRT Extension Phase 1", image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753516398/USSCI_projects_for_website_5_jo4ul6.jpg" },
@@ -188,6 +190,7 @@ const ProjectsList = () => {
         "LRT – Sumitomo Project",
         "Nagtahan Bridge",
         "NAIA Skyway",
+        "NAIA Terminal 1",
         "NAIA Terminal 2",
         "New Bacolod Silay Airport",
         "NLEX Interchange",

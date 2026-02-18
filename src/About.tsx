@@ -6,12 +6,8 @@ import { PageWithSkeleton } from './hooks/usePageLoading';
 import { AboutPageSkeleton } from './components/Skeleton';
 import './About.css';
 
-// Icon URLs from main branch
+// Icon URLs
 const iconUrls = {
-    building: 'https://res.cloudinary.com/drrzinr9v/image/upload/building-two_yxzt3u.png',
-    setting: 'https://res.cloudinary.com/drrzinr9v/image/upload/setting-two_e2vfvt.png',
-    certificate: 'https://res.cloudinary.com/drrzinr9v/image/upload/certificate_dpjy9c.png',
-    bridge: 'https://res.cloudinary.com/drrzinr9v/image/upload/bridge-two_hvjarm.png',
     // VMV icons
     vision: 'https://res.cloudinary.com/drrzinr9v/image/upload/exchange-two_w8z7jh.png',
     mission: 'https://res.cloudinary.com/drrzinr9v/image/upload/target_hljvmw.png',
@@ -21,23 +17,8 @@ const iconUrls = {
     commitment: 'https://res.cloudinary.com/drrzinr9v/image/upload/check-correct_lbqpjk.png',
 };
 
-// Arrow Icon
-const ArrowRight = () => (
-    <svg className="milestone__arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-    </svg>
-);
-
-// Milestones Section (4 Widgets)
-// Page Hero with Milestones
+// Page Hero
 const PageHero = () => {
-    const milestones = [
-        { icon: iconUrls.building, text: 'USSCI was established in 1966' },
-        { icon: iconUrls.setting, text: 'Continuous modernization of production lines' },
-        { icon: iconUrls.certificate, text: 'Achieved BPS and ISO certifications' },
-        { icon: iconUrls.bridge, text: 'Accredited testing laboratory for government projects' },
-    ];
-
     return (
         <section className="about-page-hero">
             <div className="about-page-hero__overlay" />
@@ -50,17 +31,6 @@ const PageHero = () => {
                     Universal Steel Smelting Co., Inc. is a trusted leader in steel manufacturing, 
                     powering the construction and infrastructure sectors across the Philippines.
                 </p>
-            </div>
-            <div className="about-page-hero__milestones">
-                {milestones.map((item, i) => (
-                    <div key={i} className="milestone__wrapper">
-                        <div className="milestone__item">
-                            <img src={item.icon} alt="" className="milestone__icon" />
-                            <p className="milestone__text">{item.text}</p>
-                        </div>
-                        {i < milestones.length - 1 && <ArrowRight />}
-                    </div>
-                ))}
             </div>
         </section>
     );

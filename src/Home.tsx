@@ -219,12 +219,12 @@ const Products = () => {
                     </button>
                 </div>
                 <div className="announcement-banner announcement-banner--inline">
-                    <div className="announcement-banner__card">
-                        <span className="announcement-banner__badge">NEW</span>
+                    <div className="announcement-banner__container">
+                        <span className="announcement-banner__badge">Coming Soon</span>
                         <div className="announcement-banner__body">
-                            <h3 className="announcement-banner__title">New Products Coming Soon</h3>
+                            <h3 className="announcement-banner__title">Grade 75 & Grade 80 Rebars</h3>
                             <p className="announcement-banner__text">
-                                We're expanding our lineup with <strong>Grade 75</strong> and <strong>Grade 80</strong> rebars — engineered for the most demanding structural applications.
+                                Higher-strength reinforcing bars for seismic zones and high-rise construction.
                             </p>
                         </div>
                         <Link to="/products" className="announcement-banner__link">Learn More →</Link>

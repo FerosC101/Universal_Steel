@@ -77,7 +77,7 @@ const importedParts = [
     "SINOPAC | ROLLS (under Sino Pacific Paramount Limited)",
 ];
 
-// Partner Logos
+// Partner Logos — `dark` flag for white/light logos that need a dark background
 const partnerLogos = [
     { src: '/images/fwlogos/CIEC Hangzhou.png', alt: 'CIEC Hangzhou' },
     { src: '/images/fwlogos/Dao.png', alt: 'Dao Fortune' },
@@ -94,16 +94,16 @@ const partnerLogos = [
     { src: '/images/fwlogos/danielli.png', alt: 'Danieli' },
     { src: '/images/fwlogos/givi.png', alt: 'GIVI Services' },
     { src: '/images/fwlogos/hercules.jpg', alt: 'Hercules' },
-    { src: '/images/fwlogos/macsteel.png', alt: 'Macsteel' },
+    { src: '/images/fwlogos/macsteel.png', alt: 'Macsteel', dark: true },
     { src: '/images/fwlogos/marubeni.png', alt: 'Marubeni-Itochu' },
     { src: '/images/fwlogos/metal one.png', alt: 'Metal One' },
     { src: '/images/fwlogos/mpower-logo.png', alt: 'MPower' },
-    { src: '/images/fwlogos/onest_white.png.webp', alt: 'One Solution Trading' },
+    { src: '/images/fwlogos/onest_white.png.webp', alt: 'One Solution Trading', dark: true },
     { src: '/images/fwlogos/samsung.png', alt: 'Samsung C&T' },
-    { src: '/images/fwlogos/shengli.png', alt: 'Shengli Vietnam' },
+    { src: '/images/fwlogos/shengli.png', alt: 'Shengli Vietnam', dark: true },
     { src: '/images/fwlogos/smart timing.png', alt: 'Smart Timing Steel' },
     { src: '/images/fwlogos/tata.png', alt: 'Tata International' },
-    { src: '/images/fwlogos/thac.png', alt: 'Taiwan Hoist & Crane' },
+    { src: '/images/fwlogos/thac.png', alt: 'Taiwan Hoist & Crane', dark: true },
     { src: '/images/fwlogos/vas.jpg', alt: 'VAS Group' },
     { src: '/images/fwlogos/zmi.jpg', alt: 'ZMI' },
 ];
@@ -164,7 +164,7 @@ const PartnerLogos = () => {
             <div className="bp-logos__marquee-wrap">
                 <div className="bp-logos__marquee bp-logos__marquee--row1">
                     {[...row1, ...row1].map((logo, i) => (
-                        <div key={i} className="bp-logos__item">
+                        <div key={i} className={`bp-logos__item${logo.dark ? ' bp-logos__item--dark' : ''}`}>
                             <img
                                 src={logo.src}
                                 alt={logo.alt}
@@ -176,7 +176,7 @@ const PartnerLogos = () => {
                 </div>
                 <div className="bp-logos__marquee bp-logos__marquee--row2">
                     {[...row2, ...row2].map((logo, i) => (
-                        <div key={i} className="bp-logos__item">
+                        <div key={i} className={`bp-logos__item${logo.dark ? ' bp-logos__item--dark' : ''}`}>
                             <img
                                 src={logo.src}
                                 alt={logo.alt}

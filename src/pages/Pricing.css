@@ -179,7 +179,7 @@
    ============================================== */
 .pricing-cta {
     padding: 4rem 0;
-    background: var(--gray-50);
+    background: var(--navy-900);
 }
 
 .pricing-cta__container {
@@ -192,13 +192,13 @@
 .pricing-cta__title {
     font-size: 1.75rem;
     font-weight: 700;
-    color: var(--navy-900);
+    color: #ffffff;
     margin-bottom: 0.75rem;
 }
 
 .pricing-cta__text {
     font-size: 1rem;
-    color: var(--gray-600);
+    color: rgba(255, 255, 255, 0.85);
     margin-bottom: 2rem;
 }
 
