@@ -149,13 +149,16 @@ const Parallax = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+    const parallaxSpeed = isMobile ? 0.08 : 0.15;
+
     return (
         <section className="parallax">
             <div 
                 className="parallax__image" 
                 style={{ 
                     backgroundImage: 'url(/images/hero/construction-site-with-cranes-against-blue-sky.jpg)',
-                    backgroundPosition: `center ${-offset * 0.2}px`,
+                    backgroundPosition: `center ${-offset * parallaxSpeed}px`,
                     backgroundSize: 'cover',
                 }}
             />

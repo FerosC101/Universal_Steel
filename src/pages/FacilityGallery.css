@@ -430,6 +430,11 @@
 
     .facility-gallery-grid__images {
         columns: 2;
+        column-gap: 0.75rem;
+    }
+
+    .facility-gallery-card {
+        margin-bottom: 0.75rem;
     }
 
     .facility-gallery-cta__bg {
@@ -478,7 +483,20 @@
 
 @media (max-width: 480px) {
     .facility-gallery-grid__images {
-        columns: 1;
+        columns: 2;
+        column-gap: 0.5rem;
+    }
+
+    .facility-gallery-card {
+        margin-bottom: 0.5rem;
+    }
+
+    .facility-gallery-grid {
+        padding: 3rem 0;
+    }
+
+    .facility-gallery-grid__container {
+        padding: 0 0.75rem;
     }
 
     .facility-lightbox__nav--prev {

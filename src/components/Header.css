@@ -469,6 +469,12 @@
 
 .header__mobile-link--active {
     color: var(--accent);
+    font-weight: 700;
+}
+
+.header__dropdown-link--active .header__dropdown-link-label {
+    color: var(--accent);
+    font-weight: 700;
 }
 
 .header__mobile-arrow {
@@ -521,6 +527,12 @@
 .header__mobile-sublink--main {
     color: var(--accent);
     font-weight: 600;
+}
+
+.header__mobile-sublink--active {
+    color: var(--accent);
+    font-weight: 700;
+    border-left-color: var(--accent);
 }
 
 .header__mobile-cta {

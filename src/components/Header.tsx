@@ -61,7 +61,11 @@ const Header = () => {
         return () => { document.body.style.overflow = ''; };
     }, [isMobileMenuOpen]);
 
-    const isActive = (path: string) => location.pathname === path;
+    const isActive = (path: string) => {
+        if (path === '/') return location.pathname === '/';
+        return location.pathname === path || location.pathname.startsWith(path + '/');
+    };
+    const isExactActive = (path: string) => location.pathname === path;
 
     const navLinks = [
         { path: '/', label: 'Home', hasDropdown: false },
@@ -120,7 +124,7 @@ const Header = () => {
                                         <ul className="header__dropdown-links">
                                             {dropdownContent[link.path].links.map((dropLink, i) => (
                                                 <li key={i}>
-                                                    <Link to={dropLink.path} className="header__dropdown-link">
+                                                    <Link to={dropLink.path} className={`header__dropdown-link ${isExactActive(dropLink.path) ? 'header__dropdown-link--active' : ''}`}>
                                                         <svg width="6" height="10" viewBox="0 0 6 10" fill="none">
                                                             <path d="M1 1L5 5L1 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                                                         </svg>
@@ -196,11 +200,11 @@ const Header = () => {
                                         </svg>
                                     </button>
                                     <div className={`header__mobile-dropdown ${activeMobileDropdown === link.path ? 'header__mobile-dropdown--open' : ''}`} data-section={link.path}>
-                                        <Link to={link.path} className="header__mobile-sublink header__mobile-sublink--main">
+                                        <Link to={link.path} className={`header__mobile-sublink header__mobile-sublink--main ${isExactActive(link.path) ? 'header__mobile-sublink--active' : ''}`}>
                                             Overview
                                         </Link>
                                         {dropdownContent[link.path]?.links.map((subLink, i) => (
-                                            <Link key={i} to={subLink.path} className="header__mobile-sublink">
+                                            <Link key={i} to={subLink.path} className={`header__mobile-sublink ${isExactActive(subLink.path) ? 'header__mobile-sublink--active' : ''}`}>
                                                 {subLink.label}
                                             </Link>
                                         ))}
