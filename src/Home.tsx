@@ -81,7 +81,7 @@ const AboutAndLegacy = () => (
                         loop
                         muted
                         playsInline
-                        preload="auto"
+                        preload="metadata"
                     >
                         <source src="/UniSteelVid.mp4" type="video/mp4" />
                     </video>
@@ -114,6 +114,7 @@ const AboutAndLegacy = () => (
                     <img 
                         src="/images/hero/test-5.jpg" 
                         alt="60 Years Milestone" 
+                        loading="lazy"
                     />
                 </div>
                 <div className="about-legacy__legacy-content">
@@ -159,7 +160,7 @@ const Parallax = () => {
             <div 
                 className="parallax__image" 
                 style={{ 
-                    backgroundImage: 'url(/images/hero/construction-site-with-cranes-against-blue-sky.jpg)',
+                    backgroundImage: 'url(/images/hero/construction-site-with-cranes-against-blue-sky.webp)',
                     backgroundPosition: `center ${-offset * parallaxSpeed}px`,
                     backgroundSize: 'cover',
                 }}
@@ -176,14 +177,14 @@ const Products = () => {
             priceRange: '₱21.80 - ₱22.00/KG',
             shortDesc: 'High-quality Grade 40 reinforcing steel bars',
             desc: 'Premium Grade 40 reinforcing steel bars manufactured to international standards. Perfect for residential and light commercial construction projects requiring reliable structural reinforcement.',
-            image: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1753545927/Grade_40_1_epdri0.jpg',
+            image: 'https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_600/v1753545927/Grade_40_1_epdri0.jpg',
         },
         {
             title: 'Grade 60 Rebars',
             priceRange: '₱22.50 - ₱22.70/KG',
             shortDesc: 'Superior Grade 60 reinforcing steel bars',
             desc: 'High-strength Grade 60 reinforcing steel bars engineered for demanding construction applications. Ideal for commercial buildings, bridges, and heavy-duty infrastructure projects.',
-            image: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1753799328/Grade_60_7_l46gsy.jpg',
+            image: 'https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_600/v1753799328/Grade_60_7_l46gsy.jpg',
         },
     ];
 
@@ -198,7 +199,7 @@ const Products = () => {
                     {products.map((product, i) => (
                         <div key={i} className="product-card">
                             <div className="product-card__image">
-                                <img src={product.image} alt={product.title} />
+                                <img src={product.image} alt={product.title} loading="lazy" />
                             </div>
                             <div className="product-card__body">
                                 <h3 className="product-card__title">{product.title}</h3>
@@ -293,10 +294,10 @@ const WhyUs = () => {
 // Partners Marquee Section
 const Partners = () => {
     const partners = [
-        { name: "Bendotti", url: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753362856/partner1_dita9v.png" },
-        { name: "CMC", url: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753362870/partner2_qqt38f.png" },
-        { name: "Steel Work", url: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753362876/partner3_ygi4en.png" },
-        { name: "Atlas Steel", url: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753362882/partner4_qiimgs.png" },
+        { name: "Bendotti", url: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_200/v1753362856/partner1_dita9v.png" },
+        { name: "CMC", url: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_200/v1753362870/partner2_qqt38f.png" },
+        { name: "Steel Work", url: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_200/v1753362876/partner3_ygi4en.png" },
+        { name: "Atlas Steel", url: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_200/v1753362882/partner4_qiimgs.png" },
         { name: "BDO", url: "/images/partners/BDO_logo.png" },
         { name: "BPI", url: "/images/partners/BPI logo.png" },
         { name: "China Bank", url: "/images/partners/Chinabank_Since_1910_Logo.png" },
@@ -314,7 +315,7 @@ const Partners = () => {
                 <div className="partners-marquee__content">
                     {duplicatedPartners.map((partner, i) => (
                         <div key={i} className="partners-marquee__item">
-                            <img src={partner.url} alt={partner.name} />
+                            <img src={partner.url} alt={partner.name} loading="lazy" />
                         </div>
                     ))}
                 </div>

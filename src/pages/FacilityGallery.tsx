@@ -156,8 +156,9 @@ const SpectrometerSection = () => (
             <div className="spectrometer__grid">
                 <div className="spectrometer__image">
                     <img 
-                        src="https://res.cloudinary.com/drrzinr9v/image/upload/v1755264913/viber_image_2025-08-15_14-35-30-423_douzo9.jpg" 
+                        src="https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_800/v1755264913/viber_image_2025-08-15_14-35-30-423_douzo9.jpg" 
                         alt="Optical Emission Spectrometer"
+                        loading="lazy"
                     />
                 </div>
                 <div className="spectrometer__content">

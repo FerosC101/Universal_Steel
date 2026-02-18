@@ -757,11 +757,11 @@
 }
 
 .vmv__card:first-child::before {
-    background-image: url('/images/hero/steel-bar-site-construction.jpg');
+    background-image: url('/images/hero/steel-bar-site-construction.webp');
 }
 
 .vmv__card:last-child::before {
-    background-image: url('/images/hero/engineer-group-worker-meeting-discussion-with-construction-blueprint-site-work-point-finger-work-site.jpg');
+    background-image: url('/images/hero/engineer-group-worker-meeting-discussion-with-construction-blueprint-site-work-point-finger-work-site.webp');
 }
 
 .vmv__card-icon {

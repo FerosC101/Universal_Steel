@@ -42,7 +42,7 @@ const Footer = () => {
                     <div className="footer__brand">
                         <div className="footer__logo">
                             <img 
-                                src="https://res.cloudinary.com/drrzinr9v/image/upload/v1754201352/USSCI_logo_19x17inch-removebg-preview_idrn0g.png" 
+                                src="https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_80/v1754201352/USSCI_logo_19x17inch-removebg-preview_idrn0g.png" 
                                 alt="Universal Steel Smelting Co., Inc." 
                             />
                             <div className="footer__logo-text">

@@ -11,7 +11,7 @@ const products = [
     {
         id: 1,
         name: "Grade 40 Rebars",
-        image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753545927/Grade_40_1_epdri0.jpg",
+        image: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_600/v1753545927/Grade_40_1_epdri0.jpg",
         description: "Standard strength deformed bars manufactured to international standards. Ideal for residential and light commercial construction projects.",
         features: [
             "Meets PNS 49:2020 standards",
@@ -33,7 +33,7 @@ const products = [
     {
         id: 2,
         name: "Grade 60 Rebars",
-        image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753799328/Grade_60_7_l46gsy.jpg",
+        image: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_600/v1753799328/Grade_60_7_l46gsy.jpg",
         description: "High-strength deformed bars engineered for demanding applications. Perfect for commercial buildings, bridges, and heavy infrastructure.",
         features: [
             "High tensile strength (420 MPa)",
@@ -79,7 +79,7 @@ const ProductDetail = ({ product }: { product: typeof products[0] }) => {
         <section className="product-detail" id={`product-${product.id}`}>
             <div className="product-detail__container">
                 <div className="product-detail__image">
-                    <img src={product.image} alt={product.name} />
+                    <img src={product.image} alt={product.name} loading="lazy" />
                 </div>
                 <div className="product-detail__content">
                     <h2 className="product-detail__title">{product.name}</h2>

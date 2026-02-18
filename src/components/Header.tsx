@@ -80,7 +80,7 @@ const Header = () => {
             <div className="header__container">
                 <Link to="/" className="header__logo">
                     <img 
-                        src="https://res.cloudinary.com/drrzinr9v/image/upload/v1754201352/USSCI_logo_19x17inch-removebg-preview_idrn0g.png" 
+                        src="https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_80/v1754201352/USSCI_logo_19x17inch-removebg-preview_idrn0g.png" 
                         alt="Universal Steel" 
                         className="header__logo-img header__logo-img--small"
                     />
@@ -169,7 +169,7 @@ const Header = () => {
                 <div className="header__mobile-header">
                     <Link to="/" className="header__mobile-logo" onClick={() => setIsMobileMenuOpen(false)}>
                         <img 
-                            src="https://res.cloudinary.com/drrzinr9v/image/upload/v1754201352/USSCI_logo_19x17inch-removebg-preview_idrn0g.png" 
+                            src="https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_80/v1754201352/USSCI_logo_19x17inch-removebg-preview_idrn0g.png" 
                             alt="Universal Steel" 
                             className="header__mobile-logo-img"
                         />

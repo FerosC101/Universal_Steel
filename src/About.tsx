@@ -9,12 +9,12 @@ import './About.css';
 // Icon URLs
 const iconUrls = {
     // VMV icons
-    vision: 'https://res.cloudinary.com/drrzinr9v/image/upload/exchange-two_w8z7jh.png',
-    mission: 'https://res.cloudinary.com/drrzinr9v/image/upload/target_hljvmw.png',
-    integrity: 'https://res.cloudinary.com/drrzinr9v/image/upload/hold_woblca.png',
-    quality: 'https://res.cloudinary.com/drrzinr9v/image/upload/two-hands_v6resp.png',
-    professionalism: 'https://res.cloudinary.com/drrzinr9v/image/upload/user-business_lxwokn.png',
-    commitment: 'https://res.cloudinary.com/drrzinr9v/image/upload/check-correct_lbqpjk.png',
+    vision: 'https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_96/exchange-two_w8z7jh.png',
+    mission: 'https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_96/target_hljvmw.png',
+    integrity: 'https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_96/hold_woblca.png',
+    quality: 'https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_96/two-hands_v6resp.png',
+    professionalism: 'https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_96/user-business_lxwokn.png',
+    commitment: 'https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_96/check-correct_lbqpjk.png',
 };
 
 // Page Hero
@@ -47,13 +47,15 @@ const Overview = () => (
             <div className="overview__image">
                 <div className="overview__logo">
                     <img 
-                        src="https://res.cloudinary.com/drrzinr9v/image/upload/v1753452588/Screenshot_2025-06-16_232816_rrkh3e.png" 
+                        src="https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_400/v1753452588/Screenshot_2025-06-16_232816_rrkh3e.png" 
                         alt="LKG Group of Companies"
+                        loading="lazy"
                     />
                 </div>
                 <img 
-                    src="https://res.cloudinary.com/drrzinr9v/image/upload/ge-removebg-preview_ee8tvd.png" 
+                    src="https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_800/ge-removebg-preview_ee8tvd.png" 
                     alt="Universal Steel facility"
+                    loading="lazy"
                 />
             </div>
             <div className="overview__content">
@@ -90,12 +92,14 @@ const FounderHistory = () => (
                         <img 
                             src="/images/Old Pics/Pic1.jpg" 
                             alt="USSCI Historical" 
+                            loading="lazy"
                         />
                     </div>
                     <div className="founder__image founder__image--secondary">
                         <img 
                             src="/images/Old Pics/Pic2.jpg" 
                             alt="USSCI Legacy" 
+                            loading="lazy"
                         />
                     </div>
                 </div>
@@ -142,16 +146,16 @@ const StatsBar = () => {
 const Facility = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const images = [
-        '/images/facility/Unisteel%20Final%20Photos/5E8A6094.jpg',
-        '/images/facility/Unisteel%20Final%20Photos/5E8A6112.jpg',
-        '/images/facility/Unisteel%20Final%20Photos/5E8A6148.jpg',
-        '/images/facility/Unisteel%20Final%20Photos/5E8A6161.jpg',
-        '/images/facility/Unisteel%20Final%20Photos/5E8A6180.jpg',
-        '/images/facility/Unisteel%20Final%20Photos/5E8A6216.jpg',
-        '/images/facility/Unisteel%20Final%20Photos/5E8A6238.jpg',
-        '/images/facility/Unisteel%20Final%20Photos/5E8A6291.jpg',
-        '/images/facility/Unisteel%20Final%20Photos/5E8A6325.jpg',
-        '/images/facility/Unisteel%20Final%20Photos/5E8A6396.jpg',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6094.webp',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6112.webp',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6148.webp',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6161.webp',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6180.webp',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6216.webp',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6238.webp',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6291.webp',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6325.webp',
+        '/images/facility/Unisteel%20Final%20Photos/5E8A6396.webp',
     ];
 
     const goToSlide = (index: number) => {
@@ -177,7 +181,7 @@ const Facility = () => {
                     <div className="facility__carousel-track" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
                         {images.map((image, index) => (
                             <div key={index} className="facility__slide">
-                                <img src={image} alt={`Factory image ${index + 1}`} />
+                                <img src={image} alt={`Factory image ${index + 1}`} loading="lazy" />
                             </div>
                         ))}
                     </div>
@@ -221,7 +225,7 @@ const Facility = () => {
 
 // Quality Assurance
 const Quality = () => (
-    <section className="quality" style={{ backgroundImage: 'url(/images/hero/heavy-machines-construction-workers-working-building.jpg)' }}>
+    <section className="quality" style={{ backgroundImage: 'url(/images/hero/heavy-machines-construction-workers-working-building.webp)' }}>
         <div className="quality__overlay" />
         <div className="quality__container">
             <div className="quality__header">
@@ -270,7 +274,7 @@ const VMV = () => (
             <div className="vmv__layout">
                 <div className="vmv__left">
                     <div className="vmv__card">
-                        <img src={iconUrls.vision} alt="Vision" className="vmv__card-icon" />
+                        <img src={iconUrls.vision} alt="Vision" className="vmv__card-icon" loading="lazy" />
                         <div className="vmv__card-content">
                             <h3 className="vmv__card-title">Vision</h3>
                             <p className="vmv__card-text">
@@ -280,7 +284,7 @@ const VMV = () => (
                         </div>
                     </div>
                     <div className="vmv__card">
-                        <img src={iconUrls.mission} alt="Mission" className="vmv__card-icon" />
+                        <img src={iconUrls.mission} alt="Mission" className="vmv__card-icon" loading="lazy" />
                         <div className="vmv__card-content">
                             <h3 className="vmv__card-title">Mission</h3>
                             <p className="vmv__card-text">
@@ -322,19 +326,19 @@ const VMV = () => (
 const ProofOfQuality = () => {
     const certifications = [
         {
-            image: "https://res.cloudinary.com/drrzinr9v/image/upload/USSCI_TUV_ISO_exp_2028_t3dha9.jpg",
+            image: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_500/USSCI_TUV_ISO_exp_2028_t3dha9.jpg",
             title: "ISO 9001:2015 Certified",
             issuer: "TÜV Philippines",
             description: "Our Quality Management System meets international standards.",
         },
         {
-            image: "https://res.cloudinary.com/drrzinr9v/image/upload/USSCI_PS_Mark_exp_24Aug2027_page-0001_z47en5.jpg",
+            image: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_500/USSCI_PS_Mark_exp_24Aug2027_page-0001_z47en5.jpg",
             title: "BPS Certification Mark",
             issuer: "Bureau of Product Standards",
             description: "Philippine Standard Quality Certification Mark for all Deformed Steel Bars.",
         },
         {
-            image: "https://res.cloudinary.com/drrzinr9v/image/upload/USSCI_DPWH_exp_2025_page-0001_cgqgyj.jpg",
+            image: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_500/USSCI_DPWH_exp_2025_page-0001_cgqgyj.jpg",
             title: "DPWH-Accredited Laboratory",
             issuer: "Bureau of Research and Standards",
             description: "Accredited for government infrastructure projects.",
@@ -355,7 +359,7 @@ const ProofOfQuality = () => {
                     {certifications.map((cert, i) => (
                         <div key={i} className="proof-quality__card">
                             <div className="proof-quality__image">
-                                <img src={cert.image} alt={cert.title} />
+                                <img src={cert.image} alt={cert.title} loading="lazy" />
                             </div>
                             <div className="proof-quality__content">
                                 <h3 className="proof-quality__card-title">{cert.title}</h3>
@@ -479,7 +483,7 @@ const CustomerService = () => {
 // CTA Section
 const CTA = () => (
     <section className="about-cta">
-        <div className="about-cta__bg" style={{ backgroundImage: 'url(/images/facility/Unisteel%20Final%20Photos/5E8A6436.jpg)' }}></div>
+        <div className="about-cta__bg" style={{ backgroundImage: 'url(/images/facility/Unisteel%20Final%20Photos/5E8A6436.webp)' }}></div>
         <div className="about-cta__overlay"></div>
         <div className="about-cta__container">
             <h2 className="about-cta__title">Ready to Partner With Us?</h2>

@@ -7,7 +7,7 @@ import '../Products.css';
 const product = {
     id: 1,
     name: "Grade 40 Rebars",
-    image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753545927/Grade_40_1_epdri0.jpg",
+    image: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_600/v1753545927/Grade_40_1_epdri0.jpg",
     description: "Standard strength deformed bars manufactured to international standards. Ideal for residential and light commercial construction projects.",
     longDescription: "Grade 40 deformed steel bars are the go-to choice for residential construction and light commercial applications. Manufactured with precision at our state-of-the-art facility, these rebars deliver reliable performance at a yield strength of 275 MPa. Every bar undergoes rigorous quality testing in our DPWH-accredited laboratory to ensure full compliance with PNS 49:2020 standards.",
     features: [

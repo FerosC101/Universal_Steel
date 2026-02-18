@@ -8,7 +8,7 @@ import './Certifications.css';
 const images = {
     hero: '/images/facility/Unisteel%20Final%20Photos/5E8A6567.webp',
     facility: '/images/facility/Unisteel%20Final%20Photos/5E8A6458.webp',
-    lab: 'https://res.cloudinary.com/drrzinr9v/image/upload/v1753516397/USSCI_Pics_for_website_2_crov5j.jpg',
+    lab: 'https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_800/v1753516397/USSCI_Pics_for_website_2_crov5j.jpg',
 };
 
 // Page Hero with Image Background
@@ -34,21 +34,21 @@ const CertificationsGrid = () => {
     
     const certifications = [
         {
-            image: "https://res.cloudinary.com/drrzinr9v/image/upload/USSCI_TUV_ISO_exp_2028_t3dha9.jpg",
+            image: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_600/USSCI_TUV_ISO_exp_2028_t3dha9.jpg",
             title: "ISO 9001:2015 Certified",
             issuer: "TÜV Philippines",
             description: "Our Quality Management System meets international standards, ensuring consistent product quality and customer satisfaction.",
             validity: "Valid until 2028",
         },
         {
-            image: "https://res.cloudinary.com/drrzinr9v/image/upload/USSCI_PS_Mark_exp_24Aug2027_page-0001_z47en5.jpg",
+            image: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_600/USSCI_PS_Mark_exp_24Aug2027_page-0001_z47en5.jpg",
             title: "BPS Certification Mark",
             issuer: "Bureau of Product Standards",
             description: "Philippine Standard Quality Certification Mark for all Deformed Steel Bars, ensuring compliance with national quality standards.",
             validity: "Valid until August 2027",
         },
         {
-            image: "https://res.cloudinary.com/drrzinr9v/image/upload/USSCI_DPWH_exp_2025_page-0001_cgqgyj.jpg",
+            image: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_600/USSCI_DPWH_exp_2025_page-0001_cgqgyj.jpg",
             title: "DPWH-Accredited Laboratory",
             issuer: "Bureau of Research and Standards",
             description: "Fully accredited to undertake materials testing for all government infrastructure projects.",
@@ -76,7 +76,7 @@ const CertificationsGrid = () => {
                                 onClick={() => setSelectedCert(i)}
                             >
                                 <div className="cert-card__image">
-                                    <img src={cert.image} alt={cert.title} />
+                                    <img src={cert.image} alt={cert.title} loading="lazy" />
                                     <div className="cert-card__zoom">
                                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />

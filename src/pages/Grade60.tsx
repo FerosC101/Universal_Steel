@@ -7,7 +7,7 @@ import '../Products.css';
 const product = {
     id: 2,
     name: "Grade 60 Rebars",
-    image: "https://res.cloudinary.com/drrzinr9v/image/upload/v1753799328/Grade_60_7_l46gsy.jpg",
+    image: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_600/v1753799328/Grade_60_7_l46gsy.jpg",
     description: "High-strength deformed bars engineered for demanding applications. Perfect for commercial buildings, bridges, and heavy infrastructure.",
     longDescription: "Grade 60 deformed steel bars are engineered for the most demanding structural applications. With a minimum yield strength of 420 MPa, these high-tensile rebars are the preferred choice for bridges, high-rise buildings, and heavy infrastructure projects. Manufactured at our ISO 9001:2015 certified facility and rigorously tested to ensure full compliance with international standards, Grade 60 bars provide superior performance in seismic zones and critical load-bearing structures.",
     features: [
