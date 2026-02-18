@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
+import { PageWithSkeleton } from '../hooks/usePageLoading';
+import { GalleryPageSkeleton } from '../components/Skeleton';
 import './FacilityGallery.css';
 
 // All facility images
@@ -215,16 +217,18 @@ const CTA = () => (
 
 // Main Component
 const FacilityGallery = () => (
-    <div className="page">
-        <Header />
-        <main>
-            <PageHero />
-            <SpectrometerSection />
-            <GalleryGrid />
-            <CTA />
-        </main>
-        <Footer />
-    </div>
+    <PageWithSkeleton skeleton={<GalleryPageSkeleton />}>
+        <div className="page">
+            <Header />
+            <main>
+                <PageHero />
+                <SpectrometerSection />
+                <GalleryGrid />
+                <CTA />
+            </main>
+            <Footer />
+        </div>
+    </PageWithSkeleton>
 );
 
 export default FacilityGallery;

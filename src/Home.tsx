@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { Link } from 'react-router-dom';
+import { PageWithSkeleton } from './hooks/usePageLoading';
+import { HomePageSkeleton } from './components/Skeleton';
 import './Home.css';
 
 // Hero Section
@@ -342,19 +344,21 @@ const CTA = () => (
 // Main Home Component
 const Home = () => {
     return (
-        <div className="page">
-            <Header />
-            <main>
-                <Hero />
-                <Partners />
-                <AboutAndLegacy />
-                <Parallax />
-                <Products />
-                <WhyUs />
-                <CTA />
-            </main>
-            <Footer />
-        </div>
+        <PageWithSkeleton skeleton={<HomePageSkeleton />}>
+            <div className="page">
+                <Header />
+                <main>
+                    <Hero />
+                    <Partners />
+                    <AboutAndLegacy />
+                    <Parallax />
+                    <Products />
+                    <WhyUs />
+                    <CTA />
+                </main>
+                <Footer />
+            </div>
+        </PageWithSkeleton>
     );
 };
 

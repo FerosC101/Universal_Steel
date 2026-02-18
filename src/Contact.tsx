@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import { PageWithSkeleton } from './hooks/usePageLoading';
+import { GenericPageSkeleton } from './components/Skeleton';
 import './Contact.css';
 
 // Icons
@@ -199,10 +201,11 @@ const MapSection = () => (
 // Main Contact Component
 const Contact = () => {
     return (
-        <div className="page">
-            <Header />
-            <main>
-                <PageHero />
+        <PageWithSkeleton skeleton={<GenericPageSkeleton />}>
+            <div className="page">
+                <Header />
+                <main>
+                    <PageHero />
                 <section className="contact-main">
                     <div className="contact-main__container">
                         <div className="contact-main__info">
@@ -223,6 +226,7 @@ const Contact = () => {
             </main>
             <Footer />
         </div>
+        </PageWithSkeleton>
     );
 };
 

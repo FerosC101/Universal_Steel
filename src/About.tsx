@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { Link } from 'react-router-dom';
+import { PageWithSkeleton } from './hooks/usePageLoading';
+import { AboutPageSkeleton } from './components/Skeleton';
 import './About.css';
 
 // Icon URLs from main branch
@@ -526,22 +528,24 @@ const CTA = () => (
 // Main About Component
 const About = () => {
     return (
-        <div className="page">
-            <Header />
-            <main>
-                <PageHero />
-                <Overview />
-                <FounderHistory />
-                <VMV />
-                <StatsBar />
-                <Facility />
-                <Quality />
-                <ProofOfQuality />
-                <CustomerService />
-                <CTA />
-            </main>
-            <Footer />
-        </div>
+        <PageWithSkeleton skeleton={<AboutPageSkeleton />}>
+            <div className="page">
+                <Header />
+                <main>
+                    <PageHero />
+                    <Overview />
+                    <FounderHistory />
+                    <VMV />
+                    <StatsBar />
+                    <Facility />
+                    <Quality />
+                    <ProofOfQuality />
+                    <CustomerService />
+                    <CTA />
+                </main>
+                <Footer />
+            </div>
+        </PageWithSkeleton>
     );
 };
 

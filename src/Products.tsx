@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { Link } from 'react-router-dom';
+import { PageWithSkeleton } from './hooks/usePageLoading';
+import { ProductsPageSkeleton } from './components/Skeleton';
 import './Products.css';
 
 // Product Data
@@ -197,10 +199,11 @@ const CTA = () => (
 // Main Products Component
 const Products = () => {
     return (
-        <div className="page">
-            <Header />
-            <main>
-                <PageHero />
+        <PageWithSkeleton skeleton={<ProductsPageSkeleton />}>
+            <div className="page">
+                <Header />
+                <main>
+                    <PageHero />
                 {products.map((product) => (
                     <ProductDetail key={product.id} product={product} />
                 ))}
@@ -220,9 +223,10 @@ const Products = () => {
                 </div>
                 <QualitySection />
                 <CTA />
-            </main>
-            <Footer />
-        </div>
+                </main>
+                <Footer />
+            </div>
+        </PageWithSkeleton>
     );
 };
 

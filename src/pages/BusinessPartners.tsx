@@ -77,6 +77,37 @@ const importedParts = [
     "SINOPAC | ROLLS (under Sino Pacific Paramount Limited)",
 ];
 
+// Partner Logos
+const partnerLogos = [
+    { src: '/images/fwlogos/CIEC Hangzhou.png', alt: 'CIEC Hangzhou' },
+    { src: '/images/fwlogos/Dao.png', alt: 'Dao Fortune' },
+    { src: '/images/fwlogos/Duferco (DITH).png', alt: 'Duferco' },
+    { src: '/images/fwlogos/ITG.png', alt: 'ITG Resources' },
+    { src: '/images/fwlogos/MBTC Logo.png', alt: 'MBTC' },
+    { src: '/images/fwlogos/Newton.jpg', alt: 'Newton Commercial' },
+    { src: '/images/fwlogos/POSCOINTERNATIONAL.png', alt: 'Posco International' },
+    { src: '/images/fwlogos/Steel Alliance Logo.jpg', alt: 'Steel Alliance' },
+    { src: '/images/fwlogos/Wangs Logo2.jpg', alt: 'Wangs Co' },
+    { src: '/images/fwlogos/c&d.webp', alt: 'Xiamen C&D' },
+    { src: '/images/fwlogos/cargill.png', alt: 'Cargill' },
+    { src: '/images/fwlogos/dais.avif', alt: 'DAIS Electronica' },
+    { src: '/images/fwlogos/danielli.png', alt: 'Danieli' },
+    { src: '/images/fwlogos/givi.png', alt: 'GIVI Services' },
+    { src: '/images/fwlogos/hercules.jpg', alt: 'Hercules' },
+    { src: '/images/fwlogos/macsteel.png', alt: 'Macsteel' },
+    { src: '/images/fwlogos/marubeni.png', alt: 'Marubeni-Itochu' },
+    { src: '/images/fwlogos/metal one.png', alt: 'Metal One' },
+    { src: '/images/fwlogos/mpower-logo.png', alt: 'MPower' },
+    { src: '/images/fwlogos/onest_white.png.webp', alt: 'One Solution Trading' },
+    { src: '/images/fwlogos/samsung.png', alt: 'Samsung C&T' },
+    { src: '/images/fwlogos/shengli.png', alt: 'Shengli Vietnam' },
+    { src: '/images/fwlogos/smart timing.png', alt: 'Smart Timing Steel' },
+    { src: '/images/fwlogos/tata.png', alt: 'Tata International' },
+    { src: '/images/fwlogos/thac.png', alt: 'Taiwan Hoist & Crane' },
+    { src: '/images/fwlogos/vas.jpg', alt: 'VAS Group' },
+    { src: '/images/fwlogos/zmi.jpg', alt: 'ZMI' },
+];
+
 // Page Hero
 const PageHero = () => (
     <section className="bp-hero">
@@ -116,6 +147,50 @@ const SupplierSection = ({ title, label, suppliers, variant }: {
     </section>
 );
 
+// Partner Logos Marquee
+const PartnerLogos = () => {
+    const row1 = partnerLogos.slice(0, 14);
+    const row2 = partnerLogos.slice(14);
+
+    return (
+        <section className="bp-logos">
+            <div className="bp-logos__header">
+                <span className="section-label">Trusted By Industry Leaders</span>
+                <h2 className="bp-logos__title">Our Partners</h2>
+                <p className="bp-logos__subtitle">
+                    Working alongside the best in the steel and industrial supply chain
+                </p>
+            </div>
+            <div className="bp-logos__marquee-wrap">
+                <div className="bp-logos__marquee bp-logos__marquee--row1">
+                    {[...row1, ...row1].map((logo, i) => (
+                        <div key={i} className="bp-logos__item">
+                            <img
+                                src={logo.src}
+                                alt={logo.alt}
+                                className="bp-logos__img"
+                                loading="lazy"
+                            />
+                        </div>
+                    ))}
+                </div>
+                <div className="bp-logos__marquee bp-logos__marquee--row2">
+                    {[...row2, ...row2].map((logo, i) => (
+                        <div key={i} className="bp-logos__item">
+                            <img
+                                src={logo.src}
+                                alt={logo.alt}
+                                className="bp-logos__img"
+                                loading="lazy"
+                            />
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
+
 // CTA
 const CTA = () => (
     <section className="bp-cta">
@@ -137,6 +212,7 @@ const BusinessPartners = () => (
         <Header />
         <main>
             <PageHero />
+            <PartnerLogos />
             <SupplierSection
                 label="International Sourcing"
                 title="Billet Suppliers"
