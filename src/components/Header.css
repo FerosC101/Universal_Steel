@@ -617,7 +617,7 @@
     .header__mobile-sublink {
         text-align: right;
         border-left: none;
-        padding: 0.625rem 0;
+        padding: 0.625rem 1rem;
     }
 
     .header__mobile-link {

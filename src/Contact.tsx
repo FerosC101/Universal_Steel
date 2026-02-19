@@ -52,7 +52,7 @@ const ContactInfo = () => {
         {
             icon: <MapPin className="contact-info__icon" />,
             title: 'Address',
-            lines: ['28 Quirino Highway, Balon Bato', 'Quezon City, 1106, Philippines'],
+            lines: ['28 Quirino Highway, Balon Bato 1', 'Quezon City, 1106, Philippines'],
         },
         {
             icon: <Phone className="contact-info__icon" />,
@@ -62,12 +62,12 @@ const ContactInfo = () => {
         {
             icon: <Mail className="contact-info__icon" />,
             title: 'Email',
-            lines: ['office@universalsteelph.com'],
+            lines: ['criscac@universalsteelph.com'],
         },
         {
             icon: <Clock className="contact-info__icon" />,
             title: 'Business Hours',
-            lines: ['Monday – Saturday', '8:00 AM – 4:00 PM'],
+            lines: ['Monday – Saturday', '8:00 AM – 6:00 PM'],
         },
     ];
 

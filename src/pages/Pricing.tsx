@@ -10,7 +10,7 @@ const PageHero = () => (
         <div className="page-hero__overlay" />
         <div className="page-hero__content">
             <span className="page-hero__label">Product Pricing</span>
-            <h1 className="page-hero__title">Rebar Pricing</h1>
+            <h1 className="page-hero__title">Reference Rebar Pricing</h1>
             <p className="page-hero__text">
                 Transparent pricing for our premium quality reinforcing steel bars
             </p>
@@ -100,7 +100,7 @@ const PricingTable = () => {
                 </div>
 
                 <p className="pricing-note">
-                    * Prices are subject to change without prior notice. Contact us for bulk order discounts.
+                    * Table above are reference base prices only.
                 </p>
             </div>
         </section>

@@ -6,18 +6,51 @@ import { PageWithSkeleton } from './hooks/usePageLoading';
 import { HomePageSkeleton } from './components/Skeleton';
 import './Home.css';
 
+// Top Milestone Ticker (mobile only)
+const MilestoneTicker = () => (
+    <div className="milestone-ticker">
+        <div className="milestone-ticker__track">
+            <div className="milestone-ticker__content">
+                {Array.from({ length: 12 }).map((_, i) => (
+                    <span key={i} className="milestone-ticker__item">
+                        60 Year Milestone
+                    </span>
+                ))}
+            </div>
+        </div>
+    </div>
+);
+
 // Hero Section
 const Hero = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
-    const slides = [
-        '/images/hero/test-5.jpg',
-        '/images/facility/Unisteel%20Final%20Photos/5E8A6053.webp',
-        '/images/facility/Unisteel%20Final%20Photos/5E8A6136.webp',
-        '/images/facility/Unisteel%20Final%20Photos/5E8A6205.webp',
-        '/images/facility/Unisteel%20Final%20Photos/5E8A6269.webp',
-        '/images/facility/Unisteel%20Final%20Photos/5E8A6380.webp',
-        '/images/facility/Unisteel%20Final%20Photos/5E8A6518.webp',
-    ];
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    const slides = isMobile
+        ? [
+            '/images/facility/Unisteel%20Final%20Photos/5E8A6053.webp',
+            '/images/facility/Unisteel%20Final%20Photos/5E8A6136.webp',
+            '/images/facility/Unisteel%20Final%20Photos/5E8A6205.webp',
+            '/images/facility/Unisteel%20Final%20Photos/5E8A6269.webp',
+            '/images/facility/Unisteel%20Final%20Photos/5E8A6380.webp',
+            '/images/facility/Unisteel%20Final%20Photos/5E8A6518.webp',
+        ]
+        : [
+            '/images/hero/test-5.jpg',
+            '/images/facility/Unisteel%20Final%20Photos/5E8A6053.webp',
+            '/images/facility/Unisteel%20Final%20Photos/5E8A6136.webp',
+            '/images/facility/Unisteel%20Final%20Photos/5E8A6205.webp',
+            '/images/facility/Unisteel%20Final%20Photos/5E8A6269.webp',
+            '/images/facility/Unisteel%20Final%20Photos/5E8A6380.webp',
+            '/images/facility/Unisteel%20Final%20Photos/5E8A6518.webp',
+        ];
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -42,7 +75,7 @@ const Hero = () => {
                 <div className="hero__content">
                     <h1 className="hero__title">
                         Forging Strong<br />
-                        <span>Alliances for the Future!</span>
+                        <span>Alliances for the Future</span>
                     </h1>
                     <p className="hero__text">
                         At Universal Steel, beyond Forging Strong Alliances for the Future, we build partnerships that will last.
@@ -262,7 +295,7 @@ const WhyUs = () => {
             <div className="why__container">
                 <div className="why__header">
                     <span className="why__label">Why Choose Us</span>
-                    <h2 className="why__title">Why should you choose Universal Steel Smelting Co Inc?</h2>
+                    <h2 className="why__title">Why choose Universal Steel Rebars?</h2>
                 </div>
                 <div className="why__list">
                     {features.map((f, i) => (
@@ -336,6 +369,7 @@ const Home = () => {
     return (
         <PageWithSkeleton skeleton={<HomePageSkeleton />}>
             <div className="page">
+                <MilestoneTicker />
                 <Header />
                 <main>
                     <Hero />

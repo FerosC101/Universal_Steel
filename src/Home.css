@@ -155,6 +155,67 @@
 }
 
 /* ==============================================
+   MILESTONE TICKER (mobile only)
+   ============================================== */
+.milestone-ticker {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .milestone-ticker {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1001;
+        background: linear-gradient(90deg, rgba(10,22,40,0.97) 0%, rgba(10,22,40,0.92) 60%, rgba(185,28,28,0.85) 100%);
+        overflow: hidden;
+        height: 28px;
+        box-shadow: 0 2px 8px rgba(10,22,40,0.08);
+    }
+
+    .milestone-ticker__track {
+        width: 100%;
+        overflow: hidden;
+        height: 100%;
+    }
+
+    .milestone-ticker__content {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        white-space: nowrap;
+        animation: ticker-scroll 20s linear infinite;
+    }
+
+    .milestone-ticker__item {
+        flex-shrink: 0;
+        padding: 0 2rem;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.88);
+        text-shadow: 0 1px 4px rgba(10,22,40,0.12);
+    }
+
+    @keyframes ticker-scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    /* Push header down to make room for the ticker */
+    .milestone-ticker ~ .header {
+        top: 28px;
+    }
+}
+
+/* ==============================================
    BUTTONS
    ============================================== */
 .btn {

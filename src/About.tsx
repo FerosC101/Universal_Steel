@@ -25,7 +25,7 @@ const PageHero = () => {
             <div className="about-page-hero__content">
                 <span className="about-page-hero__label">About Us</span>
                 <h1 className="about-page-hero__title">
-                    Building Excellence Since 1966
+                    Manufacturing Excellence Since 1966
                 </h1>
                 <p className="about-page-hero__text">
                     Universal Steel Smelting Co., Inc. is a trusted leader in steel manufacturing, 
