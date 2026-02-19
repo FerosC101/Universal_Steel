@@ -60,18 +60,10 @@ const Overview = () => (
             </div>
             <div className="overview__content">
                 <p className="overview__text">
-                    Universal Steel Smelting Co., Inc. (USSCI) was established on January 27, 1966 
-                    with the manufacturing objective of producing the highest quality standards of 
-                    reinforcing steel bars for the Philippine Construction Industry.
+                    &emsp;Universal Steel Smelting Co., Inc. (USSCI), a member of the LKG Group of Companies, maintains extensive holdings in the areas of construction, manufacturing, real estate, wholesale, trading, and education. It began trading before World War II, led by its Chairman and Patriarch, Lim Kong Gee. Despite the war's devastating effects on the Philippines, LKG emerged from this period with manufacturing facilities that provided the country with the basic necessity of reconstruction to help stir the country back on track. Since then, LKG has grown &amp; diversified its holdings. It now ranks among the country's top 500 corporations by revenue.
                 </p>
                 <p className="overview__text">
-                    It is financially strong as part of the LKG group of companies and with strategic 
-                    alliances with several of the major financial institutions in the Philippines. Our 
-                    manufacturing plant is located along Quirino Highway, Balintawak, Quezon City.
-                </p>
-                <p className="overview__text">
-                    Today, USSCI continues to uphold its commitment to quality, innovation, and 
-                    customer satisfaction, serving as a cornerstone of the Philippine steel industry.
+                    &emsp;And this 2026, after decades of serving the country in various ways, we celebrate our 60th year of continuing productivity for the Philippine Construction Industry. Sixty years is indeed a major milestone for any company, and we profoundly celebrate to have arrived at this moment in our history as a company. So, this year, with sincere gratitude and deep appreciation, we pay homage to the founding father who, with humble beginnings in the Philippines as a teenager from southern China, learned how to be an employee, trader, businessman, industrialist, and later, a captain of the industry. His journey was one of extreme hardship, perseverance, and resilience to overcome all the challenges that came from failures due to economic depression, wars, and calamities. These multi-faceted experiences gained from his early years in life formed the many virtuous qualities that made him a leader both in business, in the community and in the country.
                 </p>
             </div>
         </div>
@@ -79,45 +71,102 @@ const Overview = () => (
 );
 
 // Founder History
-const FounderHistory = () => (
-    <section className="founder">
-        <div className="founder__container">
-            <div className="founder__header">
-                <span className="section-label">Our Legacy</span>
-                <h2 className="founder__title">The Visionary Behind USSCI</h2>
-            </div>
-            <div className="founder__content">
-                <div className="founder__images">
-                    <div className="founder__image founder__image--main">
-                        <img 
-                            src="/images/Old Pics/Pic1.jpg" 
-                            alt="USSCI Historical" 
-                            loading="lazy"
-                        />
+const FounderHistory = () => {
+    const [carouselIndex, setCarouselIndex] = useState(0);
+    const legacyImages = [
+        { src: '/images/Old Pics/OLDPIC2.jpg', alt: 'USSCI Heritage Photo' },
+        { src: '/images/Old Pics/OLDPIC1.jpg', alt: 'USSCI Legacy Photo' },
+        { src: '/images/Old Pics/OLDPIC3.jpg', alt: 'USSCI Historical Photo' },
+    ];
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth > 768) setCarouselIndex(0);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const nextSlide = () => setCarouselIndex((prev) => (prev + 1) % legacyImages.length);
+    const prevSlide = () => setCarouselIndex((prev) => (prev - 1 + legacyImages.length) % legacyImages.length);
+
+    return (
+        <section className="founder">
+            <div className="founder__container">
+                <div className="founder__header">
+                    <span className="section-label">Our Legacy</span>
+                    <h2 className="founder__title">The Visionary Behind USSCI</h2>
+                </div>
+
+                <div className="founder__content">
+                    {/* Desktop: 2-column grid */}
+                    <div className="founder__images-grid">
+                        <div className="founder__image founder__image--tall">
+                            <img 
+                                src="/images/Old Pics/OLDPIC2.jpg" 
+                                alt="USSCI Heritage Photo" 
+                                loading="lazy"
+                            />
+                        </div>
+                        <div className="founder__image founder__image--top">
+                            <img 
+                                src="/images/Old Pics/OLDPIC1.jpg" 
+                                alt="USSCI Legacy Photo" 
+                                loading="lazy"
+                            />
+                        </div>
+                        <div className="founder__image founder__image--bottom">
+                            <img 
+                                src="/images/Old Pics/OLDPIC3.jpg" 
+                                alt="USSCI Historical Photo" 
+                                loading="lazy"
+                            />
+                        </div>
                     </div>
-                    <div className="founder__image founder__image--secondary">
-                        <img 
-                            src="/images/Old Pics/Pic2.jpg" 
-                            alt="USSCI Legacy" 
-                            loading="lazy"
-                        />
+
+                    {/* Mobile: Carousel */}
+                    <div className="founder__carousel">
+                        <div className="founder__carousel-track" style={{ transform: `translateX(-${carouselIndex * 100}%)` }}>
+                            {legacyImages.map((img, i) => (
+                                <div className="founder__carousel-slide" key={i}>
+                                    <img src={img.src} alt={img.alt} loading="lazy" />
+                                </div>
+                            ))}
+                        </div>
+                        <button className="founder__carousel-btn founder__carousel-btn--prev" onClick={prevSlide} aria-label="Previous image">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                        </button>
+                        <button className="founder__carousel-btn founder__carousel-btn--next" onClick={nextSlide} aria-label="Next image">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                        </button>
+                        <div className="founder__carousel-dots">
+                            {legacyImages.map((_, i) => (
+                                <button
+                                    key={i}
+                                    className={`founder__carousel-dot ${i === carouselIndex ? 'active' : ''}`}
+                                    onClick={() => setCarouselIndex(i)}
+                                    aria-label={`Go to image ${i + 1}`}
+                                />
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="founder__text">
+                        <p>
+                            As a young individual, Mr. Lim began his career even before the Second World War, starting out as an apprentice in a small trading firm in the textile quarters of Manila's Binondo district where he learned the intricate aspects involved in building a business enterprise. His trading business gradually grew and became very prosperous.
+                        </p>
+                        <p>
+                            When the Second World War began, many of his colleagues halted their business operations, but Mr. Lim persevered even in the face of great adversity in ingenious ways. Following the country's liberation from the Japanese, he pressed forward with his businesses, enterprising in fully integrated textile manufacturing, steel making and cement manufacturing and the rest, as we know, is our history.
+                        </p>
+                        <p>
+                            It is also well worth mentioning that throughout all these business endeavors, the primary identity of our founder in building his organization has faithfully remained, to be a good Christian first &amp; foremost then a successful businessman only second to it. This explains why in 1965, he co-founded the metropolitan hospital now the Metropolitan Medical Center in Binondo.
+                        </p>
                     </div>
                 </div>
-                <div className="founder__text">
-                    <p>
-                        As a young individual, Mr. Lim began his career even before the Second World War, starting out as an apprentice in a small trading firm in the textile quarters of Manila's Binondo district where he learned the intricate aspects involved in building a business enterprise. His trading business gradually grew and became very prosperous.
-                    </p>
-                    <p>
-                        When the Second World War began, many of his colleagues halted their business operations, but Mr. Lim persevered even in the face of great adversity in ingenious ways. Following the country's liberation from the Japanese, he pressed forward with his businesses, enterprising in fully integrated textile manufacturing, steel making and cement manufacturing and the rest, as we know, is our history.
-                    </p>
-                    <p>
-                        It is also well worth mentioning that throughout all these business endeavors, the primary identity of our founder in building his organization has faithfully remained, to be a good Christian first &amp; foremost then a successful businessman only second to it. This explains why in 1965, he co-founded the metropolitan hospital now the Metropolitan Medical Center in Binondo.
-                    </p>
-                </div>
             </div>
-        </div>
-    </section>
-);
+        </section>
+    );
+};
 
 // Stats Bar
 const StatsBar = () => {
@@ -172,11 +221,12 @@ const Facility = () => {
 
     return (
         <section className="facility">
-            <div className="facility__container">
+            <div className="facility__wrapper">
                 <div className="facility__header">
                     <span className="section-label">Our Facilities</span>
                     <h2 className="facility__title">State-of-the-Art Manufacturing</h2>
                 </div>
+                <div className="facility__container">
                 <div className="facility__carousel">
                     <div className="facility__carousel-track" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
                         {images.map((image, index) => (
@@ -201,22 +251,9 @@ const Facility = () => {
                 </Link>
                 <div className="facility__content">
                     <p className="facility__text">
-                        From its humble beginnings as a hand-fed mill, our management team has 
-                        prioritized facility modernization. Today, our manufacturing process has 
-                        evolved into a Full Tandem Mill from roughing to finishing passes.
+                        USSCI as a company on its own, was established in the mid-1960's with the primary objective of manufacturing the highest quality reinforcing steel bars for the Philippine construction industry. From its humble beginnings operating as a hand-fed mill, our management team has continuously given top priority to facility modernization. Today, our manufacturing process has evolved into a full tandem mill from the roughing mill train all the way to the finishing mill train, with level 2 automation and fully driven with DC controlled motor drives. The USSCI management likewise found it imperative to invest in a state-of-the-art furnace from the worlds' finest manufacturer of reheating furnaces, Forni Industriali Bendotti of Italy. This reheating system, which is fully automated, environment friendly and equipped with the latest Programmable Logic Control, has been designed to maintain consistent and uniform heating throughout the entire furnace, a critical aspect in the billet reheating process.
                     </p>
-                    <p className="facility__text">
-                        We operate a state-of-the-art continuous type reheating furnace, designed 
-                        and supplied by FORNI INDUSTRIAL BENDOTTI. The furnace utilizes a fully 
-                        computerized High Pressure Burner System with atomized air for efficient 
-                        combustion.
-                    </p>
-                    <ul className="facility__list">
-                        <li>Full Tandem Mill production line</li>
-                        <li>Continuous reheating furnace system</li>
-                        <li>Programmable Logic Control automation</li>
-                        <li>Uniform heating technology</li>
-                    </ul>
+                </div>
                 </div>
             </div>
         </section>

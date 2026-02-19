@@ -153,6 +153,20 @@
     transform: scale(1);
 }
 
+/* Video card in gallery */
+.facility-gallery-card--video {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    cursor: default;
+}
+
+.facility-gallery-card--video video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* ==============================================
    LIGHTBOX
    ============================================== */

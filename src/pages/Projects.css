@@ -78,12 +78,13 @@
 }
 
 .projects-grid-section__header {
-    text-align: center;
+    text-align: left;
     margin-bottom: 3rem;
 }
 
 .projects-grid-section__header .section-label {
-    display: inline-block;
+    display: block;
+    text-align: center;
     font-size: 0.85rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -97,13 +98,14 @@
     font-weight: 700;
     color: #0a1628;
     margin-bottom: 0.75rem;
+    text-align: center;
 }
 
 .projects-grid-section__subtitle {
     font-size: 1.1rem;
     color: #5a6a7a;
-    max-width: 600px;
-    margin: 0 auto;
+    line-height: 1.7;
+    text-align: justify;
 }
 
 .projects-grid {

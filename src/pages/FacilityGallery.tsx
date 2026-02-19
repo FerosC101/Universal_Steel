@@ -111,6 +111,11 @@ const GalleryGrid = () => {
                         </p>
                     </div>
                     <div className="facility-gallery-grid__images">
+                        <div className="facility-gallery-card facility-gallery-card--video">
+                            <video autoPlay loop muted playsInline preload="auto">
+                                <source src="/VID2.mp4" type="video/mp4" />
+                            </video>
+                        </div>
                         {facilityImages.map((image, index) => (
                             <div
                                 key={index}

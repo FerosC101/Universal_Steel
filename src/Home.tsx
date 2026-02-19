@@ -45,9 +45,7 @@ const Hero = () => {
                         <span>Alliances for the Future!</span>
                     </h1>
                     <p className="hero__text">
-                        Backed by decades of innovation and resilience, UNIVERSAL STEEL SMELTING CO INC 
-                        continues to shape the construction industry, building a legacy of strength and 
-                        progress across the Philippines.
+                        At Universal Steel, beyond Forging Strong Alliances for the Future, we build partnerships that will last.
                     </p>
                     <div className="hero__actions">
                         <Link to="/about" className="btn btn--primary">
@@ -119,20 +117,11 @@ const AboutAndLegacy = () => (
                 </div>
                 <div className="about-legacy__legacy-content">
                     <p className="about-legacy__text">
-                        Since 1966, Universal Steel Smelting Co. Inc. has been a cornerstone of 
-                        Philippine infrastructure. From humble beginnings to becoming one of the 
-                        country's top steel manufacturers, our commitment to quality remains unwavering.
+                        &emsp;Throughout our Sixty-year journey as a company this 2026, we have constantly refined our business model and operational systems to adapt itself to the ever-changing needs of the market and especially, of our clientele. We have evolved from being highly production driven to being more customer driven to better meet our clients' changing demands. We have professionalized our approach to the objectives of the company with the primary objective of complete customer satisfaction.
                     </p>
-                    <div className="about-legacy__stats">
-                        <div className="about-legacy__stat">
-                            <span className="about-legacy__stat-value">60+</span>
-                            <span className="about-legacy__stat-label">Years of Excellence</span>
-                        </div>
-                        <div className="about-legacy__stat">
-                            <span className="about-legacy__stat-value">500+</span>
-                            <span className="about-legacy__stat-label">Projects Supplied</span>
-                        </div>
-                    </div>
+                    <p className="about-legacy__text">
+                        &emsp;Now at our 60th anniversary, we stand firm yet humble for we have been bestowed with the distinction as being one of the industry's finest. Continually driven and compelled by our sincere desire to serve our clients excellently well, we commit to constantly reengineer ourselves for the challenges in the years ahead. Above all, we will continue to rely upon the guidance and the wisdom of the Almighty God, to lead us onwards. By His mighty blessing which we continue to implore, we shall remain a company fit as a worthy industry partner for decades to come.
+                    </p>
                 </div>
             </div>
         </div>
