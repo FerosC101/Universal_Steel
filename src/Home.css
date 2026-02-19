@@ -489,6 +489,10 @@
         gap: 3rem;
     }
     
+    .about-legacy__text {
+        text-align: left;
+    }
+    
     .about-legacy__title {
         font-size: 1.5rem;
     }
@@ -527,6 +531,7 @@
     
     .about-legacy__text {
         font-size: 0.9rem;
+        text-align: left;
     }
     
     .about-legacy__video video,
