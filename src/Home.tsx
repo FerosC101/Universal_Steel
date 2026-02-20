@@ -317,14 +317,15 @@ const WhyUs = () => {
 const Partners = () => {
     const partners = [
         { name: "Bendotti", url: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_200/v1753362856/partner1_dita9v.png" },
-        { name: "CMC", url: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_200/v1753362870/partner2_qqt38f.png" },
-        { name: "Steel Work", url: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_200/v1753362876/partner3_ygi4en.png" },
-        { name: "Atlas Steel", url: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_200/v1753362882/partner4_qiimgs.png" },
         { name: "BDO", url: "/images/partners/BDO_logo.png" },
         { name: "BPI", url: "/images/partners/BPI logo.png" },
         { name: "China Bank", url: "/images/partners/Chinabank_Since_1910_Logo.png" },
         { name: "Metrobank", url: "/images/partners/metrobanklogo.png" },
         { name: "UnionBank", url: "/images/partners/Unionbank_2018_logo.png" },
+        { name: "Mpower", url: "/images/fwlogos/mpower-logo.png" },
+        { name: "Newton", url: "/images/fwlogos/Newton.jpg" },
+        { name: "Danielli", url: "/images/fwlogos/danielli.png" },
+        { name: "DAIS", url:"/images/fwlogos/dais.avif" },
     ];
 
     // Duplicate partners array for seamless infinite scroll

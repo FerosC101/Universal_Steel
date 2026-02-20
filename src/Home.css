@@ -169,10 +169,12 @@
         left: 0;
         right: 0;
         z-index: 1001;
-        background: linear-gradient(90deg, rgba(10,22,40,0.97) 0%, rgba(10,22,40,0.92) 60%, rgba(185,28,28,0.85) 100%);
+        background: rgba(10, 22, 40, 0.55);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         overflow: hidden;
-        height: 28px;
-        box-shadow: 0 2px 8px rgba(10,22,40,0.08);
+        height: 26px;
     }
 
     .milestone-ticker__track {
@@ -192,12 +194,12 @@
     .milestone-ticker__item {
         flex-shrink: 0;
         padding: 0 2rem;
-        font-size: 0.82rem;
-        font-weight: 700;
-        letter-spacing: 0.13em;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
         text-transform: uppercase;
-        color: rgba(255,255,255,0.88);
-        text-shadow: 0 1px 4px rgba(10,22,40,0.12);
+        color: rgba(255, 255, 255, 0.45);
+        text-shadow: none;
     }
 
     @keyframes ticker-scroll {
@@ -211,7 +213,7 @@
 
     /* Push header down to make room for the ticker */
     .milestone-ticker ~ .header {
-        top: 28px;
+        top: 26px;
     }
 }
 

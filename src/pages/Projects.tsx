@@ -9,11 +9,12 @@ import '../About.css';
 const MajorClients = () => {
     const clientsRow1 = [
         { name: "AYALA LAND, INC.", category: "Real Estate" },
-        { name: "A.M. ORETA & COMPANY", category: "Construction" },
+        { name: "ARTHALAND CORPORATION", category: "Construction" },
         { name: "D.M. CONSUNJI INC.", category: "Construction" },
         { name: "EEI CORPORATION", category: "Infrastructure" },
         { name: "FEDERAL LAND, INC.", category: "Real Estate" },
-        { name: "F.F. CRUZ & COMPANY", category: "Infrastructure" },
+        { name: "SMCC PHILIPPINES, INC", category: "Infrastructure" },
+        { name: "SPI PROPERTY HOLIDING, INC.", category: "Real Estate" },
     ];
     
     const clientsRow2 = [
@@ -23,6 +24,7 @@ const MajorClients = () => {
         { name: "MEGAWORLD CORPORATION", category: "Real Estate" },
         { name: "ROBINSONS LAND CORP.", category: "Real Estate" },
         { name: "SM PRIME HOLDINGS", category: "Real Estate" },
+        { name: "FIRST BALFOUR, INC.", category: "Construction" },
     ];
 
     return (
