@@ -35,21 +35,21 @@ const Hero = () => {
 
     const slides = isMobile
         ? [
-            '/images/facility/Unisteel%20Final%20Photos/5E8A6053.webp',
-            '/images/facility/Unisteel%20Final%20Photos/5E8A6136.webp',
-            '/images/facility/Unisteel%20Final%20Photos/5E8A6205.webp',
-            '/images/facility/Unisteel%20Final%20Photos/5E8A6269.webp',
-            '/images/facility/Unisteel%20Final%20Photos/5E8A6380.webp',
-            '/images/facility/Unisteel%20Final%20Photos/5E8A6518.webp',
+            { src: '/images/facility/Unisteel%20Final%20Photos/5E8A6053.webp', size: '133% auto', pos: 'left center' },
+            { src: '/images/facility/Unisteel%20Final%20Photos/5E8A6136.webp' },
+            { src: '/images/facility/Unisteel%20Final%20Photos/5E8A6205.webp' },
+            { src: '/images/facility/Unisteel%20Final%20Photos/5E8A6269.webp' },
+            { src: '/images/facility/Unisteel%20Final%20Photos/5E8A6380.webp' },
+            { src: '/images/facility/Unisteel%20Final%20Photos/5E8A6518.webp' },
         ]
         : [
-            '/images/hero/60-year-milestone.jpg',
-            '/images/facility/Unisteel%20Final%20Photos/5E8A6053.webp',
-            '/images/facility/Unisteel%20Final%20Photos/5E8A6136.webp',
-            '/images/facility/Unisteel%20Final%20Photos/5E8A6205.webp',
-            '/images/facility/Unisteel%20Final%20Photos/5E8A6269.webp',
-            '/images/facility/Unisteel%20Final%20Photos/5E8A6380.webp',
-            '/images/facility/Unisteel%20Final%20Photos/5E8A6518.webp',
+            { src: '/images/hero/60-year-milestone.jpg' },
+            { src: '/images/facility/Unisteel%20Final%20Photos/5E8A6053.webp', size: '133% auto', pos: 'left center' },
+            { src: '/images/facility/Unisteel%20Final%20Photos/5E8A6136.webp' },
+            { src: '/images/facility/Unisteel%20Final%20Photos/5E8A6205.webp' },
+            { src: '/images/facility/Unisteel%20Final%20Photos/5E8A6269.webp' },
+            { src: '/images/facility/Unisteel%20Final%20Photos/5E8A6380.webp' },
+            { src: '/images/facility/Unisteel%20Final%20Photos/5E8A6518.webp' },
         ];
 
     useEffect(() => {
@@ -66,7 +66,11 @@ const Hero = () => {
                     <div 
                         key={i}
                         className={`hero__slide ${i === currentSlide ? 'hero__slide--active' : ''}`}
-                        style={{ backgroundImage: `url(${slide})` }}
+                        style={{
+                            backgroundImage: `url(${slide.src})`,
+                            backgroundSize: slide.size || 'cover',
+                            backgroundPosition: slide.pos || 'center',
+                        }}
                     />
                 ))}
                 <div className="hero__overlay" />
