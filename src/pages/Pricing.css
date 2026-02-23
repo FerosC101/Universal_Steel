@@ -209,6 +209,17 @@
     flex-wrap: wrap;
 }
 
+.pricing-cta .btn--outline {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.pricing-cta .btn--outline:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: var(--navy-900);
+}
+
 /* ==============================================
    RESPONSIVE
    ============================================== */
