@@ -38,21 +38,18 @@ const CertificationsGrid = () => {
             title: "ISO 9001:2015 Certified",
             issuer: "TÜV Philippines",
             description: "Our Quality Management System meets international standards, ensuring consistent product quality and customer satisfaction.",
-            validity: "Valid until 2028",
         },
         {
             image: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_600/USSCI_PS_Mark_exp_24Aug2027_page-0001_z47en5.jpg",
             title: "BPS Certification Mark",
             issuer: "Bureau of Product Standards",
             description: "Philippine Standard Quality Certification Mark for all Deformed Steel Bars, ensuring compliance with national quality standards.",
-            validity: "Valid until August 2027",
         },
         {
             image: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_600/USSCI_DPWH_exp_2025_page-0001_cgqgyj.jpg",
             title: "DPWH-Accredited Laboratory",
             issuer: "Bureau of Research and Standards",
             description: "Fully accredited to undertake materials testing for all government infrastructure projects.",
-            validity: "Valid until 2025",
         },
     ];
 
@@ -86,7 +83,6 @@ const CertificationsGrid = () => {
                                 <div className="cert-card__content">
                                     <h3 className="cert-card__title">{cert.title}</h3>
                                     <span className="cert-card__issuer">{cert.issuer}</span>
-                                    <span className="cert-card__validity">{cert.validity}</span>
                                     <p className="cert-card__desc">{cert.description}</p>
                                 </div>
                             </div>
