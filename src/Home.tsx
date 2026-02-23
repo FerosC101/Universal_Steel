@@ -43,7 +43,7 @@ const Hero = () => {
             '/images/facility/Unisteel%20Final%20Photos/5E8A6518.webp',
         ]
         : [
-            '/images/hero/test-5.jpg',
+            '/images/hero/60-year-milestone.jpg',
             '/images/facility/Unisteel%20Final%20Photos/5E8A6053.webp',
             '/images/facility/Unisteel%20Final%20Photos/5E8A6136.webp',
             '/images/facility/Unisteel%20Final%20Photos/5E8A6205.webp',
@@ -162,34 +162,9 @@ const AboutAndLegacy = () => (
 );
 
 // Parallax Image Section
-const Parallax = () => {
-    const [offset, setOffset] = useState(0);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setOffset(window.scrollY);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
-    const parallaxSpeed = isMobile ? 0.08 : 0.15;
-
-    return (
-        <section className="parallax">
-            <div 
-                className="parallax__image" 
-                style={{ 
-                    backgroundImage: 'url(/images/hero/construction-site-with-cranes-against-blue-sky.webp)',
-                    backgroundPosition: `center ${-offset * parallaxSpeed}px`,
-                    backgroundSize: 'cover',
-                }}
-            />
-        </section>
-    );
-};
+const Parallax = () => (
+    <section className="parallax" />
+);
 
 // Products Section
 const Products = () => {
@@ -199,14 +174,14 @@ const Products = () => {
             priceRange: '₱21.80 - ₱22.00/KG',
             shortDesc: 'High-quality Grade 40 reinforcing steel bars',
             desc: 'Premium Grade 40 reinforcing steel bars manufactured to international standards. Perfect for residential and light commercial construction projects requiring reliable structural reinforcement.',
-            image: 'https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_600/v1753545927/Grade_40_1_epdri0.jpg',
+            image: '/images/products/Grade 40 (4).jpg',
         },
         {
             title: 'Grade 60 Rebars',
             priceRange: '₱22.50 - ₱22.70/KG',
             shortDesc: 'Superior Grade 60 reinforcing steel bars',
             desc: 'High-strength Grade 60 reinforcing steel bars engineered for demanding construction applications. Ideal for commercial buildings, bridges, and heavy-duty infrastructure projects.',
-            image: 'https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_600/v1753799328/Grade_60_7_l46gsy.jpg',
+            image: '/images/products/Grade 60 (1).jpg',
         },
     ];
 

@@ -5,29 +5,203 @@ import { Link } from 'react-router-dom';
 import './Projects.css';
 import '../About.css';
 
+// Full client list — On-Going Projects
+const fullClientList = [
+    {
+        name: "AYALA LAND INC.",
+        categories: [
+            { type: "Residential", projects: ["Avida Towers Makati South"] }
+        ]
+    },
+    {
+        name: "ALI ETON PROPERTY DEVELOPMENT CORP.",
+        categories: [
+            { type: "Residential", projects: ["Parklinks South Tower", "The Lattice at Parklinks"] }
+        ]
+    },
+    {
+        name: "ANCHOR PROPERTIES & SUBSIDIARIES",
+        categories: [
+            { type: "Residential", projects: ["One Legacy", "Panorama Manila Tower"] },
+            { type: "Commercial", projects: ["One Financial Center"] }
+        ]
+    },
+    {
+        name: "AM ORETA & CO., INC.",
+        categories: [
+            { type: "Institutional", projects: ["SOCO Project"] }
+        ]
+    },
+    {
+        name: "ARTHALAND CORPORATION",
+        categories: [
+            { type: "Residential", projects: ["Sevina Park Villas", "Una Apartment Tower 2"] }
+        ]
+    },
+    {
+        name: "BDO UNIBANK INC.",
+        categories: [
+            { type: "Commercial", projects: ["BDO Corporate Center"] }
+        ]
+    },
+    {
+        name: "CENTURY LIMITLESS CORPORATION",
+        categories: [
+            { type: "Residential", projects: ["Aquatown Villa", "Batulao Commune Village"] }
+        ]
+    },
+    {
+        name: "DMCI PROJECT DEVELOPERS INC.",
+        categories: [
+            { type: "Residential", projects: ["Acacia Estates", "Alder Residences", "Fortis Residences", "Mulberry Place 2", "The Oriana"] }
+        ]
+    },
+    {
+        name: "EEI CORPORATION",
+        categories: [
+            { type: "Institutional", projects: ["National Teachers College", "Mapua Malayan College Laguna"] }
+        ]
+    },
+    {
+        name: "EMPIRE EAST LAND HOLDINGS INC.",
+        categories: [
+            { type: "Residential", projects: ["Highland City Tower 3 & 4", "Kasara Tower 3 & 5", "The Paddington Place Tower 1 to Tower 4"] }
+        ]
+    },
+    {
+        name: "FEDERAL LAND INC.",
+        categories: [
+            { type: "Residential", projects: ["The Season Residence", "The Quantum Residence"] }
+        ]
+    },
+    {
+        name: "FILINVEST LAND INC.",
+        categories: [
+            { type: "Residential", projects: ["Alta Spatial", "Manna East"] }
+        ]
+    },
+    {
+        name: "FIRST BALFOUR – LEIGHTON SKYLINK JV",
+        categories: [
+            { type: "Industrial", projects: ["Edsa on Ramp"] }
+        ]
+    },
+    {
+        name: "GLOBAL ESTATE RESORTS INC.",
+        categories: [
+            { type: "Residential", projects: ["Arden The Lindgren", "The Hamptons Terraces"] },
+            { type: "Commercial", projects: ["Twinlakes Countrywoods", "Twinlakes Vineyard Manor"] }
+        ]
+    },
+    {
+        name: "JQ INTERNATIONAL",
+        categories: [
+            { type: "Residential", projects: ["Sunwealth Tower"] },
+            { type: "Commercial", projects: ["AVENIDA TOWER"] }
+        ]
+    },
+    {
+        name: "MEGAWIDE CONSTRUCTION CORPORATION",
+        categories: [
+            { type: "Industrial", projects: ["Megawide – Precast Plant Taytay 1 & 2"] }
+        ]
+    },
+    {
+        name: "MEGAWORLD CORPORATION",
+        categories: [
+            { type: "Residential", projects: ["Kingsquare Residential", "Firenze Residence - Iloilo", "Kensington Sky Garden - Bacolod", "Arden West Park Village", "Manhattan Towers", "Maple Park Residences"] },
+            { type: "Commercial", projects: ["Arcovia Park Place", "Kingsford Hotel", "Northwin", "Savoy Hotel Capital Town", "Upper East - Bacolod"] }
+        ]
+    },
+    {
+        name: "MONOLITH CONSTRUCTION",
+        categories: [
+            { type: "Residential", projects: ["MJ Tower Fort"] },
+            { type: "Commercial", projects: ["The Bench Tower"] },
+            { type: "Industrial", projects: ["DLSU Building", "UST Building"] }
+        ]
+    },
+    {
+        name: "NEW SAN JOSE BUILDERS",
+        categories: [
+            { type: "Residential", projects: ["Victoria Sports Tower Monumento", "Victoria Arts and Theater", "Victoria De Valenzuela"] },
+            { type: "Industrial", projects: ["Bataan Harbour City", "Namria"] }
+        ]
+    },
+    {
+        name: "PERSAN CONSTRUCTION INC.",
+        categories: [
+            { type: "Institutional", projects: ["Ramon Magsaysay School", "Silverio Elementary School", "Victorino Mapa High School"] }
+        ]
+    },
+    {
+        name: "ROBINSONS LAND CORPORATION",
+        categories: [
+            { type: "Residential", projects: ["Le Pont Residences Tower", "The Velaris Residences"] },
+            { type: "Commercial", projects: ["Grand Summit Hotel Pangasinan", "Malolos Bayan Park Mall", "The Jewel (Forum Redevelopment Project)"] }
+        ]
+    },
+    {
+        name: "SHANG ROBINSONS PROPERTIES",
+        categories: [
+            { type: "Residential", projects: ["Laya by Shang Properties", "Shang Summit"] }
+        ]
+    },
+    {
+        name: "STAGES DESIGN & CONSTRUCTION",
+        categories: [
+            { type: "Commercial", projects: ["Waltermart – Paliparan", "Waltermart – Tayabas"] }
+        ]
+    },
+    {
+        name: "SM DEVELOPMENT CORPORATION",
+        categories: [
+            { type: "Residential", projects: ["Highland Residences"] },
+            { type: "Commercial", projects: ["SM City Fairview Mall Expansion", "SM - Harrison", "SM - Megamall Expansion"] }
+        ]
+    },
+    {
+        name: "SMCC PHILIPPINES INC.",
+        categories: [
+            { type: "Residential", projects: ["IDESIA SJDM HOUSING"] },
+            { type: "Industrial", projects: ["IE MEDICAL PHARMACEUTICAL WAREHOUSE"] }
+        ]
+    },
+];
+
+const categoryColors: Record<string, string> = {
+    "Residential": "#1a5276",
+    "Commercial": "#1e8449",
+    "Industrial": "#d35400",
+    "Institutional": "#7d3c98",
+};
+
 // Major Clients - Modern Marquee Animation
 const MajorClients = () => {
+    const [showModal, setShowModal] = useState(false);
+
     const clientsRow1 = [
-        { name: "AYALA LAND, INC.", category: "Real Estate" },
-        { name: "ARTHALAND CORPORATION", category: "Construction" },
-        { name: "D.M. CONSUNJI INC.", category: "Construction" },
-        { name: "EEI CORPORATION", category: "Infrastructure" },
-        { name: "FEDERAL LAND, INC.", category: "Real Estate" },
-        { name: "SMCC PHILIPPINES, INC", category: "Infrastructure" },
-        { name: "SPI PROPERTY HOLIDING, INC.", category: "Real Estate" },
+        { name: "AYALA LAND INC.", category: "Residential" },
+        { name: "ARTHALAND CORPORATION", category: "Residential" },
+        { name: "DMCI PROJECT DEVELOPERS INC.", category: "Residential" },
+        { name: "EEI CORPORATION", category: "Institutional" },
+        { name: "FEDERAL LAND INC.", category: "Residential" },
+        { name: "MEGAWORLD CORPORATION", category: "Residential" },
+        { name: "ROBINSONS LAND CORPORATION", category: "Residential" },
     ];
     
     const clientsRow2 = [
-        { name: "FILINVEST LAND INC.", category: "Real Estate" },
-        { name: "MAKATI DEVELOPMENT CORP.", category: "Real Estate" },
-        { name: "MEGAWIDE CONSTRUCTION", category: "Construction" },
-        { name: "MEGAWORLD CORPORATION", category: "Real Estate" },
-        { name: "ROBINSONS LAND CORP.", category: "Real Estate" },
-        { name: "SM PRIME HOLDINGS", category: "Real Estate" },
-        { name: "FIRST BALFOUR, INC.", category: "Construction" },
+        { name: "FILINVEST LAND INC.", category: "Residential" },
+        { name: "MEGAWIDE CONSTRUCTION CORPORATION", category: "Industrial" },
+        { name: "SM DEVELOPMENT CORPORATION", category: "Commercial" },
+        { name: "SMCC PHILIPPINES INC.", category: "Residential" },
+        { name: "EMPIRE EAST LAND HOLDINGS INC.", category: "Residential" },
+        { name: "CENTURY LIMITLESS CORPORATION", category: "Residential" },
+        { name: "FIRST BALFOUR – LEIGHTON SKYLINK JV", category: "Industrial" },
     ];
 
     return (
+        <>
         <section className="major-clients">
             <div className="major-clients__container">
                 <div className="major-clients__header">
@@ -59,8 +233,68 @@ const MajorClients = () => {
                         ))}
                     </div>
                 </div>
+
+                <div className="major-clients__footer">
+                    <button className="major-clients__view-all" onClick={() => setShowModal(true)}>
+                        View Full List
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </section>
+
+        {/* Full Client List Modal */}
+        {showModal && (
+            <div className="clients-modal" onClick={() => setShowModal(false)}>
+                <div className="clients-modal__content" onClick={(e) => e.stopPropagation()}>
+                    <div className="clients-modal__header">
+                        <div>
+                            <span className="section-label">Complete Directory</span>
+                            <h2 className="clients-modal__title">Full Client List</h2>
+                        </div>
+                        <button className="clients-modal__close" onClick={() => setShowModal(false)}>✕</button>
+                    </div>
+
+                    <div className="clients-modal__legend">
+                        {Object.entries(categoryColors).map(([cat, color]) => (
+                            <span key={cat} className="clients-modal__legend-item">
+                                <span className="clients-modal__legend-dot" style={{ background: color }} />
+                                {cat}
+                            </span>
+                        ))}
+                    </div>
+
+                    <div className="clients-modal__grid">
+                        {fullClientList.map((client, i) => (
+                            <div key={i} className="clients-modal__card">
+                                <h3 className="clients-modal__client-name">{client.name}</h3>
+                                {client.categories.map((cat, j) => (
+                                    <div key={j} className="clients-modal__category-group">
+                                        <span
+                                            className="clients-modal__badge"
+                                            style={{ background: categoryColors[cat.type] || '#555' }}
+                                        >
+                                            {cat.type}
+                                        </span>
+                                        <ul className="clients-modal__projects">
+                                            {cat.projects.map((project, k) => (
+                                                <li key={k} className="clients-modal__project-item">
+                                                    <span className="clients-modal__project-dot" />
+                                                    {project}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                ))}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        )}
+        </>
     );
 };
 

@@ -62,7 +62,7 @@ const ContactInfo = () => {
         {
             icon: <Mail className="contact-info__icon" />,
             title: 'Email',
-            lines: ['criscac@universalsteelph.com'],
+            lines: ['criscac@universalsteelph.com', 'maicasj@universalsteelph.com'],
         },
         {
             icon: <Clock className="contact-info__icon" />,

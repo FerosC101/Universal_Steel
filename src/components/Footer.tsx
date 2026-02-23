@@ -93,7 +93,7 @@ const Footer = () => {
                         <ul className="footer__contact">
                             <li>
                                 <MapPin className="footer__contact-icon" />
-                                <span>28 Quirino Highway, Balon Bato<br />Quezon City, 1106, Philippines</span>
+                                <span>28 Quirino Highway, Balon Bato 1<br />Quezon City, 1106, Philippines</span>
                             </li>
                             <li>
                                 <Phone className="footer__contact-icon" />
@@ -105,7 +105,10 @@ const Footer = () => {
                             </li>
                             <li>
                                 <Mail className="footer__contact-icon" />
-                                <a href="mailto:office@universalsteelph.com">office@universalsteelph.com</a>
+                                <div>
+                                    <a href="mailto:criscac@universalsteelph.com">criscac@universalsteelph.com</a>
+                                    <a href="mailto:maicasj@universalsteelph.com">maicasj@universalsteelph.com</a>
+                                </div>
                             </li>
                         </ul>
                     </div>

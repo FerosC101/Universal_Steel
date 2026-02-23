@@ -99,8 +99,7 @@
    ============================================== */
 .contact-info {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 180px 180px;
+    grid-template-columns: 1fr;
     gap: 1.5rem;
 }
 
