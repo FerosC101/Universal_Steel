@@ -86,7 +86,7 @@ const onGoingClients: ClientEntry[] = [
     {
         name: "First Balfour – Leighton Skylink JV",
         categories: [
-            { type: "Industrial", projects: ["EDSA ON RAMP"] },
+            { type: "Industrial", projects: ["EDSA on Ramp"] },
         ],
     },
     {
