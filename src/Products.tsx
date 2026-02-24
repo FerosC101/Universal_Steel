@@ -127,9 +127,17 @@ const ProductDetail = ({ product }: { product: typeof products[0] }) => {
                         </table>
                     </div>
 
-                    <Link to="/contact" className="btn btn--primary">
-                        Request Quote
-                    </Link>
+                    <div className="product-detail__actions">
+                        <Link to="/contact" className="btn btn--primary">
+                            Request Quote
+                        </Link>
+                        <button
+                            className="btn btn--outline"
+                            onClick={() => window.open("https://drive.google.com/file/d/1EqSIfrYON2fRUW87iH_b-SzV5XmNJ4Sa/view?usp=share_link", "_blank")}
+                        >
+                            View Product Specification →
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>

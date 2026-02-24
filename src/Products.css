@@ -215,6 +215,13 @@
     color: var(--navy-900);
 }
 
+.product-detail__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+}
+
 /* ==============================================
    PARTNERS SECTION
    ============================================== */
