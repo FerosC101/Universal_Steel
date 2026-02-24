@@ -73,6 +73,7 @@ const Overview = () => (
 // Founder History
 const FounderHistory = () => {
     const [carouselIndex, setCarouselIndex] = useState(0);
+    const [autoPlayKey, setAutoPlayKey] = useState(0);
     const legacyImages = [
         { src: '/images/Old Pics/OLDPIC2.jpg', alt: 'USSCI Heritage Photo' },
         { src: '/images/Old Pics/OLDPIC1.jpg', alt: 'USSCI Legacy Photo' },
@@ -87,8 +88,23 @@ const FounderHistory = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const nextSlide = () => setCarouselIndex((prev) => (prev + 1) % legacyImages.length);
-    const prevSlide = () => setCarouselIndex((prev) => (prev - 1 + legacyImages.length) % legacyImages.length);
+    // Auto-play: advances every 4 seconds; resets timer when user navigates manually
+    useEffect(() => {
+        if (window.innerWidth > 768) return;
+        const timer = setInterval(() => {
+            setCarouselIndex((prev) => (prev + 1) % legacyImages.length);
+        }, 4000);
+        return () => clearInterval(timer);
+    }, [autoPlayKey, legacyImages.length]);
+
+    const nextSlide = () => {
+        setCarouselIndex((prev) => (prev + 1) % legacyImages.length);
+        setAutoPlayKey((k) => k + 1);
+    };
+    const prevSlide = () => {
+        setCarouselIndex((prev) => (prev - 1 + legacyImages.length) % legacyImages.length);
+        setAutoPlayKey((k) => k + 1);
+    };
 
     return (
         <section className="founder">
@@ -144,7 +160,7 @@ const FounderHistory = () => {
                                 <button
                                     key={i}
                                     className={`founder__carousel-dot ${i === carouselIndex ? 'active' : ''}`}
-                                    onClick={() => setCarouselIndex(i)}
+                                    onClick={() => { setCarouselIndex(i); setAutoPlayKey((k) => k + 1); }}
                                     aria-label={`Go to image ${i + 1}`}
                                 />
                             ))}
