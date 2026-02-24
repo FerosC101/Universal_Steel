@@ -55,10 +55,10 @@ const Footer = () => {
                             powering the construction and infrastructure sectors across the Philippines.
                         </p>
                         <div className="footer__social">
-                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <a href="https://www.facebook.com/USSCIOfficial" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                                 <Facebook className="footer__social-icon" />
                             </a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <a href="https://www.linkedin.com/in/unisteel-steel-smelting-co-inc-4290233b3/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                                 <LinkedIn className="footer__social-icon" />
                             </a>
                         </div>

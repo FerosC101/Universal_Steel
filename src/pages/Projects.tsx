@@ -11,19 +11,19 @@ type ClientEntry = { name: string; categories: CategoryGroup[] };
 // On-Going Projects
 const onGoingClients: ClientEntry[] = [
     {
-        name: "AYALA LAND INC.",
+        name: "Ayala Land Inc.",
         categories: [
             { type: "Residential", projects: ["Avida Towers Makati South"] },
         ],
     },
     {
-        name: "ALI ETON PROPERTY DEVELOPMENT CORP.",
+        name: "Ali Eton Property Development Corp.",
         categories: [
             { type: "Residential", projects: ["Parklinks South Tower", "The Lattice at Parklinks"] },
         ],
     },
     {
-        name: "ANCHOR PROPERTIES & SUBSIDIARIES",
+        name: "Anchor Properties & Subsidiaries",
         categories: [
             { type: "Residential", projects: ["One Legacy", "Panorama Manila Tower"] },
             { type: "Commercial", projects: ["One Financial Center"] },
@@ -36,7 +36,7 @@ const onGoingClients: ClientEntry[] = [
         ],
     },
     {
-        name: "ARTHALAND CORPORATION",
+        name: "Arthaland Corporation",
         categories: [
             { type: "Residential", projects: ["Sevina Park Villas", "Una Apartment Tower 2"] },
         ],
@@ -48,7 +48,7 @@ const onGoingClients: ClientEntry[] = [
         ],
     },
     {
-        name: "CENTURY LIMITLESS CORPORATION",
+        name: "Century Limitless Corporation",
         categories: [
             { type: "Residential", projects: ["Aquatown Villa", "Batulao Commune Village"] },
         ],
@@ -66,19 +66,19 @@ const onGoingClients: ClientEntry[] = [
         ],
     },
     {
-        name: "EMPIRE EAST LAND HOLDINGS INC.",
+        name: "Empire East Land Holdings Inc.",
         categories: [
             { type: "Residential", projects: ["Highland City Tower 3 & 4", "Kasara Tower 3 & 5", "The Paddington Place Tower 1 to Tower 4"] },
         ],
     },
     {
-        name: "FEDERAL LAND INC.",
+        name: "Federal Land Inc.",
         categories: [
             { type: "Residential", projects: ["The Season Residence", "The Quantum Residence"] },
         ],
     },
     {
-        name: "FILINVEST LAND INC.",
+        name: "Filinvest Land Inc.",
         categories: [
             { type: "Residential", projects: ["Alta Spatial", "Manna East"] },
         ],
@@ -86,11 +86,11 @@ const onGoingClients: ClientEntry[] = [
     {
         name: "FIRST BALFOUR – LEIGHTON SKYLINK JV",
         categories: [
-            { type: "Industrial", projects: ["Edsa on Ramp"] },
+            { type: "Industrial", projects: ["EDSA ON RAMP"] },
         ],
     },
     {
-        name: "GLOBAL ESTATE RESORTS INC.",
+        name: "Global Estate Resorts Inc.",
         categories: [
             { type: "Residential", projects: ["Arden The Lindgren", "The Hamptons Terraces"] },
             { type: "Commercial", projects: ["Twinlakes Countrywoods", "Twinlakes Vineyard Manor"] },
@@ -104,20 +104,20 @@ const onGoingClients: ClientEntry[] = [
         ],
     },
     {
-        name: "MEGAWIDE CONSTRUCTION CORPORATION",
+        name: "Megawide Construction Corporation",
         categories: [
             { type: "Industrial", projects: ["Megawide – Precast Plant Taytay 1 & 2"] },
         ],
     },
     {
-        name: "MEGAWORLD CORPORATION",
+        name: "Megaworld Corporation",
         categories: [
             { type: "Residential", projects: ["Kingsquare Residential", "Firenze Residence - Iloilo", "Kensington Sky Garden - Bacolod", "Arden West Park Village", "Manhattan Towers", "Maple Park Residences"] },
             { type: "Commercial", projects: ["Arcovia Park Place", "Kingsford Hotel", "Northwin", "Savoy Hotel Capital Town", "Upper East - Bacolod"] },
         ],
     },
     {
-        name: "MONOLITH CONSTRUCTION",
+        name: "Monolith Construction",
         categories: [
             { type: "Residential", projects: ["MJ Tower Fort"] },
             { type: "Commercial", projects: ["The Bench Tower"] },
@@ -125,33 +125,33 @@ const onGoingClients: ClientEntry[] = [
         ],
     },
     {
-        name: "NEW SAN JOSE BUILDERS",
+        name: "New San Jose Builders",
         categories: [
             { type: "Residential", projects: ["Victoria Sports Tower Monumento", "Victoria Arts and Theater", "Victoria De Valenzuela"] },
             { type: "Industrial", projects: ["Bataan Harbour City", "Namria"] },
         ],
     },
     {
-        name: "PERSAN CONSTRUCTION INC.",
+        name: "Persan Construction Inc.",
         categories: [
             { type: "Institutional", projects: ["Ramon Magsaysay School", "Silverio Elementary School", "Victorino Mapa High School"] },
         ],
     },
     {
-        name: "ROBINSONS LAND CORPORATION",
+        name: "Robinsons Land Corporation",
         categories: [
             { type: "Residential", projects: ["Le Pont Residences Tower", "The Velaris Residences"] },
             { type: "Commercial", projects: ["Grand Summit Hotel Pangasinan", "Malolos Bayan Park Mall", "The Jewel (Forum Redevelopment Project)"] },
         ],
     },
     {
-        name: "SHANG ROBINSONS PROPERTIES",
+        name: "Shang Robinsons Properties",
         categories: [
             { type: "Residential", projects: ["Laya by Shang Properties", "Shang Summit"] },
         ],
     },
     {
-        name: "STAGES DESIGN & CONSTRUCTION",
+        name: "Stages Design & Construction",
         categories: [
             { type: "Commercial", projects: ["Waltermart – Paliparan", "Waltermart – Tayabas"] },
         ],
@@ -166,7 +166,7 @@ const onGoingClients: ClientEntry[] = [
     {
         name: "SMCC PHILIPPINES INC.",
         categories: [
-            { type: "Residential", projects: ["IDESIA SJDM HOUSING"] },
+            { type: "Residential", projects: ["IDESIA SJDM Housing"] },
             { type: "Industrial", projects: ["IE Medical Pharmaceutical Warehouse"] },
         ],
     },
@@ -175,14 +175,14 @@ const onGoingClients: ClientEntry[] = [
 // Completed Projects
 const completedClients: ClientEntry[] = [
     {
-        name: "AYALA LAND INC.",
+        name: "Ayala Land Inc.",
         categories: [
             { type: "Residential", projects: ["The Residences @ Greenbelt 3", "Montgomery Place", "One Serendra East Tower", "The Columns Ayala Avenue", "The Montane", "The Residences @ Greenbelt 2", "Two Serendra"] },
             { type: "Commercial", projects: ["Glorietta Redevelopment", "Vertis North"] },
         ],
     },
     {
-        name: "ANCHOR PROPERTIES & SUBSIDIARIES",
+        name: "Anchor Properties & Subsidiaries",
         categories: [
             { type: "Residential", projects: ["8 Alonzo Parksuites", "Anchor Grand Suites", "Copton Baysuites", "Cornel Parksuites", "Cosmosuites"] },
             { type: "Commercial", projects: ["ALHI Corporate Office", "Juna Luna Logistics Center"] },
@@ -196,7 +196,7 @@ const completedClients: ClientEntry[] = [
         ],
     },
     {
-        name: "AVIDA LAND CORPORATION",
+        name: "Avida Land Corporation",
         categories: [
             { type: "Residential", projects: ["Avida Horizontal & Manufacturing Plant", "Avida Nuvali", "Avida Towers Makati West", "Avida Towers New Manila", "Avida Towers San Lazaro", "Makati South Point"] },
         ],
@@ -220,7 +220,7 @@ const completedClients: ClientEntry[] = [
         name: "DMCI PROJECT DEVELOPERS INC.",
         categories: [
             { type: "Residential", projects: ["Bonifacio Heights", "Cypress Tower", "Mayfield Park", "Palm Grove", "Riverfront Residences", "Rosewood Tower", "Vista De Lago"] },
-            { type: "Commercial", projects: ["Shanrila Resort & Spa @ Boracay"] },
+            { type: "Commercial", projects: ["Shangrila Resort & Spa @ Boracay"] },
         ],
     },
     {
@@ -232,20 +232,20 @@ const completedClients: ClientEntry[] = [
         ],
     },
     {
-        name: "EMPIRE EAST LAND HOLDINGS INC.",
+        name: "Empire East Land Holdings Inc.",
         categories: [
             { type: "Residential", projects: ["Pioneer Woodlands Tower 3 to 6", "The Cambridge Village", "Rochester Tower", "The Xavier Hills", "California Garden", "Gilmore Heights", "Greenhills Garden", "One Governor's Place"] },
         ],
     },
     {
-        name: "ETON PROPERTIES PHILS INC.",
+        name: "Eton Properties Phils Inc.",
         categories: [
             { type: "Residential", projects: ["68 Roces", "Eton Residences @ Greenbelt"] },
             { type: "Commercial", projects: ["Eton Centris", "Eton West End Square"] },
         ],
     },
     {
-        name: "FEDERAL LAND INC.",
+        name: "Federal Land Inc.",
         categories: [
             { type: "Residential", projects: ["IMET Tower", "MI Casa Tower 1", "Palm Beach West", "Siena Tower 1", "The Grand Midori Ortigas", "The Seasons Residence", "Grand Hyatt Residence", "Peninsula Garden Midtown Homes Mahogany Tower", "The Big Apple", "8 Park Avenue", "Four Seasons Riviera Tower 3", "Paseo de Roces Tower 2", "Six Senses Resort", "Terrazas de Valencia"] },
         ],
@@ -258,7 +258,7 @@ const completedClients: ClientEntry[] = [
         ],
     },
     {
-        name: "FILINVEST LAND INC.",
+        name: "Filinvest Land Inc.",
         categories: [
             { type: "Residential", projects: ["Alta Spatial", "Bali Oasis 2", "Manna East", "Marina Town Dumaguete", "One Oasis – Alabang", "Panglao Oasis", "Sorrento Oasis", "Studio Tower N"] },
             { type: "Commercial", projects: ["Boracay Sea Scapes Resort", "Cebu Cyberzone Tower 3 & 4", "Dormitel Tower A", "Filinvest Corporate City", "Foramall Tagaytay", "Gil Puyat Office Building", "Marina Spatial Dumaguete", "One Filinvest", "Princeton Mall"] },
@@ -271,7 +271,7 @@ const completedClients: ClientEntry[] = [
         ],
     },
     {
-        name: "GLOBAL ESTATE RESORTS INC.",
+        name: "Global Estate Resorts Inc.",
         categories: [
             { type: "Residential", projects: ["Holland Park 3 & 4", "Oceanway Residences"] },
             { type: "Commercial", projects: ["Boracay Town Center", "Chancellor Hotel Boracay", "Fairways and Blue Water Resort"] },
@@ -285,13 +285,13 @@ const completedClients: ClientEntry[] = [
         ],
     },
     {
-        name: "MALLERS INVESTMENTS CORPORATION",
+        name: "Mallers Investments Corporation",
         categories: [
             { type: "Commercial", projects: ["Fishermall - Malabon"] },
         ],
     },
     {
-        name: "MEGAWIDE CONSTRUCTION CORPORATION",
+        name: "Megawide Construction Corporation",
         categories: [
             { type: "Residential", projects: ["The Hive Tower", "Urban Deca Cubao", "Urban Deca Ortigas"] },
             { type: "Commercial", projects: ["Double Dragon Tower", "Gateway Mall & Hotel", "Proposed Golden Bay Tower (Aspire)", "The Corner House"] },
@@ -299,14 +299,14 @@ const completedClients: ClientEntry[] = [
         ],
     },
     {
-        name: "MEGAWORLD CORPORATION",
+        name: "Megaworld Corporation",
         categories: [
             { type: "Residential", projects: ["9 Central Park", "Arden West Park Village", "Aurora Gardens", "Bayshore Residential Resort", "Eastwood Excelsior", "Eastwood Legrand I to III", "Firenze Residence", "Forbeswood Heights", "Governors Place", "Greenbelt Hamilton", "Greenhills Heights", "Kensington Sky Garden", "Kingsquare Residential Suites", "La Cassia Residences", "Lafayette Parksquare – Iloilo City", "Manhattan Parkways (3 Towers)", "Manhattan Plaza Tower 3 (Laurent Park)", "Manhattan Square", "Maple Grove", "Maple Park Residences", "McKinley Corporate Plaza", "McKinley Garden Villa (Phase 2)", "McKinley Hills Tuscany Private Estate", "Montrose Parkview", "One Beverly Place Condominium", "One Central Park", "One Lafayette Square", "One Madison Place Tower 1 & 2 – Iloilo City", "One Orchard Road", "One Regis – Bacolod", "Park McKinley West Phase 1 & 2", "Paseo Park View", "Positano Mactan", "Residential Resort @ Newport", "Residential Resort at New Port City", "Salcedo Skysuites", "Sunny Coast Residential Resort", "The Albany", "The Noble Place", "The Palladium - Iloilo", "The Pearl Global Residences", "The Venice Luxury Residences", "Two Lafayette Square", "Upper East – Bacolod", "Uptown Arts Residence", "Uptown Parksuites 1 & 2"] },
             { type: "Commercial", projects: ["Belmont Hotel Mactan Cebu", "Cityplace Mall", "Eastwood Citywalk", "Eastwood Corporate Plaza", "Enterprise Two", "Festive Walk Mall – Iloilo City", "Iloilo Business Park", "International Corporate Plaza", "Maple Grove Commercial District", "Marriott Courtyard Hotel – Iloilo City", "Marriott Newport Hotel", "Northwin Global City", "One Republic Plaza", "Petron Mega Plaza", "Savoy Hotel Mactan Cebu", "Sheraton Marina Square I & II", "Techno Plaza One & Two", "Two World Square", "Uptown Parade Mall", "Venice Corporate Center", "World Centre", "World Commerce Place", "World Commerce Plaza", "World Finance Plaza"] },
         ],
     },
     {
-        name: "MONOCRETE CONSTRUCTION PHILIPPINES INC.",
+        name: "Monocrete Construction Philippines Inc.",
         categories: [
             { type: "Residential", projects: ["Chinese General Hospital Garden Suites"] },
             { type: "Institutional", projects: ["STI – Legaspi"] },
@@ -314,14 +314,14 @@ const completedClients: ClientEntry[] = [
         ],
     },
     {
-        name: "NEW SAN JOSE BUILDERS",
+        name: "New San Jose Builders",
         categories: [
             { type: "Residential", projects: ["Dormitorio De Espana 2", "Fort Victoria", "Isabelle de Valenzuela", "Isabelle Hidalgo", "Victoria de Malate", "Victoria de Morato", "Victoria Station 2", "Victoria Station Tower – Edsa", "Victoria Tower de Manila - Taft"] },
             { type: "Commercial", projects: ["Las Casas Filipinas De Acuzar"] },
         ],
     },
     {
-        name: "PERSAN CONSTRUCTION INC.",
+        name: "Persan Construction Inc.",
         categories: [
             { type: "Residential", projects: ["Construction of Binondominium 1"] },
             { type: "Institutional", projects: ["Aurora A. Quezon Elementary School", "Dr. Alejandro Albert Elementary School", "Gotamco Elementary School", "Malabon Sports Complex", "Manila Science High School", "Paranaque Coliseum", "Rosauro Almario Elementary School"] },
@@ -329,32 +329,32 @@ const completedClients: ClientEntry[] = [
         ],
     },
     {
-        name: "ROBINSONS LAND CORPORATION",
+        name: "Robinsons Land Corporation",
         categories: [
             { type: "Residential", projects: ["Gateway Regency Studios", "Pueblo Angono", "Sierra Valley Gardens Tower 3 and Podium", "Sync Tower", "The Sapphire Bloc-East Tower"] },
             { type: "Commercial", projects: ["Magnolia – CPPD Project", "Robinsons Place La Union", "Robinsons Bridgetowne Mall", "Robinsons Cyber Omega", "Robinsons Cybergate Delta 2", "Cybergate Delta 2 - Davao", "Gateway Mall", "GBF Center 1 & 2", "Robinsons Place Balanga", "Cybergate Bacolod 2", "Opus Mall (Bridgetowne)", "Cybergate Iloilo Tower", "Montclair Land Development", "Malolos Bayan Park Mall"] },
         ],
     },
     {
-        name: "ROCKWELL LAND CORPORATION",
+        name: "Rockwell Land Corporation",
         categories: [
             { type: "Residential", projects: ["The Proscenium Tower Residences Tower 2", "The Proscenium – The Lorraine", "The Proscenium – The Kirov", "The Proscenium – The Lincoln", "The Vantage"] },
         ],
     },
     {
-        name: "SAN LORENZO RUIZ INVESTMENT",
+        name: "San Lorenzo Ruiz Investment",
         categories: [
             { type: "Commercial", projects: ["The Yuchengco Center"] },
         ],
     },
     {
-        name: "SHANG ROBINSONS PROPERTIES",
+        name: "Shang Robinsons Properties",
         categories: [
             { type: "Residential", projects: ["Aurelia Residences", "Haraya Residences", "Shang Residences at Wack Wack"] },
         ],
     },
     {
-        name: "STAGES DESIGN & CONSTRUCTION",
+        name: "Stages Design & Construction",
         categories: [
             { type: "Residential", projects: ["Acacia Project"] },
             { type: "Commercial", projects: ["Abenson – Quezon Avenue", "Abenson – San Juan", "Silver City – KPO", "Tiendesitas", "Waltermart – Antipolo", "Waltermart – Carmona", "Waltermart – Mabalacat", "Waltermart – Silang"] },
@@ -383,7 +383,7 @@ const completedClients: ClientEntry[] = [
         ],
     },
     {
-        name: "TOWNSQUARE DEVELOPMENT INC.",
+        name: "Townsquare Development Inc.",
         categories: [
             { type: "Residential", projects: ["Little Baguio Terraces", "Suntrust Asmara", "Suntrust Aurora Garden", "Suntrust Capitol Plaza", "Suntrust Parkview", "Suntrust Shanata", "The Cambridge Village"] },
             { type: "Commercial", projects: ["Clark Green Frontier Phase 1"] },
@@ -403,9 +403,6 @@ const categoryColors: Record<string, string> = {
     "Industrial": "#d35400",
     "Institutional": "#7d3c98",
 };
-
-const toTitleCase = (str: string) =>
-    str.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
 
 // Client List Modal
 const ClientListModal = ({ onClose }: { onClose: () => void }) => {
@@ -450,7 +447,7 @@ const ClientListModal = ({ onClose }: { onClose: () => void }) => {
                 <div className="clients-modal__grid">
                     {list.map((client, i) => (
                         <div key={i} className="clients-modal__card">
-                            <h3 className="clients-modal__client-name">{toTitleCase(client.name)}</h3>
+                            <h3 className="clients-modal__client-name">{client.name}</h3>
                             {client.categories.map((cat, j) => (
                                 <div key={j} className="clients-modal__category-group">
                                     <span
