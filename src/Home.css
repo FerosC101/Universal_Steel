@@ -93,6 +93,7 @@
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 1.5rem;
+    text-align: justify;
 }
 
 .hero__sidebar-btn {
@@ -146,6 +147,7 @@
     color: var(--gray-300);
     margin-bottom: 2.5rem;
     max-width: 540px;
+    text-align: justify;
 }
 
 .hero__actions {
@@ -496,6 +498,7 @@
     line-height: 1.7;
     color: var(--gray-600);
     margin-bottom: 1.25rem;
+    text-align: justify;
 }
 
 .about-legacy__stats {
@@ -553,7 +556,7 @@
     }
     
     .about-legacy__text {
-        text-align: left;
+        text-align: justify;
     }
     
     .about-legacy__title {
@@ -594,7 +597,7 @@
     
     .about-legacy__text {
         font-size: 0.9rem;
-        text-align: left;
+        text-align: justify;
     }
     
     .about-legacy__video video,
@@ -688,7 +691,7 @@
 }
 
 .about__content {
-    text-align: left;
+    text-align: justify;
     max-width: 780px;
     margin: 0 auto;
 }
@@ -698,6 +701,7 @@
     line-height: 1.75;
     color: var(--gray-600);
     margin-bottom: 1rem;
+    text-align: justify;
 }
 
 .about__list {
@@ -821,6 +825,7 @@
     color: var(--gray-600);
     line-height: 1.6;
     margin-bottom: 0.75rem;
+    text-align: justify;
 }
 
 .product-card__sizes {
@@ -834,6 +839,7 @@
     color: var(--gray-600);
     line-height: 1.6;
     margin-bottom: 1rem;
+    text-align: justify;
 }
 
 .product-card__link {
@@ -997,6 +1003,7 @@
     color: var(--gray-600);
     line-height: 1.6;
     transition: color 0.2s ease;
+    text-align: justify;
 }
 
 /* ==============================================
@@ -1301,7 +1308,7 @@
         flex-direction: row;
         gap: 1rem;
         padding: 1.5rem;
-        text-align: left;
+        text-align: justify;
         align-items: flex-start;
     }
     

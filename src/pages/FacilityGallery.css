@@ -460,22 +460,22 @@
     }
 
     .spectrometer__header {
-        text-align: left;
+        text-align: center;
         margin-left: 0;
         margin-right: 0;
         max-width: 100%;
     }
 
     .spectrometer__header .section-label {
-        text-align: left !important;
+        text-align: center !important;
     }
 
     .spectrometer__title {
-        text-align: left !important;
+        text-align: center !important;
     }
 
     .spectrometer__subtitle {
-        text-align: left !important;
+        text-align: justify !important;
     }
 
     .spectrometer__feature h4 {
@@ -483,7 +483,7 @@
     }
 
     .spectrometer__quote {
-        text-align: left;
+        text-align: center;
     }
 
     .spectrometer__quote p {

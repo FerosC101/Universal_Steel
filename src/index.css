@@ -219,7 +219,7 @@ ul, ol {
   [class*="__text"] p:not([class*="__title"]),
   [class*="__content"] ul,
   [class*="__content"] li {
-    text-align: left;
+    text-align: justify;
   }
 }
 

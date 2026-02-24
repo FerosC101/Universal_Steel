@@ -120,6 +120,7 @@
     color: var(--gray-600);
     line-height: 1.7;
     margin-bottom: 1.5rem;
+    text-align: justify;
 }
 
 .product-detail__features {
@@ -349,6 +350,7 @@
     font-size: 0.9375rem;
     color: var(--gray-600);
     line-height: 1.6;
+    text-align: justify;
 }
 
 .spectrometer__quote {
@@ -442,6 +444,7 @@
     color: var(--gray-400);
     font-size: 0.875rem;
     margin: 0;
+    text-align: justify;
 }
 
 /* ==============================================
@@ -788,6 +791,7 @@
     color: var(--gray-600);
     line-height: 1.5;
     margin: 0;
+    text-align: justify;
 }
 
 .announcement-banner__link {
