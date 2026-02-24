@@ -30,7 +30,7 @@ const onGoingClients: ClientEntry[] = [
         ],
     },
     {
-        name: "AM ORETA & CO., INC.",
+        name: "AM Oreta & Co., Inc.",
         categories: [
             { type: "Institutional", projects: ["SOCO Project"] },
         ],
@@ -42,7 +42,7 @@ const onGoingClients: ClientEntry[] = [
         ],
     },
     {
-        name: "BDO UNIBANK INC.",
+        name: "BDO Unibank Inc.",
         categories: [
             { type: "Commercial", projects: ["BDO Corporate Center"] },
         ],
@@ -54,13 +54,13 @@ const onGoingClients: ClientEntry[] = [
         ],
     },
     {
-        name: "DMCI PROJECT DEVELOPERS INC.",
+        name: "DMCI Project Developers Inc.",
         categories: [
             { type: "Residential", projects: ["Acacia Estates", "Alder Residences", "Fortis Residences", "Mulberry Place 2", "The Oriana"] },
         ],
     },
     {
-        name: "EEI CORPORATION",
+        name: "EEI Corporation",
         categories: [
             { type: "Institutional", projects: ["National Teachers College", "Mapua Malayan College Laguna"] },
         ],
@@ -84,7 +84,7 @@ const onGoingClients: ClientEntry[] = [
         ],
     },
     {
-        name: "FIRST BALFOUR – LEIGHTON SKYLINK JV",
+        name: "First Balfour – Leighton Skylink JV",
         categories: [
             { type: "Industrial", projects: ["EDSA ON RAMP"] },
         ],
@@ -97,7 +97,7 @@ const onGoingClients: ClientEntry[] = [
         ],
     },
     {
-        name: "JQ INTERNATIONAL",
+        name: "JQ International",
         categories: [
             { type: "Residential", projects: ["Sunwealth Tower"] },
             { type: "Commercial", projects: ["Avenida Tower"] },
@@ -157,14 +157,14 @@ const onGoingClients: ClientEntry[] = [
         ],
     },
     {
-        name: "SM DEVELOPMENT CORPORATION",
+        name: "SM Development Corporation",
         categories: [
             { type: "Residential", projects: ["Highland Residences"] },
             { type: "Commercial", projects: ["SM City Fairview Mall Expansion", "SM - Harrison", "SM - Megamall Expansion"] },
         ],
     },
     {
-        name: "SMCC PHILIPPINES INC.",
+        name: "SMCC Philippines Inc.",
         categories: [
             { type: "Residential", projects: ["IDESIA SJDM Housing"] },
             { type: "Industrial", projects: ["IE Medical Pharmaceutical Warehouse"] },
@@ -189,7 +189,7 @@ const completedClients: ClientEntry[] = [
         ],
     },
     {
-        name: "AM ORETA & CO., INC.",
+        name: "AM Oreta & Co., Inc.",
         categories: [
             { type: "Commercial", projects: ["Dasma Corporate Center", "Malabon Grand Hotel", "Manila Polo Club", "Metro Bank"] },
             { type: "Institutional", projects: ["MWSS – La Mesa Dam", "NAIA Terminal II"] },
@@ -202,7 +202,7 @@ const completedClients: ClientEntry[] = [
         ],
     },
     {
-        name: "DDT KONSTRACT INC.",
+        name: "DDT Konstract Inc.",
         categories: [
             { type: "Residential", projects: ["Lancaster Tower 2", "The Olive Place"] },
             { type: "Commercial", projects: ["Cyber Scape Gamma", "Grand West Side Hotel", "Hamilo Coast Country Club", "Manila Bay Resort", "San Lazaro BPO Bldg. A", "Taal Vista Hotel", "Waltermart Munoz"] },
@@ -210,21 +210,21 @@ const completedClients: ClientEntry[] = [
         ],
     },
     {
-        name: "DM WENCESLAO",
+        name: "DM Wenceslao",
         categories: [
             { type: "Residential", projects: ["Pixel Residences"] },
             { type: "Commercial", projects: ["Parqal Mall"] },
         ],
     },
     {
-        name: "DMCI PROJECT DEVELOPERS INC.",
+        name: "DMCI Project Developers Inc.",
         categories: [
             { type: "Residential", projects: ["Bonifacio Heights", "Cypress Tower", "Mayfield Park", "Palm Grove", "Riverfront Residences", "Rosewood Tower", "Vista De Lago"] },
             { type: "Commercial", projects: ["Shangrila Resort & Spa @ Boracay"] },
         ],
     },
     {
-        name: "EEI CORPORATION",
+        name: "EEI Corporation",
         categories: [
             { type: "Residential", projects: ["GA Tower"] },
             { type: "Commercial", projects: ["ADB Project", "Mandarin Project", "Novotel Araneta Center", "RCBC Building"] },
@@ -251,7 +251,7 @@ const completedClients: ClientEntry[] = [
         ],
     },
     {
-        name: "FF CRUZ & COMPANY",
+        name: "FF Cruz & Company",
         categories: [
             { type: "Institutional", projects: ["Libingan ng mga Bayani"] },
             { type: "Industrial", projects: ["ATI Manila South Harbor – Pier 3", "Balara Treatment Plant"] },
@@ -265,7 +265,7 @@ const completedClients: ClientEntry[] = [
         ],
     },
     {
-        name: "FIRST BALFOUR – LEIGHTON JV",
+        name: "First Balfour – Leighton JV",
         categories: [
             { type: "Industrial", projects: ["Diagon South", "Polaris Data Center Phase 1", "River Water Treatment Facility"] },
         ],
@@ -278,7 +278,7 @@ const completedClients: ClientEntry[] = [
         ],
     },
     {
-        name: "JQ INTERNATIONAL",
+        name: "JQ International",
         categories: [
             { type: "Residential", projects: ["101 Residences", "Avenida Tower", "Dowell Tower", "Index Residences", "Luxe Tower", "Riverpark Place", "Royal Tower", "Signature Residences"] },
             { type: "Commercial", projects: ["Avenida Tower"] },
@@ -362,13 +362,13 @@ const completedClients: ClientEntry[] = [
         ],
     },
     {
-        name: "SM DEVELOPMENT CORPORATION",
+        name: "SM Development Corporation",
         categories: [
             { type: "Residential", projects: ["Bloom Residences", "Charm Residences", "Coast Residences", "Costa Del Hamilo – Freia Condominium", "Field Residences", "Glade Residences", "Lush Residences", "Mint Residences", "Shore 3 Residences", "SM Fame Residences", "Spring Residences", "Springtown Development - Leaf Residences", "Vine Residences"] },
         ],
     },
     {
-        name: "SM PRIME HOLDINGS INC.",
+        name: "SM Prime Holdings Inc.",
         categories: [
             { type: "Residential", projects: ["Hope Residences", "Horizon Terraces Project", "Horizon Terraces Tagaytay", "Light 2 Residences", "Sail Residences", "Style Residence – Iloilo City", "Twin Residences"] },
             { type: "Commercial", projects: ["Park Inn Bacolod", "SM MOA Block 4", "SM City Fairview Mall Expansion", "SM City Legazpi", "SM Southmall BPO & Car Park Bldg.", "SM City – Iloilo BPO", "SM Tanza", "SM Sorsogon", "SM City Sta. Rosa Mall Expansion", "SM City Cagayan De Oro Redevelopment", "SM City Cauayan", "SM Tarlac", "SM Sto. Tomas", "SM Tagum"] },
@@ -376,7 +376,7 @@ const completedClients: ClientEntry[] = [
         ],
     },
     {
-        name: "SMCC PHILIPPINES INC.",
+        name: "SMCC Philippines Inc.",
         categories: [
             { type: "Residential", projects: ["Coral Bay 3 & 4", "Hayashi Project", "The Villages at Lipa"] },
             { type: "Industrial", projects: ["40MW Northern Negros Geothermal Plant", "Komyo Phils. Factory Expansion", "New Leaf Warehouse", "NIDEC Precision Phils. Factory", "Proposed Daiho – Lima Factory 2", "RIO Tuba Nickel HPP", "Sakamoto Plant Expansion"] },
@@ -390,7 +390,7 @@ const completedClients: ClientEntry[] = [
         ],
     },
     {
-        name: "VB COLUMNA CONSTRUCTION",
+        name: "VB Columna Construction",
         categories: [
             { type: "Institutional", projects: ["Ace Balagtas", "Ace Mandaluyong", "Ace San Jose", "Ace San Miguel", "La Salle – Lipa Batangas"] },
         ],
