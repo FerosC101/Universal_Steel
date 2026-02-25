@@ -215,7 +215,7 @@ const Products = () => {
                 <div className="products__cta">
                     <button
                         className="btn btn--outline"
-                        onClick={() => window.open("https://drive.google.com/file/d/1EqSIfrYON2fRUW87iH_b-SzV5XmNJ4Sa/preview", "_blank")}
+                        onClick={() => window.open("https://drive.google.com/file/d/1VvTXOI5FAb7KkgwCnXQ1sSTVg92pE73x/view?usp=sharing/preview", "_blank")}
                     >
                         View Product Specification →
                     </button>
