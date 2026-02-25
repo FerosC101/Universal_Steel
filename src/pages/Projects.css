@@ -379,6 +379,7 @@
     font-weight: 500;
     color: var(--navy-900);
     transition: color 0.2s ease;
+    text-align: left;
 }
 
 /* ==============================================
