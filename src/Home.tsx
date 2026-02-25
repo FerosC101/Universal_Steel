@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import { Link } from 'react-router-dom';
 import { PageWithSkeleton } from './hooks/usePageLoading';
 import { HomePageSkeleton } from './components/Skeleton';
+import PdfModal from './components/PdfModal';
 import './Home.css';
 
 // Top Milestone Ticker (mobile only)
@@ -172,6 +173,7 @@ const Parallax = () => (
 
 // Products Section
 const Products = () => {
+    const [showPdf, setShowPdf] = useState(false);
     const products = [
         {
             title: 'Grade 40 Rebars',
@@ -215,11 +217,12 @@ const Products = () => {
                 <div className="products__cta">
                     <button
                         className="btn btn--outline"
-                        onClick={() => window.open("https://drive.google.com/file/d/1VvTXOI5FAb7KkgwCnXQ1sSTVg92pE73x/view?usp=sharing/preview", "_blank")}
+                        onClick={() => setShowPdf(true)}
                     >
                         View Product Specification →
                     </button>
                 </div>
+                {showPdf && <PdfModal onClose={() => setShowPdf(false)} />}
                 <div className="announcement-banner announcement-banner--inline">
                     <div className="announcement-banner__container">
                         <span className="announcement-banner__badge">Coming Soon</span>
