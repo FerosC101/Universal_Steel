@@ -154,10 +154,10 @@ const AboutAndLegacy = () => (
                 </div>
                 <div className="about-legacy__legacy-content">
                     <p className="about-legacy__text">
-                        &emsp;Throughout our Sixty-year journey as a company this 2026, we have constantly refined our business model and operational systems to adapt itself to the ever-changing needs of the market and especially, of our clientele. We have evolved from being highly production driven to being more customer driven to better meet our clients' changing demands. We have professionalized our approach to the objectives of the company with the primary objective of complete customer satisfaction.
+                        Throughout our Sixty-year journey as a company this 2026, we have constantly refined our business model and operational systems to adapt itself to the ever-changing needs of the market and especially, of our clientele. We have evolved from being highly production driven to being more customer driven to better meet our clients' changing demands. We have professionalized our approach to the objectives of the company with the primary objective of complete customer satisfaction.
                     </p>
                     <p className="about-legacy__text">
-                        &emsp;Now at our 60th anniversary, we stand firm yet humble for we have been bestowed with the distinction as being one of the industry's finest. Continually driven and compelled by our sincere desire to serve our clients excellently well, we commit to constantly reengineer ourselves for the challenges in the years ahead. Above all, we will continue to rely upon the guidance and the wisdom of the Almighty God, to lead us onwards. By His mighty blessing which we continue to implore, we shall remain a company fit as a worthy industry partner for decades to come.
+                        Now at our 60th anniversary, we stand firm yet humble for we have been bestowed with the distinction as being one of the industry's finest. Continually driven and compelled by our sincere desire to serve our clients excellently well, we commit to constantly reengineer ourselves for the challenges in the years ahead. Above all, we will continue to rely upon the guidance and the wisdom of the Almighty God, to lead us onwards. By His mighty blessing which we continue to implore, we shall remain a company fit as a worthy industry partner for decades to come.
                     </p>
                 </div>
             </div>

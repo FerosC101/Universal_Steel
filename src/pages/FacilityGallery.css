@@ -354,6 +354,7 @@
     font-size: 1.0625rem;
     color: var(--gray-600);
     line-height: 1.7;
+    text-indent: 2em;
 }
 
 .spectrometer__grid {
@@ -402,6 +403,7 @@
     font-size: 0.9375rem;
     color: var(--gray-600);
     line-height: 1.6;
+    text-indent: 2em;
 }
 
 .spectrometer__quote {

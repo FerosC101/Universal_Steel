@@ -265,6 +265,7 @@
     line-height: 1.75;
     margin-bottom: 1rem;
     text-align: justify;
+    text-indent: 2em;
 }
 
 /* ==============================================
@@ -445,6 +446,7 @@
     line-height: 1.8;
     margin: 0;
     text-align: justify;
+    text-indent: 2em;
 }
 
 .founder__text p:first-child::first-letter {
@@ -598,6 +600,7 @@
     line-height: 1.75;
     margin-bottom: 1rem;
     text-align: justify;
+    text-indent: 2em;
 }
 
 .facility__list {
@@ -879,6 +882,7 @@
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.85);
     text-align: justify;
+    text-indent: 2em;
 }
 
 .vmv__right {
@@ -1103,7 +1107,12 @@
     .overview__image {
         order: 2;
     }
-    
+
+    .overview__image img {
+        height: auto;
+        max-height: 280px;
+    }
+
     .overview__content {
         order: 3;
     }
@@ -1488,6 +1497,7 @@
     color: var(--gray-600);
     line-height: 1.6;
     text-align: justify;
+    text-indent: 2em;
 }
 
 /* ==============================================
@@ -1535,6 +1545,7 @@
     margin-bottom: 1rem;
     font-weight: 500;
     text-align: justify;
+    text-indent: 2em;
 }
 
 .customer-service__desc {
@@ -1543,6 +1554,7 @@
     line-height: 1.7;
     margin-bottom: 1.5rem;
     text-align: justify;
+    text-indent: 2em;
 }
 
 .customer-service__highlight {

@@ -117,6 +117,96 @@ const ProductDetail = () => {
     );
 };
 
+// Technical Specifications Section
+const TechnicalSpecs = () => (
+    <section className="product-tech-specs">
+        <div className="product-tech-specs__container">
+            <div className="product-tech-specs__header">
+                <span className="section-label">PNS 49:2020</span>
+                <h2>Technical Specifications</h2>
+                <p>Manufactured and tested in accordance with the Philippine National Standards for reinforcing steel bars.</p>
+            </div>
+
+            <div className="product-tech-specs__grid">
+                <div className="product-tech-specs__card">
+                    <h3>Mechanical Properties (Grade 420W)</h3>
+                    <table className="product-tech-specs__table">
+                        <tbody>
+                            <tr><td>Yield Strength (min)</td><td>420 MPa</td></tr>
+                            <tr><td>Yield Strength (max)</td><td>540 MPa</td></tr>
+                            <tr><td>Tensile Strength (min)</td><td>550 MPa</td></tr>
+                            <tr><td>Ts/Ys Ratio (min)</td><td>1.25</td></tr>
+                            <tr><td>Bending Angle</td><td>180°</td></tr>
+                            <tr><td>Ductility Class</td><td>Class 2 – Weldable (W)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div className="product-tech-specs__card">
+                    <h3>Elongation (min, in 200mm)</h3>
+                    <table className="product-tech-specs__table">
+                        <thead>
+                            <tr><th>Size Range</th><th>Elongation (%)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>10mm – 16mm</td><td>14%</td></tr>
+                            <tr><td>20mm</td><td>14%</td></tr>
+                            <tr><td>25mm</td><td>12%</td></tr>
+                            <tr><td>28mm – 36mm</td><td>12%</td></tr>
+                        </tbody>
+                    </table>
+                    <div className="product-tech-specs__card-section">
+                        <h3>Bend Test (Pin Diameter)</h3>
+                        <table className="product-tech-specs__table">
+                            <thead>
+                                <tr><th>Size Range</th><th>Pin Diameter</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>10mm – 16mm</td><td>4d</td></tr>
+                                <tr><td>20mm – 25mm</td><td>4d</td></tr>
+                                <tr><td>28mm – 36mm</td><td>6d</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div className="product-tech-specs__physical">
+                <h3>Physical Specifications</h3>
+                <div className="product-tech-specs__info-grid">
+                    <div className="product-tech-specs__info-item">
+                        <span className="product-tech-specs__info-label">Standard Sizes</span>
+                        <span className="product-tech-specs__info-value">10, 12, 16, 20, 25, 28, 32, 36 mm</span>
+                    </div>
+                    <div className="product-tech-specs__info-item">
+                        <span className="product-tech-specs__info-label">Standard Lengths</span>
+                        <span className="product-tech-specs__info-value">6.0, 7.5, 9.0, 10.5, 12.0 m</span>
+                    </div>
+                    <div className="product-tech-specs__info-item">
+                        <span className="product-tech-specs__info-label">Special Lengths (on order)</span>
+                        <span className="product-tech-specs__info-value">13.5 m, 15.0 m</span>
+                    </div>
+                    <div className="product-tech-specs__info-item">
+                        <span className="product-tech-specs__info-label">Length Tolerance</span>
+                        <span className="product-tech-specs__info-value">0 to +60 mm</span>
+                    </div>
+                    <div className="product-tech-specs__info-item">
+                        <span className="product-tech-specs__info-label">Mass Tolerance</span>
+                        <span className="product-tech-specs__info-value">±6%</span>
+                    </div>
+                    <div className="product-tech-specs__info-item">
+                        <span className="product-tech-specs__info-label">Grade Code</span>
+                        <span className="product-tech-specs__info-value">4 (Grade 420)</span>
+                    </div>
+                </div>
+                <div className="product-tech-specs__note">
+                    <strong>Note:</strong> All rebars are hot-rolled and embossed with the company logo ("US"), bar size, grade code, ductility class, and manufacturing process code at specified intervals. Weldable bars bear the "W" marking. Grade 420W produced via Quenching &amp; Tempering will bear the "T" mark; those produced with micro alloys bear the "MA" mark.
+                </div>
+            </div>
+        </div>
+    </section>
+);
+
 // Applications Section
 const Applications = () => (
     <section className="product-applications">
@@ -161,6 +251,7 @@ const Grade60 = () => (
         <main>
             <PageHero />
             <ProductDetail />
+            <TechnicalSpecs />
             <Applications />
             <CTA />
         </main>

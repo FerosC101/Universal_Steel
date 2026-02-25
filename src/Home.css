@@ -362,6 +362,7 @@
     color: var(--gray-600);
     line-height: 1.7;
     margin-bottom: 2rem;
+    text-indent: 2em;
 }
 
 .legacy__stats {
@@ -499,6 +500,7 @@
     color: var(--gray-600);
     margin-bottom: 1.25rem;
     text-align: justify;
+    text-indent: 2em;
 }
 
 .about-legacy__stats {
@@ -702,6 +704,7 @@
     color: var(--gray-600);
     margin-bottom: 1rem;
     text-align: justify;
+    text-indent: 2em;
 }
 
 .about__list {

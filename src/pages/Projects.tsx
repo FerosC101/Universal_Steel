@@ -613,7 +613,7 @@ const ProjectsGrid = () => {
                         <span className="section-label">Project Gallery</span>
                         <h2 className="projects-grid-section__title">Projects</h2>
                         <p className="projects-grid-section__subtitle">
-                            &emsp;In all of its corporate relations, USSCI is firmly committed to ensuring total customer satisfaction, from the performance of our rebars to on-time deliveries at project sites. Our customer service has been given the highest regard as attested by many, with the paradigm that treats all its clients as its industry partners. Our customers have full access to a Customer Service Team at any given time and provide the on-site technical assistance needed by many.
+                            In all of its corporate relations, USSCI is firmly committed to ensuring total customer satisfaction, from the performance of our rebars to on-time deliveries at project sites. Our customer service has been given the highest regard as attested by many, with the paradigm that treats all its clients as its industry partners. Our customers have full access to a Customer Service Team at any given time and provide the on-site technical assistance needed by many.
                         </p>
                     </div>
                     <div className="projects-grid">

@@ -11,6 +11,7 @@ const products = [
     {
         id: 1,
         name: "Grade 40 Rebars",
+        route: "/products/grade-40",
         image: "/images/products/Grade 40 (4).jpg",
         description: "Standard strength deformed bars manufactured to international standards. Ideal for residential and light commercial construction projects.",
         features: [
@@ -33,6 +34,7 @@ const products = [
     {
         id: 2,
         name: "Grade 60 Rebars",
+        route: "/products/grade-60",
         image: "/images/products/Grade 60 (1).jpg",
         description: "High-strength deformed bars engineered for demanding applications. Perfect for commercial buildings, bridges, and heavy infrastructure.",
         features: [
@@ -131,12 +133,9 @@ const ProductDetail = ({ product }: { product: typeof products[0] }) => {
                         <Link to="/contact" className="btn btn--primary">
                             Request Quote
                         </Link>
-                        <button
-                            className="btn btn--outline"
-                            onClick={() => window.open("https://drive.google.com/file/d/1EqSIfrYON2fRUW87iH_b-SzV5XmNJ4Sa/view?usp=share_link", "_blank")}
-                        >
-                            View Product Specification →
-                        </button>
+                        <Link to={product.route} className="btn btn--outline">
+                            View Full Specifications →
+                        </Link>
                     </div>
                 </div>
             </div>

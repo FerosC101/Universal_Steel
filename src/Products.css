@@ -121,6 +121,7 @@
     line-height: 1.7;
     margin-bottom: 1.5rem;
     text-align: justify;
+    text-indent: 2em;
 }
 
 .product-detail__features {
@@ -358,6 +359,7 @@
     color: var(--gray-600);
     line-height: 1.6;
     text-align: justify;
+    text-indent: 2em;
 }
 
 .spectrometer__quote {
@@ -411,6 +413,7 @@
     line-height: 1.7;
     max-width: 600px;
     margin: 0 auto 3rem;
+    text-indent: 2em;
 }
 
 .products-quality__badges {
@@ -532,7 +535,7 @@
    PRODUCT APPLICATIONS SECTION
    ============================================== */
 .product-applications {
-    padding: 5rem 0;
+    padding: 2.5rem 0 5rem;
     background: var(--gray-50);
 }
 
@@ -821,5 +824,179 @@
         align-items: center;
         text-align: center;
         gap: 1rem;
+    }
+}
+
+/* ==============================================
+   TECHNICAL SPECIFICATIONS SECTION
+   ============================================== */
+.product-tech-specs {
+    padding: 3.5rem 0 2.5rem;
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-200);
+}
+
+.product-tech-specs__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.product-tech-specs__header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 3rem;
+}
+
+.product-tech-specs__header h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 700;
+    color: var(--navy-900);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.product-tech-specs__header p {
+    font-size: 1rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+}
+
+.product-tech-specs__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.product-tech-specs__card {
+    background: #ffffff;
+    border: 1px solid var(--gray-200);
+    padding: 1.75rem;
+}
+
+.product-tech-specs__card h3 {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--navy-900);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--accent);
+}
+
+.product-tech-specs__card-section {
+    margin-top: 1.75rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--gray-200);
+}
+
+.product-tech-specs__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.product-tech-specs__table th,
+.product-tech-specs__table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.product-tech-specs__table th {
+    background: var(--navy-900);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.product-tech-specs__table td:first-child {
+    color: var(--gray-600);
+    font-weight: 500;
+}
+
+.product-tech-specs__table td:last-child {
+    font-weight: 700;
+    color: var(--navy-900);
+}
+
+.product-tech-specs__table tbody tr:hover {
+    background: var(--gray-50);
+}
+
+.product-tech-specs__physical {
+    background: #ffffff;
+    border: 1px solid var(--gray-200);
+    padding: 1.75rem;
+}
+
+.product-tech-specs__physical h3 {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--navy-900);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--accent);
+}
+
+.product-tech-specs__info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.product-tech-specs__info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.product-tech-specs__info-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray-500);
+}
+
+.product-tech-specs__info-value {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--navy-900);
+}
+
+.product-tech-specs__note {
+    padding: 1rem 1.25rem;
+    background: var(--gray-50);
+    border-left: 3px solid var(--accent);
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+}
+
+.product-tech-specs__note strong {
+    color: var(--navy-900);
+}
+
+@media (max-width: 900px) {
+    .product-tech-specs__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-tech-specs__info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .product-tech-specs__info-grid {
+        grid-template-columns: 1fr;
     }
 }
