@@ -688,7 +688,8 @@ const ProjectsList = () => {
         "SLEX Rehabilitation",
         "Startoll Bridge",
         "Subic Bay Port Development Project",
-        "Subic Clark Pampanga Expressway"
+        "Subic Clark Pampanga Expressway",
+        "The Yuchengco Centre"
     ];
 
     const currentProjects = [
