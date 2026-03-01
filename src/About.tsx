@@ -216,8 +216,6 @@ const Facility = () => {
         '/images/facility/Unisteel%20Final%20Photos/5E8A6148.webp',
         '/images/facility/Unisteel%20Final%20Photos/5E8A6161.webp',
         '/images/facility/Unisteel%20Final%20Photos/5E8A6180.webp',
-        '/images/facility/Unisteel%20Final%20Photos/5E8A6216.webp',
-        '/images/facility/Unisteel%20Final%20Photos/5E8A6238.webp',
         '/images/facility/Unisteel%20Final%20Photos/5E8A6291.webp',
         '/images/facility/Unisteel%20Final%20Photos/5E8A6325.webp',
         '/images/facility/Unisteel%20Final%20Photos/5E8A6396.webp',

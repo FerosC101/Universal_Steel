@@ -589,6 +589,7 @@
     font-size: 0.9375rem;
     font-weight: 500;
     color: var(--navy-900);
+    text-align: left;
 }
 
 @media (max-width: 768px) {
