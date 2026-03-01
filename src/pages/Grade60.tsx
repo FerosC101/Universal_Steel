@@ -200,7 +200,7 @@ const TechnicalSpecs = () => (
                     </div>
                 </div>
                 <div className="product-tech-specs__note">
-                    <strong>Note:</strong> All rebars are hot-rolled and embossed with the company logo ("US"), bar size, grade code, ductility class, and manufacturing process code at specified intervals. Weldable bars bear the "W" marking. Grade 420W produced via Quenching &amp; Tempering will bear the "T" mark; those produced with micro alloys bear the "MA" mark.
+                    <strong>Note:</strong> All rebars are hot-rolled and embossed with the company logo ("US"), bar size, grade code, ductility class, and manufacturing process code at specified intervals. Weldable bars bear the "W" marking. Grade 420W produced via Quenching &amp; Tempering will bear the "T" mark; those produced with micro alloys bear the "A" mark.
                 </div>
             </div>
         </div>

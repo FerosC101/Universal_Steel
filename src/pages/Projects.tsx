@@ -572,6 +572,7 @@ const projectGroups = [
             { name: "Metro Manila Skyway Stage 1", image: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_800/v1753516396/USSCI_projects_for_website_13_wrnwf1.jpg" },
             { name: "Metro Manila Skyway Stage 2", image: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_800/v1753516396/USSCI_projects_for_website_11_btaknk.jpg" },
             { name: "Metro Manila Skyway Stage 3", image: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_800/v1753516398/USSCI_projects_for_website_10_gqdpk6.jpg" },
+            { name: "The Yuchengco Centre", image: "/images/The_Yuchengco_Centre.png" },
         ],
     },
     {

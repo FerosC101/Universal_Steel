@@ -605,6 +605,10 @@
     .product-applications__grid {
         grid-template-columns: 1fr;
     }
+
+    .product-applications__item {
+        align-items: flex-start;
+    }
 }
 
 /* ==============================================
