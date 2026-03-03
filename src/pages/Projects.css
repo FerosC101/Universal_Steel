@@ -242,6 +242,24 @@
     object-fit: cover;
 }
 
+.projects-modal__item--linked {
+    cursor: pointer;
+}
+
+.projects-modal__item--linked img {
+    transition: opacity 0.2s ease;
+}
+
+.projects-modal__item--linked:hover img {
+    opacity: 0.85;
+}
+
+.projects-modal__item--linked p::after {
+    content: " 🔗";
+    font-size: 0.75rem;
+    opacity: 0.6;
+}
+
 .projects-modal__item p {
     font-size: 0.875rem;
     font-weight: 600;

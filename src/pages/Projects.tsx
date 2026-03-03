@@ -653,7 +653,18 @@ const ProjectsGrid = () => {
                         <h2 className="projects-modal__title">{selectedGroup.title}</h2>
                         <div className="projects-modal__grid">
                             {selectedGroup.images.map((img, i) => (
-                                <div key={i} className="projects-modal__item">
+                                <div
+                                    key={i}
+                                    className={`projects-modal__item${img.name === "The Yuchengco Centre" ? " projects-modal__item--linked" : ""}`}
+                                    onClick={() => {
+                                        if (img.name === "The Yuchengco Centre") {
+                                            const confirmed = window.confirm("Would you like to learn more about The Yuchengco Centre?");
+                                            if (confirmed) {
+                                                window.open("https://www.officepro.ph/buildings/the-yuchengco-centre-makati", "_blank", "noopener,noreferrer");
+                                            }
+                                        }
+                                    }}
+                                >
                                     <img src={img.image} alt={img.name} loading="lazy" />
                                     <p>{img.name}</p>
                                 </div>
