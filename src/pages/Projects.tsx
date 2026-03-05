@@ -574,8 +574,8 @@ const projectGroups = [
             { name: "Metro Manila Skyway Stage 3", image: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_800/v1753516398/USSCI_projects_for_website_10_gqdpk6.jpg" },
             { name: "The Yuchengco Centre", image: "/images/The_Yuchengco_Centre.png" },
             { name: "Manhattan Plaza Tower 3 (Laurent)", image: "/Laurent%20Park.png" },
-            { name: "Shang Properties Laya", image: "/Shang%20Properties.jpg" },
-            { name: "ALI/Eton Park Links", image: "/parklinks-tower.png" },
+            { name: "Laya by Shang Properties", image: "/Shang%20Properties.jpg" },
+            { name: "Parklinks North and South Tower", image: "/parklinks-tower.png" },
             { name: "The Jewel", image: "/The%20jewel.jpg" },
         ],
     },
@@ -716,7 +716,7 @@ const FeaturedProjects = () => {
             bgSize: "cover",
         },
         {
-            title: "Shang Properties Laya",
+            title: "Laya by Shang Properties",
             developer: "Shang Robinsons Properties",
             category: "Residential",
             location: "Bridgetowne, Pasig City",
@@ -728,7 +728,7 @@ const FeaturedProjects = () => {
             bgSize: "cover",
         },
         {
-            title: "ALI/Eton Park Links",
+            title: "Parklinks North and South Tower",
             developer: "Ali Eton Property Development Corp.",
             category: "Residential",
             location: "Parklinks, Quezon City",
