@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
@@ -573,6 +573,10 @@ const projectGroups = [
             { name: "Metro Manila Skyway Stage 2", image: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_800/v1753516396/USSCI_projects_for_website_11_btaknk.jpg" },
             { name: "Metro Manila Skyway Stage 3", image: "https://res.cloudinary.com/drrzinr9v/image/upload/f_auto,q_auto,w_800/v1753516398/USSCI_projects_for_website_10_gqdpk6.jpg" },
             { name: "The Yuchengco Centre", image: "/images/The_Yuchengco_Centre.png" },
+            { name: "Manhattan Plaza Tower 3 (Laurent)", image: "/Laurent%20Park.png" },
+            { name: "Shang Properties Laya", image: "/Shang%20Properties.jpg" },
+            { name: "ALI/Eton Park Links", image: "/parklinks-tower.png" },
+            { name: "The Jewel", image: "/The%20jewel.jpg" },
         ],
     },
     {
@@ -655,15 +659,7 @@ const ProjectsGrid = () => {
                             {selectedGroup.images.map((img, i) => (
                                 <div
                                     key={i}
-                                    className={`projects-modal__item${img.name === "The Yuchengco Centre" ? " projects-modal__item--linked" : ""}`}
-                                    onClick={() => {
-                                        if (img.name === "The Yuchengco Centre") {
-                                            const confirmed = window.confirm("Would you like to learn more about The Yuchengco Centre?");
-                                            if (confirmed) {
-                                                window.open("https://www.officepro.ph/buildings/the-yuchengco-centre-makati", "_blank", "noopener,noreferrer");
-                                            }
-                                        }
-                                    }}
+                                    className="projects-modal__item"
                                 >
                                     <img src={img.image} alt={img.name} loading="lazy" />
                                     <p>{img.name}</p>
@@ -677,6 +673,169 @@ const ProjectsGrid = () => {
     );
 };
 
+
+// Featured Projects Section
+const FeaturedProjects = () => {
+    const [active, setActive] = useState(0);
+
+    const featured = [
+        {
+            title: "The Yuchengco Centre",
+            developer: "San Lorenzo Ruiz Investment",
+            category: "Commercial",
+            location: "Makati City, Metro Manila",
+            description: "A premier commercial landmark in the heart of Makati's central business district, supplied with USSCI's premium steel reinforcement solutions.",
+            link: "",
+            categoryColor: "#1e8449",
+            image: "/images/The_Yuchengco_Centre.png",
+            bgPosition: "center center",
+            bgSize: "cover",
+        },
+        {
+            title: "Shang Summit",
+            developer: "Shang Robinsons Properties",
+            category: "Residential",
+            location: "Wack Wack, Quezon City",
+            description: "An ultra-luxury residential skyscraper redefining the Manila skyline, built with USSCI's high-grade deformed steel bars.",
+            link: "",
+            categoryColor: "#1a5276",
+            image: "/images/Shang%20Summit.jpg",
+            bgPosition: "center center",
+            bgSize: "cover",
+        },
+        {
+            title: "Manhattan Plaza Tower 3 (Laurent)",
+            developer: "Megaworld Corporation",
+            category: "Residential",
+            location: "McKinley Hill, BGC, Taguig",
+            description: "A distinguished high-rise residence within the prestigious Laurent Park development at McKinley Hill, reinforced with USSCI steel.",
+            link: "",
+            categoryColor: "#1a5276",
+            image: "/Laurent%20Park.png",
+            bgPosition: "center center",
+            bgSize: "cover",
+        },
+        {
+            title: "Shang Properties Laya",
+            developer: "Shang Robinsons Properties",
+            category: "Residential",
+            location: "Bridgetowne, Pasig City",
+            description: "A landmark residential development in Bridgetowne by Shang Properties, built with USSCI's high-grade deformed steel reinforcement bars.",
+            link: "",
+            categoryColor: "#1a5276",
+            image: "/Shang%20Properties.jpg",
+            bgPosition: "center center",
+            bgSize: "cover",
+        },
+        {
+            title: "ALI/Eton Park Links",
+            developer: "Ali Eton Property Development Corp.",
+            category: "Residential",
+            location: "Parklinks, Quezon City",
+            description: "A premier mixed-use development at the Parklinks estate along the Marikina River, reinforced with USSCI's premium steel solutions.",
+            link: "",
+            categoryColor: "#1a5276",
+            image: "/parklinks-tower.png",
+            bgPosition: "center center",
+            bgSize: "cover",
+        },
+        {
+            title: "The Jewel",
+            developer: "Robinsons Land Corporation",
+            category: "Commercial",
+            location: "Ortigas, Pasig City",
+            description: "A landmark commercial development as part of the Forum Redevelopment Project, supplied with USSCI's premium steel reinforcement solutions.",
+            link: "",
+            categoryColor: "#1e8449",
+            image: "/The%20jewel.jpg",
+            bgPosition: "center center",
+            bgSize: "cover",
+        },
+    ];
+
+    const prev = () => setActive((a) => (a - 1 + featured.length) % featured.length);
+    const next = () => setActive((a) => (a + 1) % featured.length);
+    const current = featured[active];
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setActive((a) => (a + 1) % featured.length);
+        }, 3000);
+        return () => clearInterval(timer);
+    }, [featured.length]);
+
+    return (
+        <section className="fp-slide">
+            {/* Background images — all stacked, only active one visible */}
+            {featured.map((p, i) => (
+                <div
+                    key={i}
+                    className={`fp-slide__bg ${i === active ? 'fp-slide__bg--active' : ''}`}
+                    style={{ backgroundImage: `url(${p.image})`, backgroundPosition: p.bgPosition, backgroundSize: p.bgSize }}
+                />
+            ))}
+            <div className="fp-slide__overlay" />
+
+            <div className="fp-slide__container">
+                {/* Section label */}
+                <p className="fp-slide__eyebrow">Landmark Developments</p>
+
+                {/* Content */}
+                <div className="fp-slide__content">
+                    <span
+                        className="fp-slide__category"
+                        style={{ borderColor: current.categoryColor, color: current.categoryColor }}
+                    >
+                        {current.category}
+                    </span>
+                    <h2 className="fp-slide__title">{current.title}</h2>
+                    <p className="fp-slide__developer">{current.developer}</p>
+                    <div className="fp-slide__location">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        {current.location}
+                    </div>
+                    <p className="fp-slide__desc">{current.description}</p>
+                </div>
+
+                {/* Controls */}
+                <div className="fp-slide__controls">
+                    <button className="fp-slide__arrow" onClick={prev} aria-label="Previous">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+
+                    <div className="fp-slide__dots">
+                        {featured.map((_, i) => (
+                            <button
+                                key={i}
+                                className={`fp-slide__dot ${i === active ? 'fp-slide__dot--active' : ''}`}
+                                onClick={() => setActive(i)}
+                                aria-label={`Go to slide ${i + 1}`}
+                            />
+                        ))}
+                    </div>
+
+                    <button className="fp-slide__arrow" onClick={next} aria-label="Next">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M9 18l6-6-6-6"/>
+                        </svg>
+                    </button>
+                </div>
+
+                {/* Slide counter */}
+                <p className="fp-slide__counter">
+                    <span>{String(active + 1).padStart(2, '0')}</span>
+                    &nbsp;/&nbsp;
+                    {String(featured.length).padStart(2, '0')}
+                </p>
+            </div>
+        </section>
+    );
+};
 
 // Projects List Section
 const ProjectsList = () => {
@@ -769,6 +928,7 @@ const Projects = () => {
             <main>
                 <PageHero />
                 <MajorClients />
+                <FeaturedProjects />
                 <ProjectsGrid />
                 <ProjectsList />
                 <CTA />
