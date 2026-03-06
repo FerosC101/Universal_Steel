@@ -1316,6 +1316,7 @@
     .customer-service__icon {
         width: 36px;
         height: 36px;
+        filter: invert(1) brightness(0);
     }
     
     .customer-service__feature h4 {
@@ -1399,6 +1400,7 @@
     .customer-service__icon {
         width: 32px;
         height: 32px;
+        filter: invert(1) brightness(0);
     }
 }
 
@@ -1591,6 +1593,7 @@
     height: 40px;
     object-fit: contain;
     flex-shrink: 0;
+    filter: invert(1) brightness(0);
 }
 
 .customer-service__feature h4 {
@@ -1671,6 +1674,7 @@
         height: 36px;
         font-size: 0.8125rem;
         line-height: 1.5;
+        filter: invert(1) brightness(0);
     }
 }
 
