@@ -575,6 +575,7 @@ const projectGroups = [
             { name: "The Yuchengco Centre", image: "/images/The_Yuchengco_Centre.png" },
             { name: "Manhattan Plaza Tower 3 (Laurent)", image: "/Laurent%20Park.png" },
             { name: "Laya by Shang Properties", image: "/Shang%20Properties.jpg" },
+            { name: "Shang Summit", image: "/images/Shang%20Summit.jpg" },
             { name: "Parklinks North and South Tower", image: "/parklinks-tower.png" },
             { name: "The Jewel", image: "/The%20jewel.jpg" },
         ],
