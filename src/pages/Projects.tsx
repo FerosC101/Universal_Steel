@@ -577,7 +577,7 @@ const projectGroups = [
             { name: "Laya by Shang Properties", image: "/Shang%20Properties.jpg" },
             { name: "Shang Summit", image: "/images/Shang%20Summit.jpg" },
             { name: "Parklinks North and South Tower", image: "/parklinks-tower.png" },
-            { name: "The Jewel", image: "/The%20jewel.jpg" },
+            { name: "The Jewel (ATMP Towers)", image: "/The-Jewel%20JB.jpg" },
         ],
     },
     {
